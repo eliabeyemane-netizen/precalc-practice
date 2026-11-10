@@ -1,0 +1,824 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 2 Practice Test</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<script>document.documentElement.setAttribute('data-theme','dark');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one reading column (max 760px) under a sticky set switcher; each problem is a card: problem, short numbered steps, green answer box. */
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --ink:#16202F; --muted:#5A6577; --line:#DCE2EA; --grid:#E9EDF3;
+  --accent:#2453B8; --accent-soft:#E6EDFB;
+  --ok:#0D6E4C; --ok-soft:#E3F2EA;
+  --warn:#9C4D0B; --warn-soft:#FBEDDD;
+  --bad:#A8263A; --bad-soft:#F9E6E9;
+  --curve:#2453B8; --asym:#C2410C;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E131B; --surface:#161D28; --ink:#E5E9F0; --muted:#9BA5B6; --line:#2A3342; --grid:#1F2734;
+    --accent:#93B2FF; --accent-soft:#1C2742;
+    --ok:#6AD3A6; --ok-soft:#13291F;
+    --warn:#F2A866; --warn-soft:#33230F;
+    --bad:#FF8C9B; --bad-soft:#36161C;
+    --curve:#93B2FF; --asym:#F59E5B;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E131B; --surface:#161D28; --ink:#E5E9F0; --muted:#9BA5B6; --line:#2A3342; --grid:#1F2734;
+  --accent:#93B2FF; --accent-soft:#1C2742;
+  --ok:#6AD3A6; --ok-soft:#13291F;
+  --warn:#F2A866; --warn-soft:#33230F;
+  --bad:#FF8C9B; --bad-soft:#36161C;
+  --curve:#93B2FF; --asym:#F59E5B;
+  color-scheme:dark;
+}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* header */
+.top{padding-block:36px 20px}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,6vw,2.75rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+.lede{margin:0;max-width:60ch;color:var(--muted)}
+.glance{list-style:none;margin:22px 0 0;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.glance li + li{border-top:1px solid var(--line)}
+.glance a{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;padding:12px 16px;text-decoration:none;color:var(--ink)}
+.glance a:hover{background:var(--grid)}
+.g-set{font-family:var(--f-mono);font-weight:600;font-size:14px;min-width:6.2em;color:var(--accent)}
+.g-topic{flex:1 1 12em;min-width:0}
+.chip{font-family:var(--f-mono);font-size:12px;font-weight:500;padding:3px 9px;border-radius:999px;background:var(--grid);color:var(--muted);white-space:nowrap}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* sticky set switcher */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:6px;padding-block:8px;overflow-x:auto}
+.bar a{font-family:var(--f-mono);font-size:13.5px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:8px;color:var(--ink);white-space:nowrap}
+.bar a:hover{background:var(--grid)}
+.bar .lbl{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-right:2px;white-space:nowrap}
+#quiz{margin-left:auto;font-family:var(--f-body);font-weight:700;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--accent);cursor:pointer;white-space:nowrap}
+#quiz[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+
+/* sections */
+main{padding-block:8px 72px}
+.set{scroll-margin-top:64px;padding-top:36px;display:grid;gap:14px}
+.kicker{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.15;margin:4px 0 8px;text-wrap:balance}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+h3{font-family:var(--f-display);font-weight:600;font-size:1.2rem;margin:18px 0 0;text-wrap:balance}
+.dir{margin:-8px 0 0;color:var(--muted);font-size:15.5px}
+
+.idea{background:var(--accent-soft);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.idea-lbl{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0;font-weight:600}
+.idea ul,.idea ol{margin:0;padding-left:1.25em;display:grid;gap:5px}
+.idea p{margin:0}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--muted)}
+
+/* problem cards */
+.prob{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:12px;min-width:0}
+.ph{display:flex;align-items:baseline;gap:12px;min-width:0}
+.num{flex:none;font-family:var(--f-mono);font-weight:600;font-size:13px;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px;min-width:2.4em;text-align:center}
+.q{min-width:0;font-size:1.06em;overflow-x:auto;overflow-y:hidden;padding-block:2px}
+.work{display:grid;gap:12px;min-width:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:7px;counter-reset:s}
+.steps li{position:relative;padding-left:2em;counter-increment:s;overflow-x:auto;overflow-y:hidden;padding-block:1px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.2em;width:1.4em;height:1.4em;border-radius:50%;background:var(--grid);color:var(--muted);font:600 12px/1.4em var(--f-mono);text-align:center}
+.ans{background:var(--ok-soft);border-radius:9px;padding:10px 14px;display:grid;gap:3px;min-width:0}
+.ans .lbl{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ok);font-weight:600}
+.ans .m{overflow-x:auto;overflow-y:hidden;padding-block:2px}
+.tip{margin:0;font-size:15px;color:var(--muted)}
+.tip b{color:var(--ink)}
+.reveal{display:none;justify-self:start;font-family:var(--f-body);font-weight:700;font-size:14.5px;padding:6px 14px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--accent);cursor:pointer}
+body.quiz .reveal{display:inline-block}
+body.quiz .prob:not(.open) .work{display:none}
+
+/* tables */
+.tbl{overflow-x:auto}
+table.ops{border-collapse:collapse;width:100%;font-size:16px}
+table.ops th,table.ops td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.ops thead th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+table.ops tr:last-child th,table.ops tr:last-child td{border-bottom:0}
+.synth{overflow-x:auto}
+.synth table{border-collapse:collapse;font-family:var(--f-mono);font-size:15px;font-variant-numeric:tabular-nums}
+.synth td{padding:4px 10px;text-align:right;min-width:2.6em}
+.synth td.c{border-right:2px solid var(--muted);color:var(--accent);font-weight:600}
+.synth tr.r1 td{color:var(--muted)}
+.synth tr.r2 td{border-top:2px solid var(--muted);font-weight:600}
+.synth tr.r2 td.c{border-top:0}
+.synth td.rem{background:var(--ok-soft);color:var(--ok);border-radius:4px}
+
+/* graph features */
+.feat{display:grid;grid-template-columns:max-content 1fr;gap:5px 16px;margin:0}
+.sub{margin:4px 0 0;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.workbox{overflow-x:auto;overflow-y:hidden;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:17px}
+.ldwrap{overflow-x:auto;display:flex;justify-content:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 12px}
+.ld{border-collapse:collapse;font-family:var(--f-mono);font-size:19px;margin:0 auto}
+.ld td{padding:4px 9px;text-align:right;white-space:nowrap}
+.ld .q td{color:var(--ok);font-weight:700}
+.ld .top td:not(.dv){border-top:2px solid var(--ink)}
+.ld .dv{color:var(--ink);font-weight:600;border-right:2px solid var(--ink);border-radius:0 0 12px 0;padding-right:12px}
+.ld .rule td:not(:first-child){border-top:1.5px solid var(--muted)}
+.ld tr:last-child td{color:var(--ok);font-weight:700}
+/* Centered layout */
+.top,.top .lede,.set > div:first-child,h3,.dir,.sub{text-align:center}
+.top .lede{margin-inline:auto}
+.top .chips,.set .chips{justify-content:center}
+.ph{flex-direction:column;align-items:center;text-align:center;gap:8px}
+.q{font-size:1.25em}
+.steps{max-width:620px;margin-inline:auto;width:100%}
+.ans{text-align:center;justify-items:center}
+.feat{text-align:left;margin-inline:auto}
+.idea{max-width:620px;margin-inline:auto;width:100%}
+.answers6{max-width:520px;margin-inline:auto}
+.feat dt{color:var(--muted);font-size:15px}
+.feat dd{margin:0;min-width:0;overflow-x:auto;overflow-y:hidden}
+@media (max-width:520px){ .feat{grid-template-columns:1fr;gap:0} .feat dd{margin-bottom:6px} }
+.fig{margin:0;display:grid;gap:4px;justify-items:center}
+.plot{width:100%;max-width:460px;height:auto;display:block}
+.plot .grid{stroke:var(--grid);stroke-width:1}
+.plot .axis{stroke:var(--muted);stroke-width:1.2}
+.plot .tick{fill:var(--muted);font-family:var(--f-mono);font-size:9.5px}
+.plot .asym{stroke:var(--asym);stroke-width:1.4;stroke-dasharray:5 4;fill:none}
+.plot .curve{stroke:var(--curve);stroke-width:2.3;fill:none;stroke-linejoin:round}
+.plot .dot{fill:var(--curve)}
+.plot .hole{fill:var(--surface);stroke:var(--curve);stroke-width:2}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted);margin:0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block}
+.lg-c{width:18px;border-top:2.5px solid var(--curve)}
+.lg-a{width:18px;border-top:2px dashed var(--asym)}
+.lg-h{width:9px;height:9px;border-radius:50%;border:2px solid var(--curve)}
+.lg-d{width:8px;height:8px;border-radius:50%;background:var(--curve)}
+.nl svg{width:100%;max-width:420px;height:auto;display:block}
+.nl-base{stroke:var(--muted);stroke-width:1.5}
+.nl-arr{stroke:var(--muted);stroke-width:1.5;fill:none}
+.nl-keep{stroke:var(--accent);stroke-width:5;stroke-linecap:butt}
+.nl-karr{stroke:var(--accent);stroke-width:3;fill:none}
+.nl-sign{fill:var(--muted);font-family:var(--f-mono);font-size:13px;font-weight:600}
+.nl-lab{fill:var(--ink);font-family:var(--f-mono);font-size:12px}
+.nl-dot{fill:var(--accent)}
+.nl-open{fill:var(--surface);stroke:var(--accent);stroke-width:2.2}
+.nl-tick{stroke:var(--muted);stroke-width:1.5}
+.answers6{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.answers6 li{display:grid;grid-template-columns:2.4em 1fr;gap:10px;align-items:baseline}
+.answers6 .n{font-family:var(--f-mono);font-weight:600;font-size:13px;color:var(--accent)}
+.answers6 .why{display:block;font-size:15px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:20px 8px;margin-top:48px;font-size:14px;color:var(--muted)}
+mjx-container{color:inherit}
+</style>
+<style>
+.chk{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.chk li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
+.chk .n{font-family:var(--f-mono);font-weight:600;font-size:14px}
+.chk .chip{justify-self:start;margin-bottom:4px;display:inline-block}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chk p{margin:2px 0 0;overflow-wrap:anywhere}
+</style>
+<style>
+.ld .x td{color:var(--muted)}
+.cnt{font-family:var(--f-mono);font-size:13px;color:var(--muted);text-align:center;margin:0}
+</style>
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">MATH&amp;141 · Hummel · Blitzer 1.7, 2.4–2.7</p>
+    <h1>Unit 2 Practice Test</h1>
+    <p class="lede">30 test-style problems with new numbers, starting with rationalizing the denominator. Do each one on paper first, then tap <b>Show solution</b> to check your work.</p>
+  </header>
+</div>
+<nav class="bar" aria-label="Sections"><div class="wrap bar-in">
+  <span class="lbl">Jump</span><a href="#srat">Rationalize</a><a href="#s17">1.7</a><a href="#s24">2.4</a><a href="#s25">2.5</a><a href="#s26">2.6</a><a href="#s27">2.7</a>
+  <button id="quiz" type="button" aria-pressed="true">Show answers</button>
+</div></nav>
+
+<main class="wrap">
+
+<!-- ===================== Rationalize ===================== -->
+<section class="set" id="srat">
+  <div><p class="kicker">Will be on the test</p><h2>Rationalize the denominator</h2></div>
+  <div class="idea"><p class="idea-lbl">In plain words</p><ul>
+    <li>Your final answer can't have a square root or an \(i\) on the bottom.</li>
+    <li>Get rid of it by multiplying top and bottom by the same thing. That's the same as multiplying by 1, so the value doesn't change.</li>
+    <li>One root on the bottom, like \(\sqrt3\): multiply by \(\tfrac{\sqrt3}{\sqrt3}\), because \(\sqrt3\cdot\sqrt3=3\).</li>
+    <li>Two terms on the bottom, like \(2+\sqrt3\) or \(1-i\): flip the middle sign (the conjugate) and multiply by that over itself.</li>
+    <li>Why it works: \((a+b)(a-b)=a^2-b^2\), so the root or \(i\) gets squared away. Remember \(i^2=-1\).</li>
+  </ul></div>
+
+  <article class="prob"><div class="ph"><span class="num">R1</span><div class="q">Rationalize: \(\dfrac{6}{\sqrt3}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Times }\tfrac{\sqrt3}{\sqrt3}:\quad & \frac{6\sqrt3}{\sqrt3\cdot\sqrt3}=\frac{6\sqrt3}{3}\\[8pt]
+\text{Simplify:}\quad & 2\sqrt3
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(2\sqrt3\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">R2</span><div class="q">Rationalize: \(\dfrac{5}{2+\sqrt3}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Conjugate:}\quad & 2+\sqrt3\ \to\ 2-\sqrt3\\[8pt]
+\text{Times }\tfrac{2-\sqrt3}{2-\sqrt3}:\quad & \frac{5(2-\sqrt3)}{(2+\sqrt3)(2-\sqrt3)}\\[8pt]
+\text{Bottom:}\quad & 2^2-(\sqrt3)^2=4-3=1\\[8pt]
+\text{Top:}\quad & 5(2-\sqrt3)=10-5\sqrt3
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(10-5\sqrt3\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">R3</span><div class="q">Divide and write in \(a+bi\) form: \(\dfrac{3+i}{1-i}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Conjugate:}\quad & 1-i\ \to\ 1+i\\[8pt]
+\text{Top:}\quad & (3+i)(1+i)=3+3i+i+i^2=3+4i-1=2+4i\\[8pt]
+\text{Bottom:}\quad & (1-i)(1+i)=1-i^2=1-(-1)=2\\[8pt]
+\text{Split:}\quad & \frac{2+4i}{2}=\frac22+\frac{4i}{2}=1+2i
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(1+2i\)</div></div>
+    </div></article>
+</section>
+
+<!-- ===================== 1.7 ===================== -->
+<section class="set" id="s17">
+  <div><p class="kicker">Section 1.7</p><h2>Combining and composing functions</h2></div>
+  <div class="idea"><p class="idea-lbl">Know this</p><ul>
+    <li>Domain: the bottom can't be 0, and the inside of a square root can't be negative.</li>
+    <li>\((f\circ g)(x)=f(g(x))\): put all of \(g\) inside \(f\).</li>
+    <li>Domain of \(f\circ g\): \(x\) must work in \(g\), and \(g(x)\) must work in \(f\).</li>
+  </ul></div>
+
+  <article class="prob"><div class="ph"><span class="num">1</span><div class="q">Find the domain: \(f(x)=\dfrac{x+2}{x^2-9}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Bottom}\ne0:\quad & x^2-9=0\Rightarrow(x-3)(x+3)=0\Rightarrow x=\pm3\\[8pt]
+\text{Domain:}\quad & \text{all reals except }-3\text{ and }3
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-3)\cup(-3,3)\cup(3,\infty)\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">2</span><div class="q">Find the domain: \(f(x)=\dfrac{1}{x-6}+\sqrt{x-4}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Root:}\quad & x-4\ge0\Rightarrow x\ge4\\[8pt]
+\text{Bottom:}\quad & x-6\ne0\Rightarrow x\ne6\\[8pt]
+\text{Both:}\quad & x\ge4\ \text{and}\ x\ne6
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\([4,6)\cup(6,\infty)\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">3</span><div class="q">\(f(x)=x^2-4,\ \ g(x)=x+2\). Find \(f+g,\ f-g,\ fg,\ \tfrac fg\) and the domain of each.</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+f+g:\quad & x^2-4+x+2=x^2+x-2\\[8pt]
+f-g:\quad & x^2-4-(x+2)=x^2-x-6\\[8pt]
+fg:\quad & (x^2-4)(x+2)=x^3+2x^2-4x-8\\[8pt]
+\tfrac fg:\quad & \frac{x^2-4}{x+2},\qquad x+2\ne0\Rightarrow x\ne-2
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>\(f+g\)</dt><dd>\(x^2+x-2\), domain \((-\infty,\infty)\)</dd>
+        <dt>\(f-g\)</dt><dd>\(x^2-x-6\), domain \((-\infty,\infty)\)</dd>
+        <dt>\(fg\)</dt><dd>\(x^3+2x^2-4x-8\), domain \((-\infty,\infty)\)</dd>
+        <dt>\(\tfrac fg\)</dt><dd>\(\dfrac{x^2-4}{x+2}\), domain \((-\infty,-2)\cup(-2,\infty)\)</dd>
+      </dl></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">4</span><div class="q">\(f(x)=2x-3,\ \ g(x)=x^2+1\). Find (a) \((f\circ g)(x)\) (b) \((g\circ f)(x)\) (c) \((f\circ g)(2)\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{(a)}\quad & f(x^2+1)=2(x^2+1)-3=2x^2+2-3=2x^2-1\\[8pt]
+\text{(b)}\quad & g(2x-3)=(2x-3)^2+1=4x^2-12x+9+1=4x^2-12x+10\\[8pt]
+\text{(c)}\quad & 2(2)^2-1=8-1=7
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">(a) \(2x^2-1\) &nbsp; (b) \(4x^2-12x+10\) &nbsp; (c) \(7\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">5</span><div class="q">\(f(x)=\dfrac{2}{x-1},\ \ g(x)=\dfrac3x\). Find (a) \((f\circ g)(x)\) (b) the domain of \(f\circ g\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Plug in:}\quad & f\!\left(\tfrac3x\right)=\frac{2}{\frac3x-1}\\[8pt]
+\text{Times }\tfrac xx:\quad & \frac{2\cdot x}{x\cdot\frac3x-x\cdot1}=\frac{2x}{3-x}\\[8pt]
+\text{From }g:\quad & x\ne0\\[8pt]
+\text{From }f:\quad & g(x)\ne1\Rightarrow\frac3x=1\Rightarrow x=3\Rightarrow x\ne3
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">(a) \(\dfrac{2x}{3-x}\) &nbsp; (b) \((-\infty,0)\cup(0,3)\cup(3,\infty)\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">6</span><div class="q">\(h(x)=(3x-5)^4\). Find \(f\) and \(g\) so that \(h(x)=(f\circ g)(x)\).</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Inside:}\quad & g(x)=3x-5\\[8pt]
+\text{Outside:}\quad & f(x)=x^4\\[8pt]
+\text{Check:}\quad & f(g(x))=(3x-5)^4=h(x)\ \checkmark
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(f(x)=x^4,\ \ g(x)=3x-5\)</div></div>
+    </div></article>
+</section>
+
+<!-- ===================== 2.4 ===================== -->
+<section class="set" id="s24">
+  <div><p class="kicker">Section 2.4</p><h2>Dividing polynomials</h2></div>
+  <div class="idea"><p class="idea-lbl">Know this</p><ul>
+    <li>Long division loop: divide, multiply, subtract, bring down.</li>
+    <li>Fill missing powers with 0, like \(x^3-8=x^3+0x^2+0x-8\).</li>
+    <li>Remainder Theorem: \(f(c)\) equals the remainder of \(f(x)\div(x-c)\).</li>
+    <li>Factor Theorem: if \(f(c)=0\), then \(x-c\) is a factor.</li>
+  </ul></div>
+
+  <article class="prob"><div class="ph"><span class="num">7</span><div class="q">Divide using long division: \((2x^3+3x^2-4x+5)\div(x+2)\)</div></div>
+    <div class="work">
+      <div class="ldwrap"><table class="ld" aria-label="Long division of 2x cubed plus 3x squared minus 4x plus 5 by x plus 2">
+        <tr class="q"><td></td><td></td><td>2x²</td><td>−x</td><td>−2</td></tr>
+        <tr class="top"><td class="dv">x+2 )</td><td>2x³</td><td>+3x²</td><td>−4x</td><td>+5</td></tr>
+        <tr><td></td><td>−(2x³</td><td>+4x²)</td><td></td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>−x²</td><td>−4x</td><td></td></tr>
+        <tr><td></td><td></td><td>−(−x²</td><td>−2x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>−2x</td><td>+5</td></tr>
+        <tr><td></td><td></td><td></td><td>−(−2x</td><td>−4)</td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td></td><td>9</td></tr>
+      </table></div>
+      <div class="workbox">\[\begin{aligned}
+\text{Quotient:}\quad & 2x^2-x-2\\[8pt]
+\text{Remainder:}\quad & 9
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(2x^2-x-2+\dfrac{9}{x+2}\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">8</span><div class="q">Divide using long division: \((x^3-8)\div(x-2)\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Fill gaps:}\quad & x^3-8=x^3+0x^2+0x-8
+\end{aligned}\]</div>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of x cubed minus 8 by x minus 2">
+        <tr class="q"><td></td><td></td><td>x²</td><td>+2x</td><td>+4</td></tr>
+        <tr class="top"><td class="dv">x−2 )</td><td>x³</td><td>+0x²</td><td>+0x</td><td>−8</td></tr>
+        <tr><td></td><td>−(x³</td><td>−2x²)</td><td></td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>2x²</td><td>+0x</td><td></td></tr>
+        <tr><td></td><td></td><td>−(2x²</td><td>−4x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>4x</td><td>−8</td></tr>
+        <tr><td></td><td></td><td></td><td>−(4x</td><td>−8)</td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td></td><td>0</td></tr>
+      </table></div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(x^2+2x+4\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">9</span><div class="q">Divide using long division: \((4x^3-3x^2+2x-1)\div(x^2+1)\)</div></div>
+    <div class="work">
+      <div class="ldwrap"><table class="ld" aria-label="Long division of 4x cubed minus 3x squared plus 2x minus 1 by x squared plus 1">
+        <tr class="q"><td></td><td></td><td></td><td>4x</td><td>−3</td></tr>
+        <tr class="top"><td class="dv">x²+1 )</td><td>4x³</td><td>−3x²</td><td>+2x</td><td>−1</td></tr>
+        <tr><td></td><td>−(4x³</td><td>+0x²</td><td>+4x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>−3x²</td><td>−2x</td><td>−1</td></tr>
+        <tr><td></td><td></td><td>−(−3x²</td><td>+0x</td><td>−3)</td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>−2x</td><td>+2</td></tr>
+      </table></div>
+      <div class="workbox">\[\begin{aligned}
+\text{Stop:}\quad & -2x\text{ has a lower power than }x^2\\[8pt]
+\text{Remainder:}\quad & -2x+2
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(4x-3+\dfrac{-2x+2}{x^2+1}\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">10</span><div class="q">Use the Remainder Theorem to find \(f(3)\) for \(f(x)=x^3-4x^2+2x-5\).</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+f(3)&=3^3-4(3)^2+2(3)-5\\[8pt]
+&=27-36+6-5\\[8pt]
+&=-8
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(f(3)=-8\), the remainder of \(f(x)\div(x-3)\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">11</span><div class="q">Solve \(x^3-7x-6=0\) given that \(-1\) is a solution.</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Check:}\quad & (-1)^3-7(-1)-6=-1+7-6=0\ \checkmark\\[8pt]
+\text{Factor:}\quad & x-(-1)=x+1\\[8pt]
+\text{Fill gaps:}\quad & x^3+0x^2-7x-6
+\end{aligned}\]</div>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of x cubed minus 7x minus 6 by x plus 1">
+        <tr class="q"><td></td><td></td><td>x²</td><td>−x</td><td>−6</td></tr>
+        <tr class="top"><td class="dv">x+1 )</td><td>x³</td><td>+0x²</td><td>−7x</td><td>−6</td></tr>
+        <tr><td></td><td>−(x³</td><td>+x²)</td><td></td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>−x²</td><td>−7x</td><td></td></tr>
+        <tr><td></td><td></td><td>−(−x²</td><td>−x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>−6x</td><td>−6</td></tr>
+        <tr><td></td><td></td><td></td><td>−(−6x</td><td>−6)</td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td></td><td>0</td></tr>
+      </table></div>
+      <div class="workbox">\[\begin{aligned}
+\text{Rewrite:}\quad & (x+1)(x^2-x-6)=0\\[8pt]
+\text{Factor:}\quad & (x+1)(x-3)(x+2)=0\\[8pt]
+\text{Solve:}\quad & x=-1,\ x=3,\ x=-2
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(\{-2,\,-1,\,3\}\)</div></div>
+    </div></article>
+</section>
+
+<!-- ===================== 2.5 ===================== -->
+<section class="set" id="s25">
+  <div><p class="kicker">Section 2.5</p><h2>Zeros of polynomial functions</h2></div>
+  <div class="idea"><p class="idea-lbl">Know this</p><ul>
+    <li>Possible rational zeros: \(\dfrac pq=\dfrac{\text{factors of the constant}}{\text{factors of the leading coefficient}}\).</li>
+    <li>Test one until you get 0, divide it out, then factor what's left.</li>
+    <li>Descartes: sign changes in \(f(x)\) give the positive zeros; sign changes in \(f(-x)\) give the negative zeros. Each count can also drop by 2.</li>
+    <li>Complex zeros come in pairs: if \(i\) is a zero, so is \(-i\).</li>
+  </ul></div>
+
+  <article class="prob"><div class="ph"><span class="num">12</span><div class="q">\(f(x)=2x^3-3x^2-11x+6\). (a) List all possible rational zeros. (b) Find all zeros.</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+p\ (\text{of }6):\quad & \pm1,\ \pm2,\ \pm3,\ \pm6\\[8pt]
+q\ (\text{of }2):\quad & \pm1,\ \pm2\\[8pt]
+\tfrac pq:\quad & \pm1,\ \pm2,\ \pm3,\ \pm6,\ \pm\tfrac12,\ \pm\tfrac32\\[8pt]
+\text{Test }3:\quad & 2(27)-3(9)-11(3)+6=54-27-33+6=0\ \checkmark
+\end{aligned}\]</div>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of 2x cubed minus 3x squared minus 11x plus 6 by x minus 3">
+        <tr class="q"><td></td><td></td><td>2x²</td><td>+3x</td><td>−2</td></tr>
+        <tr class="top"><td class="dv">x−3 )</td><td>2x³</td><td>−3x²</td><td>−11x</td><td>+6</td></tr>
+        <tr><td></td><td>−(2x³</td><td>−6x²)</td><td></td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>3x²</td><td>−11x</td><td></td></tr>
+        <tr><td></td><td></td><td>−(3x²</td><td>−9x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>−2x</td><td>+6</td></tr>
+        <tr><td></td><td></td><td></td><td>−(−2x</td><td>+6)</td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td></td><td>0</td></tr>
+      </table></div>
+      <div class="workbox">\[\begin{aligned}
+\text{Rewrite:}\quad & (x-3)(2x^2+3x-2)=0\\[8pt]
+\text{Factor:}\quad & (x-3)(2x-1)(x+2)=0\\[8pt]
+\text{Solve:}\quad & x=3,\ x=\tfrac12,\ x=-2
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">(a) \(\pm1,\pm2,\pm3,\pm6,\pm\tfrac12,\pm\tfrac32\) &nbsp; (b) \(-2,\ \tfrac12,\ 3\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">13</span><div class="q">\(f(x)=x^3+2x^2-5x-6\). (a) Use Descartes's Rule of Signs to find the possible numbers of positive and negative real zeros. (b) Find all zeros.</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+f(x):\quad & +x^3\ \ +2x^2\ \ -5x\ \ -6\Rightarrow 1\text{ change}\Rightarrow 1\text{ positive}\\[8pt]
+f(-x):\quad & -x^3\ \ +2x^2\ \ +5x\ \ -6\Rightarrow 2\text{ changes}\Rightarrow 2\text{ or }0\text{ negative}\\[8pt]
+\text{Test }2:\quad & 8+8-10-6=0\ \checkmark
+\end{aligned}\]</div>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of x cubed plus 2x squared minus 5x minus 6 by x minus 2">
+        <tr class="q"><td></td><td></td><td>x²</td><td>+4x</td><td>+3</td></tr>
+        <tr class="top"><td class="dv">x−2 )</td><td>x³</td><td>+2x²</td><td>−5x</td><td>−6</td></tr>
+        <tr><td></td><td>−(x³</td><td>−2x²)</td><td></td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>4x²</td><td>−5x</td><td></td></tr>
+        <tr><td></td><td></td><td>−(4x²</td><td>−8x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>3x</td><td>−6</td></tr>
+        <tr><td></td><td></td><td></td><td>−(3x</td><td>−6)</td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td></td><td>0</td></tr>
+      </table></div>
+      <div class="workbox">\[\begin{aligned}
+\text{Factor:}\quad & (x-2)(x^2+4x+3)=(x-2)(x+1)(x+3)\\[8pt]
+\text{Solve:}\quad & x=2,\ x=-1,\ x=-3
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">(a) 1 positive; 2 or 0 negative &nbsp; (b) \(-3,\ -1,\ 2\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">14</span><div class="q">Find a 3rd-degree polynomial \(f(x)\) with real coefficients: zeros \(3\) and \(i\); \(f(1)=8\).</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Pair:}\quad & i\text{ is a zero}\Rightarrow -i\text{ is a zero}\\[8pt]
+\text{Build:}\quad & f(x)=a(x-3)(x-i)(x+i)\\[8pt]
+(x-i)(x+i):\quad & x^2-i^2=x^2+1\\[8pt]
+\text{Use }f(1)=8:\quad & a(1-3)(1+1)=-4a=8\Rightarrow a=-2\\[8pt]
+\text{Expand:}\quad & -2(x^3-3x^2+x-3)=-2x^3+6x^2-2x+6
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(f(x)=-2x^3+6x^2-2x+6\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">15</span><div class="q">Find all zeros: \(x^3-x^2+4x-4=0\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Group:}\quad & x^2(x-1)+4(x-1)=0\\[8pt]
+\text{Factor:}\quad & (x-1)(x^2+4)=0\\[8pt]
+x-1=0:\quad & x=1\\[8pt]
+x^2+4=0:\quad & x^2=-4\Rightarrow x=\pm2i
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\(\{1,\ 2i,\ -2i\}\)</div></div>
+    </div></article>
+</section>
+
+<!-- ===================== 2.6 ===================== -->
+<section class="set" id="s26">
+  <div><p class="kicker">Section 2.6</p><h2>Rational functions and their graphs</h2></div>
+  <div class="idea"><p class="idea-lbl">Know this</p><ul>
+    <li>Factor and cancel first. A canceled factor is a hole. A leftover bottom zero is a vertical asymptote.</li>
+    <li>Horizontal asymptote: top degree smaller means \(y=0\); same degree means leading coefficients over each other; top bigger means none.</li>
+    <li>Top degree exactly 1 bigger: slant asymptote. Long divide and drop the remainder.</li>
+    <li>Seven steps: symmetry, y-intercept, x-intercepts, vertical asymptotes, horizontal asymptote, points, draw.</li>
+  </ul></div>
+
+  <article class="prob"><div class="ph"><span class="num">16</span><div class="q">Find the vertical asymptotes and holes: \(f(x)=\dfrac{x+5}{x^2-25}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Factor:}\quad & \frac{x+5}{(x-5)(x+5)}\\[8pt]
+\text{Cancel:}\quad & \frac{1}{x-5},\qquad x\ne-5\\[8pt]
+\text{Hole:}\quad & \frac{1}{-5-5}=-\frac1{10}\Rightarrow\left(-5,-\tfrac1{10}\right)\\[8pt]
+\text{VA:}\quad & x-5=0\Rightarrow x=5
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">VA \(x=5\); hole at \(x=-5\), the point \(\left(-5,-\tfrac1{10}\right)\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">17</span><div class="q">Find the vertical asymptotes, holes and horizontal asymptote: \(f(x)=\dfrac{3x^2-12}{x^2-x-2}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Top:}\quad & 3(x^2-4)=3(x-2)(x+2)\\[8pt]
+\text{Bottom:}\quad & (x-2)(x+1)\\[8pt]
+\text{Cancel:}\quad & \frac{3(x+2)}{x+1},\qquad x\ne2\\[8pt]
+\text{Hole:}\quad & \frac{3(2+2)}{2+1}=\frac{12}{3}=4\Rightarrow(2,4)\\[8pt]
+\text{VA:}\quad & x+1=0\Rightarrow x=-1\\[8pt]
+\text{HA:}\quad & \frac{3x^2}{1x^2}\Rightarrow y=3
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">VA \(x=-1\); hole \((2,4)\); HA \(y=3\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">18</span><div class="q">Find the horizontal asymptote, if there is one: (a) \(\dfrac{4x+1}{2x^2-3}\) (b) \(\dfrac{6x^2-x}{2x^2+5}\) (c) \(\dfrac{x^3+1}{x-4}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{(a)}\quad & 1<2\Rightarrow y=0\\[8pt]
+\text{(b)}\quad & 2=2\Rightarrow \frac62\Rightarrow y=3\\[8pt]
+\text{(c)}\quad & 3>1\Rightarrow\text{none}
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">(a) \(y=0\) &nbsp; (b) \(y=3\) &nbsp; (c) none</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">19</span><div class="q">Graph using the seven steps: \(f(x)=\dfrac{2x}{x-1}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Symmetry:}\quad & f(-x)=\frac{-2x}{-x-1}=\frac{2x}{x+1}\Rightarrow\text{none}\\[8pt]
+\text{y-int:}\quad & f(0)=\frac{0}{-1}=0\Rightarrow(0,0)\\[8pt]
+\text{x-int:}\quad & 2x=0\Rightarrow x=0\\[8pt]
+\text{VA:}\quad & x-1=0\Rightarrow x=1\\[8pt]
+\text{HA:}\quad & \frac{2x}{1x}\Rightarrow y=2\\[8pt]
+\text{Points:}\quad & f(-1)=\frac{-2}{-2}=1,\quad f(2)=\frac41=4,\quad f(3)=\frac62=3
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>Intercept</dt><dd>\((0,0)\)</dd>
+        <dt>Vertical asymptote</dt><dd>\(x=1\)</dd>
+        <dt>Horizontal asymptote</dt><dd>\(y=2\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="g19" data-label="Graph with vertical asymptote x = 1 and horizontal asymptote y = 2"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">20</span><div class="q">Graph using the seven steps: \(f(x)=\dfrac{x^2}{x^2-4}\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Symmetry:}\quad & f(-x)=\frac{(-x)^2}{(-x)^2-4}=\frac{x^2}{x^2-4}=f(x)\Rightarrow\text{y-axis}\\[8pt]
+\text{y-int:}\quad & f(0)=\frac{0}{-4}=0\Rightarrow(0,0)\\[8pt]
+\text{x-int:}\quad & x^2=0\Rightarrow x=0\\[8pt]
+\text{VA:}\quad & x^2-4=0\Rightarrow x=\pm2\\[8pt]
+\text{HA:}\quad & \frac{1x^2}{1x^2}\Rightarrow y=1\\[8pt]
+\text{Points:}\quad & f(\pm1)=\frac{1}{-3}=-\frac13,\quad f(\pm3)=\frac95,\quad f(\pm4)=\frac{16}{12}=\frac43
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>y-axis</dd>
+        <dt>Intercept</dt><dd>\((0,0)\)</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=-2,\ x=2\)</dd>
+        <dt>Horizontal asymptote</dt><dd>\(y=1\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="g20" data-label="Graph with vertical asymptotes x = -2 and x = 2 and horizontal asymptote y = 1"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">21</span><div class="q">\(f(x)=\dfrac{x^2+2x-3}{x-2}\). (a) Find the slant asymptote. (b) Graph using the seven steps.</div></div>
+    <div class="work">
+      <p class="sub">(a) Slant asymptote</p>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of x squared plus 2x minus 3 by x minus 2">
+        <tr class="q"><td></td><td></td><td>x</td><td>+4</td></tr>
+        <tr class="top"><td class="dv">x−2 )</td><td>x²</td><td>+2x</td><td>−3</td></tr>
+        <tr><td></td><td>−(x²</td><td>−2x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>4x</td><td>−3</td></tr>
+        <tr><td></td><td></td><td>−(4x</td><td>−8)</td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>5</td></tr>
+      </table></div>
+      <div class="workbox">\[\begin{aligned}
+\text{Result:}\quad & f(x)=x+4+\frac{5}{x-2}\\[8pt]
+\text{Drop remainder:}\quad & y=x+4
+\end{aligned}\]</div>
+      <p class="sub">(b) Graph it</p>
+      <div class="workbox">\[\begin{aligned}
+\text{Symmetry:}\quad & f(-x)=\frac{x^2-2x-3}{-x-2}\Rightarrow\text{none}\\[8pt]
+\text{y-int:}\quad & f(0)=\frac{-3}{-2}=\frac32\Rightarrow\left(0,\tfrac32\right)\\[8pt]
+\text{x-int:}\quad & (x+3)(x-1)=0\Rightarrow x=-3,\ x=1\\[8pt]
+\text{VA:}\quad & x-2=0\Rightarrow x=2\\[8pt]
+\text{HA:}\quad & 2>1\Rightarrow\text{none (slant instead)}\\[8pt]
+\text{Points:}\quad & f(-1)=\frac{-4}{-3}=\frac43,\quad f(3)=\frac{12}{1}=12,\quad f(4)=\frac{21}{2}
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x+4\)</dd>
+        <dt>Vertical asymptote</dt><dd>\(x=2\)</dd>
+        <dt>x-intercepts</dt><dd>\((-3,0)\), \((1,0)\)</dd>
+        <dt>y-intercept</dt><dd>\(\left(0,\tfrac32\right)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="g21" data-label="Graph with vertical asymptote x = 2 and slant asymptote y = x + 4"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">22</span><div class="q">Use transformations of \(f(x)=\dfrac1x\) to graph \(g(x)=\dfrac{1}{x+2}-3\).</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Start:}\quad & y=\frac1x:\ \text{VA }x=0,\ \text{HA }y=0\\[8pt]
+x+2:\quad & \text{shift left }2\Rightarrow\text{VA }x=-2\\[8pt]
+-3:\quad & \text{shift down }3\Rightarrow\text{HA }y=-3
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">VA \(x=-2\), HA \(y=-3\); same shape as \(\tfrac1x\)</div></div>
+      <figure class="fig"><div class="plotbox" data-plot="g22" data-label="Graph of 1 over x shifted left 2 and down 3"></div></figure>
+    </div></article>
+</section>
+
+<!-- ===================== 2.7 ===================== -->
+<section class="set" id="s27">
+  <div><p class="kicker">Section 2.7</p><h2>Polynomial and rational inequalities</h2></div>
+  <div class="idea"><p class="idea-lbl">Know this</p><ul>
+    <li>Get 0 on one side first.</li>
+    <li>Boundary points: zeros of the top and zeros of the bottom.</li>
+    <li>Test one number in each interval to get its sign.</li>
+    <li>\(\le\) or \(\ge\): include the top's zeros. Never include the bottom's zeros.</li>
+  </ul></div>
+
+  <article class="prob"><div class="ph"><span class="num">23</span><div class="q">Solve: \(x^2-x-12<0\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Factor:}\quad & (x-4)(x+3)=0\Rightarrow x=-3,\ x=4\\[8pt]
+\text{Test:}\quad & x=-4:\ (-8)(-1)=8\ (+)\qquad x=0:\ -12\ (-)\\[4pt]
+& x=5:\ (1)(8)=8\ (+)\\[8pt]
+<0:\quad & \text{the negative interval}
+\end{aligned}\]</div>
+      <div class="nl" data-pts="-3,4" data-signs="+,-,+" data-keep="1"></div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\((-3,\,4)\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">24</span><div class="q">Solve: \(x^3+x^2-4x-4\ge0\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Group:}\quad & x^2(x+1)-4(x+1)=(x+1)(x^2-4)=(x+1)(x-2)(x+2)\\[8pt]
+\text{Zeros:}\quad & x=-2,\ -1,\ 2\\[8pt]
+\text{Test:}\quad & x=-3:\ (-2)(-5)(-1)=-10\ (-)\qquad x=-1.5:\ (-0.5)(-3.5)(0.5)\ (+)\\[4pt]
+& x=0:\ (1)(-2)(2)=-4\ (-)\qquad x=3:\ (4)(1)(5)=20\ (+)\\[8pt]
+\ge0:\quad & \text{positive intervals, endpoints included}
+\end{aligned}\]</div>
+      <div class="nl" data-pts="-2,-1,2" data-signs="-,+,-,+" data-keep="1,3" data-closed="-2,-1,2"></div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\([-2,\,-1]\cup[2,\,\infty)\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">25</span><div class="q">Solve: \(\dfrac{x+3}{x-2}\ge0\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Top}=0:\quad & x=-3\ \ (\text{included})\\[8pt]
+\text{Bottom}=0:\quad & x=2\ \ (\text{never included})\\[8pt]
+\text{Test:}\quad & x=-4:\ \frac{-1}{-6}\ (+)\qquad x=0:\ \frac{3}{-2}\ (-)\qquad x=3:\ \frac61\ (+)
+\end{aligned}\]</div>
+      <div class="nl" data-pts="-3,2" data-signs="+,-,+" data-keep="0,2" data-closed="-3"></div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,\,-3]\cup(2,\,\infty)\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">26</span><div class="q">Solve: \(\dfrac{2x}{x+1}\le1\)</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Get 0:}\quad & \frac{2x}{x+1}-1\le0\\[8pt]
+\text{Common bottom:}\quad & \frac{2x}{x+1}-\frac{x+1}{x+1}=\frac{x-1}{x+1}\le0\\[8pt]
+\text{Boundaries:}\quad & x=1\ (\text{included}),\ \ x=-1\ (\text{never})\\[8pt]
+\text{Test:}\quad & x=-2:\ \frac{-3}{-1}\ (+)\qquad x=0:\ \frac{-1}{1}\ (-)\qquad x=2:\ \frac13\ (+)
+\end{aligned}\]</div>
+      <div class="nl" data-pts="-1,1" data-signs="+,-,+" data-keep="1" data-closed="1"></div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">\((-1,\,1]\)</div></div>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">27</span><div class="q">A ball's height is \(s(t)=-16t^2+64t\) feet after \(t\) seconds. When is it higher than 48 feet?</div></div>
+    <div class="work">
+      <div class="workbox">\[\begin{aligned}
+\text{Set up:}\quad & -16t^2+64t>48\\[8pt]
+\text{Get 0:}\quad & -16t^2+64t-48>0\\[8pt]
+\div(-16),\ \text{flip}:\quad & t^2-4t+3<0\\[8pt]
+\text{Factor:}\quad & (t-1)(t-3)<0\Rightarrow t=1,\ t=3\\[8pt]
+\text{Test:}\quad & t=0:\ 3\ (+)\qquad t=2:\ -1\ (-)\qquad t=4:\ 3\ (+)
+\end{aligned}\]</div>
+      <div class="nl" data-pts="1,3" data-signs="+,-,+" data-keep="1"></div>
+      <div class="ans"><span class="lbl">Answer</span><div class="m">Between 1 and 3 seconds: \((1,\,3)\)</div></div>
+    </div></article>
+</section>
+
+<footer>Blitzer <i>Precalculus</i> 7e, Sections 1.7 and 2.4–2.7. Division is shown by long division only.</footer>
+</main>
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" defer></script>
+<script>
+(function () {
+  var fmt = function (v) { return String(v).replace(/-/g, '−'); };
+
+  /* graphs */
+  var P = {
+    g19: { f: function (x) { return 2 * x / (x - 1); }, x: [-5, 6], y: [-4, 8], va: [1], ha: 2, dots: [[0, 0]] },
+    g20: { f: function (x) { return x * x / (x * x - 4); }, x: [-6, 6], y: [-4, 5], va: [-2, 2], ha: 1, dots: [[0, 0]] },
+    g21: { f: function (x) { return (x * x + 2 * x - 3) / (x - 2); }, x: [-8, 10], y: [-8, 20], va: [2], sl: [1, 4], dots: [[-3, 0], [1, 0], [0, 1.5]] },
+    g22: { f: function (x) { return 1 / (x + 2) - 3; }, x: [-7, 4], y: [-8, 3], va: [-2], ha: -3, dots: [[-5 / 3, 0], [0, -2.5]] }
+  };
+  var cid = 0;
+  function plot(el, c) {
+    var W = 340, H = 250, L = 6, R = 6, T = 6, B = 6;
+    var x0 = c.x[0], x1 = c.x[1], y0 = c.y[0], y1 = c.y[1], span = y1 - y0;
+    var sx = function (x) { return (L + (x - x0) / (x1 - x0) * (W - L - R)).toFixed(1); };
+    var sy = function (y) { return (T + (y1 - y) / (y1 - y0) * (H - T - B)).toFixed(1); };
+    var id = 'clip' + (cid++), g = '';
+    // Simple style: no grid; label only the asymptotes and whole-number intercepts.
+    var ax = +sy(0), ay = +sx(0);
+    g += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + ax + '" y2="' + ax + '"/><line class="axis" y1="' + T + '" y2="' + (H - B) + '" x1="' + ay + '" x2="' + ay + '"/>';
+    var lab = function (v) { return Number.isInteger(v) ? fmt(v) : Number.isInteger(v * 2) ? fmt(v * 2) + '/2' : ''; };
+    var xk = (c.va || []).concat((c.dots || []).filter(function (p) { return p[1] === 0; }).map(function (p) { return p[0]; }));
+    var yk = (c.ha != null ? [c.ha] : []).concat((c.dots || []).filter(function (p) { return p[0] === 0; }).map(function (p) { return p[1]; }));
+    xk.filter(function (v, i) { return v !== 0 && xk.indexOf(v) === i && lab(v); }).forEach(function (v) { g += '<text class="tick" x="' + sx(v) + '" y="' + (ax + 13) + '" text-anchor="middle">' + lab(v) + '</text>'; });
+    yk.filter(function (v, i) { return v !== 0 && yk.indexOf(v) === i && lab(v); }).forEach(function (v) { g += '<text class="tick" x="' + (ay - 5) + '" y="' + (+sy(v) - 4) + '" text-anchor="end">' + lab(v) + '</text>'; });
+    var va = (c.va || []).slice().sort(function (a, b) { return a - b; });
+    var asym = va.length || c.ha != null || c.sl;
+    va.forEach(function (a) { g += '<line class="asym" x1="' + sx(a) + '" x2="' + sx(a) + '" y1="' + T + '" y2="' + (H - B) + '"/>'; });
+    if (c.ha != null) g += '<line class="asym" x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(c.ha) + '" y2="' + sy(c.ha) + '"/>';
+    if (c.sl) g += '<line class="asym" clip-path="url(#' + id + ')" x1="' + sx(x0) + '" y1="' + sy(c.sl[0] * x0 + c.sl[1]) + '" x2="' + sx(x1) + '" y2="' + sy(c.sl[0] * x1 + c.sl[1]) + '"/>';
+    var xsamp = [], N = 900, i;
+    for (i = 0; i <= N; i++) xsamp.push(x0 + (x1 - x0) * i / N);
+    va.forEach(function (a) { [1e-3, 1e-4].forEach(function (e) { xsamp.push(a - e, a + e); }); });
+    xsamp.sort(function (a, b) { return a - b; });
+    var d = '', pen = false, prev = null;
+    xsamp.forEach(function (x) {
+      if (prev !== null && va.some(function (a) { return (prev < a && x >= a) || (prev <= a && x > a); })) pen = false;
+      prev = x;
+      var y = c.f(x);
+      if (!isFinite(y)) { pen = false; return; }
+      y = Math.max(y0 - 3 * span, Math.min(y1 + 3 * span, y));
+      d += (pen ? 'L' : 'M') + sx(x) + ' ' + sy(y);
+      pen = true;
+    });
+    var marks = '';
+    (c.dots || []).forEach(function (p) { marks += '<circle class="dot" cx="' + sx(p[0]) + '" cy="' + sy(p[1]) + '" r="3.6"/>'; });
+    (c.holes || []).forEach(function (p) { marks += '<circle class="hole" cx="' + sx(p[0]) + '" cy="' + sy(p[1]) + '" r="4.3"/>'; });
+    var legend = '<p class="legend">' + (asym ? '<span><i class="lg-a"></i>asymptote</span>' : '') + ((c.dots || []).length ? '<span><i class="lg-d"></i>intercept</span>' : '') + ((c.holes || []).length ? '<span><i class="lg-h"></i>hole</span>' : '') + '</p>';
+    el.innerHTML = '<svg class="plot" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + (el.dataset.label || 'Graph') + '"><defs><clipPath id="' + id + '"><rect x="' + L + '" y="' + T + '" width="' + (W - L - R) + '" height="' + (H - T - B) + '"/></clipPath></defs>' + g + '<path class="curve" clip-path="url(#' + id + ')" d="' + d + '"/>' + marks + '</svg>' + legend;
+  }
+  document.querySelectorAll('.plotbox').forEach(function (el) { var c = P[el.dataset.plot]; if (c) plot(el, c); });
+
+  /* number lines */
+  document.querySelectorAll('.nl').forEach(function (el) {
+    var pts = el.dataset.pts.split(','), signs = el.dataset.signs.split(','),
+        keep = el.dataset.keep.split(',').map(Number),
+        closed = (el.dataset.closed || '').split(',').filter(Boolean);
+    var W = 340, H = 66, y = 32, a = 12, b = W - 12, n = pts.length;
+    var xs = pts.map(function (p, i) { return n === 1 ? W / 2 : 70 + i * (W - 140) / (n - 1); });
+    var bd = [a].concat(xs, [b]);
+    var s = '<line class="nl-base" x1="' + a + '" x2="' + b + '" y1="' + y + '" y2="' + y + '"/>';
+    s += '<path class="nl-arr" d="M' + (a + 7) + ' ' + (y - 5) + ' L' + a + ' ' + y + ' L' + (a + 7) + ' ' + (y + 5) + '"/>';
+    s += '<path class="nl-arr" d="M' + (b - 7) + ' ' + (y - 5) + ' L' + b + ' ' + y + ' L' + (b - 7) + ' ' + (y + 5) + '"/>';
+    keep.forEach(function (k) {
+      s += '<line class="nl-keep" x1="' + bd[k] + '" x2="' + bd[k + 1] + '" y1="' + y + '" y2="' + y + '"/>';
+      if (k === 0) s += '<path class="nl-karr" d="M' + (a + 8) + ' ' + (y - 6) + ' L' + a + ' ' + y + ' L' + (a + 8) + ' ' + (y + 6) + '"/>';
+      if (k === n) s += '<path class="nl-karr" d="M' + (b - 8) + ' ' + (y - 6) + ' L' + b + ' ' + y + ' L' + (b - 8) + ' ' + (y + 6) + '"/>';
+    });
+    signs.forEach(function (sg, i) { s += '<text class="nl-sign" x="' + ((bd[i] + bd[i + 1]) / 2) + '" y="' + (y - 11) + '" text-anchor="middle">' + (sg === '-' ? '−' : '+') + '</text>'; });
+    pts.forEach(function (p, i) {
+      var inc = closed.indexOf(p) > -1, edge = keep.indexOf(i) > -1 || keep.indexOf(i + 1) > -1;
+      if (inc) s += '<circle class="nl-dot" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      else if (edge) s += '<circle class="nl-open" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      else s += '<line class="nl-tick" x1="' + xs[i] + '" x2="' + xs[i] + '" y1="' + (y - 5) + '" y2="' + (y + 5) + '"/>';
+      s += '<text class="nl-lab" x="' + xs[i] + '" y="' + (y + 24) + '" text-anchor="middle">' + fmt(p) + '</text>';
+    });
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Solution set on a number line">' + s + '</svg>';
+  });
+
+  /* practice mode: solutions hidden until tapped */
+  var btn = document.getElementById('quiz');
+  function setQuiz(on) {
+    document.body.classList.toggle('quiz', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.textContent = on ? 'Show answers' : 'Hide answers';
+    try { localStorage.setItem('u2-quiz', on ? '1' : '0'); } catch (e) {}
+  }
+  btn.addEventListener('click', function () { setQuiz(!document.body.classList.contains('quiz')); });
+  document.querySelectorAll('.prob').forEach(function (p) {
+    var w = p.querySelector('.work'); if (!w) return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'reveal'; b.textContent = 'Show solution';
+    b.addEventListener('click', function () { var o = p.classList.toggle('open'); b.textContent = o ? 'Hide solution' : 'Show solution'; });
+    w.parentNode.insertBefore(b, w);
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('u2-quiz'); } catch (e) {}
+  setQuiz(saved !== '0');
+})();
+</script>
+
+</body></html>

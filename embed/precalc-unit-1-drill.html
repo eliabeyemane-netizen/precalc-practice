@@ -1,0 +1,721 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Precalc Unit 1 Drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: graph-paper study desk; sticky tab bar; one centered column of cards (max 760px); chips wrap on phones */
+:root{
+  --bg:#eef2f4; --grid:#d9e2e7; --paper:#ffffff; --ink:#18242c; --muted:#5a6b76;
+  --line:#c7d3da; --accent:#0d6e6e; --accent-ink:#ffffff; --mark:#f5c84c; --mark-ink:#2a2100;
+  --good:#1f7a3f; --good-bg:#e3f4e8; --bad:#b3261e; --bad-bg:#fbe7e5; --warn-bg:#fff4d6; --warn:#8a5a00;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Source Sans 3",ui-sans-serif,system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10181d; --grid:#18242b; --paper:#172229; --ink:#e4ecef; --muted:#93a5b0;
+  --line:#2b3a43; --accent:#4cc2bd; --accent-ink:#06201f; --mark:#f0c349; --mark-ink:#2a2100;
+  --good:#6fd492; --good-bg:#16301f; --bad:#ff8f86; --bad-bg:#3a1a18; --warn-bg:#33280c; --warn:#f0c349; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10181d; --grid:#18242b; --paper:#172229; --ink:#e4ecef; --muted:#93a5b0;
+  --line:#2b3a43; --accent:#4cc2bd; --accent-ink:#06201f; --mark:#f0c349; --mark-ink:#2a2100;
+  --good:#6fd492; --good-bg:#16301f; --bad:#ff8f86; --bad-bg:#3a1a18; --warn-bg:#33280c; --warn:#f0c349; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:20px 60px}
+header h1{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.1;margin:0;text-wrap:balance}
+header p{color:var(--muted);margin:6px 0 0}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:6px;padding-block:10px;background:var(--bg)}
+.tab{font:600 15px var(--body);padding:10px 12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,.card:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
+.chip{font:600 13px var(--body);padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.mode{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.mode .chip{font-size:14px;padding:7px 12px}
+.qtext{font-family:var(--display);font-weight:600;font-size:1.2rem;line-height:1.4;margin:0}
+.label{font:600 12px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;min-height:260px;display:flex;flex-direction:column;gap:10px;cursor:pointer;box-shadow:0 2px 0 var(--line)}
+.card.back{border-color:var(--accent)}
+.front-title{font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1.2;text-wrap:balance;margin:0}
+.looks{font-size:1.05rem}
+.card h3{font:700 13px var(--body);letter-spacing:.08em;text-transform:uppercase;margin:4px 0 0;color:var(--accent)}
+.card ol,.card ul{margin:0;padding-left:22px;display:grid;gap:4px}
+.watch{background:var(--warn-bg);border-radius:10px;padding:8px 12px}
+.watch h3{color:var(--warn)}
+.exline{border-top:1px dashed var(--line);padding-top:8px}
+.hint{margin-top:auto;color:var(--muted);font-size:13px}
+.math{font-family:var(--mono);font-size:.93em}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.btn{font:600 15px var(--body);padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.good{border-color:var(--good);color:var(--good)}
+.btn.bad{border-color:var(--bad);color:var(--bad)}
+.btn[disabled]{opacity:.55;cursor:default}
+.count{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+.score{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+.score b{font-family:var(--display);font-size:1.6rem;font-variant-numeric:tabular-nums}
+.how{color:var(--muted);margin:0 0 12px}
+.q{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
+.q.got{border-color:var(--good)} .q.miss{border-color:var(--bad)}
+.q .top{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.tag{font:600 12px var(--body);background:var(--mark);color:var(--mark-ink);border-radius:6px;padding:2px 7px}
+.stem{font-weight:600;margin:0}
+.decode{margin-top:10px;padding:10px 12px;background:var(--warn-bg);border-radius:10px}
+.decode ul{margin:4px 0 0;padding-left:20px;display:grid;gap:3px}
+.decode b.kw{background:var(--mark);color:var(--mark-ink);padding:0 3px;border-radius:3px}
+.decoder{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.decoder table{width:100%;border-collapse:collapse;font-size:15px}
+.decoder td,.decoder th{text-align:left;vertical-align:top;padding:6px 4px;border-bottom:1px solid var(--line)}
+.sol{margin-top:10px;padding:10px 12px;border-left:4px solid var(--accent);background:var(--bg);border-radius:0 8px 8px 0}
+.sol ol{margin:4px 0;padding-left:20px;display:grid;gap:3px}
+.ans{font-weight:700}
+.summary{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px}
+.summary table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.summary td,.summary th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--line)}
+.summary .miss{color:var(--bad);font-weight:700}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="label">MATH&amp;141 · Lessons 1.2–1.7 · Quiz Friday</div>
+    <h1>Unit 1 Quiz Drill</h1>
+    <p>Flashcards that show you exactly how to solve each problem type, then 43 homework-level practice problems, plus a random test that makes new problems every time.</p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-cards" aria-selected="true" aria-controls="panel-cards">Flashcards</button>
+    <button class="tab" role="tab" id="tab-test" aria-selected="false" aria-controls="panel-test">Practice problems</button>
+    <button class="tab" role="tab" id="tab-rand" aria-selected="false" aria-controls="panel-rand">Random test</button>
+    <button class="tab" role="tab" id="tab-final" aria-selected="false" aria-controls="panel-final">Final quiz</button>
+    <button class="tab" role="tab" id="tab-q2" aria-selected="false" aria-controls="panel-q2">Quiz #2 + decoder</button>
+    <button class="tab" role="tab" id="tab-fresh" aria-selected="false" aria-controls="panel-fresh">Fresh 12 test</button>
+  </div>
+
+  <section id="panel-cards" role="tabpanel" aria-labelledby="tab-cards">
+    <div class="mode" role="group" aria-label="Card type">
+      <button class="chip" id="mode-how" aria-pressed="true">How-to cards (17)</button>
+      <button class="chip" id="mode-prac" aria-pressed="false">Practice cards (34)</button>
+      <button class="chip" id="newPrac" hidden>New practice cards</button>
+    </div>
+    <div class="label">Jump to a topic</div>
+    <div class="chips" id="cardChips"></div>
+    <div class="card" id="card" tabindex="0" role="button" aria-label="Flashcard, press to flip"></div>
+    <div class="row">
+      <button class="btn" id="prev">← Back</button>
+      <button class="btn primary" id="flip">Flip</button>
+      <button class="btn" id="next">Next →</button>
+      <button class="btn" id="shuffle">Shuffle</button>
+      <span class="count" id="cardCount"></span>
+    </div>
+  </section>
+
+  <section id="panel-test" role="tabpanel" aria-labelledby="tab-test" hidden>
+    <p class="how">Work each one on paper first. Then tap <b>Show solution</b>, compare, and mark yourself honestly.</p>
+    <div class="score">
+      <span><b id="sc">0</b> / <span id="graded">0</span> right</span>
+      <span class="count"><span id="left">0</span> left</span>
+      <button class="btn" id="reset">Start over</button>
+    </div>
+    <div id="questions"></div>
+    <div class="summary" id="summary" hidden></div>
+  </section>
+
+  <section id="panel-rand" role="tabpanel" aria-labelledby="tab-rand" hidden>
+    <p class="how">A brand-new 22-question test every time, with new numbers in a new order. One problem from every topic plus extras. Work on paper, then check.</p>
+    <div class="score">
+      <span><b id="rsc">0</b> / <span id="rgraded">0</span> right</span>
+      <span class="count"><span id="rleft">0</span> left</span>
+      <button class="btn primary" id="rnew">New random test</button>
+    </div>
+    <div id="rquestions"></div>
+    <div class="summary" id="rsummary" hidden></div>
+  </section>
+
+  <section id="panel-final" role="tabpanel" aria-labelledby="tab-final" hidden>
+    <p class="how"><b>Treat this like the real quiz.</b> 12 multi-part questions, one step harder than your homework. No notes, about 45 minutes, show every step on paper. Only check the solutions when you've finished all 12. A question counts as "got it" only if every part is right.</p>
+    <div class="score">
+      <span><b id="fsc">0</b> / <span id="fgraded">0</span> right</span>
+      <span class="count"><span id="fleft">0</span> left</span>
+      <button class="btn" id="freset">Start over</button>
+    </div>
+    <div id="fquestions"></div>
+    <div class="summary" id="fsummary" hidden></div>
+
+    <h2 id="retry" style="font-family:var(--display);font-size:1.4rem;margin:28px 0 4px">Retry: questions 7–12 with new numbers</h2>
+    <p class="how">Same types as 7–12, new numbers. Use the flashcard steps if you need them, and check each one right after you finish it.</p>
+    <div class="score">
+      <span><b id="r2sc">0</b> / <span id="r2graded">0</span> right</span>
+      <span class="count"><span id="r2left">0</span> left</span>
+      <button class="btn" id="r2reset">Start over</button>
+    </div>
+    <div id="r2questions"></div>
+    <div class="summary" id="r2summary" hidden></div>
+  </section>
+
+  <section id="panel-q2" role="tabpanel" aria-labelledby="tab-q2" hidden>
+    <div class="decoder">
+      <div class="label">Word decoder: read the question, find the words, do the steps</div>
+      <div style="overflow-x:auto"><table>
+        <tr><th>If you see…</th><th>It means…</th><th>First move</th></tr>
+        <tr><td><b>"evaluate," f(3), f(x + 1), f(−x)</b></td><td>Plug in</td><td>Put what's in ( ) into every x</td></tr>
+        <tr><td><b>"defines y as a function of x"</b></td><td>Is there a ±?</td><td>Get y alone</td></tr>
+        <tr><td><b>"symmetric with respect to"</b> + an equation</td><td>3 mirror tests</td><td>x → −x, then y → −y, then both</td></tr>
+        <tr><td><b>"even, odd, or neither"</b></td><td>Compare f(−x) to f(x)</td><td>Find f(−x)</td></tr>
+        <tr><td><b>"passing through ___ and ___"</b> (two points)</td><td>Need the slope</td><td>(y₂ − y₁)/(x₂ − x₁)</td></tr>
+        <tr><td><b>"intercepts"</b> of a line</td><td>Where it hits the axes</td><td>Set y = 0, then x = 0</td></tr>
+        <tr><td><b>"slope and y-intercept"</b> of a line</td><td>Read m and b</td><td>Solve the line for y</td></tr>
+        <tr><td><b>"slope 0"</b> / <b>"undefined slope"</b></td><td>Flat / up-and-down</td><td>y = # / x = #</td></tr>
+        <tr><td><b>"parallel to"</b></td><td>Same slope</td><td>Get the given line's slope</td></tr>
+        <tr><td><b>"perpendicular to"</b></td><td>Flip it and change the sign</td><td>Get the given line's slope</td></tr>
+        <tr><td><b>"x-intercept a and y-intercept b"</b></td><td>Two points</td><td>(a, 0) and (0, b) → slope</td></tr>
+        <tr><td><b>"same y-intercept as"</b></td><td>Reuse that line's b</td><td>Solve that line for y</td></tr>
+        <tr><td><b>"point-slope form"</b></td><td>y − y₁ = m(x − x₁)</td><td>Need m and a point</td></tr>
+        <tr><td><b>"slope-intercept form"</b> / "f(x) ="</td><td>y = mx + b</td><td>Point-slope, then get y alone</td></tr>
+        <tr><td><b>"general form"</b></td><td>Ax + By + C = 0</td><td>Clear fractions, send everything to x's side</td></tr>
+        <tr><td><b>"average rate of change from x₁ to x₂"</b></td><td>Slope between two points on f</td><td>Plug both x's into f</td></tr>
+        <tr><td><b>"find the y-intercept"</b> given a point + slope</td><td>Solve for b</td><td>y = mx + b, plug in</td></tr>
+        <tr><td><b>"domain"</b></td><td>Which x's are allowed</td><td>Check bottoms ≠ 0, roots ≥ 0</td></tr>
+        <tr><td><b>f + g, f − g, fg, f/g</b></td><td>Combine the two functions</td><td>For f − g, change every sign of g</td></tr>
+        <tr><td><b>(f∘g)(x)</b> or <b>f(g(x))</b></td><td>g goes inside f</td><td>Domain checks first, then simplify</td></tr>
+      </table></div>
+    </div>
+    <p class="how">12 new questions. Stuck on what one wants? Tap <b>What is it asking?</b> for a decode hint, without giving away the answer.</p>
+    <div class="score">
+      <span><b id="q2sc">0</b> / <span id="q2graded">0</span> right</span>
+      <span class="count"><span id="q2left">0</span> left</span>
+      <button class="btn" id="q2reset">Start over</button>
+    </div>
+    <div id="q2questions"></div>
+    <div class="summary" id="q2summary" hidden></div>
+  </section>
+
+  <section id="panel-fresh" role="tabpanel" aria-labelledby="tab-fresh" hidden>
+    <p class="how"><b>A brand-new 12-question test every time you tap New test.</b> Same layout as the real quiz: multi-part questions covering all of 1.2–1.7. Take it with no notes, then check. Use <b>What is it asking?</b> only if you're stuck.</p>
+    <div class="score">
+      <span><b id="fr_sc">0</b> / <span id="fr_graded">0</span> right</span>
+      <span class="count"><span id="fr_left">0</span> left</span>
+      <button class="btn primary" id="fr_new">New test</button>
+    </div>
+    <div id="fr_questions"></div>
+    <div class="summary" id="fr_summary" hidden></div>
+  </section>
+</div>
+
+<script>
+const m=s=>`<span class="math">${s}</span>`;
+const TOPICS={A:"Is it a function? (points)",B:"Is y a function of x?",C:"Plug into f( )",D:"Symmetry",E:"Even / odd",F:"Slope from 2 points",G:"Write the line",H:"Flat & straight-up lines",I:"Graph with intercepts",J:"Slope from Ax + By = C",K:"Parallel / perpendicular",L:"Line from intercepts",M:"Average rate of change",N:"Domain",O:"f+g, f−g, fg, f/g",P:"f∘g (composition)",Q:"Find b (y-intercept)"};
+
+const CARDS={
+A:{looks:m("{(1, 2), (1, 5), (3, 4)}"),
+ steps:["Look only at the <b>first number</b> in each pair.","Does a first number show up twice with <b>different</b> second numbers? → <b>NOT</b> a function.","If not → it <b>is</b> a function.","Domain = all the first numbers. Range = all the second numbers. Write each one once, in { }."],
+ watch:["The same <b>second</b> number twice is fine. Only repeated first numbers matter.","Don't write repeats in the domain or range.","Use curly braces { }, not parentheses."],
+ ex:`(1, 2) and (1, 5): 1 goes to two places → not a function. Domain ${m("{1, 3}")}, Range ${m("{2, 4, 5}")}.`},
+B:{looks:m("x² + y² = 25") + " · " + m("x = y²") + " · " + m("y = √(x + 4)"),
+ steps:["Get <b>y by itself</b>.","Did you have to undo a y², y⁴, or |y|? That gives you <b>±</b>.","± → two answers for one x → <b>NOT</b> a function.","No ± → it <b>is</b> a function."],
+ watch:["Only powers on <b>y</b> matter. x² is totally fine.","y³ is fine. Odd powers have only one root.",`${m("y = −√x")} is a function. A plain minus is not a ±.`],
+ ex:`${m("x² + y² = 25")} → ${m("y = ±√(25 − x²)")} → not a function.`},
+C:{looks:`${m("f(x) = x² + 2x")}, find ${m("f(3)")}, ${m("f(x + 2)")}, ${m("f(−x)")}`,
+ steps:["Rewrite f with <b>empty ( )</b> where every x was: f( ) = ( )² + 2( ).","Put the new thing <b>inside every ( )</b>.","If it's a number, just calculate.","If it's an expression: FOIL the squares, distribute, then combine like terms."],
+ watch:[`${m("(x + 2)²")} is ${m("x² + 4x + 4")}, NOT x² + 4.`,`Keep negatives in parentheses: ${m("(−3)² = 9")}, not −9.`,`${m("(−x)² = x²")} but ${m("(−x)³ = −x³")}.`,"The plain number at the end never changes."],
+ ex:`${m("f(x + 2) = (x + 2)² + 2(x + 2) = x² + 4x + 4 + 2x + 4 = x² + 6x + 8")}`},
+D:{looks:`"Symmetric to the y-axis, x-axis, origin?" with an equation like ${m("y = x² + 6")}`,
+ steps:["<b>y-axis test:</b> change every x to −x. Same equation? ✔","<b>x-axis test:</b> change every y to −y. Same equation? ✔","<b>Origin test:</b> change both. Same equation? ✔","Write every test that passed, or \"none.\""],
+ watch:["Do all three tests. It can have more than one, like a circle has all three.","After changing y to −y, multiply both sides by −1 before you compare.","Even powers eat the minus sign. That's why they pass."],
+ ex:`${m("y = x² + 6")}: x → −x gives the same thing ✔. y → −y gives −y = x² + 6 ✘. → <b>y-axis only</b>.`},
+E:{looks:`"Even, odd, or neither?" with ${m("f(x) = x³ − 4x")}`,
+ steps:["Find <b>f(−x)</b>: put (−x) in for every x and simplify.","Nothing changed → <b>EVEN</b> → symmetric to the y-axis.","Every sign flipped → <b>ODD</b> → symmetric to the origin.","Some flipped, some didn't → <b>NEITHER</b>."],
+ watch:["A plain number never flips, so it acts like an even power. x³ + 1 is neither.","If it's written factored, like (x + 1)², expand it first.","Write the f(−x) line on the quiz. That's the work they grade."],
+ ex:`${m("f(−x) = −x³ + 4x = −(x³ − 4x)")} → every sign flipped → <b>odd, origin</b>.`},
+F:{looks:`Two points like ${m("(2, 3)")} and ${m("(6, 11)")}`,
+ steps:["Subtract the y's on top and the x's on the bottom, in the <b>same order</b>.","Simplify the fraction.","Positive → rises. Negative → falls. 0 → horizontal. Bottom is 0 → undefined, vertical."],
+ watch:["Keep the same order on top and bottom.","Subtracting a negative means adding: 3 − (−1) = 4.",`${m("0/5 = 0")} (flat), but ${m("5/0")} = undefined (wall).`],
+ ex:`${m("(11 − 3)/(6 − 2) = 8/4 = 2")} → rises.`},
+G:{looks:`"Slope 3, through (2, −1)" or "through (−3, −2) and (3, 6)"`,
+ steps:["No slope given? Find it from the two points first.",`Plug into ${m("y − y₁ = m(x − x₁)")}. That's <b>point-slope form</b>.`,"Distribute the slope.",`Move the number over to get ${m("y = mx + b")}. That's <b>slope-intercept form</b>.`],
+ watch:[`${m("y − (−1)")} becomes ${m("y + 1")}.`,"Write <b>both</b> forms when they ask for both.","Distribute to both terms inside the ( )."],
+ ex:`${m("y + 1 = 3(x − 2)")} → ${m("y + 1 = 3x − 6")} → ${m("y = 3x − 7")}`},
+H:{looks:`${m("y = 4")} · ${m("x = −3")} · ${m("2x − 6 = 0")}`,
+ steps:["Only <b>y</b> in it → a flat line going across at that y. Slope 0.","Only <b>x</b> in it → a straight up-and-down line at that x. Slope undefined.","If it isn't solved yet, solve it first."],
+ watch:["\"y = 4\" is the <b>flat</b> one. People mix these up all the time.",`${m("2x − 6 = 0")} → ${m("x = 3")} → up-and-down line.`,"Memory: HOY-VUX (Horizontal: 0, y = #; Vertical: Undefined, x = #)."],
+ ex:`${m("x = −3")}: a vertical line through (−3, 0).`},
+I:{looks:m("3x + 2y − 6 = 0"),
+ steps:["Put <b>0 for y</b> and solve → x-intercept, the point (x, 0).","Put <b>0 for x</b> and solve → y-intercept, the point (0, y).","Plot both points and connect them."],
+ watch:["The points are (x, 0) and (0, y). Don't flip them.","Fractions are fine: −3/2 = −1.5.","Keep track of signs when you move numbers across."],
+ ex:`y = 0: 3x = 6 → (2, 0). x = 0: 2y = 6 → (0, 3).`},
+J:{looks:m("2x + 3y = 12") + " or " + m("Ax + By = C"),
+ steps:["Move the x-term to the other side.","Divide <b>every</b> term by the number in front of y.",`Read it off ${m("y = mx + b")}: slope = m, y-intercept = b.`],
+ watch:["Moving 2x over makes it −2x.","Divide every term, not just one.",`Letters only? The answer is slope ${m("−A/B")}, y-intercept ${m("C/B")}.`],
+ ex:`${m("3y = −2x + 12")} → ${m("y = −(2/3)x + 4")} → slope −2/3, y-intercept 4.`},
+K:{looks:`"Through (4, −7) and perpendicular to ${m("x − 2y − 3 = 0")}"`,
+ steps:["Get the slope of the line they gave you. Solve it for y if you need to.","<b>Parallel</b> → same slope. <b>Perpendicular</b> → flip it AND change the sign.",`Plug your point and new slope into ${m("y − y₁ = m(x − x₁)")}.`,"Finish in the form they ask for: y = mx + b, or general form (stuff = 0)."],
+ watch:["Perpendicular needs <b>both</b>: flip it and change the sign. 2 → −1/2.","General form: everything on the left, = 0, x-term positive, no fractions (multiply to clear them).",`Perpendicular to ${m("x = 5")} (vertical)? The answer is flat: ${m("y = #")}.`],
+ ex:`Given slope 1/2 → new slope −2 → ${m("y + 7 = −2(x − 4)")} → ${m("2x + y − 1 = 0")}`},
+L:{looks:`"Perpendicular to the line with x-intercept 2 and y-intercept −4, through (−6, 4). Write f(x)."`,
+ steps:["Turn intercepts into points: x-intercept 2 → (2, 0); y-intercept −4 → (0, −4).","Find the slope between those points.","Apply the parallel or perpendicular rule.","Point-slope, solve for y, and write it as f(x) = ..."],
+ watch:["The x-intercept goes in the first spot (a, 0). The y-intercept goes in the second spot (0, b).","\"Same y-intercept as that line\" → solve that line for y and reuse its b."],
+ ex:`Slope from (2, 0) to (0, −4) = 2 → perpendicular −1/2 → ${m("f(x) = −(1/2)x + 1")}`},
+M:{looks:`${m("f(x) = x²")} from ${m("x₁ = 1")} to ${m("x₂ = 3")}`,
+ steps:["Plug <b>both</b> x's into the function.","(second answer − first answer) ÷ (second x − first x).","Simplify."],
+ watch:["You have to plug into f. Don't just subtract the x's.","Keep the same order on top and bottom.","It's just slope between two points on the curve."],
+ ex:`f(3) = 9, f(1) = 1 → ${m("(9 − 1)/(3 − 1) = 4")}`},
+N:{looks:`${m("√(x + 4) / (x − 3)")}`,
+ steps:["Fraction? The bottom can't be 0. Set it = 0, solve, and cross those numbers out.","Square root on top? The inside must be ≥ 0.","Square root on the bottom? The inside must be > 0.","Put it together in interval notation."],
+ watch:["Factor the bottom first. x² − 9 → (x − 3)(x + 3).","Find the domain <b>before</b> you cancel anything.","[ ] means the number is included; ( ) means it isn't. ∞ always gets ( ).",`${m("x² + 4")} is never 0, so there's no restriction from it.`],
+ ex:`x ≥ −4 and x ≠ 3 → ${m("[−4, 3) ∪ (3, ∞)")}`},
+O:{looks:`${m("f(x) = x² − 4")}, ${m("g(x) = x − 2")}. Find f + g, f − g, fg, f/g and the domains.`,
+ steps:["<b>f + g:</b> add them and combine like terms.","<b>f − g:</b> put g in ( ), change <b>every</b> sign inside, then combine.","<b>fg:</b> multiply every term by every term.","<b>f/g:</b> write it as a fraction, factor, and cancel.","<b>Domains:</b> where both work. For f/g, also cut any x that makes g = 0."],
+ watch:["The minus in f − g hits every term of g.","Even if (x − 2) cancels in f/g, you still say x ≠ 2.","It's 4 answers plus 4 domains. Don't skip any."],
+ ex:`${m("f − g = x² − 4 − x + 2 = x² − x − 2")} · ${m("f/g = x + 2, x ≠ 2")}`},
+P:{looks:`${m("f(x) = 2/(x + 3)")}, ${m("g(x) = 1/x")}. Find (f∘g)(x) and its domain.`,
+ steps:[`${m("f∘g")} means ${m("f(g(x))")}: put all of g into every x in f.`,"Domain check 1: what x breaks g?","Domain check 2: what output of g would break f? Set g(x) equal to that and solve.","Simplify. For little fractions, multiply top and bottom by x.","Domain = everything except the x's from checks 1 and 2."],
+ watch:["g goes in first. f(g(x)) is NOT the same as g(f(x)).","Do the domain <b>before</b> simplifying. Simplifying can hide a restriction, like a square root disappearing."],
+ ex:`${m("2/(1/x + 3) = 2x/(1 + 3x)")}. x ≠ 0 and x ≠ −1/3.`},
+Q:{looks:`<b>1.</b> "Slope −2, through (3, −1). Find the y-intercept."<br><b>2.</b> "Write it in slope-intercept form." (b is the end number)<br><b>3.</b> "Same y-intercept as 3x − 2y − 4 = 0"`,
+ steps:[`<b>Given a point + slope:</b> write ${m("y = mx + b")}, plug in m, x, y.`,"Multiply m times x.","Move that number to the other side (flip its sign). What's left is b.",`<b>Given a whole line:</b> solve it for y. The number at the end is b, no point needed.`,`Slope-intercept form? You can use either point-slope → solve for y, OR find b and write ${m("y = mx + b")}. Same answer.`],
+ watch:[`Multiply <b>before</b> you move: ${m("−1 = −2(3) + b → −1 = −6 + b")}.`,"x goes in the ( ), y goes on the left. Don't swap them.","Moving across the = flips the sign: −6 becomes +6.","Only have two points? Find the slope first."],
+ ex:`${m("−1 = −2(3) + b")} → ${m("−1 = −6 + b")} → ${m("b = 5")}. y-intercept 5, the point ${m("(0, 5)")}.`}
+};
+
+const PROBS=[
+ ["A",`Is ${m("{(2, 5), (4, 6), (6, 6)}")} a function? Give the domain and range.`,["No first number repeats. (6 showing up twice as a y is fine.)"],`Function. Domain ${m("{2, 4, 6}")}, Range ${m("{5, 6}")}.`],
+ ["A",`Is ${m("{(1, 3), (1, 4), (2, 5)}")} a function? Give the domain and range.`,["1 goes to 3 and to 4."],`Not a function. Domain ${m("{1, 2}")}, Range ${m("{3, 4, 5}")}.`],
+ ["B",`Does ${m("x² + y = 9")} define y as a function of x?`,[`${m("y = 9 − x²")}: no ±`],`Yes, function.`],
+ ["B",`Does ${m("x² + y² = 36")} define y as a function of x?`,[`${m("y² = 36 − x² → y = ±√(36 − x²)")}`],`No. The ± gives two y's.`],
+ ["B",`Does ${m("y = √(x − 2)")} define y as a function of x?`,["y is already alone and there's no ±."],`Yes, function.`],
+ ["C",`${m("f(x) = 2x + 5")}. Find a. ${m("f(3)")} b. ${m("f(x + 1)")} c. ${m("f(−x)")}`,[`a. ${m("2(3) + 5")}`,`b. ${m("2(x + 1) + 5 = 2x + 2 + 5")}`,`c. ${m("2(−x) + 5")}`],`a. 11 · b. ${m("2x + 7")} · c. ${m("−2x + 5")}`],
+ ["C",`${m("g(x) = x² + 3x − 1")}. Find a. ${m("g(−2)")} b. ${m("g(x + 1)")} c. ${m("g(−x)")}`,[`a. ${m("(−2)² + 3(−2) − 1 = 4 − 6 − 1")}`,`b. ${m("(x + 1)² + 3(x + 1) − 1 = x² + 2x + 1 + 3x + 3 − 1")}`,`c. ${m("(−x)² + 3(−x) − 1")}`],`a. −3 · b. ${m("x² + 5x + 3")} · c. ${m("x² − 3x − 1")}`],
+ ["C",`${m("f(r) = √(r + 7) − 2")}. Find a. ${m("f(2)")} b. ${m("f(−7)")}`,[`a. ${m("√9 − 2 = 3 − 2")}`,`b. ${m("√0 − 2")}`],`a. 1 · b. −2`],
+ ["D",`Symmetry of ${m("y = x² − 5")}? (y-axis, x-axis, origin)`,[`x → −x: ${m("y = (−x)² − 5 = x² − 5")} ✔`,`y → −y: ${m("−y = x² − 5")} ✘`,`Both: ✘`],`y-axis only.`],
+ ["D",`Symmetry of ${m("x = y² + 3")}?`,[`y → −y: ${m("x = (−y)² + 3")} ✔`,`x → −x: ${m("−x = y² + 3")} ✘`,`Both: ✘`],`x-axis only.`],
+ ["D",`Symmetry of ${m("x² + y² = 16")}?`,["Both variables only have even powers, so every test passes."],`y-axis, x-axis, and origin.`],
+ ["D",`Symmetry of ${m("y = 3x − 2")}?`,[`x → −x: ${m("y = −3x − 2")} ✘`,`y → −y: ${m("−y = 3x − 2")} ✘`,`Both: ${m("−y = −3x − 2 → y = 3x + 2")} ✘`],`None.`],
+ ["E",`Even, odd, or neither? ${m("f(x) = x⁴ + 3x²")}`,[`${m("f(−x) = (−x)⁴ + 3(−x)² = x⁴ + 3x²")}: nothing changed`],`Even, y-axis symmetry.`],
+ ["E",`Even, odd, or neither? ${m("f(x) = x³ + 2x")}`,[`${m("f(−x) = −x³ − 2x = −(x³ + 2x)")}: every sign flipped`],`Odd, origin symmetry.`],
+ ["E",`Even, odd, or neither? ${m("g(x) = x² + x")}`,[`${m("g(−x) = x² − x")}: only one sign flipped`],`Neither, no symmetry.`],
+ ["F",`Slope through ${m("(3, 1)")} and ${m("(5, 9)")}. Rises, falls, horizontal, or vertical?`,[`${m("(9 − 1)/(5 − 3) = 8/2")}`],`4, rises.`],
+ ["F",`Slope through ${m("(−2, 4)")} and ${m("(3, 4)")}. Rises, falls, horizontal, or vertical?`,[`${m("(4 − 4)/(3 − (−2)) = 0/5")}`],`0, horizontal.`],
+ ["G",`Slope = 5, passing through ${m("(2, −3)")}. Point-slope and slope-intercept form.`,[`${m("y − (−3) = 5(x − 2)")}`,`${m("y + 3 = 5x − 10")}`],`${m("y + 3 = 5(x − 2)")} and ${m("y = 5x − 13")}`],
+ ["G",`Passing through ${m("(1, 4)")} and ${m("(3, 10)")}. Point-slope and slope-intercept form.`,[`${m("m = (10 − 4)/(3 − 1) = 3")}`,`${m("y − 4 = 3(x − 1)")}`,`${m("y − 4 = 3x − 3")}`],`${m("y − 4 = 3(x − 1)")} and ${m("y = 3x + 1")}`],
+ ["H",`Describe the graphs of ${m("y = −2")} and ${m("x = 5")}.`,["Only y → flat. Only x → up and down."],`${m("y = −2")}: horizontal line through (0, −2). ${m("x = 5")}: vertical line through (5, 0).`],
+ ["I",`Use intercepts to graph ${m("4x − 2y + 8 = 0")}.`,[`y = 0: ${m("4x + 8 = 0 → x = −2")}`,`x = 0: ${m("−2y + 8 = 0 → y = 4")}`],`Plot ${m("(−2, 0)")} and ${m("(0, 4)")} and connect them.`],
+ ["J",`Slope and y-intercept of ${m("3x + 6y = 12")}.`,[`${m("6y = −3x + 12")}`,`Divide by 6: ${m("y = −(1/2)x + 2")}`],`Slope −1/2, y-intercept 2.`],
+ ["K",`Passing through ${m("(−3, 2)")} and parallel to ${m("y = −2x + 5")}. Point-slope and slope-intercept.`,[`Parallel → same slope, −2`,`${m("y − 2 = −2(x + 3)")}`,`${m("y − 2 = −2x − 6")}`],`${m("y − 2 = −2(x + 3)")} and ${m("y = −2x − 4")}`],
+ ["K",`Passing through ${m("(4, −1)")} and perpendicular to ${m("y = (1/4)x + 3")}. Point-slope and slope-intercept.`,[`Flip and change sign: 1/4 → −4`,`${m("y + 1 = −4(x − 4)")}`,`${m("y + 1 = −4x + 16")}`],`${m("y + 1 = −4(x − 4)")} and ${m("y = −4x + 15")}`],
+ ["K",`Passing through ${m("(2, −3)")} and perpendicular to ${m("x − 3y + 6 = 0")}. Point-slope and general form.`,[`Solve the given line: ${m("−3y = −x − 6 → y = (1/3)x + 2")} → slope 1/3`,`Perpendicular → −3`,`${m("y + 3 = −3(x − 2) → y + 3 = −3x + 6")}`,"Move everything to the left."],`${m("y + 3 = −3(x − 2)")} and ${m("3x + y − 3 = 0")}`],
+ ["L",`f passes through ${m("(3, −5)")} and is perpendicular to ${m("x = 2")}. Find f(x).`,[`${m("x = 2")} is vertical → f is horizontal`,"Horizontal through y = −5"],m("f(x) = −5")],
+ ["L",`f passes through ${m("(−4, 1)")} and is perpendicular to the line with x-intercept 3 and y-intercept −6. Find f(x).`,[`Points ${m("(3, 0)")} and ${m("(0, −6)")}: slope ${m("(−6 − 0)/(0 − 3) = 2")}`,`Perpendicular → −1/2`,`${m("y − 1 = −(1/2)(x + 4) → y − 1 = −(1/2)x − 2")}`],m("f(x) = −(1/2)x − 1")],
+ ["M",`Average rate of change of ${m("f(x) = 4x")} from ${m("x₁ = 0")} to ${m("x₂ = 3")}.`,[`${m("f(3) = 12")}, ${m("f(0) = 0")}`,`${m("(12 − 0)/(3 − 0)")}`],`4`],
+ ["M",`Average rate of change of ${m("f(x) = x² − 2x")} from ${m("x₁ = 2")} to ${m("x₂ = 5")}.`,[`${m("f(5) = 25 − 10 = 15")}, ${m("f(2) = 4 − 4 = 0")}`,`${m("(15 − 0)/(5 − 2)")}`],`5`],
+ ["M",`Average rate of change of ${m("f(x) = √x")} from ${m("x₁ = 9")} to ${m("x₂ = 16")}.`,[`${m("f(16) = 4")}, ${m("f(9) = 3")}`,`${m("(4 − 3)/(16 − 9)")}`],`1/7`],
+ ["N",`Domain of ${m("f(x) = 5x − 2")}.`,["No fraction, no root."],m("(−∞, ∞)")],
+ ["N",`Domain of ${m("g(x) = 4/(x² − x − 12)")}.`,[`Factor the bottom: ${m("(x − 4)(x + 3)")}`,`${m("x ≠ 4, x ≠ −3")}`],m("(−∞, −3) ∪ (−3, 4) ∪ (4, ∞)")],
+ ["N",`Domain of ${m("f(x) = 2/(x + 5) + 1/(x − 3)")}.`,[`${m("x + 5 ≠ 0 → x ≠ −5")}`,`${m("x − 3 ≠ 0 → x ≠ 3")}`],m("(−∞, −5) ∪ (−5, 3) ∪ (3, ∞)")],
+ ["N",`Domain of ${m("f(x) = √(x + 2)")}.`,[`${m("x + 2 ≥ 0 → x ≥ −2")}`],m("[−2, ∞)")],
+ ["N",`Domain of ${m("g(x) = 1/√(x − 6)")}.`,[`Root on the bottom → ${m("x − 6 > 0 → x > 6")}`],m("(6, ∞)")],
+ ["N",`Domain of ${m("h(x) = √(3x − 12)")}.`,[`${m("3x − 12 ≥ 0 → 3x ≥ 12 → x ≥ 4")}`],m("[4, ∞)")],
+ ["O",`${m("f(x) = x + 4")}, ${m("g(x) = 2x²")}. Find f + g, f − g, fg, f/g and their domains.`,[`${m("f + g = 2x² + x + 4")}`,`${m("f − g = x + 4 − 2x²")}`,`${m("fg = (x + 4)(2x²)")}`,`${m("f/g = (x + 4)/(2x²)")}: the bottom is 0 when x = 0`],`${m("2x² + x + 4")} · ${m("−2x² + x + 4")} · ${m("2x³ + 8x²")} · ${m("(x + 4)/(2x²)")}. First three: ${m("(−∞, ∞)")}. f/g: ${m("(−∞, 0) ∪ (0, ∞)")}`],
+ ["O",`${m("f(x) = x² − 2x − 8")}, ${m("g(x) = x + 2")}. Find f + g, f − g, fg, f/g and their domains.`,[`${m("f + g = x² − 2x − 8 + x + 2")}`,`${m("f − g = x² − 2x − 8 − x − 2")}`,`${m("fg = x³ + 2x² − 2x² − 4x − 8x − 16")}`,`${m("f/g = (x − 4)(x + 2)/(x + 2)")}`],`${m("x² − x − 6")} · ${m("x² − 3x − 10")} · ${m("x³ − 12x − 16")} · ${m("x − 4")}. First three: ${m("(−∞, ∞)")}. f/g: ${m("(−∞, −2) ∪ (−2, ∞)")}`],
+ ["P",`${m("f(x) = 3/(x + 2)")}, ${m("g(x) = 1/x")}. Find a. ${m("(f∘g)(x)")} b. the domain of ${m("f∘g")}.`,[`Check 1: g needs ${m("x ≠ 0")}`,`Check 2: f can't take −2 → ${m("1/x ≠ −2 → x ≠ −1/2")}`,`${m("3/(1/x + 2)")}, times x/x → ${m("3x/(1 + 2x)")}`],`a. ${m("3x/(1 + 2x)")} · b. ${m("x ≠ 0, x ≠ −1/2")}`],
+ ["P",`${m("f(x) = x² + 2")}, ${m("g(x) = √(3 − x)")}. Find a. ${m("(f∘g)(x)")} b. the domain of ${m("f∘g")}.`,[`${m("f(g(x)) = (√(3 − x))² + 2 = 3 − x + 2")}`,`g needs ${m("3 − x ≥ 0 → x ≤ 3")}`],`a. ${m("5 − x")} · b. ${m("(−∞, 3]")}`],
+ ["Q",`One point on a line is ${m("(3, −1)")} and the slope is −2. Find the y-intercept.`,[`${m("y = mx + b → −1 = −2(3) + b")}`,`${m("−1 = −6 + b")}`,"Add 6 to both sides."],`${m("b = 5")}, the point ${m("(0, 5)")}`],
+ ["Q",`One point on a line is ${m("(2, −6)")} and the slope is −3/2. Find the y-intercept.`,[`${m("−6 = (−3/2)(2) + b")}`,`${m("−6 = −3 + b")}`,"Add 3 to both sides."],`${m("b = −3")}, the point ${m("(0, −3)")}`],
+ ["Q",`What is the y-intercept of ${m("3x − 2y − 4 = 0")}?`,[`${m("−2y = −3x + 4")}`,`Divide by −2: ${m("y = (3/2)x − 2")}`],`${m("b = −2")}`]
+];
+
+/* tabs */
+const tabs=[["tab-cards","panel-cards"],["tab-test","panel-test"],["tab-rand","panel-rand"],["tab-final","panel-final"],["tab-q2","panel-q2"],["tab-fresh","panel-fresh"]];
+tabs.forEach(([t,p])=>document.getElementById(t).addEventListener("click",()=>{
+  tabs.forEach(([t2,p2])=>{document.getElementById(t2).setAttribute("aria-selected",String(t2===t));document.getElementById(p2).hidden=p2!==p})}));
+
+/* flashcards: two modes. How-to = one card per topic (looks like / steps / watch out). Practice = 2 fresh problems per topic (front: problem, back: steps + answer) */
+let mode="how",deck=[],idx=0,flipped=false;
+const chipsEl=document.getElementById("cardChips"),cardEl=document.getElementById("card");
+function buildDeck(){deck=mode==="how"?Object.keys(CARDS).map(k=>({k})):Object.keys(TOPICS).flatMap(k=>[GEN[k](),GEN[k]()]).map(p=>({k:p[0],p}));idx=0;flipped=false}
+Object.keys(TOPICS).forEach(k=>{const b=document.createElement("button");b.className="chip";b.textContent=k+" · "+TOPICS[k];b.dataset.k=k;
+  b.onclick=()=>{const j=deck.findIndex(d=>d.k===k);if(j>=0){idx=j;flipped=false;render()}};chipsEl.appendChild(b)});
+function render(){const d=deck[idx],k=d.k;
+  [...chipsEl.children].forEach(ch=>ch.setAttribute("aria-pressed",String(ch.dataset.k===k)));
+  cardEl.classList.toggle("back",flipped);
+  if(mode==="how"){const c=CARDS[k];
+    cardEl.innerHTML=flipped
+     ?`<div class="label">${k} · ${TOPICS[k]}</div>
+       <h3>Steps</h3><ol>${c.steps.map(s=>`<li>${s}</li>`).join("")}</ol>
+       <div class="watch"><h3>Watch out</h3><ul>${c.watch.map(s=>`<li>${s}</li>`).join("")}</ul></div>
+       <div class="exline"><span class="label">Example</span><div>${c.ex}</div></div>
+       <div class="hint">Tap to see the front again</div>`
+     :`<div class="label">${k} · how-to card</div>
+       <p class="front-title">${TOPICS[k]}</p>
+       <div class="looks"><span class="label">Looks like</span><div>${c.looks}</div></div>
+       <p style="margin:0">Before you flip: can you say the steps out loud?</p>
+       <div class="hint">Tap or press Space to flip</div>`}
+  else{const p=d.p;
+    cardEl.innerHTML=flipped
+     ?`<div class="label">${k} · ${TOPICS[k]} · solution</div>
+       <h3>Steps</h3><ol>${p[2].map(s=>`<li>${s}</li>`).join("")}</ol>
+       <div class="exline"><span class="label">Answer</span><div class="ans">${p[3]}</div></div>
+       <div class="hint">Tap to see the problem again</div>`
+     :`<div class="label">${k} · ${TOPICS[k]} · practice</div>
+       <p class="qtext">${p[1]}</p>
+       <p style="margin:0;color:var(--muted)">Solve it on paper, then flip to check.</p>
+       <div class="hint">Tap or press Space to flip</div>`}
+  document.getElementById("cardCount").textContent=(idx+1)+" / "+deck.length}
+function flip(){flipped=!flipped;render()}
+function setMode(mo){mode=mo;document.getElementById("mode-how").setAttribute("aria-pressed",String(mo==="how"));
+  document.getElementById("mode-prac").setAttribute("aria-pressed",String(mo==="prac"));
+  document.getElementById("newPrac").hidden=mo!=="prac";buildDeck();render()}
+cardEl.addEventListener("click",flip);
+cardEl.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();flip()}});
+document.getElementById("flip").onclick=flip;
+document.getElementById("next").onclick=()=>{idx=(idx+1)%deck.length;flipped=false;render()};
+document.getElementById("prev").onclick=()=>{idx=(idx-1+deck.length)%deck.length;flipped=false;render()};
+document.getElementById("shuffle").onclick=()=>{for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}idx=0;flipped=false;render()};
+document.getElementById("mode-how").onclick=()=>setMode("how");
+document.getElementById("mode-prac").onclick=()=>setMode("prac");
+document.getElementById("newPrac").onclick=()=>{buildDeck();render()};
+document.addEventListener("keydown",e=>{if(document.getElementById("panel-cards").hidden||e.target.tagName==="BUTTON")return;
+  if(e.key==="ArrowRight")document.getElementById("next").click();if(e.key==="ArrowLeft")document.getElementById("prev").click()});
+
+/* quiz factory: work on paper, reveal, self-grade (used by Practice and Random tabs) */
+function makeQuiz(ids,getList){
+  let list=[],marks={};
+  const qEl=document.getElementById(ids.q),sum=document.getElementById(ids.sum);
+  function tally(){const v=Object.values(marks),right=v.filter(Boolean).length;
+    document.getElementById(ids.sc).textContent=right;document.getElementById(ids.graded).textContent=v.length;
+    document.getElementById(ids.left).textContent=list.length-v.length;
+    if(v.length<list.length){sum.hidden=true;return}
+    const by={};list.forEach((p,i)=>{by[p[0]]=by[p[0]]||[0,0];by[p[0]][1]++;if(marks[i])by[p[0]][0]++});
+    const keys=Object.keys(by).sort(),weak=keys.filter(k=>by[k][0]<by[k][1]);
+    sum.hidden=false;
+    sum.innerHTML=`<div class="label">Done</div><p style="font-family:var(--display);font-size:2rem;margin:4px 0">${right} / ${list.length}</p>
+     <p>${weak.length?`Go back to these flashcards: <b>${weak.map(k=>k+" ("+TOPICS[k]+")").join(", ")}</b>.`:"You got every one. You're ready."}</p>
+     <div style="overflow-x:auto"><table><tr><th>Topic</th><th>Got</th></tr>${keys.map(k=>`<tr><td>${k} · ${TOPICS[k]}</td><td class="${by[k][0]<by[k][1]?"miss":""}">${by[k][0]} / ${by[k][1]}</td></tr>`).join("")}</table></div>`}
+  function render(){list=getList();marks={};qEl.innerHTML="";
+    list.forEach((p,i)=>{const box=document.createElement("div");box.className="q";
+      box.innerHTML=`<div class="top"><span class="tag">${p[0]}</span><span class="label">${TOPICS[p[0]]}</span><span class="count">#${i+1}</span></div>
+        <p class="stem">${p[1]}</p>
+        <div class="row">${p[4]?`<button class="btn decode-btn">What is it asking?</button>`:""}<button class="btn primary">Show solution</button></div>
+        ${p[4]?`<div class="decode" hidden>${p[4]}</div>`:""}
+        <div class="sol" hidden><ol>${p[2].map(s=>`<li>${s}</li>`).join("")}</ol><div class="ans">Answer: ${p[3]}</div>
+          <div class="row"><button class="btn good">I got it ✓</button><button class="btn bad">I missed it ✗</button></div></div>`;
+      qEl.appendChild(box);
+      const sol=box.querySelector(".sol"),show=box.querySelector(".btn.primary"),g=box.querySelector(".btn.good"),b=box.querySelector(".btn.bad");
+      const db=box.querySelector(".decode-btn");if(db){const dec=box.querySelector(".decode");db.onclick=()=>{dec.hidden=!dec.hidden;db.textContent=dec.hidden?"What is it asking?":"Hide hint"}}
+      show.onclick=()=>{sol.hidden=false;show.disabled=true};
+      const grade=ok=>{marks[i]=ok;box.classList.toggle("got",ok);box.classList.toggle("miss",!ok);g.disabled=true;b.disabled=true;tally()};
+      g.onclick=()=>grade(true);b.onclick=()=>grade(false)});
+    tally()}
+  return render}
+const renderPractice=makeQuiz({q:"questions",sum:"summary",sc:"sc",graded:"graded",left:"left"},()=>PROBS);
+document.getElementById("reset").onclick=()=>{renderPractice();window.scrollTo({top:0})};
+renderPractice();
+
+/* ---------- random problem generators ---------- */
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const nz=(a,b)=>{let v=0;while(v===0)v=rnd(a,b);return v};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const N=n=>n<0?"−"+(-n):""+n;               /* integer with real minus sign */
+const P=n=>n<0?`(${N(n)})`:""+n;             /* wrap negatives in parentheses */
+const sg=n=>n<0?"−":"+";
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a||1};
+const F=(n,d=1)=>{if(d<0){n=-n;d=-d}const g=gcd(n,d);return{n:n/g,d:d/g}};
+const fadd=(a,b)=>F(a.n*b.d+b.n*a.d,a.d*b.d),fsub=(a,b)=>F(a.n*b.d-b.n*a.d,a.d*b.d),fmul=(a,b)=>F(a.n*b.n,a.d*b.d),fneg=a=>F(-a.n,a.d);
+const fs=a=>a.d===1?N(a.n):`${a.n<0?"−":""}${Math.abs(a.n)}/${a.d}`;
+const coefX=(c,v="x")=>c.n===0?"0":c.d===1?(c.n===1?v:c.n===-1?"−"+v:N(c.n)+v):`${c.n<0?"−":""}(${Math.abs(c.n)}/${c.d})${v}`;
+const tail=c=>c.n===0?"":` ${c.n<0?"−":"+"} ${fs(F(Math.abs(c.n),c.d))}`;
+const lin=(mm,b,lhs="y")=>mm.n===0?`${lhs} = ${fs(b)}`:`${lhs} = ${coefX(mm)}${tail(b)}`;
+const xm=a=>a===0?"x":`x ${a<0?"+":"−"} ${Math.abs(a)}`;    /* x − a */
+const ym=a=>a===0?"y":`y ${a<0?"+":"−"} ${Math.abs(a)}`;
+const mpar=mm=>mm.d===1?(mm.n===1?"":mm.n===-1?"−":N(mm.n)):`${mm.n<0?"−":""}(${Math.abs(mm.n)}/${mm.d})`;
+const pointSlope=(mm,x1,y1)=>`${ym(y1)} = ${mpar(mm)}(${xm(x1)})`;
+const SUP={2:"²",3:"³",4:"⁴",5:"⁵",6:"⁶"};
+function poly(c,v="x"){const parts=[];for(let i=c.length-1;i>=0;i--){const a=c[i];if(!a)continue;const ab=Math.abs(a);
+  const t=i===0?""+ab:(ab===1?"":ab)+v+(i>1?SUP[i]:"");parts.push([a<0,t])}
+  if(!parts.length)return"0";return parts.map(([ng,t],k)=>k===0?(ng?"−"+t:t):` ${ng?"−":"+"} ${t}`).join("")}
+const padd=(a,b)=>Array.from({length:Math.max(a.length,b.length)},(_,i)=>(a[i]||0)+(b[i]||0));
+const psub=(a,b)=>Array.from({length:Math.max(a.length,b.length)},(_,i)=>(a[i]||0)-(b[i]||0));
+const pmul=(a,b)=>{const r=Array(a.length+b.length-1).fill(0);a.forEach((x,i)=>b.forEach((y,j)=>{r[i+j]+=x*y}));return r};
+const peval=(c,x)=>c.reduce((s,a,i)=>s+a*x**i,0);
+function genForm(mm,x1,y1){let A=mm.n,B=-mm.d,C=mm.d*y1-mm.n*x1;if(A<0||(A===0&&B<0)){A=-A;B=-B;C=-C}const g=gcd(gcd(A,B),C);A/=g;B/=g;C/=g;
+  const terms=[];if(A)terms.push([A,"x"]);if(B)terms.push([B,"y"]);if(C)terms.push([C,""]);
+  return terms.map(([c,v],k)=>{const ab=Math.abs(c),t=(ab===1&&v?"":ab)+v;return k===0?(c<0?"−":"")+t:` ${c<0?"−":"+"} ${t}`}).join("")+" = 0"}
+function intervalsExcluding(pts){const s=[...new Set(pts)].sort((a,b)=>a-b);let out=[],prev="−∞";
+  s.forEach(p=>{out.push(`(${prev}, ${N(p)})`);prev=N(p)});out.push(`(${prev}, ∞)`);return out.join(" ∪ ")}
+const fx=s=>m(s);
+
+const GEN={
+A(){const xs=shuffle([-4,-3,-2,-1,0,1,2,3,4,5,6,7]).slice(0,3);let pairs=xs.map(x=>[x,rnd(-5,9)]);let rep=Math.random()<0.5,why;
+  if(rep){let y2;do{y2=rnd(-5,9)}while(y2===pairs[0][1]);pairs.push([pairs[0][0],y2]);why=`${N(pairs[0][0])} goes to ${N(pairs[0][1])} and to ${N(y2)}.`}else why="No first number repeats.";
+  pairs=shuffle(pairs);const D=[...new Set(pairs.map(p=>p[0]))].sort((a,b)=>a-b),R=[...new Set(pairs.map(p=>p[1]))].sort((a,b)=>a-b);
+  return["A",`Is ${fx("{"+pairs.map(p=>`(${N(p[0])}, ${N(p[1])})`).join(", ")+"}")} a function? Give the domain and range.`,[why],
+   `${rep?"Not a function":"Function"}. Domain ${fx("{"+D.map(N).join(", ")+"}")}, Range ${fx("{"+R.map(N).join(", ")+"}")}.`]},
+B(){const k=rnd(2,9),t=rnd(1,6);const T=[
+  [`x² + y = ${k}`,[`${fx(`y = ${k} − x²`)}: no ±`],"Yes, function."],
+  [`x² + y² = ${k*k}`,[`${fx(`y² = ${k*k} − x²`)} → ${fx(`y = ±√(${k*k} − x²)`)}`],"No. The ± gives two y's."],
+  [`x = y² + ${k}`,[`${fx(`y² = x − ${k}`)} → ${fx(`y = ±√(x − ${k})`)}`],"No. The ± gives two y's."],
+  [`y = √(x + ${k})`,["y is already alone, no ±."],"Yes, function."],
+  [`x + y³ = ${k}`,[`${fx(`y = ∛(${k} − x)`)}: odd root, one answer`],"Yes, function."],
+  [`|x| − y = ${k}`,[`${fx(`y = |x| − ${k}`)}: the absolute value is on x, so it's fine`],"Yes, function."],
+  [`${t}x = y²`,[`${fx(`y = ±√(${t}x)`)}`],"No. The ± gives two y's."]];const c=pick(T);
+  return["B",`Does ${fx(c[0])} define y as a function of x?`,c[1],c[2]]},
+C(){if(Math.random()<0.45){const a=nz(-5,6),b=nz(-9,9),n=nz(-5,6),h=pick([1,2,3,-1,-2]);const f=[b,a];
+   return["C",`${fx(`f(x) = ${poly(f)}`)}. Find a. ${fx(`f(${N(n)})`)} b. ${fx(`f(${xm(-h)})`)} c. ${fx("f(−x)")}`,
+    [`a. ${fx(`${N(a)}(${N(n)}) ${sg(b)} ${Math.abs(b)}`)}`,`b. ${fx(`${N(a)}(${xm(-h)}) ${sg(b)} ${Math.abs(b)}`)}, then distribute`,`c. ${fx(`${N(a)}(−x) ${sg(b)} ${Math.abs(b)}`)}`],
+    `a. ${N(a*n+b)} · b. ${fx(poly([a*h+b,a]))} · c. ${fx(poly([b,-a]))}`]}
+  const b=nz(-6,6),c=nz(-9,9),n=nz(-3,3),h=rnd(1,5),g=[c,b,1];
+  return["C",`${fx(`g(x) = ${poly(g)}`)}. Find a. ${fx(`g(${N(n)})`)} b. ${fx(`g(x + ${h})`)} c. ${fx("g(−x)")}`,
+   [`a. ${fx(`(${N(n)})² ${sg(b)} ${Math.abs(b)}(${N(n)}) ${sg(c)} ${Math.abs(c)}`)}`,`b. ${fx(`(x + ${h})² ${sg(b)} ${Math.abs(b)}(x + ${h}) ${sg(c)} ${Math.abs(c)}`)}. FOIL: ${fx(`(x + ${h})² = x² + ${2*h}x + ${h*h}`)}`,`c. ${fx(`(−x)² ${sg(b)} ${Math.abs(b)}(−x) ${sg(c)} ${Math.abs(c)}`)}`],
+   `a. ${N(peval(g,n))} · b. ${fx(poly([h*h+b*h+c,2*h+b,1]))} · c. ${fx(poly([c,-b,1]))}`]},
+D(){const k=rnd(1,9),s=pick(["+","−"]),a=nz(-5,5);const T=[
+  [`y = x² ${s} ${k}`,["x → −x: same ✔","y → −y: changes ✘","Both: changes ✘"],"y-axis only."],
+  [`x = y² ${s} ${k}`,["x → −x: changes ✘","y → −y: same ✔","Both: changes ✘"],"x-axis only."],
+  [`y² = x² ${s} ${k}`,["x → −x: same ✔","y → −y: same ✔","Both: same ✔"],"y-axis, x-axis, and origin."],
+  [`x² + y² = ${k*k}`,["Only even powers on both letters, so every test passes."],"y-axis, x-axis, and origin."],
+  [`y = ${poly([0,a])} ${s} ${k}`,["x → −x: changes ✘","y → −y: changes ✘",`Both: ${fx(`−y = ${poly([0,-a])} ${s} ${k}`)} → not the same ✘`],"None."],
+  [`y = x³ ${a<0?"−":"+"} ${Math.abs(a)===1?"":Math.abs(a)}x`,["x → −x: changes ✘","y → −y: changes ✘","Both: every term flips, multiply by −1 → same ✔"],"Origin only."]];const c=pick(T);
+  return["D",`Test ${fx(c[0])} for symmetry (y-axis, x-axis, origin).`,c[1],c[2]]},
+E(){const type=pick(["even","odd","neither"]);let c;
+  if(type==="even")c=pick([[rnd(0,6)*pick([1,-1]),0,nz(-5,5),0,nz(-3,3)],[0,0,nz(-5,5),0,0,0,nz(-3,3)]]);
+  else if(type==="odd")c=pick([[0,nz(-6,6),0,nz(-4,4)],[0,0,0,nz(-6,6),0,nz(-3,3)]]);
+  else c=pick([[0,nz(-6,6),nz(-4,4)],[nz(-6,6),0,0,nz(-4,4)],[0,nz(-5,5),0,0,nz(-3,3)]]);
+  const neg=c.map((a,i)=>i%2?-a:a);
+  return["E",`Even, odd, or neither? ${fx(`f(x) = ${poly(c)}`)}. Show f(−x).`,[`${fx(`f(−x) = ${poly(neg)}`)}`,type==="even"?"Nothing changed.":type==="odd"?"Every sign flipped.":"Some signs flipped, some didn't."],
+   type==="even"?"Even, y-axis symmetry.":type==="odd"?"Odd, origin symmetry.":"Neither, no symmetry."]},
+F(){const x1=rnd(-6,6),y1=rnd(-6,6),r=Math.random();let x2,y2;
+  if(r<0.15){x2=x1;do{y2=rnd(-6,6)}while(y2===y1)}else if(r<0.3){y2=y1;do{x2=rnd(-6,6)}while(x2===x1)}else{do{x2=rnd(-6,6)}while(x2===x1);do{y2=rnd(-6,6)}while(y2===y1)}
+  const dy=y2-y1,dx=x2-x1;let ans;
+  if(dx===0)ans="Undefined, vertical.";else{const s=F(dy,dx);ans=`${fs(s)}, ${s.n>0?"rises":s.n<0?"falls":"horizontal"}.`}
+  return["F",`Slope through ${fx(`(${N(x1)}, ${N(y1)})`)} and ${fx(`(${N(x2)}, ${N(y2)})`)}. Rises, falls, horizontal, or vertical?`,[fx(`(${N(y2)} − ${P(y1)}) / (${N(x2)} − ${P(x1)}) = ${N(dy)}/${N(dx)}`)],ans]},
+G(){if(Math.random()<0.5){const mm=nz(-6,6),x1=nz(-5,5),y1=nz(-7,7),b=y1-mm*x1;
+   return["G",`Slope = ${N(mm)}, passing through ${fx(`(${N(x1)}, ${N(y1)})`)}. Point-slope and slope-intercept form.`,[fx(pointSlope(F(mm),x1,y1)),"Distribute, then get y alone."],`${fx(pointSlope(F(mm),x1,y1))} and ${fx(lin(F(mm),F(b)))}`]}
+  const mm=nz(-4,4),x1=rnd(-4,4),y1=rnd(-6,6),dx=nz(-3,3),x2=x1+dx,y2=y1+mm*dx,b=y1-mm*x1;
+  return["G",`Passing through ${fx(`(${N(x1)}, ${N(y1)})`)} and ${fx(`(${N(x2)}, ${N(y2)})`)}. Point-slope and slope-intercept form.`,[fx(`m = (${N(y2)} − ${P(y1)}) / (${N(x2)} − ${P(x1)}) = ${N(mm*dx)}/${N(dx)} = ${N(mm)}`),fx(pointSlope(F(mm),x1,y1))],`${fx(pointSlope(F(mm),x1,y1))} and ${fx(lin(F(mm),F(b)))}`]},
+H(){const k=nz(-7,7),a=rnd(2,5);const T=[
+  [`y = ${N(k)}`,"Only y → flat.",`Horizontal line through ${fx(`(0, ${N(k)})`)}. Slope 0.`],
+  [`x = ${N(k)}`,"Only x → up and down.",`Vertical line through ${fx(`(${N(k)}, 0)`)}. Slope undefined.`],
+  [`${a}x ${k*a<0?"+":"−"} ${Math.abs(k*a)} = 0`,`Solve first: ${fx(`x = ${N(k)}`)} → only x → up and down.`,`Vertical line through ${fx(`(${N(k)}, 0)`)}. Slope undefined.`],
+  [`f(x) = ${N(k)}`,"f(x) is y, so y = # → flat.",`Horizontal line through ${fx(`(0, ${N(k)})`)}. Slope 0.`]];const c=pick(T);
+  return["H",`Describe the graph of ${fx(c[0])} and give its slope.`,[c[1]],c[2]]},
+I(){const p=nz(-6,6),q=nz(-6,6);let A=q,B=p,C=-p*q;if(A<0){A=-A;B=-B;C=-C}const g=gcd(gcd(A,B),C);A/=g;B/=g;C/=g;
+  return["I",`Use intercepts to graph ${fx(eqStr(A,B,C))}.`,[`y = 0: ${fx(`${A===1?"":A}x ${sg(C)} ${Math.abs(C)} = 0 → x = ${N(p)}`)}`,`x = 0: ${fx(`${B<0?"−":""}${Math.abs(B)===1?"":Math.abs(B)}y ${sg(C)} ${Math.abs(C)} = 0 → y = ${N(q)}`)}`],`Plot ${fx(`(${N(p)}, 0)`)} and ${fx(`(0, ${N(q)})`)} and connect them.`]},
+J(){const B=pick([2,3,4,5,6]),A=nz(-9,9),k=nz(-6,6),C=B*k,mm=F(-A,B);
+  return["J",`Slope and y-intercept of ${fx(`${A<0?"−":""}${Math.abs(A)===1?"":Math.abs(A)}x + ${B}y = ${N(C)}`)}.`,[fx(`${B}y = ${poly([0,-A])} ${sg(C)} ${Math.abs(C)}`),`Divide every term by ${B}: ${fx(lin(mm,F(k)))}`],`Slope ${fs(mm)}, y-intercept ${N(k)}.`]},
+K(){const mm=pick([F(nz(-5,5)),F(1,rnd(2,5)),F(-1,rnd(2,5)),F(pick([2,3]),pick([3,5])),F(-pick([2,3]),pick([5,7]))]);
+  const par=Math.random()<0.4,nm=par?mm:F(-mm.d,mm.n),x1=nz(-5,5),y1=nz(-7,7),b=fsub(F(y1),fmul(nm,F(x1)));
+  const general=Math.random()<0.5,c0=nz(-9,9);let given,s1;
+  if(general){given=genForm(mm,0,c0);s1=`Solve the given line for y → slope ${fs(mm)}`}else{given=lin(mm,F(c0));s1=`Given slope: ${fs(mm)}`}
+  const s2=par?`Parallel → keep it: ${fs(nm)}`:`Perpendicular → flip it and change the sign: ${fs(nm)}`;
+  return["K",`Passing through ${fx(`(${N(x1)}, ${N(y1)})`)} and ${par?"parallel":"perpendicular"} to ${fx(given)}. Point-slope and ${general?"general":"slope-intercept"} form.`,
+   [s1,s2,fx(pointSlope(nm,x1,y1)),general?"Clear fractions, then send everything to x's side.":"Distribute, then get y alone."],
+   `${fx(pointSlope(nm,x1,y1))} and ${fx(general?genForm(nm,x1,y1):lin(nm,b))}`]},
+L(){const x1=nz(-5,5),y1=nz(-7,7);
+  if(Math.random()<0.35){const k=nz(-6,6);return["L",`f passes through ${fx(`(${N(x1)}, ${N(y1)})`)} and is perpendicular to ${fx(`x = ${N(k)}`)}. Find f(x).`,[`${fx(`x = ${N(k)}`)} is vertical → f is horizontal`,`Flat line through y = ${N(y1)}`],fx(`f(x) = ${N(y1)}`)]}
+  const a=nz(-6,6),bb=nz(-6,6),sl=F(-bb,a),nm=F(a,bb),b=fsub(F(y1),fmul(nm,F(x1)));
+  return["L",`f passes through ${fx(`(${N(x1)}, ${N(y1)})`)} and is perpendicular to the line with x-intercept ${N(a)} and y-intercept ${N(bb)}. Find f(x).`,
+   [`Points ${fx(`(${N(a)}, 0)`)} and ${fx(`(0, ${N(bb)})`)}: slope ${fx(`(${N(bb)} − 0)/(0 − ${P(a)}) = ${fs(sl)}`)}`,`Perpendicular → ${fs(nm)}`,fx(pointSlope(nm,x1,y1))],fx(lin(nm,b,"f(x)"))]},
+M(){const t=pick(["lin","quad","root"]);let f,x1,x2,v1,v2,label;
+  if(t==="lin"){const a=nz(-6,7);f=[0,a];label=poly(f)}
+  else if(t==="quad"){const b=nz(-5,5);f=[0,b,1];label=poly(f)}
+  if(t==="root"){const r1=rnd(0,3),r2=r1+rnd(1,3);x1=r1*r1;x2=r2*r2;v1=r1;v2=r2;label="√x"}
+  else{x1=rnd(-3,3);x2=x1+rnd(1,4);v1=peval(f,x1);v2=peval(f,x2)}
+  const rate=F(v2-v1,x2-x1);
+  return["M",`Average rate of change of ${fx(`f(x) = ${label}`)} from ${fx(`x₁ = ${N(x1)}`)} to ${fx(`x₂ = ${N(x2)}`)}.`,[`${fx(`f(${N(x2)}) = ${N(v2)}`)}, ${fx(`f(${N(x1)}) = ${N(v1)}`)}`,fx(`(${N(v2)} − ${P(v1)}) / (${N(x2)} − ${P(x1)}) = ${N(v2-v1)}/${N(x2-x1)}`)],fs(rate)]},
+N(){const t=rnd(1,7);
+  if(t===1){const a=nz(-6,6),b=nz(-9,9);return["N",`Domain of ${fx(`f(x) = ${poly([b,a])}`)}.`,["No fraction, no root."],fx("(−∞, ∞)")]}
+  if(t===2){let r1=nz(-6,6),r2;do{r2=nz(-6,6)}while(r2===r1||r2===-r1);const k=nz(1,9);
+    return["N",`Domain of ${fx(`g(x) = ${k}/(${poly([r1*r2,-(r1+r2),1])})`)}.`,[`Factor the bottom: ${fx(`(${xm(r1)})(${xm(r2)})`)}`,fx(`x ≠ ${N(r1)}, x ≠ ${N(r2)}`)],fx(intervalsExcluding([r1,r2]))]}
+  if(t===3){let r1=nz(-8,8),r2;do{r2=nz(-8,8)}while(r2===r1);
+    return["N",`Domain of ${fx(`f(x) = ${rnd(1,5)}/(${xm(r1)}) + ${rnd(1,5)}/(${xm(r2)})`)}.`,[fx(`x ≠ ${N(r1)}`),fx(`x ≠ ${N(r2)}`)],fx(intervalsExcluding([r1,r2]))]}
+  const k=nz(-8,8);
+  if(t===4)return["N",`Domain of ${fx(`f(x) = √(${xm(k)})`)}.`,[fx(`${xm(k)} ≥ 0 → x ≥ ${N(k)}`)],fx(`[${N(k)}, ∞)`)];
+  if(t===5)return["N",`Domain of ${fx(`g(x) = 1/√(${xm(k)})`)}.`,[`Root on the bottom → ${fx(`${xm(k)} > 0 → x > ${N(k)}`)}`],fx(`(${N(k)}, ∞)`)];
+  if(t===6){const a=rnd(2,5);return["N",`Domain of ${fx(`h(x) = √(${a}x ${k*a<0?"+":"−"} ${Math.abs(k*a)})`)}.`,[fx(`${a}x ${k*a<0?"+":"−"} ${Math.abs(k*a)} ≥ 0 → ${a}x ≥ ${N(k*a)} → x ≥ ${N(k)}`)],fx(`[${N(k)}, ∞)`)]}
+  return["N",`Domain of ${fx(`f(x) = √(${N(k)} − x)`)}.`,[fx(`${N(k)} − x ≥ 0 → x ≤ ${N(k)}`)],fx(`(−∞, ${N(k)}]`)]},
+O(){let f,g,quo,dom,stepQ;
+  if(Math.random()<0.5){const a=nz(-6,6),b=nz(-4,4);f=[a,1];g=[0,0,b];quo=`(${poly(f)})/(${poly(g)})`;dom="(−∞, 0) ∪ (0, ∞)";stepQ=`${fx(`f/g = (${poly(f)})/(${poly(g)})`)}: the bottom is 0 when x = 0`}
+  else{let r=nz(-5,5),s;do{s=nz(-5,5)}while(s===r);f=pmul([-r,1],[-s,1]);g=[-s,1];quo=poly([-r,1]);dom=intervalsExcluding([s]);stepQ=`${fx(`f/g = (${xm(r)})(${xm(s)})/(${xm(s)})`)}: cancel, but keep x ≠ ${N(s)}`}
+  return["O",`${fx(`f(x) = ${poly(f)}`)}, ${fx(`g(x) = ${poly(g)}`)}. Find f + g, f − g, fg, f/g and the domain of f/g.`,
+   [`${fx(`f + g = ${poly(padd(f,g))}`)}`,`f − g: change every sign of g → ${fx(poly(psub(f,g)))}`,`fg: multiply every term by every term`,stepQ],
+   `${fx(poly(padd(f,g)))} · ${fx(poly(psub(f,g)))} · ${fx(poly(pmul(f,g)))} · ${fx(quo)}. Domain of f/g: ${fx(dom)} (the first three are all real numbers)`]},
+P(){const t=rnd(1,3);
+  if(t===1){const a=rnd(1,6),c=nz(-5,5),ex=F(-1,c);
+    return["P",`${fx(`f(x) = ${a}/(${xm(-c)})`)}, ${fx("g(x) = 1/x")}. Find a. ${fx("(f∘g)(x)")} b. the domain of ${fx("f∘g")}.`,
+     [`Check 1: g needs ${fx("x ≠ 0")}`,`Check 2: f can't take ${N(-c)} → ${fx(`1/x ≠ ${N(-c)} → x ≠ ${fs(ex)}`)}`,`${fx(`${a}/(1/x ${sg(c)} ${Math.abs(c)})`)}, multiply top and bottom by x`],
+     `a. ${fx(`${a===1?"":a}x/(${poly([1,c])})`)} · b. ${fx(`x ≠ 0, x ≠ ${fs(ex)}`)}`]}
+  const k=nz(-6,6),d=nz(-6,6);
+  if(t===2)return["P",`${fx(`f(x) = ${poly([k,0,1])}`)}, ${fx(`g(x) = √(${N(d)} − x)`)}. Find a. ${fx("(f∘g)(x)")} b. the domain of ${fx("f∘g")}.`,
+     [fx(`f(g(x)) = (√(${N(d)} − x))² ${sg(k)} ${Math.abs(k)} = ${N(d)} − x ${sg(k)} ${Math.abs(k)}`),`g needs ${fx(`${N(d)} − x ≥ 0 → x ≤ ${N(d)}`)}`],`a. ${fx(poly([d+k,-1]))} · b. ${fx(`(−∞, ${N(d)}]`)}`];
+  return["P",`${fx(`f(x) = ${poly([k,0,1])}`)}, ${fx(`g(x) = √(${xm(d)})`)}. Find a. ${fx("(f∘g)(x)")} b. the domain of ${fx("f∘g")}.`,
+     [fx(`f(g(x)) = (√(${xm(d)}))² ${sg(k)} ${Math.abs(k)} = ${xm(d)} ${sg(k)} ${Math.abs(k)}`),`g needs ${fx(`${xm(d)} ≥ 0 → x ≥ ${N(d)}`)}`],`a. ${fx(poly([k-d,1]))} · b. ${fx(`[${N(d)}, ∞)`)}`]},
+Q(){const x1=nz(-5,5),y1=nz(-8,8);
+  if(Math.random()<0.3){const B=pick([2,3,4]),A=nz(-6,6),k=nz(-6,6);
+    return["Q",`What is the y-intercept of ${fx(`${A<0?"−":""}${Math.abs(A)===1?"":Math.abs(A)}x + ${B}y ${sg(-B*k)} ${Math.abs(B*k)} = 0`)}?`,[fx(`${B}y = ${poly([0,-A])} ${sg(B*k)} ${Math.abs(B*k)}`),`Divide by ${B}: ${fx(lin(F(-A,B),F(k)))}`],fx(`b = ${N(k)}`)]}
+  const mm=pick([F(nz(-5,5)),F(nz(-3,3)*2-1,2),F(nz(-4,4),3)]),b=fsub(F(y1),fmul(mm,F(x1))),prod=fmul(mm,F(x1));
+  return["Q",`One point on a line is ${fx(`(${N(x1)}, ${N(y1)})`)} and the slope is ${fs(mm)}. Find the y-intercept.`,
+   [`Plug into ${fx("y = mx + b")}: ${fx(`${N(y1)} = ${mpar(mm)}(${N(x1)}) + b`)}`,fx(`${N(y1)} = ${fs(prod)} + b`),`Move ${fs(prod)} to the other side (flip its sign).`],`${fx(`b = ${fs(b)}`)}, the point ${fx(`(0, ${fs(b)})`)}`]}
+};
+function eqStr(A,B,C){const t=[[A,"x"],[B,"y"],[C,""]].filter(z=>z[0]);return t.map(([c,v],k)=>{const ab=Math.abs(c),s=(ab===1&&v?"":ab)+v;return k===0?(c<0?"−":"")+s:` ${c<0?"−":"+"} ${s}`}).join("")+" = 0"}
+
+function newRandomTest(){const keys=Object.keys(GEN);const extra=shuffle(["C","D","K","N","P","Q","E","G"]).slice(0,5);
+  return shuffle([...keys,...extra]).map(k=>GEN[k]())}
+const renderRandom=makeQuiz({q:"rquestions",sum:"rsummary",sc:"rsc",graded:"rgraded",left:"rleft"},newRandomTest);
+document.getElementById("rnew").onclick=()=>{renderRandom();window.scrollTo({top:0})};
+renderRandom();
+/* final quiz: 12 multi-part questions, a notch above homework, all from 1.2–1.7 */
+const FINAL=[
+ ["C",`${m("f(x) = x² − 4x + 1")}. Find and simplify:<br>a. ${m("f(−3)")} &nbsp; b. ${m("f(x − 2)")} &nbsp; c. ${m("f(−x)")}`,
+  [`a. ${m("(−3)² − 4(−3) + 1 = 9 + 12 + 1")}`,`b. ${m("(x − 2)² − 4(x − 2) + 1")}`,`&nbsp;&nbsp;&nbsp;FOIL: ${m("(x − 2)² = x² − 4x + 4")}`,`&nbsp;&nbsp;&nbsp;${m("x² − 4x + 4 − 4x + 8 + 1")}`,`c. ${m("(−x)² − 4(−x) + 1")}`],
+  `a. 22 · b. ${m("x² − 8x + 13")} · c. ${m("x² + 4x + 1")}`],
+ ["B",`Function or not? For a–d, does the equation define y as a function of x?<br>a. ${m("3x − y² = 6")} &nbsp; b. ${m("x² − y = 4")} &nbsp; c. ${m("y³ − x = 2")} &nbsp; d. ${m("|y| + x = 1")}<br>e. Is ${m("{(2, 3), (−1, 3), (2, −4)}")} a function? Give the domain and range.`,
+  [`a. ${m("y² = 3x − 6 → y = ±√(3x − 6)")} → ±`,`b. ${m("y = x² − 4")} → no ±`,`c. ${m("y³ = x + 2 → y = ∛(x + 2)")} → odd root, one answer`,`d. ${m("|y| = 1 − x → y = ±(1 − x)")} → ±`,`e. 2 goes to 3 and to −4`],
+  `a. No · b. Yes · c. Yes · d. No · e. Not a function. Domain ${m("{−1, 2}")}, Range ${m("{−4, 3}")}`],
+ ["C",`${m("f(r) = √(20 − r) + 3")}. Find:<br>a. ${m("f(−5)")} &nbsp; b. ${m("f(11)")} &nbsp; c. ${m("f(20 − 4x)")}`,
+  [`a. ${m("√(20 + 5) + 3 = √25 + 3")}`,`b. ${m("√(20 − 11) + 3 = √9 + 3")}`,`c. ${m("√(20 − (20 − 4x)) + 3 = √(20 − 20 + 4x) + 3 = √(4x) + 3")}`,`&nbsp;&nbsp;&nbsp;${m("√(4x) = √4 · √x = 2√x")}`],
+  `a. 8 · b. 6 · c. ${m("2√x + 3")}`],
+ ["D",`Determine whether each graph is symmetric to the y-axis, the x-axis, the origin, more than one, or none.<br>a. ${m("y = x⁴ − 2x² + 1")} &nbsp; b. ${m("x² − y² = 9")} &nbsp; c. ${m("y = x³ − 3x")}`,
+  [`a. x → −x: every power of x is even → same ✔ · y → −y: ✘ · both: ✘`,`b. x → −x ✔ · y → −y ✔ · both ✔ (only even powers on both letters)`,`c. x → −x: ${m("y = −x³ + 3x")} ✘ · y → −y ✘`,`&nbsp;&nbsp;&nbsp;both: ${m("−y = −x³ + 3x")} → times −1 → ${m("y = x³ − 3x")} ✔`],
+  `a. y-axis only · b. y-axis, x-axis, and origin · c. origin only`],
+ ["E",`Even, odd, or neither? Show ${m("f(−x)")} for each, then name the symmetry.<br>a. ${m("f(x) = x⁴ − 5x² + 2")} &nbsp; b. ${m("g(x) = 3x⁵ − x³")} &nbsp; c. ${m("h(x) = x³ − x²")}`,
+  [`a. ${m("f(−x) = x⁴ − 5x² + 2")}: nothing changed`,`b. ${m("g(−x) = −3x⁵ + x³ = −(3x⁵ − x³)")}: every sign flipped`,`c. ${m("h(−x) = −x³ − x²")}: the x³ flipped, the x² didn't`],
+  `a. Even, y-axis · b. Odd, origin · c. Neither, no symmetry`],
+ ["G",`A line passes through ${m("(−4, 7)")} and ${m("(2, −5)")}.<br>a. Find the slope. Does it rise or fall? &nbsp; b. Write it in point-slope form. &nbsp; c. Write it in slope-intercept form.`,
+  [`a. ${m("m = (−5 − 7)/(2 − (−4)) = −12/6 = −2")} → negative`,`b. Use (−4, 7): ${m("y − 7 = −2(x − (−4))")}`,`c. ${m("y − 7 = −2x − 8")} → add 7`],
+  `a. −2, falls · b. ${m("y − 7 = −2(x + 4)")} · c. ${m("y = −2x − 1")}`],
+ ["I",`For the line ${m("6x − 4y + 24 = 0")}:<br>a. Find the x- and y-intercepts. &nbsp; b. Find the slope and y-intercept by solving for y. &nbsp; c. Write the equation of the line through ${m("(5, −2)")} with an undefined slope.`,
+  [`a. y = 0: ${m("6x + 24 = 0 → x = −4")} · x = 0: ${m("−4y + 24 = 0 → y = 6")}`,`b. ${m("−4y = −6x − 24")} → divide by −4 → ${m("y = (3/2)x + 6")}`,`c. Undefined slope → vertical → only x`],
+  `a. ${m("(−4, 0)")} and ${m("(0, 6)")} · b. slope 3/2, y-intercept 6 · c. ${m("x = 5")}`],
+ ["K",`Write the line passing through ${m("(6, −1)")} and perpendicular to ${m("3x − 2y + 8 = 0")} in<br>a. point-slope form &nbsp; b. general form.`,
+  [`Given line: ${m("−2y = −3x − 8 → y = (3/2)x + 4")} → slope 3/2`,`Perpendicular: flip and change sign → −2/3`,`a. ${m("y − (−1) = (−2/3)(x − 6)")}`,`b. Multiply by 3: ${m("3y + 3 = −2(x − 6) = −2x + 12")}`,`&nbsp;&nbsp;&nbsp;Send everything to x's side: ${m("2x + 3y + 3 − 12 = 0")}`,`Check (6, −1): ${m("12 − 3 − 9 = 0")} ✔`],
+  `a. ${m("y + 1 = (−2/3)(x − 6)")} · b. ${m("2x + 3y − 9 = 0")}`],
+ ["L",`Write f(x) in slope-intercept form.<br>a. The graph of f passes through ${m("(−2, 5)")} and is perpendicular to the line with x-intercept 4 and y-intercept −2.<br>b. The graph of f is perpendicular to ${m("4x − 2y − 6 = 0")} and has the same y-intercept as that line.`,
+  [`a. Points ${m("(4, 0)")} and ${m("(0, −2)")}: slope ${m("(−2 − 0)/(0 − 4) = 1/2")} → perpendicular −2`,`&nbsp;&nbsp;&nbsp;${m("y − 5 = −2(x + 2) → y − 5 = −2x − 4")}`,`b. Solve the line: ${m("−2y = −4x + 6 → y = 2x − 3")} → slope 2, b = −3`,`&nbsp;&nbsp;&nbsp;Perpendicular slope −1/2, keep b = −3`],
+  `a. ${m("f(x) = −2x + 1")} · b. ${m("f(x) = −(1/2)x − 3")}`],
+ ["M",`a. Find the average rate of change of ${m("f(x) = x² − 3x + 2")} from ${m("x₁ = −1")} to ${m("x₂ = 3")}.<br>b. A line has slope −2/3 and passes through ${m("(3, −4)")}. Find its y-intercept.`,
+  [`a. ${m("f(3) = 9 − 9 + 2 = 2")} · ${m("f(−1) = 1 + 3 + 2 = 6")}`,`&nbsp;&nbsp;&nbsp;${m("(2 − 6)/(3 − (−1)) = −4/4")}`,`b. ${m("y = mx + b → −4 = (−2/3)(3) + b")}`,`&nbsp;&nbsp;&nbsp;${m("−4 = −2 + b")} → add 2`],
+  `a. −1 · b. ${m("b = −2")}, the point ${m("(0, −2)")}`],
+ ["N",`Find the domain of each function. Use interval notation.<br>a. ${m("f(x) = (x + 1)/(x² − 4x − 12)")} &nbsp; b. ${m("g(x) = √(2x + 10)/(x − 1)")} &nbsp; c. ${m("h(x) = 3/√(8 − 2x)")}`,
+  [`a. Factor: ${m("(x − 6)(x + 2)")} → ${m("x ≠ 6, x ≠ −2")}`,`b. Root: ${m("2x + 10 ≥ 0 → x ≥ −5")} · Bottom: ${m("x ≠ 1")}`,`c. Root on the bottom: ${m("8 − 2x > 0 → −2x > −8")}`,`&nbsp;&nbsp;&nbsp;Divide by −2 and <b>flip the sign</b>: ${m("x < 4")}`],
+  `a. ${m("(−∞, −2) ∪ (−2, 6) ∪ (6, ∞)")} · b. ${m("[−5, 1) ∪ (1, ∞)")} · c. ${m("(−∞, 4)")}`],
+ ["P",`Let ${m("f(x) = x² − 9")} and ${m("g(x) = x + 3")}.<br>a. Find ${m("f − g")}. &nbsp; b. Find ${m("f/g")} and its domain. &nbsp; c. Find ${m("(f∘g)(x)")}.<br>d. Now let ${m("F(x) = 4/(x − 1)")} and ${m("G(x) = 2/x")}. Find ${m("(F∘G)(x)")} and the domain of ${m("F∘G")}.`,
+  [`a. ${m("x² − 9 − (x + 3) = x² − 9 − x − 3")}`,`b. ${m("(x − 3)(x + 3)/(x + 3) = x − 3")}, but g(−3) = 0, so keep ${m("x ≠ −3")}`,`c. ${m("f(g(x)) = (x + 3)² − 9 = x² + 6x + 9 − 9")}`,`d. Check 1: G needs ${m("x ≠ 0")} · Check 2: F can't take 1 → ${m("2/x ≠ 1 → x ≠ 2")}`,`&nbsp;&nbsp;&nbsp;${m("4/(2/x − 1)")}, multiply top and bottom by x → ${m("4x/(2 − x)")}`],
+  `a. ${m("x² − x − 12")} · b. ${m("x − 3")}, domain ${m("(−∞, −3) ∪ (−3, ∞)")} · c. ${m("x² + 6x")} · d. ${m("4x/(2 − x)")}, domain ${m("x ≠ 0, x ≠ 2")}`]
+];
+const renderFinal=makeQuiz({q:"fquestions",sum:"fsummary",sc:"fsc",graded:"fgraded",left:"fleft"},()=>FINAL);
+document.getElementById("freset").onclick=()=>{renderFinal();window.scrollTo({top:0})};
+renderFinal();
+
+/* retry set for final quiz 7–12: same types, new numbers */
+const RETRY=[
+ ["I",`For the line ${m("4x − 6y + 12 = 0")}:<br>a. Find the x- and y-intercepts. &nbsp; b. Find the slope and y-intercept by solving for y. &nbsp; c. Write the equation of the line through ${m("(−3, 4)")} with a slope of 0.`,
+  [`a. Cover-up. y = 0: ${m("4x + 12 = 0 → 4x = −12 → x = −3")}`,`&nbsp;&nbsp;&nbsp;x = 0: ${m("−6y + 12 = 0 → −6y = −12 → y = 2")}`,`b. Move the x-term and the number: ${m("−6y = −4x − 12")}`,`&nbsp;&nbsp;&nbsp;Divide <b>every</b> term by −6: ${m("y = (4/6)x + 2 = (2/3)x + 2")}`,`c. Slope 0 → horizontal (flat) → only y, and the y stays at the point's y`],
+  `a. ${m("(−3, 0)")} and ${m("(0, 2)")} · b. slope 2/3, y-intercept 2 · c. ${m("y = 4")}`],
+ ["K",`Write the line passing through ${m("(−2, 3)")} and perpendicular to ${m("2x − 5y + 10 = 0")} in<br>a. point-slope form &nbsp; b. general form.`,
+  [`Step 1, slope of the given line. Solve for y: ${m("−5y = −2x − 10 → y = (2/5)x + 2")} → slope 2/5`,`Step 2, perpendicular: flip it AND change the sign → ${m("−5/2")}`,`a. Plug the point and new slope into ${m("y − y₁ = m(x − x₁)")}: ${m("y − 3 = (−5/2)(x − (−2))")}`,`b. Clear the fraction by multiplying everything by 2: ${m("2y − 6 = −5(x + 2) = −5x − 10")}`,`&nbsp;&nbsp;&nbsp;The x-term is −5x on the right, so send everything LEFT (x becomes +5x): ${m("5x + 2y − 6 + 10 = 0")}`,`Check (−2, 3): ${m("5(−2) + 2(3) + 4 = −10 + 6 + 4 = 0")} ✔`],
+  `a. ${m("y − 3 = (−5/2)(x + 2)")} · b. ${m("5x + 2y + 4 = 0")}`],
+ ["L",`Write f(x) in slope-intercept form.<br>a. The graph of f passes through ${m("(3, −1)")} and is perpendicular to the line with x-intercept −6 and y-intercept 2.<br>b. The graph of f is perpendicular to ${m("3x + y − 5 = 0")} and has the same y-intercept as that line.`,
+  [`a. Intercepts → points: x-int −6 → ${m("(−6, 0)")}, y-int 2 → ${m("(0, 2)")}`,`&nbsp;&nbsp;&nbsp;Slope: ${m("(2 − 0)/(0 − (−6)) = 2/6 = 1/3")} → perpendicular: ${m("−3")}`,`&nbsp;&nbsp;&nbsp;${m("y − (−1) = −3(x − 3) → y + 1 = −3x + 9")} → subtract 1`,`b. Solve the given line for y: ${m("y = −3x + 5")} → slope −3, b = 5`,`&nbsp;&nbsp;&nbsp;Perpendicular slope: flip −3/1 → 1/3 and change sign → ${m("1/3")}. Keep b = 5`],
+  `a. ${m("f(x) = −3x + 8")} · b. ${m("f(x) = (1/3)x + 5")}`],
+ ["M",`a. Find the average rate of change of ${m("f(x) = x² + 2x − 1")} from ${m("x₁ = −3")} to ${m("x₂ = 2")}.<br>b. A line has slope 3/4 and passes through ${m("(8, −1)")}. Find its y-intercept.`,
+  [`a. Plug in both x's. ${m("f(2) = (2)² + 2(2) − 1 = 4 + 4 − 1 = 7")}`,`&nbsp;&nbsp;&nbsp;${m("f(−3) = (−3)² + 2(−3) − 1 = 9 − 6 − 1 = 2")}`,`&nbsp;&nbsp;&nbsp;${m("(7 − 2)/(2 − (−3)) = 5/5")}`,`b. ${m("y = mx + b → −1 = (3/4)(8) + b")}`,`&nbsp;&nbsp;&nbsp;Multiply first: ${m("(3/4)(8) = 6 → −1 = 6 + b")}`,`&nbsp;&nbsp;&nbsp;+6 is next to b, so subtract 6: ${m("−1 − 6 = b")}`],
+  `a. 1 · b. ${m("b = −7")}, the point ${m("(0, −7)")}`],
+ ["N",`Find the domain of each function. Use interval notation.<br>a. ${m("f(x) = (x − 3)/(x² + 2x − 15)")} &nbsp; b. ${m("g(x) = √(3x − 6)/(x − 5)")} &nbsp; c. ${m("h(x) = 7/√(6 − 2x)")}`,
+  [`a. Factor the bottom: ${m("(x + 5)(x − 3)")} → ${m("x ≠ −5, x ≠ 3")}. Don't cancel the (x − 3) first!`,`&nbsp;&nbsp;&nbsp;Holes at −5 and 3 → 3 pieces`,`b. Root on top: ${m("3x − 6 ≥ 0 → 3x ≥ 6 → x ≥ 2")} (bracket) · bottom: ${m("x ≠ 5")}`,`&nbsp;&nbsp;&nbsp;Start at 2, skip 5`,`c. Root on the bottom → strictly greater: ${m("6 − 2x > 0 → −2x > −6")}`,`&nbsp;&nbsp;&nbsp;Divide by −2 → <b>flip the sign</b>: ${m("x < 3")}`],
+  `a. ${m("(−∞, −5) ∪ (−5, 3) ∪ (3, ∞)")} · b. ${m("[2, 5) ∪ (5, ∞)")} · c. ${m("(−∞, 3)")}`],
+ ["P",`Let ${m("f(x) = x² − 16")} and ${m("g(x) = x + 4")}.<br>a. Find ${m("f − g")}. &nbsp; b. Find ${m("f/g")} and its domain. &nbsp; c. Find ${m("(f∘g)(x)")}.<br>d. Now let ${m("F(x) = 6/(x + 2)")} and ${m("G(x) = 3/x")}. Find ${m("(F∘G)(x)")} and the domain of ${m("F∘G")}.`,
+  [`a. Put g in parentheses and change every sign: ${m("x² − 16 − (x + 4) = x² − 16 − x − 4")}`,`b. Factor the top: ${m("(x − 4)(x + 4)/(x + 4) = x − 4")}. But g(−4) = 0, so x ≠ −4 stays`,`c. Put all of g into f: ${m("f(g(x)) = (x + 4)² − 16 = x² + 8x + 16 − 16")}`,`d. Check 1: G needs ${m("x ≠ 0")}`,`&nbsp;&nbsp;&nbsp;Check 2: F breaks at −2, so ${m("G(x) ≠ −2 → 3/x ≠ −2 → x ≠ −3/2")}`,`&nbsp;&nbsp;&nbsp;${m("F(G(x)) = 6/(3/x + 2)")}, multiply top and bottom by x → ${m("6x/(3 + 2x)")}`],
+  `a. ${m("x² − x − 20")} · b. ${m("x − 4")}, domain ${m("(−∞, −4) ∪ (−4, ∞)")} · c. ${m("x² + 8x")} · d. ${m("6x/(2x + 3)")}, domain ${m("x ≠ 0, x ≠ −3/2")}`]
+];
+const renderRetry=makeQuiz({q:"r2questions",sum:"r2summary",sc:"r2sc",graded:"r2graded",left:"r2left"},()=>RETRY);
+document.getElementById("r2reset").onclick=()=>{renderRetry();document.getElementById("retry").scrollIntoView()};
+renderRetry();
+
+/* quiz #2: 12 questions, each with a decode hint (p[4]) that names the type and the first move */
+const kw=s=>`<b class="kw">${s}</b>`;
+const hint=(type,words,moves)=>`<div class="label">This is: ${type}</div><div>Key words: ${words}</div><ul>${moves.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+const Q2=[
+ ["C",`${m("f(x) = 2x² − x + 3")}. Evaluate and simplify:<br>a. ${m("f(−2)")} &nbsp; b. ${m("f(x + 1)")} &nbsp; c. ${m("f(−x)")}`,
+  [`a. ${m("2(−2)² − (−2) + 3 = 2(4) + 2 + 3")}`,`b. ${m("2(x + 1)² − (x + 1) + 3")}`,`&nbsp;&nbsp;&nbsp;FOIL first: ${m("(x + 1)² = x² + 2x + 1")} → ${m("2x² + 4x + 2 − x − 1 + 3")}`,`c. ${m("2(−x)² − (−x) + 3")}`],
+  `a. 13 · b. ${m("2x² + 3x + 4")} · c. ${m("2x² + x + 3")}`,
+  hint("Plug in (C)",`${kw("evaluate")}, f( )`,["Rewrite f with empty ( ) for every x.","Put the thing in the ( ) into every spot.","FOIL squares BEFORE multiplying by the 2 in front.","Combine like terms."])],
+ ["B",`a–d: Does each equation define y as a function of x?<br>a. ${m("x² + 4y = 8")} &nbsp; b. ${m("x² + y² = 1")} &nbsp; c. ${m("x = |y|")} &nbsp; d. ${m("y = −√(x − 1)")}<br>e. Is ${m("{(0, 2), (1, 2), (2, 2)}")} a function? Give the domain and range.`,
+  [`a. ${m("4y = 8 − x² → y = (8 − x²)/4")} → no ±`,`b. ${m("y = ±√(1 − x²)")} → ±`,`c. ${m("|y| = x → y = ±x")} → ±`,`d. A plain minus, not a ±`,`e. No x repeats. The same y three times is fine.`],
+  `a. Yes · b. No · c. No · d. Yes · e. Function. Domain ${m("{0, 1, 2}")}, Range ${m("{2}")}`,
+  hint("Function or not (A, B)",`${kw("defines y as a function of x")}, a list of points`,["Equation: get y alone. Any ± → NOT a function.","y², y⁴, |y| make a ±. y³ and anything on x are fine.","Points: does any FIRST number repeat with a different y?"])],
+ ["C",`${m("f(r) = √(r + 9) − 4")}. Find:<br>a. ${m("f(7)")} &nbsp; b. ${m("f(−9)")} &nbsp; c. ${m("f(9x − 9)")}`,
+  [`a. ${m("√(7 + 9) − 4 = √16 − 4")}`,`b. ${m("√(−9 + 9) − 4 = √0 − 4")}`,`c. ${m("√(9x − 9 + 9) − 4 = √(9x) − 4")}`,`&nbsp;&nbsp;&nbsp;${m("√(9x) = √9 · √x = 3√x")}`],
+  `a. 0 · b. −4 · c. ${m("3√x − 4")}`,
+  hint("Plug in (C)",`f( ), a square root`,["The letter is r, but same idea: put what's in ( ) wherever r is.","Simplify inside the root first.","√(9x) splits into √9 · √x."])],
+ ["D",`Is each graph symmetric to the y-axis, the x-axis, the origin, more than one, or none?<br>a. ${m("y = 2x² − 5")} &nbsp; b. ${m("x² + 9y² = 36")} &nbsp; c. ${m("y = 4x³")}`,
+  [`a. x → −x: same ✔ · y → −y: ✘ · both: ✘`,`b. Only even powers on both letters → all three ✔`,`c. x → −x: ${m("y = −4x³")} ✘ · y → −y: ✘ · both: ${m("−y = −4x³ → y = 4x³")} ✔`],
+  `a. y-axis only · b. y-axis, x-axis, and origin · c. origin only`,
+  hint("Symmetry (D)",`${kw("symmetric")} + an equation with x and y`,["Do 3 tests and write down each result.","y-axis: swap x for −x. x-axis: swap y for −y. Origin: swap both.","Same equation back → that symmetry passes."])],
+ ["E",`Even, odd, or neither? Show f(−x) and name the symmetry.<br>a. ${m("f(x) = 2x⁶ − x²")} &nbsp; b. ${m("g(x) = x⁵ + x³ − x")} &nbsp; c. ${m("h(x) = x³ + 4")}`,
+  [`a. ${m("f(−x) = 2x⁶ − x²")}: nothing changed`,`b. ${m("g(−x) = −x⁵ − x³ + x")}: every sign flipped`,`c. ${m("h(−x) = −x³ + 4")}: the x³ flipped, the 4 didn't`],
+  `a. Even, y-axis · b. Odd, origin · c. Neither, no symmetry`,
+  hint("Even / odd (E)",`${kw("even, odd, or neither")}`,["Find f(−x): put (−x) everywhere.","Nothing changed → even. Every sign flipped → odd. Mixed → neither.","A plain number never flips."])],
+ ["G",`A line passes through ${m("(−1, −6)")} and ${m("(3, 2)")}.<br>a. Find the slope. Rises or falls? &nbsp; b. Point-slope form. &nbsp; c. Slope-intercept form.`,
+  [`a. ${m("(2 − (−6))/(3 − (−1)) = 8/4 = 2")} → positive`,`b. Use (3, 2): ${m("y − 2 = 2(x − 3)")}`,`c. ${m("y − 2 = 2x − 6")} → add 2`],
+  `a. 2, rises · b. ${m("y − 2 = 2(x − 3)")} (or ${m("y + 6 = 2(x + 1)")}) · c. ${m("y = 2x − 4")}`,
+  hint("Line from two points (F, G)",`${kw("passes through")} ___ ${kw("and")} ___`,["Two points → slope formula: (y₂ − y₁)/(x₂ − x₁).","Pick either point and plug into y − y₁ = m(x − x₁).","Distribute, then get y alone for slope-intercept."])],
+ ["I",`For the line ${m("3x + 5y − 15 = 0")}:<br>a. Find the x- and y-intercepts. &nbsp; b. Find the slope and y-intercept. &nbsp; c. Write the line through ${m("(−2, 6)")} with slope 0, and the line through ${m("(−2, 6)")} with an undefined slope.`,
+  [`a. y = 0: ${m("3x − 15 = 0 → x = 5")} · x = 0: ${m("5y − 15 = 0 → y = 3")}`,`b. ${m("5y = −3x + 15")} → divide every term by 5 → ${m("y = −(3/5)x + 3")}`,`c. Slope 0 → flat → keep the y. Undefined → up and down → keep the x.`],
+  `a. ${m("(5, 0)")} and ${m("(0, 3)")} · b. slope −3/5, y-intercept 3 · c. ${m("y = 6")} and ${m("x = −2")}`,
+  hint("Intercepts, slope, special lines (I, J, H)",`${kw("intercepts")}, ${kw("slope and y-intercept")}, ${kw("slope 0")}, ${kw("undefined slope")}`,["Intercepts: set y = 0 → x-intercept. Set x = 0 → y-intercept.","Slope and y-intercept: solve the whole line for y.","Slope 0 → y = the point's y. Undefined → x = the point's x."])],
+ ["K",`A line passes through ${m("(4, −3)")}.<br>a. If it is parallel to ${m("2x − 3y + 6 = 0")}, write it in point-slope and general form.<br>b. If it is perpendicular to ${m("2x − 3y + 6 = 0")}, write it in slope-intercept form.`,
+  [`Given line → solve for y: ${m("−3y = −2x − 6 → y = (2/3)x + 2")} → slope 2/3`,`a. Parallel keeps it: 2/3 → ${m("y + 3 = (2/3)(x − 4)")}`,`&nbsp;&nbsp;&nbsp;×3: ${m("3y + 9 = 2x − 8")} → x is +2x on the right, send everything RIGHT: ${m("0 = 2x − 3y − 8 − 9")}`,`b. Perpendicular: flip and change sign → −3/2 → ${m("y + 3 = (−3/2)(x − 4) = −(3/2)x + 6")} → subtract 3`],
+  `a. ${m("y + 3 = (2/3)(x − 4)")} and ${m("2x − 3y − 17 = 0")} · b. ${m("y = −(3/2)x + 3")}`,
+  hint("Parallel / perpendicular (K)",`${kw("parallel to")}, ${kw("perpendicular to")}, ${kw("general form")}`,["Get the given line's slope by solving it for y.","Parallel = same slope. Perpendicular = flip it and change the sign.","Point + new slope → point-slope, then convert to the form they ask for."])],
+ ["L",`Find f(x) in slope-intercept form.<br>a. f passes through ${m("(−1, 4)")} and is perpendicular to ${m("x = 7")}.<br>b. f passes through ${m("(2, −3)")} and is perpendicular to the line with x-intercept 6 and y-intercept 3.<br>c. f is perpendicular to ${m("x − 4y + 8 = 0")} and has the same y-intercept as that line.`,
+  [`a. ${m("x = 7")} is vertical → f is flat through y = 4`,`b. Points ${m("(6, 0)")}, ${m("(0, 3)")}: slope ${m("(3 − 0)/(0 − 6) = −1/2")} → perpendicular 2`,`&nbsp;&nbsp;&nbsp;${m("y + 3 = 2(x − 2) → y + 3 = 2x − 4")} → subtract 3`,`c. ${m("−4y = −x − 8 → y = (1/4)x + 2")} → slope 1/4, b = 2`,`&nbsp;&nbsp;&nbsp;Perpendicular slope −4, keep b = 2`],
+  `a. ${m("f(x) = 4")} · b. ${m("f(x) = 2x − 7")} · c. ${m("f(x) = −4x + 2")}`,
+  hint("Line from clues (L)",`${kw("x-intercept")} / ${kw("y-intercept")}, ${kw("same y-intercept")}, ${kw("perpendicular to x = #")}`,["x-int a, y-int b → points (a, 0) and (0, b) → slope.","\"Same y-intercept\" → solve that line for y and reuse its b.","Perpendicular to a vertical line → flat line, f(x) = #."])],
+ ["M",`a. Average rate of change of ${m("f(x) = x² − 4x")} from ${m("x₁ = 1")} to ${m("x₂ = 5")}.<br>b. Average rate of change of ${m("f(x) = √x")} from ${m("x₁ = 4")} to ${m("x₂ = 9")}.<br>c. A line has slope −1/2 and passes through ${m("(−6, 1)")}. Find its y-intercept.`,
+  [`a. ${m("f(5) = 25 − 20 = 5")} · ${m("f(1) = 1 − 4 = −3")} → ${m("(5 − (−3))/(5 − 1) = 8/4")}`,`b. ${m("f(9) = 3")} · ${m("f(4) = 2")} → ${m("(3 − 2)/(9 − 4)")}`,`c. ${m("1 = (−1/2)(−6) + b → 1 = 3 + b")} → subtract 3`],
+  `a. 2 · b. 1/5 · c. ${m("b = −2")}`,
+  hint("Rate of change + find b (M, Q)",`${kw("average rate of change from")} ___ ${kw("to")} ___, ${kw("find the y-intercept")}`,["Rate: plug BOTH x's into f, then (second output − first output) ÷ (second x − first x).","y-intercept: write y = mx + b, plug in m and the point, multiply, then solve for b."])],
+ ["N",`Find the domain. Use interval notation.<br>a. ${m("f(x) = (x + 4)/(x² − x − 20)")} &nbsp; b. ${m("g(x) = √(x + 6)/(x + 1)")}<br>c. ${m("h(x) = 2/√(10 − 5x)")} &nbsp; d. ${m("k(x) = 1/(x² + 9)")}`,
+  [`a. ${m("x² − x − 20 = (x − 5)(x + 4)")} → ${m("x ≠ 5, x ≠ −4")} (don't cancel first)`,`b. ${m("x + 6 ≥ 0 → x ≥ −6")} · ${m("x ≠ −1")}`,`c. ${m("10 − 5x > 0 → −5x > −10")} → divide by −5, flip → ${m("x < 2")}`,`d. ${m("x² + 9")} is never 0 → no restriction`],
+  `a. ${m("(−∞, −4) ∪ (−4, 5) ∪ (5, ∞)")} · b. ${m("[−6, −1) ∪ (−1, ∞)")} · c. ${m("(−∞, 2)")} · d. ${m("(−∞, ∞)")}`,
+  hint("Domain (N)",`${kw("domain")}`,["Fraction: bottom ≠ 0. Factor it and DON'T cancel first.","√ on top: inside ≥ 0 → bracket [ ].","√ on the bottom: inside > 0 → parenthesis ( ).","Dividing by a negative flips the < or >."])],
+ ["P",`Let ${m("f(x) = x² − 25")} and ${m("g(x) = x − 5")}.<br>a. ${m("f − g")} &nbsp; b. ${m("fg")} &nbsp; c. ${m("f/g")} and its domain &nbsp; d. ${m("(f∘g)(x)")}<br>e. Let ${m("F(x) = 2/(x − 3)")} and ${m("G(x) = 1/x")}. Find ${m("(F∘G)(x)")} and the domain of ${m("F∘G")}.`,
+  [`a. ${m("x² − 25 − (x − 5) = x² − 25 − x + 5")}`,`b. ${m("(x² − 25)(x − 5) = x³ − 5x² − 25x + 125")}`,`c. ${m("(x − 5)(x + 5)/(x − 5) = x + 5")}, but g(5) = 0 → x ≠ 5`,`d. ${m("f(g(x)) = (x − 5)² − 25 = x² − 10x + 25 − 25")}`,`e. Check 1: ${m("x ≠ 0")} · Check 2: F breaks at 3 → ${m("1/x ≠ 3 → x ≠ 1/3")}`,`&nbsp;&nbsp;&nbsp;${m("2/(1/x − 3)")}, multiply top and bottom by x → ${m("2x/(1 − 3x)")}`],
+  `a. ${m("x² − x − 20")} · b. ${m("x³ − 5x² − 25x + 125")} · c. ${m("x + 5")}, domain ${m("(−∞, 5) ∪ (5, ∞)")} · d. ${m("x² − 10x")} · e. ${m("2x/(1 − 3x)")}, domain ${m("x ≠ 0, x ≠ 1/3")}`,
+  hint("Combining functions (O, P)",`${kw("f − g")}, ${kw("fg")}, ${kw("f/g")}, ${kw("f∘g")}`,["f − g: put g in ( ) and change EVERY sign inside.","f/g: factor and cancel, but still exclude where g = 0.","f∘g: g goes inside f. Find the domain (2 checks) before simplifying."])]
+];
+const renderQ2=makeQuiz({q:"q2questions",sum:"q2summary",sc:"q2sc",graded:"q2graded",left:"q2left"},()=>Q2);
+document.getElementById("q2reset").onclick=()=>{renderQ2();window.scrollTo({top:0})};
+renderQ2();
+
+/* fresh 12: real-quiz layout rebuilt from the random generators on every tap; hints reuse Quiz #2's decode hints (same order) */
+function combo(main,parts,hintIdx){const L="abcde";
+  if(parts.length===1){const p=parts[0];return[main,p[1],p[2],p[3],Q2[hintIdx][4]]}
+  return[main,parts.map((p,i)=>`<b>${L[i]}.</b> ${p[1]}`).join("<br>"),
+    parts.flatMap((p,i)=>p[2].map((s,j)=>j===0?`<b>${L[i]}.</b> ${s}`:`&nbsp;&nbsp;&nbsp;${s}`)),
+    parts.map((p,i)=>`${L[i]}. ${p[3]}`).join(" · "),Q2[hintIdx][4]]}
+function distinct(k,n){const out=[],seen=new Set();let tries=0;
+  while(out.length<n&&tries<40){const p=GEN[k]();tries++;const key=p[1].replace(/[−\-]?\d+/g,"#");if(seen.has(key)&&tries<30)continue;seen.add(key);out.push(p)}return out}
+function freshTest(){return[
+  combo("C",[GEN.C()],0),
+  combo("B",[...distinct("B",3),GEN.A()],1),
+  combo("C",[GEN.C()],2),
+  combo("D",distinct("D",3),3),
+  combo("E",distinct("E",3),4),
+  combo("G",[GEN.F(),GEN.G()],5),
+  combo("I",[GEN.I(),GEN.J(),GEN.H()],6),
+  combo("K",distinct("K",2),7),
+  combo("L",distinct("L",2),8),
+  combo("M",[GEN.M(),GEN.Q()],9),
+  combo("N",distinct("N",3),10),
+  combo("P",[GEN.O(),GEN.P()],11)]}
+const renderFresh=makeQuiz({q:"fr_questions",sum:"fr_summary",sc:"fr_sc",graded:"fr_graded",left:"fr_left"},freshTest);
+document.getElementById("fr_new").onclick=()=>{renderFresh();window.scrollTo({top:0})};
+renderFresh();
+
+setMode("how");
+</script>
+
+</body></html>

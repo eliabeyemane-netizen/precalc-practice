@@ -1,0 +1,155 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 1 Hard Problems</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one chalkboard card centered, controls under it, topic chips on top */
+:root{
+  --board:#121a17; --slate:#1a2521; --line:#2c3a35; --chalk:#ece8dc; --dust:#9aa79f;
+  --accent:#f2c94c; --good:#5fc48a; --bad:#ef7a6a;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--board);color:var(--chalk)}
+body{font-family:var(--body);font-size:17px;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 40px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,5vw,34px);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.meta{font-family:var(--mono);font-size:13px;color:var(--dust);display:flex;gap:14px;align-items:center}
+.meta button{font:inherit;color:var(--dust);background:none;border:1px solid var(--line);border-radius:6px;padding:3px 8px;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 13px var(--body);color:var(--dust);background:var(--slate);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{color:var(--board);background:var(--accent);border-color:var(--accent)}
+.bar{height:6px;background:var(--slate);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.scene{perspective:1400px}
+.card{position:relative;min-height:360px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.3,.7,.2,1);cursor:pointer}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--slate);border:1px solid var(--line);border-radius:14px;padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px;overflow:auto}
+.back{transform:rotateY(180deg)}
+.tag{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.q{font-family:var(--display);font-weight:500;font-size:clamp(22px,4.2vw,28px);line-height:1.3;margin:auto 0;text-wrap:balance}
+.q code,.ans code,.how code{font-family:var(--mono)}
+.hint{font-size:13px;color:var(--dust);margin-top:auto}
+.ans{font-family:var(--mono);font-size:clamp(19px,3.6vw,23px);color:var(--accent);font-weight:500;line-height:1.4;overflow-wrap:anywhere}
+.how{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:16px}
+.trap{border-top:1px dashed var(--line);padding-top:10px;font-size:15px;color:var(--chalk)}
+.trap b{color:var(--bad);font-weight:500}
+.controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.btn{font:500 16px var(--body);padding:14px 10px;border-radius:10px;border:1px solid var(--line);background:var(--slate);color:var(--chalk);cursor:pointer}
+.btn.miss{border-color:color-mix(in srgb,var(--bad) 55%,var(--line));color:var(--bad)}
+.btn.knew{border-color:color-mix(in srgb,var(--good) 55%,var(--line));color:var(--good)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,.chip:focus-visible,.meta button:focus-visible,.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.keys{font:13px var(--mono);color:var(--dust);text-align:center}
+.summary{background:var(--slate);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.score{font-family:var(--display);font-weight:700;font-size:56px;line-height:1;font-variant-numeric:tabular-nums}
+.summary h2{font-family:var(--display);font-weight:500;font-size:20px;margin:0}
+.summary ul{margin:0;padding-left:20px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:480px){.face{padding:20px 18px}.card{min-height:420px}.controls{grid-template-columns:1fr 1fr}.controls .flip{grid-column:1/-1;order:-1}}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.bar i{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Unit 1 Hard Problems</h1>
+    <div class="meta"><span id="count">1 / 27</span><span id="timer" hidden>0:00</span><button id="timerBtn" type="button">Timer off</button><button id="shuffleBtn" type="button">Shuffle</button></div>
+  </header>
+  <div class="chips" id="chips" role="group" aria-label="Topics"></div>
+  <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+
+  <div id="deck">
+    <div class="scene">
+      <div class="card" id="card" tabindex="0" role="button" aria-label="Flashcard. Press space to flip.">
+        <div class="face front"><span class="tag" id="ftag"></span><div class="q" id="q"></div><div class="hint">Work it on paper first. Then tap or press space.</div></div>
+        <div class="face back"><span class="tag" id="btag"></span><div class="ans" id="a"></div><ol class="how" id="how"></ol><div class="trap" id="trap"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls" id="controls">
+    <button class="btn miss" id="missBtn" type="button" disabled>Missed it</button>
+    <button class="btn flip" id="flipBtn" type="button">Flip</button>
+    <button class="btn knew" id="knewBtn" type="button" disabled>I knew it</button>
+  </div>
+  <div class="keys" id="keys">Space: flip · ←: missed · →: knew it</div>
+
+  <div class="summary" id="summary" hidden></div>
+</div>
+
+<script>
+const CARDS=[
+{t:"Domain",q:"Domain of f(x) = (x + 1)/(x² − 9)",a:"(−∞, −3) ∪ (−3, 3) ∪ (3, ∞)",how:["Only the bottom can break it.","x² − 9 = 0 → x = 3 or x = −3.","Two holes → three pieces joined with ∪."],trap:"The top (x + 1) never affects the domain."},
+{t:"Domain",q:"Domain of g(x) = √(10 − 2x)",a:"(−∞, 5]",how:["Inside ≥ 0: 10 − 2x ≥ 0.","Add 2x: 10 ≥ 2x, so x ≤ 5.","5 is allowed, so it gets a square bracket."],trap:"∞ always gets a round bracket."},
+{t:"Domain",q:"Domain of h(x) = 5/√(x + 6)",a:"(−6, ∞)",how:["The root is on the bottom, so the inside must be > 0, not ≥.","x + 6 > 0 → x > −6."],trap:"Writing [−6. At x = −6 the bottom is √0 = 0, and you can't divide by 0."},
+{t:"Domain",q:"Domain of k(x) = √(x + 4) + √(2 − x)",a:"[−4, 2]",how:["First root: x ≥ −4.","Second root: x ≤ 2.","Both must work at once, so keep the overlap."],trap:"Listing [−4, ∞) and (−∞, 2] separately. If either root breaks, the whole function breaks."},
+{t:"Domain",q:"Domain of m(x) = √(x − 1)/(x² − 9)",a:"[1, 3) ∪ (3, ∞)",how:["Root: x ≥ 1.","Bottom: x ≠ 3 and x ≠ −3.","−3 is already outside x ≥ 1, so only punch a hole at 3."],trap:"Adding a hole at −3 that isn't even in your interval."},
+{t:"Domain",q:"Domain of f(x) = (x − 2)/(x² + 3x − 10)",a:"(−∞, −5) ∪ (−5, 2) ∪ (2, ∞)",how:["Factor: (x + 5)(x − 2) = 0.","Ban x = −5 and x = 2."],trap:"(x − 2) cancels with the top, but x = 2 is still banned. Find the domain before simplifying."},
+{t:"Domain",q:"f(x) = 1/(x − 2), g(x) = √x. Find (f ∘ g)(x) and its domain.",a:"1/(√x − 2), domain [0, 4) ∪ (4, ∞)",how:["Plug g into f: 1/(√x − 2).","√x needs x ≥ 0.","Bottom: √x ≠ 2, so x ≠ 4."],trap:"Forgetting the √x condition, or treating ∘ as multiplication."},
+{t:"Domain",q:"Domain of f(x) = √(x² − 16)",a:"(−∞, −4] ∪ [4, ∞)",how:["x² − 16 ≥ 0. Boundary points: x = ±4.","Test x = 0: 0 − 16 < 0, so the middle is out.","Test x = 5 and x = −5: both work, so the outsides are in."],trap:"Writing x ≥ 4 only. Squares make negatives work too."},
+{t:"Domain",q:"Domain of f(x) = 3x² − 5x + 1",a:"(−∞, ∞)",how:["No fraction, no square root.","Nothing can break it."],trap:"Overthinking it. Polynomials always take every x."},
+{t:"Even/odd",q:"Even, odd, or neither? f(x) = x⁵ − 2x³",a:"Odd",how:["f(−x) = (−x)⁵ − 2(−x)³ = −x⁵ + 2x³.","That's −f(x): every sign flipped."],trap:"Odd powers keep the negative sign."},
+{t:"Even/odd",q:"Even, odd, or neither? g(x) = x⁴ − 3x² + 2",a:"Even",how:["f(−x) = (−x)⁴ − 3(−x)² + 2 = x⁴ − 3x² + 2.","Same as f(x)."],trap:"The constant 2 is fine. Only even powers here, so even."},
+{t:"Even/odd",q:"Even, odd, or neither? h(x) = x² + x",a:"Neither",how:["f(−x) = x² − x.","Not f(x) (the x flipped) and not −f(x) (the x² didn't)."],trap:"Mixed even and odd powers almost always give neither."},
+{t:"Symmetry",q:"Test x² + xy = 4 for symmetry: y-axis, x-axis, origin.",a:"Origin only",how:["y-axis (x → −x): x² − xy = 4. Changed. No.","x-axis (y → −y): x² − xy = 4. Changed. No.","Origin (both): x² + (−x)(−y) = x² + xy = 4. Same. Yes."],trap:"Do all three tests separately. Don't stop after the first one."},
+{t:"Symmetry",q:"Test x = y² + 3 for symmetry: y-axis, x-axis, origin.",a:"x-axis only",how:["y → −y: x = (−y)² + 3 = y² + 3. Same. Yes.","x → −x: −x = y² + 3. Changed. No.","Both: −x = y² + 3. Changed. No."],trap:"x-axis symmetry is tested by replacing y, not x."},
+{t:"Piecewise",q:"f(x) = x + 3 if x < −1; x² if −1 ≤ x ≤ 2; 7 − x if x > 2. Find f(−1).",a:"f(−1) = 1",how:["Which rule owns x = −1? Only −1 ≤ x ≤ 2.","Use x²: (−1)² = 1."],trap:"Using the first rule. x < −1 does not include −1 itself."},
+{t:"Piecewise",q:"Same f. Find f(2) and f(5).",a:"f(2) = 4, f(5) = 2",how:["x = 2 belongs to −1 ≤ x ≤ 2, so 2² = 4.","x = 5 belongs to x > 2, so 7 − 5 = 2."],trap:"Plugging 2 into 7 − x. The ≤ sign puts 2 in the middle rule."},
+{t:"Piecewise",q:"g(x) = −2 if x < 0; x + 1 if x ≥ 0. Domain and range?",a:"Domain (−∞, ∞), range {−2} ∪ [1, ∞)",how:["Every x has a rule, so domain is all reals.","First rule only outputs −2.","Second rule starts at 0 + 1 = 1 and goes up."],trap:"Graph: open circle at (0, −2), closed dot at (0, 1). < means open, ≤ means closed."},
+{t:"Piecewise",q:"h(x) = 2x if x ≤ 1; 3 if x > 1. Increasing and constant intervals?",a:"Increasing (−∞, 1), constant (1, ∞)",how:["2x has slope 2, so it climbs up to x = 1.","After x = 1 it's flat at 3."],trap:"Writing y-values. Intervals always use x."},
+{t:"Circles",q:"Triangle A(1, 2), B(7, 2), C(1, 10). Equation of the circle through all three vertices?",a:"(x − 4)² + (y − 6)² = 25",how:["AB is horizontal and AC is vertical, so the right angle is at A.","Hypotenuse BC is the diameter.","Center = midpoint of BC = (4, 6).","r = half of BC = ½√(36 + 64) = 5."],trap:"Using the midpoint of a leg. It's always the hypotenuse (longest side)."},
+{t:"Circles",q:"Triangle P(−2, 1), Q(3, 6), R(6, 3). Find all three sides. Is it a right triangle?",a:"PQ = √50, QR = √18, PR = √68. Yes.",how:["Distance formula for each pair.","Biggest is √68, so test a² + b² = c².","50 + 18 = 68 ✓"],trap:"Square the radicals before adding: (√50)² = 50. Don't add √50 + √18."},
+{t:"Circles",q:"Same triangle P, Q, R. Center and radius of the circle through all three?",a:"Center (2, 2), r = √17",how:["Hypotenuse = PR (the √68 side).","Center = midpoint of PR = ((−2 + 6)/2, (1 + 3)/2) = (2, 2).","r = √68 ÷ 2 = √17."],trap:"r = √68/2, not √34. √68 = 2√17, so half is √17."},
+{t:"Circles",q:"Standard form, center, and radius: x² + y² − 10x + 6y + 18 = 0",a:"(x − 5)² + (y + 3)² = 16; center (5, −3), r = 4",how:["Group: (x² − 10x) + (y² + 6y) = −18.","Add 25 and 9 to both sides: = −18 + 25 + 9 = 16.","Factor each group into a square."],trap:"Adding 25 and 9 to the left side only."},
+{t:"Circles",q:"A circle's diameter runs from (−2, 3) to (6, −3). Equation?",a:"(x − 2)² + y² = 25",how:["Center = midpoint = (2, 0).","Diameter = √(64 + 36) = 10, so r = 5."],trap:"Using the full diameter as r."},
+{t:"Circles",q:"Center (h, k), radius r. Domain and range of the circle?",a:"Domain [h − r, h + r], range [k − r, k + r]",how:["The circle reaches r units left and right of the center (x).","And r units up and down (y)."],trap:"h goes with the domain, k goes with the range. Square brackets, since the edges are on the circle."},
+{t:"Inverses",q:"Find the inverse of f(x) = (3x − 2)/(x + 4)",a:"f⁻¹(x) = (4x + 2)/(3 − x)",how:["Swap: x = (3y − 2)/(y + 4).","Multiply: xy + 4x = 3y − 2.","Gather y's: xy − 3y = −4x − 2.","Factor y: y(x − 3) = −4x − 2, then divide."],trap:"Getting stuck with y on both sides. Gather every y term, then factor y out."},
+{t:"Concepts",q:"What does f(x + 2) mean?",a:"Replace every x in f with (x + 2)",how:["Write (x + 2) in parentheses everywhere x appears.","FOIL any squares, then distribute any minus signs."],trap:"It is not f times (x + 2)."},
+{t:"Concepts",q:"Increasing/decreasing intervals and relative max/min: what do you write?",a:"Intervals use x-values in round brackets. Max/min: \"at x = __, the value is __\".",how:["Trace the graph left to right.","Write the x where it starts climbing and the x where it stops."],trap:"Writing y-values in the interval, or square brackets at turning points."}
+];
+const $=id=>document.getElementById(id);
+let topics=["All",...new Set(CARDS.map(c=>c.t))],active="All",order=[],i=0,results={},flipped=false,timerOn=false,secs=0,tick=null;
+function build(list){order=list.map(c=>CARDS.indexOf(c));i=0;results={};show();}
+function pool(){return active==="All"?CARDS:CARDS.filter(c=>c.t===active)}
+function show(){
+  $("summary").hidden=true;$("deck").hidden=false;$("controls").hidden=false;$("keys").hidden=false;
+  const c=CARDS[order[i]];flipped=false;$("card").classList.remove("flipped");
+  $("ftag").textContent=c.t;$("btag").textContent=c.t+" · answer";$("q").textContent=c.q;$("a").textContent=c.a;
+  $("how").innerHTML=c.how.map(s=>"<li></li>").join("");[...$("how").children].forEach((li,k)=>li.textContent=c.how[k]);
+  $("trap").innerHTML="<b>Trap:</b> ";$("trap").append(c.trap);
+  $("count").textContent=(i+1)+" / "+order.length;$("bar").style.width=(i/order.length*100)+"%";
+  $("missBtn").disabled=true;$("knewBtn").disabled=true;
+}
+function flip(){flipped=!flipped;$("card").classList.toggle("flipped",flipped);if(flipped){$("missBtn").disabled=false;$("knewBtn").disabled=false}}
+function mark(ok){if(!flipped)return;results[order[i]]=ok;if(i<order.length-1){i++;show()}else finish()}
+function finish(){
+  $("bar").style.width="100%";$("deck").hidden=true;$("controls").hidden=true;$("keys").hidden=true;
+  const ids=Object.keys(results).map(Number),right=ids.filter(k=>results[k]).length,missed=ids.filter(k=>!results[k]);
+  const byTopic={};missed.forEach(k=>{const t=CARDS[k].t;byTopic[t]=(byTopic[t]||0)+1});
+  const top=Object.entries(byTopic).sort((a,b)=>b[1]-a[1]).slice(0,3);
+  const s=$("summary");s.hidden=false;s.innerHTML="";
+  const sc=document.createElement("div");sc.className="score";sc.textContent=right+" / "+ids.length;s.append(sc);
+  const h=document.createElement("h2");h.textContent=missed.length?"Topics you missed most":"Clean sweep";s.append(h);
+  if(missed.length){const ul=document.createElement("ul");top.forEach(([t,n])=>{const li=document.createElement("li");li.textContent=t+": "+n+" missed";ul.append(li)});s.append(ul);
+    const p=document.createElement("p");p.style.margin="0";p.textContent="Redo the missed cards on paper, then say the trap out loud before you flip. If domain is on the list, write both conditions (bottom ≠ 0, inside ≥ 0) before solving anything.";s.append(p);}
+  const row=document.createElement("div");row.className="row";
+  if(missed.length){const b=document.createElement("button");b.className="btn miss";b.type="button";b.textContent="Restart with missed cards ("+missed.length+")";b.onclick=()=>build(missed.map(k=>CARDS[k]));row.append(b)}
+  const r=document.createElement("button");r.className="btn";r.type="button";r.textContent="Restart all";r.onclick=()=>build(pool());row.append(r);s.append(row);
+  if(timerOn){const t=document.createElement("p");t.style.cssText="margin:0;color:var(--dust);font-family:var(--mono);font-size:14px";t.textContent="Time: "+fmt(secs);s.append(t)}
+}
+function fmt(n){return Math.floor(n/60)+":"+String(n%60).padStart(2,"0")}
+topics.forEach(t=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=t;b.setAttribute("aria-pressed",t===active);b.onclick=()=>{active=t;document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x.textContent===t));build(pool())};$("chips").append(b)});
+$("card").onclick=flip;$("flipBtn").onclick=flip;$("missBtn").onclick=()=>mark(false);$("knewBtn").onclick=()=>mark(true);
+$("shuffleBtn").onclick=()=>{const p=[...pool()];for(let k=p.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[p[k],p[j]]=[p[j],p[k]]}build(p)};
+$("timerBtn").onclick=()=>{timerOn=!timerOn;$("timer").hidden=!timerOn;$("timerBtn").textContent=timerOn?"Timer on":"Timer off";clearInterval(tick);if(timerOn){secs=0;$("timer").textContent="0:00";tick=setInterval(()=>{secs++;$("timer").textContent=fmt(secs)},1000)}};
+document.addEventListener("keydown",e=>{if(e.target.tagName==="BUTTON"&&e.key===" "&&e.target.id!=="flipBtn")return;if(e.key===" "){e.preventDefault();if(!$("deck").hidden)flip()}else if(e.key==="ArrowRight")mark(true);else if(e.key==="ArrowLeft")mark(false)});
+build(pool());
+</script>
+
+</body></html>

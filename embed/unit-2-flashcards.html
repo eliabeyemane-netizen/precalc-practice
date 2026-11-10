@@ -1,0 +1,453 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 2 Flashcards</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one centered card at a time on graph-paper ground; topic chips above, answer opens in a black box, got/missed buttons below */
+:root{
+  --bg:#f3f5fa; --paper:#ffffff; --ink:#151b2c; --muted:#5a6377; --line:#dce2ee;
+  --grid:rgba(41,73,198,.07); --accent:#2949c6; --accent-ink:#ffffff; --accent-soft:#e7ecfb;
+  --box:#111318; --box-ink:#f3f5f8; --box-dim:#9aa3b9;
+  --good:#1b7a4c; --good-soft:#e1f3e9; --bad:#c42323; --bad-soft:#fdecec;
+  --f-head:"Space Grotesk",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1220; --paper:#161b2c; --ink:#e7eaf4; --muted:#9aa3b9; --line:#2a3249;
+  --grid:rgba(142,162,255,.05); --accent:#8ea2ff; --accent-ink:#0e1220; --accent-soft:#222b4b;
+  --box:#05070c; --box-ink:#f3f5f8; --box-dim:#9aa3b9;
+  --good:#5fd39a; --good-soft:#163427; --bad:#ff7a7a; --bad-soft:#3a1c1f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1220; --paper:#161b2c; --ink:#e7eaf4; --muted:#9aa3b9; --line:#2a3249;
+  --grid:rgba(142,162,255,.05); --accent:#8ea2ff; --accent-ink:#0e1220; --accent-soft:#222b4b;
+  --box:#05070c; --box-ink:#f3f5f8; --box-dim:#9aa3b9;
+  --good:#5fd39a; --good-soft:#163427; --bad:#ff7a7a; --bad-soft:#3a1c1f; color-scheme:dark}
+body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:680px;margin:0 auto;padding-block:26px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--f-head);font-size:30px;line-height:1.15;margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:4px 0 0;max-width:60ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 13px var(--f-body);border:1px solid var(--line);background:var(--paper);color:var(--muted);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+.status{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.status b{color:var(--ink)}
+.bar{flex:1 1 160px;height:6px;border-radius:99px;background:var(--line);overflow:hidden;min-width:120px}
+.bar span{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;display:flex;flex-direction:column;gap:16px;min-height:260px;min-width:0}
+.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.q{font-size:21px;line-height:1.5;font-weight:500;overflow-x:auto;min-width:0}
+.q .m,.ans .m{font-family:var(--f-mono);font-weight:600}
+.ans{background:var(--box);color:var(--box-ink);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0;overflow-x:auto}
+.ans .a{font-family:var(--f-mono);font-size:20px;font-weight:600;white-space:pre}
+.ans .w{color:var(--box-dim);font-size:14.5px;line-height:1.45}
+.ans .w b{color:var(--box-ink)}
+.ans .lab{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--box-dim)}
+.ans .lab+.a{margin-top:-4px}
+.ans ol.st{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.5;color:var(--box-ink)}
+.ans ol.st b{color:var(--box-ink)}
+.ans ol.st li::marker{color:var(--box-dim);font-weight:600}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+button.act{font:600 15px var(--f-body);border-radius:10px;padding:11px 18px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;flex:1 1 140px}
+button.flip{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button.miss{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+button.got{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+button:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.keys{font-size:12.5px;color:var(--muted)}
+kbd{font-family:var(--f-mono);font-size:11.5px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--paper)}
+.done h2{font-family:var(--f-head);font-size:24px;margin:0}
+.prob{font-size:15px;font-weight:500;color:var(--muted);background:var(--accent-soft);border-radius:8px;padding:8px 12px;margin-bottom:10px}
+.prob .m{color:var(--ink)}
+.missed-list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+@media (max-width:480px){h1{font-size:25px}.q{font-size:18.5px}.ans .a{font-size:17px}.card{padding:18px 16px 16px}}
+@media (prefers-reduced-motion:reduce){.bar span{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Unit 2 Flashcards</h1>
+    <p class="sub">The small first steps behind every Unit 2 exam problem. Answer in your head or on paper, flip the card, then mark it. Cards you miss come back a few cards later.</p>
+  </header>
+  <div class="chips" id="chips" role="group" aria-label="Topics"></div>
+  <div class="status"><span id="count"></span><div class="bar" aria-hidden="true"><span id="prog"></span></div><span>Got <b id="got">0</b></span><span>Missed <b id="miss">0</b></span></div>
+  <section class="card" id="card" aria-live="polite"></section>
+  <p class="keys"><kbd>Space</kbd> flip &nbsp; <kbd>1</kbd> missed it &nbsp; <kbd>2</kbd> got it</p>
+</div>
+
+<script>
+(function(){
+var M='−';
+function ri(a,b){return a+Math.floor(Math.random()*(b-a+1));}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function nz(a,b){var v;do{v=ri(a,b);}while(v===0);return v;}
+function distinct(n,a,b){var s=[];while(s.length<n){var v=nz(a,b);if(s.indexOf(v)<0)s.push(v);}return s;}
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=a%b;a=b;b=t;}return a;}
+function num(n){return n<0?M+Math.abs(n):String(n);}
+function fr(n,d){if(d<0){n=-n;d=-d;}var g=gcd(n,d)||1;n/=g;d/=g;return d===1?num(n):(n<0?M:'')+Math.abs(n)+'/'+d;}
+function lin(r){return [1,-r];}
+function mul(a,b){var o=[];for(var i=0;i<a.length+b.length-1;i++)o.push(0);for(var i2=0;i2<a.length;i2++)for(var j=0;j<b.length;j++)o[i2+j]+=a[i2]*b[j];return o;}
+function ev(c,x){var y=0;for(var i=0;i<c.length;i++)y=y*x+c[i];return y;}
+var SUP={'2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶'};
+function poly(c){var deg=c.length-1,out='';for(var i=0;i<c.length;i++){var a=c[i],p=deg-i;if(a===0)continue;var abs=Math.abs(a);var t=((abs===1&&p>0)?'':String(abs))+(p>0?'x':'')+(p>1?SUP[p]:'');if(out==='')out=(a<0?M:'')+t;else out+=(a<0?' '+M+' ':' + ')+t;}return out||'0';}
+function fac(r){return r===0?'x':'(x '+(r>0?M+' '+r:'+ '+(-r))+')';}
+function ex(m){return m>1?SUP[m]:'';}
+function rad(n){var o=1,i=n;for(var k=Math.floor(Math.sqrt(n));k>1;k--){if(n%(k*k)===0){o=k;i=n/(k*k);break;}}return [o,i];}
+function radS(n){var r=rad(n);return r[1]===1?String(r[0]):(r[0]>1?r[0]:'')+'√'+r[1];}
+function imS(n){var r=rad(n);if(r[1]===1)return (r[0]===1?'':r[0])+'i';return (r[0]>1?r[0]:'')+'i√'+r[1];}
+function cx(re,im){if(im===0)return num(re);var ip=(Math.abs(im)===1?'':Math.abs(im))+'i';if(re===0)return (im<0?M:'')+ip;return num(re)+(im<0?' '+M+' ':' + ')+ip;}
+function divisors(n){n=Math.abs(n);var d=[];for(var i=1;i<=n;i++)if(n%i===0)d.push(i);return d;}
+function pm(list){return list.map(function(v){return '±'+v;}).join(', ');}
+function prz(c){var p=divisors(c[c.length-1]),q=divisors(c[0]),seen={},list=[];p.forEach(function(a){q.forEach(function(b){var g=gcd(a,b),x=a/g,y=b/g,k=x+'/'+y;if(!seen[k]){seen[k]=1;list.push([x,y]);}});});list.sort(function(u,v){return u[0]/u[1]-v[0]/v[1];});return list.map(function(t){return '±'+(t[1]===1?t[0]:t[0]+'/'+t[1]);}).join(', ');}
+function m(s){return '<span class="m">'+s+'</span>';}
+function card(t,q,a,w){return {t:t,q:q,a:a,w:w};}
+function cubicWithRoot(r){var s=distinct(2,-4,4).filter(function(v){return v!==r;});while(s.length<2)s.push(nz(-5,5));return mul(mul(lin(r),lin(s[0])),lin(s[1]));}
+
+var T={ex:'Exam walk-throughs',sm:'Spot the mistake',cc:'Exam concepts',cx:'Complex numbers',zd:'Zeros and division',fa:'Factoring and the formula',gr:'Zeros and graphs',ra:'Rational functions',in:'Inequalities',qu:'Quadratics'};
+var G={
+cx:[
+ function(){var n=pick([4,9,16,25,36,8,12,18,20,27,32,50,2,3,5]);var r=rad(n);return card('cx','What is '+m('√'+M+n)+'?',imS(n),'Pull out the i first: '+m('√'+M+n+' = i·√'+n)+(r[0]>1?'. Then '+m('√'+n+' = '+radS(n))+'.':'.'));},
+ function(){var n=ri(2,60),r=n%4;return card('cx','What is '+m('i'+'<sup>'+n+'</sup>')+'?',['1','i',M+'1',M+'i'][r],'Powers of i repeat every 4: '+m('i¹ = i, i² = '+M+'1, i³ = '+M+'i, i⁴ = 1')+'.<br>'+m(n+' ÷ 4 = '+Math.floor(n/4)+' remainder '+r)+' (4 × '+Math.floor(n/4)+' = '+(4*Math.floor(n/4))+'). The full cycles equal 1 and drop out, so only the remainder counts: '+(r===0?m('remainder 0 → 1'):m('i<sup>'+n+'</sup> = i<sup>'+r+'</sup> = '+['1','i',M+'1',M+'i'][r]))+'.');},
+ function(){return card('cx','What is '+m('i²')+'?',M+'1','Every time you see '+m('i²')+', replace it with '+m(M+'1')+'.');},
+ function(){var a=nz(-8,8),b=nz(-8,8);return card('cx','What is the conjugate of '+m(cx(a,b))+'?',cx(a,-b),'Flip only the sign in front of the i. The real part stays.');},
+ function(){var a=nz(-7,7),b=ri(1,7);return card('cx','Multiply: '+m('('+cx(a,b)+')('+cx(a,-b)+')'),String(a*a+b*b),'Conjugates multiply to '+m('a² + b²')+' = '+m(a*a+' + '+b*b)+'. The i parts cancel.');},
+ function(){var p=ri(2,7),q=ri(2,7);return card('cx','What is '+m('√'+M+(p*p)+' · √'+M+(q*q))+'?',M+(p*q),m(p+'i · '+q+'i = '+(p*q)+'i² = '+M+(p*q))+'. <b>Pull out each i first.</b> Multiplying under one root gives the wrong sign.');},
+ function(){var a=nz(-5,5),b=nz(-5,5);return card('cx','Expand: '+m('('+cx(a,b)+')²'),cx(a*a-b*b,2*a*b),'FOIL: '+m(a*a+' '+(2*a*b<0?M:'+')+' '+Math.abs(2*a*b)+'i + '+(b*b)+'i²')+', and '+m(b*b+'i² = '+M+(b*b))+'.');},
+ function(){var p=nz(-25,25),q=nz(-25,25);return card('cx','Combine: '+m(cx(0,p)+' '+(q<0?M:'+')+' '+cx(0,Math.abs(q))),cx(0,p+q),'Same signs add. Different signs subtract and keep the sign of the bigger number.');},
+ function(){var a=nz(-6,6),b=nz(-6,6),c=nz(-6,6),d=nz(-6,6),den=c*c+d*d,re=a*c+b*d,im=b*c-a*d;return card('cx','To divide '+m('('+cx(a,b)+') / ('+cx(c,d)+')')+', what do you multiply the top and bottom by?',cx(c,-d),'The conjugate of the <b>bottom</b>. That makes the bottom a plain number.<br><b>Full problem:</b><br>Bottom: '+m(c*c+' + '+d*d+' = '+den)+'<br>Top: '+m('('+cx(a,b)+')('+cx(c,-d)+') = '+cx(re,im))+' (FOIL, i² = '+M+'1)<br>Answer: '+m(cxf(re,im,den)));}
+],
+zd:[
+ function(){var L=pick([1,2,3]),c=nz(-24,24);var f=[L,ri(-6,6),ri(-9,9),c];return card('zd','For '+m('f(x) = '+poly(f))+', what are the p values?',pm(divisors(c)),'p = factors of the <b>last</b> number ('+num(c)+').');},
+ function(){var L=pick([2,3,4,6]),c=nz(-12,12);var f=[L,ri(-6,6),ri(-9,9),c];return card('zd','For '+m('f(x) = '+poly(f))+', what are the q values?',pm(divisors(L)),'q = factors of the <b>first</b> number ('+L+'). Only the first number.');},
+ function(){var L=pick([2,3]),c=pick([2,3,4,6,-2,-3,-4,-6]);var f=[L,ri(-5,5),ri(-7,7),c];return card('zd','List all possible rational zeros of '+m('f(x) = '+poly(f))+'.',prz(f),'Every p over every q. p from '+num(c)+', q from '+L+'. Don’t forget the whole numbers (q = 1).');},
+ function(){var f=[pick([1,1,2,-1]),ri(-4,4),ri(-6,6),ri(-8,8)],x=ri(-2,2);return card('zd','If '+m('f(x) = '+poly(f))+', what is '+m('f('+num(x)+')')+'?',num(ev(f,x)),'Put '+m('('+num(x)+')')+' in for every x, then work it out. Watch the signs on odd powers.');},
+ function(){var r=nz(-3,3),f=cubicWithRoot(r);var s=[];var y=f[0];s.push(y);for(var i=1;i<f.length;i++){y=f[i]+y*r;s.push(y);}return card('zd','Synthetic division of '+m(poly(f))+' by '+m(fac(r))+'. What is the bottom row?',s.slice(0,-1).map(num).join('   ')+'  |  '+num(s[s.length-1]),'Use '+m(num(r))+' on the left. Bring down, multiply by '+num(r)+', add, repeat. A 0 at the end means it divided evenly.');},
+ function(){var a=pick([1,2,3,-1,-2,4]),b=ri(-9,9),c=nz(-9,9);return card('zd','After synthetic division of a cubic, the bottom row is '+m(num(a)+'   '+num(b)+'   '+num(c)+'  |  0')+'. What is the leftover?',poly([a,b,c]),'<b>Keep every number, including the first,</b> and start one power lower: x³ becomes x².');},
+ function(){var a=pick([1,2,3,-1]),b=ri(-6,6),c=ri(-6,6),d=nz(-9,9);return card('zd','After synthetic division of a 4th-degree polynomial, the bottom row is '+m(num(a)+'   '+num(b)+'   '+num(c)+'   '+num(d)+'  |  0')+'. What is the leftover?',poly([a,b,c,d]),'Start one power lower than x⁴, so x³. A 0 in the row still holds a spot.');},
+ function(){var k=ri(0,2);if(k===0){var r=nz(-6,6);return card('zd','The zero is '+m('x = '+num(r))+'. What factor does it give?',fac(r),'A zero r gives '+m('(x '+M+' r)')+'. '+m('x '+M+' ('+num(r)+')')+(r<0?' = '+m('x + '+(-r)):'')+'.');}
+   if(k===1){var q=pick([2,3]),p;do{p=nz(-5,5);}while(gcd(p,q)!==1);return card('zd','The zero is '+m('x = '+fr(p,q))+'. What factor does it give?','('+q+'x '+(p>0?M+' '+p:'+ '+(-p))+')','Move the bottom number over: '+m(fr(p,q))+' comes from '+m(q+'x '+(p>0?M+' '+p:'+ '+(-p))+' = 0')+'.');}
+   var n=ri(1,4),ni=(n===1?'':n)+'i';return card('zd','The zero is '+m('x = '+ni)+'. What factor does it give?','(x '+M+' '+ni+')','Same rule: '+m('(x '+M+' r)')+'. Its partner '+m(M+ni)+' gives '+m('(x + '+ni+')')+'.');},
+ function(){if(Math.random()<.6){var r=nz(-7,7);return card('zd','What zero does the factor '+m(fac(r))+' give?','x = '+num(r),'Set it equal to 0 and solve. The sign flips.');}var q=pick([2,3,4]),p;do{p=nz(-7,7);}while(gcd(p,q)!==1);var f='('+q+'x '+(p>0?M+' '+p:'+ '+(-p))+')';return card('zd','What zero does the factor '+m(f)+' give?','x = '+fr(p,q),m(q+'x '+(p>0?M+' '+p:'+ '+(-p))+' = 0 → '+q+'x = '+num(p)+' → x = '+fr(p,q))+'.');},
+ function(){var r=nz(-5,5),rem=pick([0,0,ri(-9,9)]);return card('zd','You divide by '+m(fac(r))+' and the remainder is '+num(rem)+'. Is '+m(num(r))+' a zero?',rem===0?'Yes':'No','Only a remainder of <b>0</b> means it is a zero. '+(rem===0?'':'Try another number from your list.'));}
+],
+fa:[
+ function(){var rs=distinct(2,-7,7);var c=mul(lin(rs[0]),lin(rs[1]));return card('fa','Factor '+m(poly(c))+'.',fac(rs[0])+fac(rs[1]),'Find two numbers that multiply to '+num(c[2])+' and add to '+num(c[1])+': '+num(-rs[0])+' and '+num(-rs[1])+'.');},
+ function(){var k=ri(2,9);return card('fa','Factor '+m('x² '+M+' '+k*k)+'.','(x '+M+' '+k+')(x + '+k+')','Difference of squares: '+m('a² '+M+' b² = (a '+M+' b)(a + b)')+'.');},
+ function(){var k=ri(1,9),ki=(k===1?'':k)+'i';return card('fa','Solve '+m('x² + '+k*k+' = 0')+'.','x = ±'+ki,m('x² = '+M+(k*k)+' → x = ±√'+M+(k*k)+' = ±'+ki)+'. A plus sign means i answers.');},
+ function(){var a=pick([1,2,3,-1]),b=ri(-8,8),c=nz(-8,8),d=b*b-4*a*c;return card('fa','For '+m(poly([a,b,c])+' = 0')+', what is '+m('b² '+M+' 4ac')+'?',num(d),m('('+num(b)+')² '+M+' 4('+num(a)+')('+num(c)+') = '+(b*b)+' '+(4*a*c<0?'+ '+(-4*a*c):M+' '+(4*a*c))+' = '+num(d))+'. '+(d<0?'Negative, so the answers have i.':d===0?'Zero, so one repeated answer.':'Positive, so two real answers.'));},
+ function(){var n=pick([8,12,18,20,24,27,28,32,45,48,50,72,75,98,40,44]),r=rad(n);return card('fa','Simplify '+m('√'+n)+'.',radS(n),'Biggest perfect square inside: '+m(n+' = '+(r[0]*r[0])+' · '+r[1])+', and '+m('√'+(r[0]*r[0])+' = '+r[0])+'.');},
+ function(){var d=pick([2,2,3,4]),h=nz(-4,4),k=ri(1,3),r=pick([2,3,5,7]);var top=num(d*h)+' ± '+(d*k)+'√'+r;return card('fa','Simplify '+m('('+top+') / '+d)+'.',num(h)+' ± '+(k===1?'':k)+'√'+r,'Divide <b>every</b> term on top by '+d+': '+m(num(d*h)+' ÷ '+d+' = '+num(h))+' and '+m((d*k)+' ÷ '+d+' = '+k)+'.');},
+ function(){return card('fa','Write the quadratic formula.','x = (−b ± √(b² − 4ac)) / 2a','<b>−b</b>, not −b². <b>Minus</b> 4ac. Write it at the top before you plug in.');},
+ function(){var a=pick([1,2,3,-1,-2]),b=nz(-9,9),c=nz(-9,9);return card('fa','For '+m(poly([a,b,c])+' = 0')+', what are a, b and c?','a = '+num(a)+', b = '+num(b)+', c = '+num(c),'Each sign stays with its number. No number in front means 1.');},
+ function(){var b=nz(-12,12);return card('fa','In the quadratic formula, if '+m('b = '+num(b))+', what is '+m(M+'b')+'?',num(-b),'Flip the sign of b. Positive b gives a negative start.');},
+ function(){var a=ri(-3,3),b=ri(1,5);return card('fa','Use the shortcut to multiply the pair of zeros '+m(cx(a,b)+' and '+cx(a,-b))+' into one quadratic.',poly([1,-2*a,a*a+b*b]),'Shortcut: '+m('x² '+M+' 2ax + (a² + b²)')+' with a = '+num(a)+', b = '+b+'.');}
+],
+gr:[
+ function(){var t=distinct(2,-5,5),m1=ri(1,4),m2=ri(1,3),k=pick([1,-1,2]);var f=(k===1?'':k===-1?M:k)+fac(t[0])+ex(m1)+fac(t[1])+ex(m2);return card('gr','For '+m('f(x) = '+f)+': what is the multiplicity of '+m('x = '+num(t[0]))+', and does the graph cross or touch there?','Multiplicity '+m1+', '+(m1%2?'crosses':'touches and turns around'),'Multiplicity = the exponent on that factor. <b>Odd crosses, even touches.</b>');},
+ function(){var t=distinct(2,-6,6),m1=ri(1,3),m2=ri(1,3);var f=fac(t[0])+ex(m1)+fac(t[1])+ex(m2);return card('gr','What are the zeros of '+m('f(x) = '+f)+'?','x = '+num(t[0])+', '+num(t[1]),'Set each factor to 0. The sign flips: '+m(fac(t[1]))+' gives '+num(t[1])+'.');},
+ function(){var t=distinct(2,-6,6),m1=ri(1,4),m2=ri(1,3),k=pick([1,-1,2,-3]);var f=(k===1?'':k===-1?M:num(k))+fac(t[0])+ex(m1)+fac(t[1])+ex(m2);return card('gr','What is the degree of '+m('f(x) = '+f)+'?',String(m1+m2),'Add the exponents: '+m1+' + '+m2+'.');},
+ function(){var n=ri(2,7),k=pick([1,-1,2,-2,3,-3]);var e=n%2===0?(k>0?'Rises left, rises right':'Falls left, falls right'):(k>0?'Falls left, rises right':'Rises left, falls right');return card('gr','Degree '+n+', leading coefficient '+num(k)+'. What is the end behavior?',e,'Even degree: both ends the same way. Odd: opposite ways. Positive leading coefficient: the right end rises.');},
+ function(){var t=distinct(2,-4,4),m1=ri(1,3),m2=ri(1,2),k=pick([1,-1,2]);var f=(k===1?'':k===-1?M:k)+fac(t[0])+ex(m1)+fac(t[1])+ex(m2);var y=k*Math.pow(-t[0],m1)*Math.pow(-t[1],m2);return card('gr','What is the y-intercept of '+m('f(x) = '+f)+'?','(0, '+num(y)+')','Put 0 in for x: '+m('f(0)')+'. Odd powers keep the sign.');},
+ function(){var t=distinct(2,-7,7);return card('gr','Write '+m(fac(t[0])+fac(t[1]))+' in standard form.',poly(mul(lin(t[0]),lin(t[1]))),'FOIL, then combine the x terms.');}
+],
+ra:[
+ function(){var t=distinct(3,-6,6);return card('ra','What are the vertical asymptotes of '+m('f(x) = '+fac(t[0])+' / ['+fac(t[1])+fac(t[2])+']')+'?','x = '+num(t[1])+', x = '+num(t[2]),'Set the bottom = 0. Nothing cancels, so each is a VA.');},
+ function(){var t=distinct(3,-6,6);return card('ra','For '+m('f(x) = '+fac(t[0])+fac(t[1])+' / ['+fac(t[0])+fac(t[2])+']')+', is there a hole or a VA at '+m('x = '+num(t[0]))+'?','Hole at x = '+num(t[0]),m(fac(t[0]))+' is on the top and bottom, so it cancels. Canceled factor = <b>hole</b>. The VA is '+m('x = '+num(t[2]))+'.');},
+ function(){var k=ri(0,2),a=pick([1,2,3,-2,4]),b=pick([1,2,3,5]);var top,bot,ans,w;
+   if(k===0){top=poly([a,0,ri(-5,5)]);bot=poly([b,ri(-4,4),0,ri(1,6)]);ans='y = 0';w='Top degree 2 < bottom degree 3, so y = 0.';}
+   else if(k===1){top=poly([a,ri(-5,5),ri(-5,5)]);bot=poly([b,ri(-4,4),nz(-6,6)]);ans='y = '+fr(a,b);w='Same degree, so divide the leading numbers: '+m(a+' / '+b)+'.';}
+   else{top=poly([a,0,ri(-5,5),ri(-5,5)]);bot=poly([b,nz(-5,5)]);ans='None';w='Top degree is bigger, so there is no HA. Here it is 2 bigger, so no slant either.';}
+   return card('ra','What is the horizontal asymptote of '+m('f(x) = ('+top+') / ('+bot+')')+'?',ans,w);},
+ function(){var d2=ri(1,3),d1=pick([d2-1,d2,d2+1,d2+2].filter(function(v){return v>=0;}));return card('ra','The top has degree '+d1+' and the bottom has degree '+d2+'. Is there a slant asymptote?',d1===d2+1?'Yes':'No','Slant only when the top degree is <b>exactly 1 more</b> than the bottom. Then divide to find it.');},
+ function(){var t=distinct(2,-7,7).sort(function(a,b){return a-b;});var bot=mul(lin(t[0]),lin(t[1]));return card('ra','Which x values are left out of the domain of '+m('f(x) = (x + 1) / ('+poly(bot)+')')+'?','x = '+num(t[0])+' and x = '+num(t[1]),'Factor the bottom: '+m(fac(t[0])+fac(t[1]))+'. Those x values make it 0.');},
+ function(){var k=ri(1,9);return card('ra','Does '+m('f(x) = 3 / (x² + '+k+')')+' have a vertical asymptote?','No',m('x² + '+k)+' is never 0, because x² is never negative.');}
+],
+in:[
+ function(){var rel=pick(['<','>','≤','≥']),from=pick(['top','bottom','poly']);var closed=(rel==='≤'||rel==='≥')&&from!=='bottom';var where=from==='poly'?'a polynomial':'the '+from+' of a fraction';return card('in','The inequality uses '+m(rel)+'. A boundary point comes from '+where+'. Open or closed dot?',closed?'Closed':'Open',from==='bottom'?'A number that makes the bottom 0 is <b>always open</b>.':'≤ and ≥ are closed. < and > are open.');},
+ function(){var t=distinct(2,-6,6).sort(function(a,b){return a-b;}),rel=pick(['<','>','≤','≥']);return card('in','What are the boundary points of '+m(fac(t[0])+fac(t[1])+' '+rel+' 0')+'?','x = '+num(t[0])+', '+num(t[1]),'Set each factor to 0.');},
+ function(){var t=distinct(2,-5,5).sort(function(a,b){return a-b;}),x=pick([t[0]-1,t[1]+1,(t[1]-t[0]>1)?t[0]+1:t[1]+2]);var v=(x-t[0])*(x-t[1]);return card('in','Test '+m('x = '+num(x))+' in '+m(fac(t[0])+fac(t[1]))+'. Positive or negative?',(v>0?'Positive':'Negative')+'  ('+num(v)+')',m('('+num(x)+' '+(t[0]<0?'+ '+(-t[0]):M+' '+t[0])+')('+num(x)+' '+(t[1]<0?'+ '+(-t[1]):M+' '+t[1])+') = ('+num(x-t[0])+')('+num(x-t[1])+')')+'.');},
+ function(){var b=nz(-8,8),k=nz(-12,12),rel=pick(['<','>','≤','≥']);return card('in','First step for '+m(poly([1,b,0])+' '+rel+' '+num(k))+'?',poly([1,b,-k])+' '+rel+' 0','Move everything to one side so the right side is 0. Then factor.');},
+ function(){var t=distinct(2,-6,6).sort(function(a,b){return a-b;}),rel=pick(['<','>','≤','≥']);var cl=(rel==='≤'||rel==='≥'),pos=(rel==='>'||rel==='≥');var L=cl?'[':'(',Rb=cl?']':')';var a=num(t[0]),b=num(t[1]);var ans=pos?'('+M+'∞, '+a+Rb+' ∪ '+L+b+', ∞)':L+a+', '+b+Rb;return card('in','The sign chart for '+m(fac(t[0])+fac(t[1])+' '+rel+' 0')+' is '+m('+  '+M+'  +')+'. What is the answer?',ans,'Keep the '+(pos?'+':M)+' intervals. '+(cl?'Closed brackets at the boundary points.':'Open parentheses, because the sign is strict.'));}
+],
+qu:[
+ function(){var a=pick([1,2,-1,-2,3]),h=nz(-5,5),b=-2*a*h,c=ri(-9,9);return card('qu','What is the x-value of the vertex of '+m('f(x) = '+poly([a,b,c]))+'?','x = '+num(h),m('x = '+M+'b / 2a = '+num(-b)+' / '+num(2*a)+' = '+num(h))+'. Flip the sign of b first.');},
+ function(){var a=pick([1,2,3,-1,-2,-3]);return card('qu','If '+m('a = '+num(a))+', does the parabola have a minimum or a maximum?',a>0?'Minimum (opens up)':'Maximum (opens down)','Positive a opens up, so the vertex is the lowest point. Negative a opens down.');},
+ function(){var a=pick([1,-1,2]),h=nz(-4,4),k=ri(-8,8),c=[a,-2*a*h,a*h*h+k];return card('qu','The vertex x of '+m('f(x) = '+poly(c))+' is '+num(h)+'. What is the vertex?','('+num(h)+', '+num(k)+')','Plug x back in: '+m('f('+num(h)+') = '+num(k))+'.');},
+ function(){var a=pick([1,2,-1,-3]),k=ri(-9,9);return card('qu','The vertex is at '+m('y = '+num(k))+' and '+m('a = '+num(a))+'. What is the range?',a>0?'['+num(k)+', ∞)':'('+M+'∞, '+num(k)+']',a>0?'Opens up, so y starts at the vertex and goes up.':'Opens down, so y goes from the vertex down.');}
+]};
+var WEIGHT={};
+
+/* ---------- skill cards, rebuilt with numbered steps ---------- */
+var IP=['1','i',M+'1',M+'i'];
+function sgn(v){return v<0?M+' '+Math.abs(v):'+ '+v;}
+function pw(x,p){return Math.pow(x,p);}
+function termStep(c,p,x){if(p===1)return num(c)+'('+num(x)+') = '+num(c*x);var xs='('+num(x)+')'+(p>1?SUP[p]:'');var v=c*pw(x,p);return (c===1?'':c===-1?M:num(c))+xs+' = '+(c===1||c===-1?'':num(c)+'('+num(pw(x,p))+') = ')+num(v);}
+function synthSteps(f,r){var s=[f[0]],st=['Write '+num(r)+' on the left and the numbers '+f.map(num).join(', ')+' on top.','Bring down the first number: '+num(f[0])+'.'];for(var i=1;i<f.length;i++){var p=s[i-1]*r,v=f[i]+p;st.push('Multiply '+num(s[i-1])+' × '+num(r)+' = '+num(p)+'. Add to '+num(f[i])+': '+num(f[i])+' + ('+num(p)+') = '+num(v)+'.');s.push(v);}st.push('The last number ('+num(s[s.length-1])+') is the remainder.');return st;}
+G.cx=[
+ function(){var n=pick([4,9,16,25,36,8,12,18,20,27,32,50,2,3,5]),r=rad(n);var st=['Pull out the i first: '+m('√'+M+n+' = i · √'+n)+'.'];
+   if(r[1]===1)st.push(m('√'+n+' = '+r[0])+', because '+r[0]+' × '+r[0]+' = '+n+'.');else if(r[0]>1)st.push('Simplify '+m('√'+n)+': '+m(n+' = '+r[0]*r[0]+' · '+r[1])+', so '+m('√'+n+' = '+r[0]+'√'+r[1])+'.');else st.push(m('√'+n)+' doesn’t simplify. Leave it.');
+   st.push('Put it together: '+m(imS(n))+'.');return card('cx','What is '+m('√'+M+n)+'?',imS(n),st);},
+ function(){var n=ri(2,60),r=n%4,q=Math.floor(n/4);return card('cx','What is '+m('i<sup>'+n+'</sup>')+'?',IP[r],['The cycle repeats every 4: '+m('i¹ = i, i² = '+M+'1, i³ = '+M+'i, i⁴ = 1')+'.','Divide the power by 4: '+m(n+' ÷ 4 = '+q+' remainder '+r)+' (4 × '+q+' = '+4*q+').','The full cycles each equal 1, so only the remainder counts.','Remainder '+r+' → '+m(IP[r])+'. (Quick check: '+(n%2?'odd power, so it has an i':'even power, so it’s 1 or '+M+'1')+'.)']);},
+ function(){var a=nz(-8,8),b=nz(-8,8);return card('cx','What is the conjugate of '+m(cx(a,b))+'?',cx(a,-b),['Keep the real part the same: '+m(num(a))+'.','Flip the sign in front of the i: '+m((b<0?M:'+')+' → '+(b<0?'+':M))+'.','Conjugate: '+m(cx(a,-b))+'.']);},
+ function(){var a=nz(-7,7),b=ri(1,7);return card('cx','Multiply: '+m('('+cx(a,b)+')('+cx(a,-b)+')'),String(a*a+b*b),['These are conjugates, so the answer is '+m('a² + b²')+'.','a = '+num(a)+': '+m('a² = '+a*a)+'.','b = '+b+': '+m('b² = '+b*b)+'.','Add: '+m(a*a+' + '+b*b+' = '+(a*a+b*b))+'. No i left.']);},
+ function(){var p=ri(2,7),q=ri(2,7);return card('cx','What is '+m('√'+M+(p*p)+' · √'+M+(q*q))+'?',M+(p*q),['Pull out i from the first: '+m('√'+M+p*p+' = '+p+'i')+'.','Pull out i from the second: '+m('√'+M+q*q+' = '+q+'i')+'.','Multiply: '+m(p+'i · '+q+'i = '+p*q+'i²')+'.','Replace i² with '+M+'1: '+m(p*q+'('+M+'1) = '+M+p*q)+'.']);},
+ function(){var a=nz(-5,5),b=nz(-5,5);return card('cx','Expand: '+m('('+cx(a,b)+')²'),cx(a*a-b*b,2*a*b),['Write it twice: '+m('('+cx(a,b)+')('+cx(a,b)+')')+'.','FOIL: '+m(num(a)+'·'+num(a)+' = '+a*a)+', the two middle terms are '+m(cx(0,a*b))+' each, and '+m(cx(0,b)+'·'+cx(0,b)+' = '+b*b+'i²')+'.','i² = '+M+'1, so the last term is '+m(num(-b*b))+'.','Combine: real '+m(a*a+' '+sgn(-b*b)+' = '+num(a*a-b*b))+', i part '+m(cx(0,a*b)+' + '+cx(0,a*b)+' = '+cx(0,2*a*b))+'.']);},
+ function(){var p=nz(-25,25),q=nz(-25,25);return card('cx','Combine: '+m(cx(0,p)+' '+(q<0?M:'+')+' '+cx(0,Math.abs(q))),cx(0,p+q),['Both are i terms, so combine just the numbers in front.',m(num(p)+' '+sgn(q)+' = '+num(p+q))+'.',(p<0)===(q<0)?'Same signs: add them and keep the sign.':'Different signs: subtract and keep the sign of the bigger one.','Answer: '+m(cx(0,p+q))+'.']);},
+ function(){var a=nz(-6,6),b=nz(-6,6),c=nz(-6,6),d=nz(-6,6),den=c*c+d*d,re=a*c+b*d,im=b*c-a*d;return card('cx','To divide '+m('('+cx(a,b)+') / ('+cx(c,d)+')')+', what do you multiply the top and bottom by?',cx(c,-d),['Look at the bottom: '+m(cx(c,d))+'.','Flip the sign in front of its i: '+m(cx(c,-d))+'. That’s the conjugate.','Bottom becomes '+m(c*c+' + '+d*d+' = '+den)+'.','Top: '+m('('+cx(a,b)+')('+cx(c,-d)+') = '+cx(re,im))+' (FOIL, i² = '+M+'1).','Final: '+m(cxf(re,im,den))+'.']);}
+];
+G.zd=[
+ function(){var L=pick([1,2,3]),c=nz(-24,24),f=[L,ri(-6,6),ri(-9,9),c];return card('zd','For '+m('f(x) = '+poly(f))+', what are the p values?',pm(divisors(c)),['p comes from the LAST number: '+m(num(c))+'.','List every whole number that divides '+Math.abs(c)+': '+divisors(c).join(', ')+'.','Put ± in front of each.']);},
+ function(){var L=pick([2,3,4,6]),c=nz(-12,12),f=[L,ri(-6,6),ri(-9,9),c];return card('zd','For '+m('f(x) = '+poly(f))+', what are the q values?',pm(divisors(L)),['q comes from the FIRST number: '+m(String(L))+'.','List every whole number that divides '+L+': '+divisors(L).join(', ')+'.','Put ± in front of each. Nothing from the last number goes here.']);},
+ function(){var L=pick([2,3]),c=pick([2,3,4,6,-2,-3,-4,-6]),f=[L,ri(-5,5),ri(-7,7),c];return card('zd','List all possible rational zeros of '+m('f(x) = '+poly(f))+'.',prz(f),['p (last number '+num(c)+'): '+pm(divisors(c))+'.','q (first number '+L+'): '+pm(divisors(L))+'.','Over 1: every p by itself.','Over '+L+': each p ÷ '+L+'. Reduce, and skip any repeats.','List them all with ±.']);},
+ function(){var f=[pick([1,1,2,-1]),ri(-4,4),ri(-6,6),ri(-8,8)],x=ri(-2,2);var st=['Replace every x with '+m('('+num(x)+')')+'.'];[3,2,1].forEach(function(p,i){if(f[i]!==0)st.push(m(termStep(f[i],p,x)));});st.push('Constant: '+m(num(f[3]))+'.');st.push('Add them up: '+m(num(ev(f,x)))+'.');return card('zd','If '+m('f(x) = '+poly(f))+', what is '+m('f('+num(x)+')')+'?',num(ev(f,x)),st);},
+ function(){var r=nz(-3,3),f=cubicWithRoot(r),s=synthRow(f,r);return card('zd','Synthetic division of '+m(poly(f))+' by '+m(fac(r))+'. What is the bottom row?',rowS(s),[m(fac(r))+' means use '+m(num(r))+' (flip the sign).'].concat(synthSteps(f,r)));},
+ function(){var a=pick([1,2,3,-1,-2,4]),b=ri(-9,9),c=nz(-9,9);return card('zd','After synthetic division of a cubic, the bottom row is '+m(num(a)+'   '+num(b)+'   '+num(c)+'  |  0')+'. What is the leftover?',poly([a,b,c]),['Drop the remainder (the 0). Keep '+m(num(a)+', '+num(b)+', '+num(c))+', including the first number.','The original started at x³, so the leftover starts one power lower, at x².','Attach the powers: '+m(num(a)+'x², '+num(b)+'x, '+num(c))+'.','Leftover: '+m(poly([a,b,c]))+'.']);},
+ function(){var a=pick([1,2,3,-1]),b=ri(-6,6),c=ri(-6,6),d=nz(-9,9);return card('zd','After synthetic division of a 4th-degree polynomial, the bottom row is '+m(num(a)+'   '+num(b)+'   '+num(c)+'   '+num(d)+'  |  0')+'. What is the leftover?',poly([a,b,c,d]),['Drop the remainder. Keep all 4 numbers.','The original started at x⁴, so the leftover starts at x³.','Attach powers x³, x², x, and a constant. A 0 means that power is missing.','Leftover: '+m(poly([a,b,c,d]))+'.']);},
+ function(){var k=ri(0,2);if(k===0){var r=nz(-6,6);return card('zd','The zero is '+m('x = '+num(r))+'. What factor does it give?',fac(r),['A zero r gives the factor '+m('(x '+M+' r)')+'.','Put in r = '+num(r)+': '+m('(x '+M+' ('+num(r)+'))')+'.','Clean up the signs: '+m(fac(r))+'.']);}
+   if(k===1){var q=pick([2,3]),p;do{p=nz(-5,5);}while(gcd(p,q)!==1);return card('zd','The zero is '+m('x = '+fr(p,q))+'. What factor does it give?','('+q+'x '+sgn(-p)+')',['Start with '+m('x = '+fr(p,q))+'.','Multiply both sides by '+q+': '+m(q+'x = '+num(p))+'.','Move '+num(p)+' over: '+m(q+'x '+sgn(-p)+' = 0')+'.','Factor: '+m('('+q+'x '+sgn(-p)+')')+'.']);}
+   var n=ri(1,4),ni=(n===1?'':n)+'i';return card('zd','The zero is '+m('x = '+ni)+'. What factor does it give?','(x '+M+' '+ni+')',['Same rule: '+m('(x '+M+' r)')+'.','r = '+ni+', so '+m('(x '+M+' '+ni+')')+'.','Its partner '+m(M+ni)+' gives '+m('(x + '+ni+')')+'.']);},
+ function(){if(Math.random()<.6){var r=nz(-7,7);return card('zd','What zero does the factor '+m(fac(r))+' give?','x = '+num(r),['Set it equal to 0: '+m(fac(r).replace(/[()]/g,'')+' = 0')+'.','Move the number over (the sign flips): '+m('x = '+num(r))+'.']);}
+   var q=pick([2,3,4]),p;do{p=nz(-7,7);}while(gcd(p,q)!==1);return card('zd','What zero does the factor '+m('('+q+'x '+sgn(-p)+')')+' give?','x = '+fr(p,q),['Set it equal to 0: '+m(q+'x '+sgn(-p)+' = 0')+'.','Move the number over: '+m(q+'x = '+num(p))+'.','Divide by '+q+': '+m('x = '+fr(p,q))+'.']);},
+ function(){var r=nz(-5,5),rem=pick([0,0,ri(-9,9)]);return card('zd','You divide by '+m(fac(r))+' and the remainder is '+num(rem)+'. Is '+m(num(r))+' a zero?',rem===0?'Yes':'No',['Look at the last number in the bottom row: '+num(rem)+'.','Remainder 0 means zero. Anything else means not a zero.',rem===0?'So '+num(r)+' is a zero, and '+m(fac(r))+' is a factor.':'Pick another number from your p/q list and try again.']);}
+];
+G.fa=[
+ function(){var rs=distinct(2,-7,7),c=mul(lin(rs[0]),lin(rs[1])),u=-rs[0],v=-rs[1];return card('fa','Factor '+m(poly(c))+'.',fac(rs[0])+fac(rs[1]),['You need two numbers that multiply to '+m(num(c[2]))+' and add to '+m(num(c[1]))+'.','Try factor pairs of '+num(c[2])+'. '+m(num(u)+' · '+num(v)+' = '+num(u*v))+' and '+m(num(u)+' + '+num(v)+' = '+num(u+v))+'. That works.','Write them in: '+m(fac(rs[0])+fac(rs[1]))+'.']);},
+ function(){var k=ri(2,9);return card('fa','Factor '+m('x² '+M+' '+k*k)+'.','(x '+M+' '+k+')(x + '+k+')',['It’s x² minus a perfect square, so it’s a difference of squares.',m(k*k+' = '+k+'²')+'.','Pattern: '+m('a² '+M+' b² = (a '+M+' b)(a + b)')+'.','Answer: '+m('(x '+M+' '+k+')(x + '+k+')')+'.']);},
+ function(){var k=ri(1,9),ki=(k===1?'':k)+'i';return card('fa','Solve '+m('x² + '+k*k+' = 0')+'.','x = ±'+ki,['Move the number: '+m('x² = '+M+k*k)+'.','Square root both sides, with ±: '+m('x = ±√'+M+k*k)+'.','Pull out i: '+m('√'+M+k*k+' = '+ki)+'.','Answer: '+m('x = ±'+ki)+'.']);},
+ function(){var a=pick([1,2,3,-1]),b=ri(-8,8),c=nz(-8,8),d=b*b-4*a*c;return card('fa','For '+m(poly([a,b,c])+' = 0')+', what is '+m('b² '+M+' 4ac')+'?',num(d),['a = '+num(a)+', b = '+num(b)+', c = '+num(c)+'.','b² = '+m('('+num(b)+')² = '+b*b)+'.','4ac = '+m('4('+num(a)+')('+num(c)+') = '+num(4*a*c))+'.','Subtract: '+m(b*b+' '+M+' ('+num(4*a*c)+') = '+num(d))+'.',d<0?'Negative, so the answers have i.':d===0?'Zero, so one repeated answer.':'Positive, so two real answers.']);},
+ function(){var n=pick([8,12,18,20,24,27,28,32,45,48,50,72,75,98,40,44]),r=rad(n);return card('fa','Simplify '+m('√'+n)+'.',radS(n),['Find the biggest perfect square that divides '+n+' (4, 9, 16, 25, 36, 49…): '+r[0]*r[0]+'.','Split it: '+m(n+' = '+r[0]*r[0]+' · '+r[1])+'.',m('√'+n+' = √'+r[0]*r[0]+' · √'+r[1]+' = '+r[0]+'√'+r[1])+'.']);},
+ function(){var d=pick([2,2,3,4]),h=nz(-4,4),k=ri(1,3),r=pick([2,3,5,7]);var top=num(d*h)+' ± '+(d*k)+'√'+r,ans=num(h)+' ± '+(k===1?'':k)+'√'+r;return card('fa','Simplify '+m('('+top+') / '+d)+'.',ans,['The bottom '+d+' divides EVERY term on top, not just the first one.','First term: '+m(num(d*h)+' ÷ '+d+' = '+num(h))+'.','Root term: '+m((d*k)+'√'+r+' ÷ '+d+' = '+(k===1?'':k)+'√'+r)+'.','Answer: '+m(ans)+'.']);},
+ function(){return card('fa','Write the quadratic formula.','x = (−b ± √(b² − 4ac)) / 2a',['Start with '+m('x =')+', then '+m(M+'b')+' (just b with its sign flipped, NOT squared).','Then '+m('± √(b² '+M+' 4ac)')+'. Inside the root it’s MINUS 4ac.','Everything goes over '+m('2a')+'.','Write it at the top of the problem before plugging in.']);},
+ function(){var a=pick([1,2,3,-1,-2]),b=nz(-9,9),c=nz(-9,9);return card('fa','For '+m(poly([a,b,c])+' = 0')+', what are a, b and c?','a = '+num(a)+', b = '+num(b)+', c = '+num(c),['a is the number in front of x²: '+num(a)+(Math.abs(a)===1?' (no number shown means 1)':'')+'.','b is the number in front of x: '+num(b)+'.','c is the number by itself: '+num(c)+'.','Each sign stays with its number.']);},
+ function(){var b=nz(-12,12);return card('fa','In the quadratic formula, if '+m('b = '+num(b))+', what is '+m(M+'b')+'?',num(-b),[m(M+'b')+' means flip the sign of b.','b = '+num(b)+', so '+m(M+'b = '+num(-b))+'.','Don’t square it. The square only goes inside the root.']);},
+ function(){var a=ri(-3,3),b=ri(1,5);return card('fa','Use the shortcut to multiply the pair of zeros '+m(cx(a,b)+' and '+cx(a,-b))+' into one quadratic.',poly([1,-2*a,a*a+b*b]),['Shortcut for a pair '+m('a ± bi')+': '+m('x² '+M+' 2ax + (a² + b²)')+'.','Here a = '+num(a)+' and b = '+b+'.',m(M+'2a = '+num(-2*a))+', and '+m('a² + b² = '+a*a+' + '+b*b+' = '+(a*a+b*b))+'.','Answer: '+m(poly([1,-2*a,a*a+b*b]))+'.']);}
+];
+G.gr=[
+ function(){var t=distinct(2,-5,5),m1=ri(1,4),m2=ri(1,3),k=pick([1,-1,2]);var f=(k===1?'':k===-1?M:k)+fac(t[0])+ex(m1)+fac(t[1])+ex(m2);return card('gr','For '+m('f(x) = '+f)+': what is the multiplicity of '+m('x = '+num(t[0]))+', and does the graph cross or touch there?','Multiplicity '+m1+', '+(m1%2?'crosses':'touches and turns around'),['Find the factor that gives x = '+num(t[0])+': '+m(fac(t[0]))+'.','Its exponent is '+m1+'. That’s the multiplicity.',m1+' is '+(m1%2?'odd':'even')+'. Odd crosses, even touches and turns.']);},
+ function(){var t=distinct(2,-6,6),m1=ri(1,3),m2=ri(1,3);var f=fac(t[0])+ex(m1)+fac(t[1])+ex(m2);return card('gr','What are the zeros of '+m('f(x) = '+f)+'?','x = '+num(t[0])+', '+num(t[1]),['Set each factor equal to 0. Ignore the exponents for this part.',m(fac(t[0]).replace(/[()]/g,'')+' = 0 → x = '+num(t[0]))+'.',m(fac(t[1]).replace(/[()]/g,'')+' = 0 → x = '+num(t[1]))+'.']);},
+ function(){var t=distinct(2,-6,6),m1=ri(1,4),m2=ri(1,3),k=pick([1,-1,2,-3]);var f=(k===1?'':k===-1?M:num(k))+fac(t[0])+ex(m1)+fac(t[1])+ex(m2);return card('gr','What is the degree of '+m('f(x) = '+f)+'?',String(m1+m2),['Each factor is a power of x.','Add the exponents: '+m(m1+' + '+m2+' = '+(m1+m2))+'.','The number in front ('+num(k)+') doesn’t change the degree.']);},
+ function(){var n=ri(2,7),k=pick([1,-1,2,-2,3,-3]);var e=n%2===0?(k>0?'Rises left, rises right':'Falls left, falls right'):(k>0?'Falls left, rises right':'Rises left, falls right');return card('gr','Degree '+n+', leading coefficient '+num(k)+'. What is the end behavior?',e,['Degree '+n+' is '+(n%2?'odd: the ends go opposite ways.':'even: both ends go the same way.'),'Leading coefficient '+num(k)+' is '+(k>0?'positive: the right end goes up.':'negative: the right end goes down.'),'Put it together: '+e.toLowerCase()+'.']);},
+ function(){var t=distinct(2,-4,4),m1=ri(1,3),m2=ri(1,2),k=pick([1,-1,2]);var f=(k===1?'':k===-1?M:k)+fac(t[0])+ex(m1)+fac(t[1])+ex(m2);var a=pw(-t[0],m1),b=pw(-t[1],m2),y=k*a*b;return card('gr','What is the y-intercept of '+m('f(x) = '+f)+'?','(0, '+num(y)+')',['Plug in x = 0.','First factor: '+m('(0 '+sgn(-t[0])+')'+ex(m1)+' = ('+num(-t[0])+')'+ex(m1)+' = '+num(a))+'.','Second factor: '+m('(0 '+sgn(-t[1])+')'+ex(m2)+' = ('+num(-t[1])+')'+ex(m2)+' = '+num(b))+'.','Multiply: '+m((k!==1?num(k)+' · ':'')+num(a)+' · '+num(b)+' = '+num(y))+'.']);},
+ function(){var t=distinct(2,-7,7),u=-t[0],v=-t[1];return card('gr','Write '+m(fac(t[0])+fac(t[1]))+' in standard form.',poly(mul(lin(t[0]),lin(t[1]))),['FOIL. First: '+m('x · x = x²')+'.','Outer + inner: '+m(num(v)+'x '+sgn(u)+'x = '+num(u+v)+'x')+'.','Last: '+m(num(u)+' · '+num(v)+' = '+num(u*v))+'.','Answer: '+m(poly(mul(lin(t[0]),lin(t[1]))))+'.']);}
+];
+G.ra=[
+ function(){var t=distinct(3,-6,6);return card('ra','What are the vertical asymptotes of '+m('f(x) = '+fac(t[0])+' / ['+fac(t[1])+fac(t[2])+']')+'?','x = '+num(t[1])+', x = '+num(t[2]),['Check for canceling: the top is '+m(fac(t[0]))+', which is not on the bottom. Nothing cancels.','Set each bottom factor = 0.',m(fac(t[1]).replace(/[()]/g,'')+' = 0 → x = '+num(t[1]))+' and '+m(fac(t[2]).replace(/[()]/g,'')+' = 0 → x = '+num(t[2]))+'.']);},
+ function(){var t=distinct(3,-6,6);return card('ra','For '+m('f(x) = '+fac(t[0])+fac(t[1])+' / ['+fac(t[0])+fac(t[2])+']')+', is there a hole or a VA at '+m('x = '+num(t[0]))+'?','Hole at x = '+num(t[0]),['Look for a factor on both the top and the bottom: '+m(fac(t[0]))+'.','It cancels. A canceled factor makes a HOLE, not a VA.','What’s left on the bottom, '+m(fac(t[2]))+', gives the VA '+m('x = '+num(t[2]))+'.']);},
+ function(){var k=ri(0,2),a=pick([1,2,3,-2,4]),b=pick([1,2,3,5]);var top,bot,ans,st;
+   if(k===0){top=poly([a,0,ri(-5,5)]);bot=poly([b,ri(-4,4),0,ri(1,6)]);ans='y = 0';st=['Top degree: 2. Bottom degree: 3.','Top is smaller → the HA is y = 0.'];}
+   else if(k===1){top=poly([a,ri(-5,5),ri(-5,5)]);bot=poly([b,ri(-4,4),nz(-6,6)]);ans='y = '+fr(a,b);st=['Top degree: 2. Bottom degree: 2.','Same degree → divide the leading numbers.',m(num(a)+' / '+b+' = '+fr(a,b))+'.'];}
+   else{top=poly([a,0,ri(-5,5),ri(-5,5)]);bot=poly([b,nz(-5,5)]);ans='None';st=['Top degree: 3. Bottom degree: 1.','Top is bigger → no HA.','It’s 2 bigger, not exactly 1, so no slant either.'];}
+   return card('ra','What is the horizontal asymptote of '+m('f(x) = ('+top+') / ('+bot+')')+'?',ans,st);},
+ function(){var d2=ri(1,3),d1=pick([d2-1,d2,d2+1,d2+2].filter(function(v){return v>=0;}));return card('ra','The top has degree '+d1+' and the bottom has degree '+d2+'. Is there a slant asymptote?',d1===d2+1?'Yes':'No',['Compare: top '+d1+', bottom '+d2+'.','Slant only when the top is exactly 1 more than the bottom.',d1===d2+1?'It is, so divide the top by the bottom and drop the remainder.':'It isn’t, so no slant.']);},
+ function(){var t=distinct(2,-7,7).sort(function(a,b){return a-b;}),bot=mul(lin(t[0]),lin(t[1]));return card('ra','Which x values are left out of the domain of '+m('f(x) = (x + 1) / ('+poly(bot)+')')+'?','x = '+num(t[0])+' and x = '+num(t[1]),['The bottom can’t be 0. Factor it: two numbers that multiply to '+num(bot[2])+' and add to '+num(bot[1])+'.',m(poly(bot)+' = '+fac(t[0])+fac(t[1]))+'.','Each factor = 0 gives '+m('x = '+num(t[0]))+' and '+m('x = '+num(t[1]))+'. Leave those out.']);},
+ function(){var k=ri(1,9);return card('ra','Does '+m('f(x) = 3 / (x² + '+k+')')+' have a vertical asymptote?','No',['Set the bottom = 0: '+m('x² = '+M+k)+'.','No real number squared is negative.','The bottom is never 0, so there is no VA.']);}
+];
+G.in=[
+ function(){var rel=pick(EQ),from=pick(['top','bottom','poly']);var closed=(rel==='≤'||rel==='≥')&&from!=='bottom';var where=from==='poly'?'a polynomial':'the '+from+' of a fraction';return card('in','The inequality uses '+m(rel)+'. A boundary point comes from '+where+'. Open or closed dot?',closed?'Closed':'Open',from==='bottom'?['It makes the bottom 0, so the expression doesn’t exist there.','Those points are ALWAYS open, no matter the sign.']:['Check the sign: '+m(rel)+'.',(rel==='≤'||rel==='≥')?'It includes "or equal," so the point counts: closed.':'It’s strict, so the point doesn’t count: open.']);},
+ function(){var t=distinct(2,-6,6).sort(function(a,b){return a-b;}),rel=pick(EQ);return card('in','What are the boundary points of '+m(fac(t[0])+fac(t[1])+' '+rel+' 0')+'?','x = '+num(t[0])+', '+num(t[1]),['Pretend it says = 0.','Set each factor = 0: '+m('x = '+num(t[0]))+' and '+m('x = '+num(t[1]))+'.','These split the number line into 3 intervals to test.']);},
+ function(){var t=distinct(2,-5,5).sort(function(a,b){return a-b;}),x=pick([t[0]-1,t[1]+1,(t[1]-t[0]>1)?t[0]+1:t[1]+2]);var p=x-t[0],q=x-t[1],v=p*q;return card('in','Test '+m('x = '+num(x))+' in '+m(fac(t[0])+fac(t[1]))+'. Positive or negative?',(v>0?'Positive':'Negative')+'  ('+num(v)+')',['Plug in '+num(x)+' for x.','First factor: '+m(num(x)+' '+sgn(-t[0])+' = '+num(p))+'.','Second factor: '+m(num(x)+' '+sgn(-t[1])+' = '+num(q))+'.','Multiply: '+m(num(p)+' · '+num(q)+' = '+num(v))+' → '+(v>0?'positive':'negative')+'.']);},
+ function(){var b=nz(-8,8),k=nz(-12,12),rel=pick(EQ);return card('in','First step for '+m(poly([1,b,0])+' '+rel+' '+num(k))+'?',poly([1,b,-k])+' '+rel+' 0',['You need 0 on the right side before you factor.',(k>0?'Subtract ':'Add ')+Math.abs(k)+' on both sides: '+m(poly([1,b,-k])+' '+rel+' 0')+'.','Now factor it and find the boundary points.']);},
+ function(){var t=distinct(2,-6,6).sort(function(a,b){return a-b;}),rel=pick(EQ);var cl=(rel==='≤'||rel==='≥'),pos=(rel==='>'||rel==='≥');var L=cl?'[':'(',Rb=cl?']':')',a=num(t[0]),b=num(t[1]);var ans=pos?'('+M+'∞, '+a+Rb+' ∪ '+L+b+', ∞)':L+a+', '+b+Rb;return card('in','The sign chart for '+m(fac(t[0])+fac(t[1])+' '+rel+' 0')+' is '+m('+  '+M+'  +')+'. What is the answer?',ans,['The sign '+m(rel+' 0')+' wants '+(pos?'positive (+)':'negative ('+M+')')+' intervals.','The '+(pos?'+':M)+' intervals are '+(pos?'the two outside ones':'the middle one')+'.',cl?'"Or equal": use [ ] at the boundary points.':'Strict: use ( ) at the boundary points. ∞ always gets ( ).','Answer: '+m(ans)+'.']);}
+];
+G.qu=[
+ function(){var a=pick([1,2,-1,-2,3]),h=nz(-5,5),b=-2*a*h,c=ri(-9,9);return card('qu','What is the x-value of the vertex of '+m('f(x) = '+poly([a,b,c]))+'?','x = '+num(h),['a = '+num(a)+', b = '+num(b)+'.',m(M+'b = '+num(-b))+' (flip the sign).',m('2a = '+num(2*a))+'.','Divide: '+m(num(-b)+' / '+num(2*a)+' = '+num(h))+'.']);},
+ function(){var a=pick([1,2,3,-1,-2,-3]);return card('qu','If '+m('a = '+num(a))+', does the parabola have a minimum or a maximum?',a>0?'Minimum (opens up)':'Maximum (opens down)',['a is '+(a>0?'positive':'negative')+'.',a>0?'Positive opens up, like a U. The vertex is the lowest point: a minimum.':'Negative opens down, like a hill. The vertex is the highest point: a maximum.']);},
+ function(){var a=pick([1,-1,2]),h=nz(-4,4),k=ri(-8,8),c=[a,-2*a*h,a*h*h+k];return card('qu','The vertex x of '+m('f(x) = '+poly(c))+' is '+num(h)+'. What is the vertex?','('+num(h)+', '+num(k)+')',['Plug x = '+num(h)+' back into f.',m(termStep(c[0],2,h))+'.',m(num(c[1])+'('+num(h)+') = '+num(c[1]*h))+'.','Add the constant: '+m(num(c[0]*h*h)+' '+sgn(c[1]*h)+' '+sgn(c[2])+' = '+num(k))+'.','Vertex: '+m('('+num(h)+', '+num(k)+')')+'.']);},
+ function(){var a=pick([1,2,-1,-3]),k=ri(-9,9);return card('qu','The vertex is at '+m('y = '+num(k))+' and '+m('a = '+num(a))+'. What is the range?',a>0?'['+num(k)+', ∞)':'('+M+'∞, '+num(k)+']',[a>0?'a > 0 opens up, so the vertex is the lowest y.':'a < 0 opens down, so the vertex is the highest y.',a>0?'y goes from '+num(k)+' up forever.':'y goes from '+num(k)+' down forever.','Bracket at '+num(k)+' (it’s included), parenthesis at ∞.']);}
+];
+
+/* ---------- helpers for chains ---------- */
+function cxf(rn,imn,d){var re=rn===0?'':fr(rn,d);if(imn===0)return re||'0';var g=gcd(imn,d),n=Math.abs(imn)/g,dd=Math.abs(d/g);var neg=(imn<0)!==(d<0);var im=dd===1?(n===1?'i':n+'i'):n+'/'+dd+' i';if(!re)return (neg?M:'')+im;return re+(neg?' '+M+' ':' + ')+im;}
+function iv(lo,hi,lb,rb){return lb+(lo===-Infinity?M+'∞':num(lo))+', '+(hi===Infinity?'∞':num(hi))+rb;}
+function solveIneq(f,nums,dens,rel){
+  var pts=nums.map(function(v){return {v:v,den:false};}).concat(dens.map(function(v){return {v:v,den:true};})).sort(function(a,b){return a.v-b.v;});
+  var gt=(rel==='>'||rel==='≥'),eq=(rel==='≥'||rel==='≤'),seq=[],signs=[];
+  for(var i=0;i<=pts.length;i++){var lo=i===0?-Infinity:pts[i-1].v,hi=i===pts.length?Infinity:pts[i].v;var x=lo===-Infinity?hi-1:(hi===Infinity?lo+1:(lo+hi)/2);var y=f(x);signs.push(y>0?'+':M);seq.push({k:'i',lo:lo,hi:hi,t:gt?y>0:y<0});if(i<pts.length)seq.push({k:'p',v:pts[i].v,t:eq&&!pts[i].den});}
+  var pieces=[],cur=null;seq.forEach(function(s){if(s.t){(cur=cur||[]).push(s);}else if(cur){pieces.push(cur);cur=null;}});if(cur)pieces.push(cur);
+  var out=pieces.map(function(p){var a=p[0],b=p[p.length-1];if(p.length===1&&a.k==='p')return '{'+num(a.v)+'}';var L=a.k==='p'?'['+num(a.v):(a.lo===-Infinity?'('+M+'∞':'('+num(a.lo));var Rr=b.k==='p'?num(b.v)+']':(b.hi===Infinity?'∞)':num(b.hi)+')');return L+', '+Rr;});
+  return {ans:out.length?out.join(' ∪ '):'No solution',signs:signs.join('  ')};
+}
+function synthRow(c,r){var s=[c[0]];for(var i=1;i<c.length;i++)s.push(c[i]+s[i-1]*r);return s;}
+function rowS(s){return s.slice(0,-1).map(num).join('   ')+'  |  '+num(s[s.length-1]);}
+function chain(problem,steps){var n=steps.length;return steps.map(function(s,i){return {t:'ex',step:(i+1)+' of '+n,q:'<div class="prob">'+problem+'</div>'+s[0],a:s[1],w:s[2]};});}
+var EQ=['<','>','≤','≥'];
+
+/* ---------- exam walk-throughs ---------- */
+var CH=[
+ function(){var a=nz(-6,6),b=nz(-6,6),c=nz(-5,5),d=nz(-5,5),den=c*c+d*d,re=a*c+b*d,im=b*c-a*d;
+  return chain('Write in standard form: '+m('('+cx(a,b)+') / ('+cx(c,d)+')'),[
+   ['What do you multiply the top and bottom by?',cx(c,-d),'The conjugate of the bottom.'],
+   ['What does the bottom become?',String(den),m(c*c+' + '+d*d)+'. Conjugates give '+m('c² + d²')+'.'],
+   ['FOIL the top: '+m('('+cx(a,b)+')('+cx(c,-d)+')')+'. What do you get?',cx(re,im),'FOIL, then '+m('i² = '+M+'1')+'. Same-sign i terms add.'],
+   ['Split over '+den+'. What is the final answer?',cxf(re,im,den),'Divide each part by '+den+' and reduce. Keep the sign from the top.']]);},
+ function(){var s=ri(2,4),c=nz(-4,4),d=nz(-4,4),re=c*c-d*d-2*s,im=2*c*d;
+  return chain('Write in standard form: '+m('√'+M+(2*s*s)+' · √'+M+'2 + ('+cx(c,d)+')²'),[
+   ['What is '+m('√'+M+(2*s*s))+'?',imS(2*s*s),'Pull out i, then simplify '+m('√'+(2*s*s)+' = '+s+'√2')+'.'],
+   ['What is '+m('√'+M+'2')+'?','i√2','Pull out i first.'],
+   ['Multiply '+m(imS(2*s*s)+' · i√2')+'.',num(-2*s),m(s+' · i² · 2 = '+s+'(−1)(2)')+'.'],
+   ['Expand '+m('('+cx(c,d)+')²')+'.',cx(c*c-d*d,2*c*d),'FOIL: '+m((c*c)+' '+(2*c*d<0?M:'+')+' '+Math.abs(2*c*d)+'i + '+(d*d)+'i²')+'.'],
+   ['Add the two parts. Final answer?',cx(re,im),'Real parts together, i parts together.']]);},
+ function(){var rs=distinct(2,-4,4),q=pick([2,3]),p;do{p=nz(-5,5);}while(gcd(p,q)!==1);var quad=mul(lin(rs[1]),[q,-p]),f=mul(lin(rs[0]),quad),row=synthRow(f,rs[0]);
+  return chain('Solve: '+m(poly(f)+' = 0'),[
+   ['What are the p values?',pm(divisors(f[3])),'Factors of the last number, '+num(f[3])+'.'],
+   ['What are the q values?',pm(divisors(f[0])),'Factors of the first number, '+f[0]+'.'],
+   ['What is '+m('f('+num(rs[0])+')')+'?','0','A 0 means '+num(rs[0])+' is a zero. Use it to divide.'],
+   ['Synthetic division by '+num(rs[0])+'. Bottom row?',rowS(row),'Bring down, multiply, add.'],
+   ['What is the leftover?',poly(quad),'Keep every number, one power lower.'],
+   ['Factor the leftover.',fac(rs[1])+'('+poly([q,-p])+')','Two numbers that multiply to a·c and add to b, or use the formula.'],
+   ['List all the solutions.','x = '+num(rs[0])+', '+num(rs[1])+', '+fr(p,q),'Set each factor to 0. End with one line.']]);},
+ function(){var t=distinct(3,-5,5),h=t[0],a=t[1],b=t[2],k=pick([1,2,3,-1]);var top=mul([k],mul(lin(h),lin(a))),bot=mul(lin(h),lin(b));
+  return chain('Find the VA, HA, slant asymptote and holes: '+m('f(x) = ('+poly(top)+') / ('+poly(bot)+')'),[
+   ['Factor the top.',(k!==1?num(k):'')+fac(h)+fac(a),(k!==1?'Pull out '+num(k)+' first. ':'')+'Two numbers that multiply and add.'],
+   ['Factor the bottom.',fac(h)+fac(b),'Two numbers that multiply to '+num(h*b)+' and add to '+num(-(h+b))+'.'],
+   ['What cancels, and what does that make?',fac(h)+' cancels: hole at x = '+num(h),'Canceled factor = hole, not a VA.'],
+   ['Plug '+num(h)+' into what’s left. Hole y-value?',fr(k*(h-a),h-b),m((k!==1?num(k)+'(':'')+num(h)+' '+(a<0?'+ '+(-a):M+' '+a)+(k!==1?')':'')+' / ('+num(h)+' '+(b<0?'+ '+(-b):M+' '+b)+')')+'.'],
+   ['What is the VA?','x = '+num(b),'What’s left on the bottom = 0.'],
+   ['What is the HA?','y = '+num(k),'Same degree, so divide the leading numbers.'],
+   ['Is there a slant asymptote?','None','Slant only when the top degree is exactly 1 more.']]);},
+ function(){var p,q,d,rem;do{p=ri(-5,5);q=nz(-8,8);d=nz(-4,4);rem=q+d*(p+d);}while(rem===0);var top=[1,p,q];
+  return chain('Find all asymptotes: '+m('f(x) = ('+poly(top)+') / '+fac(d)),[
+   ['What is the VA?','x = '+num(d),'Bottom = 0, and the top is not 0 there.'],
+   ['Is there an HA?','None','Top degree 2 is bigger than bottom degree 1.'],
+   ['Divide by synthetic division with '+num(d)+'. Bottom row?',rowS(synthRow(top,d)),'The last number is the remainder.'],
+   ['What is the slant asymptote?','y = '+poly([1,p+d]),'Drop the remainder.']]);},
+ function(){var a,b;do{a=nz(-6,6);b=nz(-6,6);}while(a===-b);var rel=pick(EQ),z=a+2*b;var s=solveIneq(function(x){return (x+a)/(x-b)-2;},[z],[b],rel);var cl=(rel==='≤'||rel==='≥');
+  return chain('Solve and graph: '+m(fac(-a)+' / '+fac(b)+' '+rel+' 2'),[
+   ['First move: what do you do with the 2?','Subtract 2 from both sides','Never multiply by the bottom. Get 0 on the right.'],
+   ['Combine into one fraction. What is the new top?',poly([-1,z]),m(poly([1,a])+' '+M+' 2'+fac(b))+' = '+m(poly([-1,z]))+'.'],
+   ['Boundary point from the top? Open or closed?','x = '+num(z)+', '+(cl?'closed':'open'),cl?'≤ or ≥ makes top points closed.':'Strict sign, open.'],
+   ['Boundary point from the bottom? Open or closed?','x = '+num(b)+', open','Bottom points are always open.'],
+   ['Signs from left to right?',s.signs,'Test one number in each interval.'],
+   ['Final answer in interval notation?',s.ans,'Keep the intervals that match '+rel+' 0.']]);},
+ function(){var rs=distinct(3,-5,5).sort(function(x,y){return x-y;}),rel=pick(EQ),c=mul(mul(lin(rs[0]),lin(rs[1])),lin(rs[2]));var s=solveIneq(function(x){return ev(c,x);},rs,[],rel);
+  return chain('Solve and graph: '+m(poly(c)+' '+rel+' 0'),[
+   ['Factor it.',fac(rs[0])+fac(rs[1])+fac(rs[2]),'Find one zero from p/q, divide, factor the leftover.'],
+   ['Boundary points? Open or closed?','x = '+rs.map(num).join(', ')+', '+((rel==='≤'||rel==='≥')?'closed':'open'),'≤ ≥ closed, < > open.'],
+   ['Signs from left to right?',s.signs,'Test one number in each of the 4 intervals.'],
+   ['Final answer?',s.ans,'Keep the matching intervals.']]);},
+ function(){var r=nz(-4,4),a=ri(-3,3),b=ri(1,4),A=pick([1,2,-1,3]),quad=[1,-2*a,a*a+b*b],base=mul(lin(r),quad),x0;do{x0=ri(-2,3);}while(ev(base,x0)===0);var v=ev(base,x0);
+  return chain('Find a 3rd-degree polynomial with real coefficients: '+m(num(r))+' and '+m(cx(a,b))+' are zeros, '+m('f('+num(x0)+') = '+num(A*v)),[
+   ['What other zero must there be?',cx(a,-b),'Complex zeros come in conjugate pairs.'],
+   ['Multiply the pair into one quadratic.',poly(quad),'Shortcut: '+m('x² '+M+' 2ax + (a² + b²)')+'.'],
+   ['Write f with an unknown a.','f(x) = a'+fac(r)+'('+poly(quad)+')','One factor for each zero.'],
+   ['Plug in x = '+num(x0)+'. What is a?','a = '+num(A),m('a('+num(v)+') = '+num(A*v))+'.'],
+   ['Multiply out. Standard form?','f(x) = '+poly(base.map(function(t){return t*A;})),'Multiply the factors, then multiply by a.']]);},
+ function(){var t=distinct(2,-4,4),m1=ri(1,3),m2=pick([1,2,3].filter(function(v){return !(v===1&&m1===1);})),k=pick([1,-1,2,-2]);var f=(k===1?'':k===-1?M:num(k))+fac(t[0])+ex(m1)+fac(t[1])+ex(m2),deg=m1+m2;var y=k*Math.pow(-t[0],m1)*Math.pow(-t[1],m2);
+  var tc=function(x){return x%2?'crosses':'touches and turns around';};
+  return chain('For '+m('f(x) = '+f)+': zeros, multiplicity, cross or touch, end behavior, y-intercept',[
+   ['Zeros and their multiplicities?','x = '+num(t[0])+' (mult '+m1+'), x = '+num(t[1])+' (mult '+m2+')','Each factor gives a zero. The exponent is the multiplicity.'],
+   ['Cross or touch at x = '+num(t[0])+'?',tc(m1),'Odd crosses, even touches.'],
+   ['Cross or touch at x = '+num(t[1])+'?',tc(m2),'Odd crosses, even touches.'],
+   ['Degree and leading coefficient?','Degree '+deg+', leading coefficient '+num(k),'Add the exponents. The number in front is the leading coefficient.'],
+   ['End behavior?',deg%2===0?(k>0?'Rises left, rises right':'Falls left, falls right'):(k>0?'Falls left, rises right':'Rises left, falls right'),'Leading Coefficient Test.'],
+   ['y-intercept?','(0, '+num(y)+')','Plug in x = 0.']]);},
+ function(){var mm=ri(2,4),n=ri(1,3),c=[1,0,n*n-mm*mm,0,-mm*mm*n*n],ni=(n===1?'':n)+'i';
+  return chain('Find all zeros and write as linear factors: '+m('f(x) = '+poly(c)),[
+   ['Treat '+m('x²')+' as one thing. Factor.','(x² '+M+' '+mm*mm+')(x² + '+n*n+')','Two numbers that multiply to '+num(-mm*mm*n*n)+' and add to '+num(n*n-mm*mm)+'.'],
+   ['Real zeros?','x = ±'+mm,m('x² = '+mm*mm)+'.'],
+   ['Imaginary zeros?','x = ±'+ni,m('x² = '+M+(n*n))+', so take the square root of a negative.'],
+   ['Product of linear factors?','(x '+M+' '+mm+')(x + '+mm+')(x '+M+' '+ni+')(x + '+ni+')','Each zero r gives (x '+M+' r). Four zeros, four factors.']]);},
+ function(){var a=pick([1,-1,2,-2]),h=nz(-4,4),s=ri(1,3),k=-a*s*s,c=[a,-2*a*h,a*h*h+k];
+  return chain('For '+m('f(x) = '+poly(c))+': vertex, min or max, intercepts, range',[
+   ['What are a, b and c?','a = '+num(c[0])+', b = '+num(c[1])+', c = '+num(c[2]),'Signs stay with the numbers.'],
+   ['Vertex x = '+m(M+'b / 2a')+'?','x = '+num(h),m(num(-c[1])+' / '+num(2*a))+'. Flip the sign of b first.'],
+   ['Vertex y?',num(k),'Plug x = '+num(h)+' back in.'],
+   ['Minimum or maximum?',a>0?'Minimum of '+num(k):'Maximum of '+num(k),a>0?'a > 0 opens up.':'a < 0 opens down.'],
+   ['x-intercepts?','x = '+num(h-s)+', '+num(h+s),'Set f(x) = 0 and factor while it equals 0.'],
+   ['Range?',a>0?'['+num(k)+', ∞)':'('+M+'∞, '+num(k)+']','From the vertex y, up or down.']]);}
+];
+
+/* ---------- spot the mistake (from tonight's whiteboard) ---------- */
+var SM=[
+ function(){var a=pick([2,3,-2,4]),b=ri(-8,8),c=nz(-8,8);return card('sm','Bottom row: '+m(num(a)+'   '+num(b)+'   '+num(c)+'  |  0')+'. Someone wrote the leftover as '+m(poly([1,b,c].map(function(v,i){return i===0?1:v;})))+'. What’s wrong?','Dropped the '+num(a)+'. Leftover is '+poly([a,b,c]),'Every bottom-row number stays, including the first.');},
+ function(){var a=pick([1,2,3]),b=ri(-8,8),c=nz(-8,8);return card('sm','Bottom row of a cubic: '+m(num(a)+'   '+num(b)+'   '+num(c)+'  |  0')+'. Someone wrote '+m(poly([a,b,c,0]))+'. What’s wrong?','Power is too high. It’s '+poly([a,b,c]),'The leftover starts one power lower: x², not x³.');},
+ function(){return card('sm','Someone wrote the formula as '+m('x = ('+M+'b² ± √(b² + 4ac)) / 2a')+'. What’s wrong?','Two things: −b (not −b²), and MINUS 4ac','x = (−b ± √(b² − 4ac)) / 2a');},
+ function(){var p=ri(5,25),q=ri(2,15);return card('sm','Someone wrote '+m(M+p+'i '+M+' '+q+'i = '+M+(p-q)+'i')+'. What’s wrong?','It’s '+M+(p+q)+'i','Both are negative, so they add up to a bigger negative.');},
+ function(){var r=ri(1,7);return card('sm','Someone said the factor '+m('(x + '+r+')')+' gives the zero '+m('x = '+r)+'. What’s wrong?','The zero is x = '+M+r,m('x + '+r+' = 0 → x = '+M+r)+'. The sign flips.');},
+ function(){var L=pick([2,3]),c=pick([4,6,8,9,12]);return card('sm','For '+m(L+'x³ + … + '+c)+', someone wrote '+m('q = ±1, ±'+L+', ±'+c)+'. What’s wrong?','q is only '+pm(divisors(L)),'q comes from the first number. '+c+' belongs to p.');},
+ function(){var h=nz(-4,4),k=ri(1,3),r=pick([2,3,5,7]);return card('sm','Someone simplified '+m('('+num(2*h)+' ± '+(2*k)+'√'+r+') / 2')+' to '+m(num(h)+' ± '+(2*k)+'√'+r)+'. What’s wrong?','Only divided one term. It’s '+num(h)+' ± '+(k===1?'':k)+'√'+r,'Divide every term on top by 2.');},
+ function(){var p=ri(2,6),q=ri(2,6);return card('sm','Someone wrote '+m('√'+M+(p*p)+' · √'+M+(q*q)+' = √'+(p*p*q*q)+' = '+(p*q))+'. What’s wrong?','Answer is '+M+(p*q),'Pull out i first: '+m(p+'i · '+q+'i = '+(p*q)+'i² = '+M+(p*q))+'.');},
+ function(){var b=ri(2,8)*2;return card('sm','For '+m('x² + '+b+'x + 1')+', someone found the vertex at '+m('x = '+b/2)+'. What’s wrong?','x = '+M+(b/2),m(M+'b = '+M+b)+', so x = '+M+b+' / 2.');},
+ function(){var a=pick([1,2,3]);return card('sm','For '+m(poly([a,4,-1]))+', someone wrote "maximum value." What’s wrong?','It’s a minimum','a = '+a+' is positive, so it opens up. Opens up has a minimum.');},
+ function(){var a=ri(2,6);return card('sm','For '+m('(x '+M+' '+a+') / (x² '+M+' '+a*a+')')+', someone said the domain leaves out only '+m('x = '+M+a)+' because '+m('(x '+M+' '+a+')')+' cancels. What’s wrong?','x = '+a+' is still left out','A canceled factor makes a hole. The x is still not allowed.');},
+ function(){var b=nz(-6,6);return card('sm','Solving '+m('(x + 1) / '+fac(b)+' ≥ 0')+', someone drew a closed dot at '+m('x = '+num(b))+'. What’s wrong?','It must be open','It makes the bottom 0, so it can never be included.');},
+ function(){var a=nz(-5,5),b=nz(-5,5);return card('sm','Someone split '+m('('+num(a)+' '+(b<0?M:'+')+' '+Math.abs(b)+'i) / 34')+' into '+m(fr(a,34)+' '+(b<0?'+':M)+' '+fr(Math.abs(b),34)+' i')+'. What’s wrong?','The sign flipped. It’s '+fr(a,34)+' '+(b<0?M:'+')+' '+fr(Math.abs(b),34)+' i','Keep the sign from the top when you split.');},
+ function(){return card('sm','Someone stopped at '+m('x = (2 ± √20) / 2 ≈ 3.24, '+M+'1.24')+'. What’s wrong?','Not finished. x = 1 ± √5','√20 = 2√5, then divide every term by 2. Hummel wants the exact answer.');}
+];
+
+/* ---------- exam concepts (from his exam sheet and the book's wording) ---------- */
+var CC=[
+ ['What does "standard form" mean for a complex number?','a + bi','Real part first, then the i part. No i left on the bottom.'],
+ ['Why multiply by the conjugate when dividing complex numbers?','It makes the bottom a real number','(c + di)(c − di) = c² + d².'],
+ ['If 3 − 2i is a zero of a polynomial with real coefficients, what else is a zero?','3 + 2i','Complex zeros come in conjugate pairs.'],
+ ['A degree 5 polynomial has how many zeros, counting complex and repeats?','5','Fundamental Theorem of Algebra: degree n gives n zeros.'],
+ ['"Write as a product of linear factors" means what?','One (x − zero) factor for every zero, i zeros included','Example: (x − 3)(x − 2i)(x + 2i).'],
+ ['Remainder Theorem: dividing f(x) by (x − c) leaves what remainder?','f(c)','So plugging in c and synthetic division give the same number.'],
+ ['Factor Theorem: when is (x − c) a factor?','When f(c) = 0','Remainder 0 means it divides evenly.'],
+ ['In p/q, where do p and q come from?','p: last number. q: first number.','List every p over every q.'],
+ ['Does the Rational Zero Theorem give the zeros?','No, only possible rational zeros','Test them with the table or synthetic division.'],
+ ['A number in the synthetic division row is missing a power (like no x²). What do you write?','0 in that spot','x³ − 4x + 1 → 1   0   −4   1.'],
+ ['When does a rational function have a hole?','When a factor cancels from top and bottom','Find the hole’s y by plugging x into what’s left.'],
+ ['HA when the top degree is LESS than the bottom?','y = 0',''],
+ ['HA when the degrees are EQUAL?','y = (leading number on top) / (leading number on bottom)',''],
+ ['Top degree is exactly 1 MORE than the bottom. HA or slant?','Slant asymptote, no HA','Divide and drop the remainder.'],
+ ['What 4 lines does Hummel’s asymptote answer need?','VA, HA, SA, Holes','Write "none" where one doesn’t exist. A blank costs points.'],
+ ['Domain of a rational function: which x values are left out?','Every x that makes the original bottom 0','Even if that factor cancels.'],
+ ['Rational inequality: can you multiply both sides by the bottom?','No','Move everything to one side, combine into one fraction, then sign chart.'],
+ ['On the number line, a zero of the bottom gets what dot?','Open, always',''],
+ ['After you find the boundary points of an inequality, what’s next?','Test one number in each interval','Keep the intervals whose sign matches.'],
+ ['Odd multiplicity: cross or touch?','Crosses',''],
+ ['Even multiplicity: cross or touch?','Touches and turns around',''],
+ ['The Leading Coefficient Test uses which two things?','Degree (odd or even) and the sign of the leading coefficient',''],
+ ['Most turning points a degree n polynomial can have?','n − 1','Degree 4 has at most 3 turns.'],
+ ['How do you find a y-intercept?','Plug in x = 0','For factored form, multiply the constants.'],
+ ['"f(1) = −10" in a write-the-polynomial problem is used for what?','Finding the leading number a','Plug in x = 1, set it equal to −10, solve for a.'],
+ ['b² − 4ac is negative. What kind of answers?','Two complex answers with i',''],
+ ['A quadratic opens up. Is the vertex a min or a max?','Minimum',''],
+ ['How is the Unit 2 exam set up?','12–14 short-answer problems, 4–5 points each, 70 points, calculator allowed','From Hummel’s exam sheet. Show work for full credit.'],
+ ['Which topics have the most problems on the exam?','Solving polynomials (3–4), then inequalities, asymptotes and imaginary numbers (2–3 each)','From Hummel’s exam sheet.']
+];
+
+G.ex=[function(){return pick(CH)();}];
+G.sm=SM;
+G.cc=CC.map(function(c){return function(){return card('cc',c[0],c[1],c[2]);};});
+
+var on={};Object.keys(T).forEach(function(k){on[k]=true;});
+try{var saved=JSON.parse(localStorage.getItem('u2fc-topics')||'null');if(saved)Object.keys(T).forEach(function(k){if(k in saved)on[k]=!!saved[k];});}catch(e){}
+var chips=document.getElementById('chips');
+chips.innerHTML=Object.keys(T).map(function(k){return '<button type="button" class="chip" id="chip-'+k+'" data-t="'+k+'" aria-pressed="'+on[k]+'">'+T[k]+'</button>';}).join('');
+chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;var k=b.dataset.t;var count=Object.keys(on).filter(function(x){return on[x];}).length;if(on[k]&&count===1)return;on[k]=!on[k];b.setAttribute('aria-pressed',on[k]);try{localStorage.setItem('u2fc-topics',JSON.stringify(on));}catch(e2){}newDeck();});
+
+var lastTopic=null,recent=[];
+function draw(){var keys=Object.keys(T).filter(function(k){return on[k];});var k;do{k=pick(keys);}while(keys.length>1&&k===lastTopic);lastTopic=k;
+  var fns=G[k],f,tries=0;do{f=pick(fns);tries++;}while(recent.indexOf(f)>-1&&tries<8);recent.push(f);if(recent.length>6)recent.shift();
+  var out=f();return Array.isArray(out)?out:[out];}
+function build(){var d=[];while(d.length<SIZE){d=d.concat(draw());}return d;}
+var deck=[],idx=0,flipped=false,got=0,miss=0,missedCards=[],SIZE=20;
+function newDeck(cards){deck=cards||build();idx=0;got=0;miss=0;missedCards=[];flipped=false;render();}
+var el=document.getElementById('card');
+function render(){
+  document.getElementById('got').textContent=got;document.getElementById('miss').textContent=miss;
+  document.getElementById('prog').style.width=Math.round(100*Math.min(idx,deck.length)/deck.length)+'%';
+  if(idx>=deck.length){document.getElementById('count').textContent='Deck done';
+    el.className='card done';
+    el.innerHTML='<h2>'+got+' got, '+miss+' missed</h2>'+(missedCards.length?'<p>Missed this round:</p><ol class="missed-list">'+missedCards.map(function(c){return '<li>'+c.q+'</li>';}).join('')+'</ol>':'<p>Clean deck. Try a new one.</p>')+'<div class="actions">'+(missedCards.length?'<button type="button" class="act miss" id="review">Review missed ('+missedCards.length+')</button>':'')+'<button type="button" class="act flip" id="again">New deck</button></div>';
+    var rv=document.getElementById('review');if(rv)rv.onclick=function(){newDeck(missedCards.map(function(c){return {t:c.t,q:c.q,a:c.a,w:c.w,step:c.step};}));};
+    document.getElementById('again').onclick=function(){newDeck();};return;}
+  var c=deck[idx];el.className='card';
+  document.getElementById('count').textContent='Card '+(idx+1)+' of '+deck.length;
+  el.innerHTML='<span class="tag">'+T[c.t]+(c.step?' · Step '+c.step:'')+'</span><div class="q">'+c.q+'</div>'+(flipped?'<div class="ans"><div class="lab">Answer</div><div class="a">'+c.a+'</div>'+(Array.isArray(c.w)?'<div class="lab">Steps to get there</div><ol class="st">'+c.w.map(function(s){return '<li>'+s+'</li>';}).join('')+'</ol>':(c.w?'<div class="w">'+c.w+'</div>':''))+'</div>':'')+
+    '<div class="actions">'+(flipped?'<button type="button" class="act miss" id="bmiss">Missed it</button><button type="button" class="act got" id="bgot">Got it</button>':'<button type="button" class="act flip" id="bflip">Show answer</button>')+'</div>';
+  if(flipped){document.getElementById('bmiss').onclick=function(){mark(false);};document.getElementById('bgot').onclick=function(){mark(true);};}
+  else document.getElementById('bflip').onclick=flip;
+}
+function flip(){flipped=true;render();var b=document.getElementById('bgot');if(b)b.focus();}
+function mark(ok){var c=deck[idx];if(ok)got++;else{miss++;if(missedCards.indexOf(c)<0)missedCards.push(c);if(!c.again){var copy={t:c.t,q:c.q,a:c.a,w:c.w,step:c.step,again:true};deck.splice(Math.min(idx+4,deck.length),0,copy);}}idx++;flipped=false;render();var f=document.getElementById('bflip')||document.getElementById('again');if(f)f.focus();}
+document.addEventListener('keydown',function(e){if(e.target.closest&&e.target.closest('.chip'))return;if(idx>=deck.length)return;
+  if(e.key===' '||e.key==='Enter'){if(!flipped){e.preventDefault();flip();}}
+  else if(flipped&&e.key==='1'){mark(false);}else if(flipped&&e.key==='2'){mark(true);}});
+window.__draw=function(n){var out=[];for(var i=0;i<n;i++)out=out.concat(draw());return out;};window.__G=G;window.__CH=CH;window.__build=build;
+newDeck();
+})();
+</script>
+
+</body></html>

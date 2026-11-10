@@ -1,0 +1,809 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Precalc 2.6 Key</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<script>document.documentElement.setAttribute('data-theme','dark');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one reading column (max 760px) under a sticky set switcher; each problem is a card: problem, short numbered steps, green answer box. */
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --ink:#16202F; --muted:#5A6577; --line:#DCE2EA; --grid:#E9EDF3;
+  --accent:#2453B8; --accent-soft:#E6EDFB;
+  --ok:#0D6E4C; --ok-soft:#E3F2EA;
+  --warn:#9C4D0B; --warn-soft:#FBEDDD;
+  --bad:#A8263A; --bad-soft:#F9E6E9;
+  --curve:#2453B8; --asym:#C2410C;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E131B; --surface:#161D28; --ink:#E5E9F0; --muted:#9BA5B6; --line:#2A3342; --grid:#1F2734;
+    --accent:#93B2FF; --accent-soft:#1C2742;
+    --ok:#6AD3A6; --ok-soft:#13291F;
+    --warn:#F2A866; --warn-soft:#33230F;
+    --bad:#FF8C9B; --bad-soft:#36161C;
+    --curve:#93B2FF; --asym:#F59E5B;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E131B; --surface:#161D28; --ink:#E5E9F0; --muted:#9BA5B6; --line:#2A3342; --grid:#1F2734;
+  --accent:#93B2FF; --accent-soft:#1C2742;
+  --ok:#6AD3A6; --ok-soft:#13291F;
+  --warn:#F2A866; --warn-soft:#33230F;
+  --bad:#FF8C9B; --bad-soft:#36161C;
+  --curve:#93B2FF; --asym:#F59E5B;
+  color-scheme:dark;
+}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* header */
+.top{padding-block:36px 20px}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,6vw,2.75rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+.lede{margin:0;max-width:60ch;color:var(--muted)}
+.glance{list-style:none;margin:22px 0 0;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.glance li + li{border-top:1px solid var(--line)}
+.glance a{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;padding:12px 16px;text-decoration:none;color:var(--ink)}
+.glance a:hover{background:var(--grid)}
+.g-set{font-family:var(--f-mono);font-weight:600;font-size:14px;min-width:6.2em;color:var(--accent)}
+.g-topic{flex:1 1 12em;min-width:0}
+.chip{font-family:var(--f-mono);font-size:12px;font-weight:500;padding:3px 9px;border-radius:999px;background:var(--grid);color:var(--muted);white-space:nowrap}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* sticky set switcher */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:6px;padding-block:8px;overflow-x:auto}
+.bar a{font-family:var(--f-mono);font-size:13.5px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:8px;color:var(--ink);white-space:nowrap}
+.bar a:hover{background:var(--grid)}
+.bar .lbl{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-right:2px;white-space:nowrap}
+#quiz{margin-left:auto;font-family:var(--f-body);font-weight:700;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--accent);cursor:pointer;white-space:nowrap}
+#quiz[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+
+/* sections */
+main{padding-block:8px 72px}
+.set{scroll-margin-top:64px;padding-top:36px;display:grid;gap:14px}
+.kicker{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.15;margin:4px 0 8px;text-wrap:balance}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+h3{font-family:var(--f-display);font-weight:600;font-size:1.2rem;margin:18px 0 0;text-wrap:balance}
+.dir{margin:-8px 0 0;color:var(--muted);font-size:15.5px}
+
+.idea{background:var(--accent-soft);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.idea-lbl{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0;font-weight:600}
+.idea ul,.idea ol{margin:0;padding-left:1.25em;display:grid;gap:5px}
+.idea p{margin:0}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--muted)}
+
+/* problem cards */
+.prob{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:12px;min-width:0}
+.ph{display:flex;align-items:baseline;gap:12px;min-width:0}
+.num{flex:none;font-family:var(--f-mono);font-weight:600;font-size:13px;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px;min-width:2.4em;text-align:center}
+.q{min-width:0;font-size:1.06em;overflow-x:auto;overflow-y:hidden;padding-block:2px}
+.work{display:grid;gap:12px;min-width:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:7px;counter-reset:s}
+.steps li{position:relative;padding-left:2em;counter-increment:s;overflow-x:auto;overflow-y:hidden;padding-block:1px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.2em;width:1.4em;height:1.4em;border-radius:50%;background:var(--grid);color:var(--muted);font:600 12px/1.4em var(--f-mono);text-align:center}
+.ans{background:var(--ok-soft);border-radius:9px;padding:10px 14px;display:grid;gap:3px;min-width:0}
+.ans .lbl{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ok);font-weight:600}
+.ans .m{overflow-x:auto;overflow-y:hidden;padding-block:2px}
+.tip{margin:0;font-size:15px;color:var(--muted)}
+.tip b{color:var(--ink)}
+.reveal{display:none;justify-self:start;font-family:var(--f-body);font-weight:700;font-size:14.5px;padding:6px 14px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--accent);cursor:pointer}
+body.quiz .reveal{display:inline-block}
+body.quiz .prob:not(.open) .work{display:none}
+
+/* tables */
+.tbl{overflow-x:auto}
+table.ops{border-collapse:collapse;width:100%;font-size:16px}
+table.ops th,table.ops td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.ops thead th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+table.ops tr:last-child th,table.ops tr:last-child td{border-bottom:0}
+.synth{overflow-x:auto}
+.synth table{border-collapse:collapse;font-family:var(--f-mono);font-size:15px;font-variant-numeric:tabular-nums}
+.synth td{padding:4px 10px;text-align:right;min-width:2.6em}
+.synth td.c{border-right:2px solid var(--muted);color:var(--accent);font-weight:600}
+.synth tr.r1 td{color:var(--muted)}
+.synth tr.r2 td{border-top:2px solid var(--muted);font-weight:600}
+.synth tr.r2 td.c{border-top:0}
+.synth td.rem{background:var(--ok-soft);color:var(--ok);border-radius:4px}
+
+/* graph features */
+.feat{display:grid;grid-template-columns:max-content 1fr;gap:5px 16px;margin:0}
+.sub{margin:4px 0 0;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.workbox{overflow-x:auto;overflow-y:hidden;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:17px}
+.ldwrap{overflow-x:auto;display:flex;justify-content:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 12px}
+.ld{border-collapse:collapse;font-family:var(--f-mono);font-size:19px;margin:0 auto}
+.ld td{padding:4px 9px;text-align:right;white-space:nowrap}
+.ld .q td{color:var(--ok);font-weight:700}
+.ld .top td:not(.dv){border-top:2px solid var(--ink)}
+.ld .dv{color:var(--ink);font-weight:600;border-right:2px solid var(--ink);border-radius:0 0 12px 0;padding-right:12px}
+.ld .rule td:not(:first-child){border-top:1.5px solid var(--muted)}
+.ld tr:last-child td{color:var(--ok);font-weight:700}
+/* Centered layout */
+.top,.top .lede,.set > div:first-child,h3,.dir,.sub{text-align:center}
+.top .lede{margin-inline:auto}
+.top .chips,.set .chips{justify-content:center}
+.ph{flex-direction:column;align-items:center;text-align:center;gap:8px}
+.q{font-size:1.25em}
+.steps{max-width:620px;margin-inline:auto;width:100%}
+.ans{text-align:center;justify-items:center}
+.feat{text-align:left;margin-inline:auto}
+.idea{max-width:620px;margin-inline:auto;width:100%}
+.answers6{max-width:520px;margin-inline:auto}
+.feat dt{color:var(--muted);font-size:15px}
+.feat dd{margin:0;min-width:0;overflow-x:auto;overflow-y:hidden}
+@media (max-width:520px){ .feat{grid-template-columns:1fr;gap:0} .feat dd{margin-bottom:6px} }
+.fig{margin:0;display:grid;gap:4px;justify-items:center}
+.plot{width:100%;max-width:460px;height:auto;display:block}
+.plot .grid{stroke:var(--grid);stroke-width:1}
+.plot .axis{stroke:var(--muted);stroke-width:1.2}
+.plot .tick{fill:var(--muted);font-family:var(--f-mono);font-size:9.5px}
+.plot .asym{stroke:var(--asym);stroke-width:1.4;stroke-dasharray:5 4;fill:none}
+.plot .curve{stroke:var(--curve);stroke-width:2.3;fill:none;stroke-linejoin:round}
+.plot .dot{fill:var(--curve)}
+.plot .hole{fill:var(--surface);stroke:var(--curve);stroke-width:2}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted);margin:0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block}
+.lg-c{width:18px;border-top:2.5px solid var(--curve)}
+.lg-a{width:18px;border-top:2px dashed var(--asym)}
+.lg-h{width:9px;height:9px;border-radius:50%;border:2px solid var(--curve)}
+.lg-d{width:8px;height:8px;border-radius:50%;background:var(--curve)}
+.nl svg{width:100%;max-width:420px;height:auto;display:block}
+.nl-base{stroke:var(--muted);stroke-width:1.5}
+.nl-arr{stroke:var(--muted);stroke-width:1.5;fill:none}
+.nl-keep{stroke:var(--accent);stroke-width:5;stroke-linecap:butt}
+.nl-karr{stroke:var(--accent);stroke-width:3;fill:none}
+.nl-sign{fill:var(--muted);font-family:var(--f-mono);font-size:13px;font-weight:600}
+.nl-lab{fill:var(--ink);font-family:var(--f-mono);font-size:12px}
+.nl-dot{fill:var(--accent)}
+.nl-open{fill:var(--surface);stroke:var(--accent);stroke-width:2.2}
+.nl-tick{stroke:var(--muted);stroke-width:1.5}
+.answers6{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.answers6 li{display:grid;grid-template-columns:2.4em 1fr;gap:10px;align-items:baseline}
+.answers6 .n{font-family:var(--f-mono);font-weight:600;font-size:13px;color:var(--accent)}
+.answers6 .why{display:block;font-size:15px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:20px 8px;margin-top:48px;font-size:14px;color:var(--muted)}
+mjx-container{color:inherit}
+</style>
+<style>
+.chk{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.chk li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
+.chk .n{font-family:var(--f-mono);font-weight:600;font-size:14px}
+.chk .chip{justify-self:start;margin-bottom:4px;display:inline-block}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chk p{margin:2px 0 0;overflow-wrap:anywhere}
+</style>
+<header class="wrap top">
+  <p class="eyebrow">MATH&amp;141 Precalculus · Hummel · Problem Set 2.6</p>
+  <h1>Precalc 2.6 Key</h1>
+  <p class="lede">All 34 problems, worked step by step, with a graph for every graphing problem. Your paper is checked first. To quiz yourself, tap <b>Hide answers</b>.</p>
+  <div class="chips"><span class="chip warn">Due Thu 11/5, 2:00 PM</span><span class="chip">34 problems</span></div>
+</header>
+
+<nav class="bar" aria-label="Sections">
+  <div class="wrap bar-in">
+    <span class="lbl">Jump to</span>
+    <a href="#check">Your paper</a><a href="#s26">Key</a><a href="#p87">87–94</a>
+    <button id="quiz" type="button" aria-pressed="false">Hide answers</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section class="set" id="check">
+  <div>
+    <p class="kicker">Your paper, checked</p>
+    <h2>What to fix</h2>
+  </div>
+  <ol class="chk">
+    <li><span class="n">5</span><div><span class="chip warn">Add ∪</span><p>Right numbers, but put union signs between the pieces: \((-\infty,-7)\cup(-7,7)\cup(7,\infty)\)</p></div></li>
+    <li><span class="n">7</span><div><span class="chip warn">Fix the middle</span><p>The final answer \((-\infty,\infty)\) is right. Cross out \(\frac{x+7}{(x+7)(x-7)}\): \(x^2+49\) does not factor. Write \(x^2+49=0\Rightarrow x^2=-49\), no real solution. Also cross out the stray "y = 0".</p></div></li>
+    <li><span class="n">9–14</span><div><span class="chip bad">Not done</span><p>9: \(-\infty\) (you wrote \(+\infty\)). 10: \(+\infty\) (you wrote \(-\infty\)). 11: \(-\infty\). 12: \(+\infty\). 13: \(0\). 14: \(0\). Check them against the book's graph.</p></div></li>
+    <li><span class="n">25</span><div><span class="chip bad">Wrong</span><p>VA is only \(x=-4\). The \(x\) cancels, so \(x=0\) is a hole, not an asymptote. Hole: \(\frac{1}{0+4}=\frac14\), so the point is \(\left(0,\tfrac14\right)\). The height is positive, not \(-\frac14\).</p></div></li>
+    <li><span class="n">26</span><div><span class="chip warn">Fix hole</span><p>VA \(x=3\) is right. Hole height: \(\frac{1}{0-3}=-\frac13\), so the point is \(\left(0,-\tfrac13\right)\), not \(-0.4\).</p></div></li>
+    <li><span class="n">27</span><div><span class="chip bad">Blank</span><p>No vertical asymptotes, no holes (\(x^2+4=0\) has no real solution).</p></div></li>
+    <li><span class="n">28</span><div><span class="chip bad">Blank</span><p>No vertical asymptotes, no holes. The "No VA (3,6)" on this line belongs to #29.</p></div></li>
+    <li><span class="n">29</span><div><span class="chip warn">Remove (−∞,∞)</span><p>No VA and hole at \((3,6)\) are right. Delete \((-\infty,\infty)\): the question doesn't ask for the domain, and \(x=3\) isn't in it anyway.</p></div></li>
+    <li><span class="n">30</span><div><span class="chip warn">Remove (−∞,∞)</span><p>No VA and hole at \((5,10)\) are right. Delete \((-\infty,\infty)\) for the same reason.</p></div></li>
+    <li><span class="n">31</span><div><span class="chip bad">Blank</span><p>\(\frac{x-3}{(x-3)(x+3)}=\frac{1}{x+3}\). VA \(x=-3\). Hole \(\left(3,\tfrac16\right)\)</p></div></li>
+    <li><span class="n">32</span><div><span class="chip bad">Blank</span><p>\(\frac{x-5}{(x-5)(x+5)}=\frac{1}{x+5}\). VA \(x=-5\). Hole \(\left(5,\tfrac1{10}\right)\)</p></div></li>
+    <li><span class="n">39</span><div><span class="chip bad">Blank</span><p>Same power on top and bottom, so divide the leading numbers: \(\frac{12}{3}=4\). HA \(y=4\)</p></div></li>
+    <li><span class="n">Scratch</span><div><span class="chip bad">Erase</span><p>The \(x^2-3x+9\) work at the bottom isn't a 2.6 problem, and \(x=3\) doesn't solve it: \(9-9+9=9\ne0\). Dividing only some terms by \(-3\) isn't allowed.</p></div></li>
+  </ol>
+</section>
+
+<!-- ======================= 2.6 ======================= -->
+<section class="set" id="s26">
+  <div>
+    <p class="kicker">Problem Set 2.6 · Textbook pp. 400–402</p>
+    <h2>Rational functions and their graphs</h2>
+    <div class="chips"><span class="chip warn">Due Thu 11/5, 2:00 PM</span><span class="chip">34 problems</span></div>
+  </div>
+  <div class="idea">
+    <p class="idea-lbl">How it works</p>
+    <ul>
+      <li><b>Domain:</b> throw out every x that makes the bottom 0.</li>
+      <li><b>Factor, then cancel.</b> A factor that cancels makes a <b>hole</b> (an open circle). A factor left on the bottom makes a <b>vertical asymptote</b>, a wall the graph never touches.</li>
+      <li><b>Horizontal asymptote:</b> compare the highest powers.
+        <ul><li>Bottom power bigger: \(y=0\)</li><li>Same power: divide the leading numbers</li><li>Top power bigger: no horizontal asymptote. If it's bigger by exactly 1, divide; the answer without the remainder is the <b>slant asymptote</b>.</li></ul></li>
+      <li>\(x\to1^-\) means x creeping up to 1 from the left. \(x\to1^+\) means from the right.</li>
+      <li><b>Graphing in 7 steps:</b> symmetry, y-intercept (plug in 0), x-intercepts (top = 0), vertical asymptotes, horizontal asymptote, a few points, draw.</li>
+    </ul>
+  </div>
+
+  <h3>Find the domain</h3>
+  <p class="dir">Book: “In Exercises 1–8, find the domain of each rational function.” Assigned: 4–7</p>
+
+  <article class="prob"><div class="ph"><span class="num">4</span><div class="q">\(g(x)=\dfrac{2x^2}{(x-2)(x+6)}\)</div></div>
+    <div class="work"><ol class="steps"><li>Set the bottom to 0: \((x-2)(x+6)=0\)</li><li>\(x-2=0\Rightarrow x=2\). \(x+6=0\Rightarrow x=-6\). Exclude both.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-6)\cup(-6,2)\cup(2,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">5</span><div class="q">\(h(x)=\dfrac{x+7}{x^2-49}\)</div></div>
+    <div class="work"><ol class="steps"><li>Set the bottom to 0: \(x^2-49=(x-7)(x+7)=0\), so \(x=7\) or \(x=-7\). Exclude both.</li><li>\(x+7\) cancels later, but \(-7\) is still out of the domain.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-7)\cup(-7,7)\cup(7,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">6</span><div class="q">\(h(x)=\dfrac{x+8}{x^2-64}\)</div></div>
+    <div class="work"><ol class="steps"><li>Set the bottom to 0: \(x^2-64=(x-8)(x+8)=0\), so \(x=8\) or \(x=-8\). Exclude both.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-8)\cup(-8,8)\cup(8,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">7</span><div class="q">\(f(x)=\dfrac{x+7}{x^2+49}\)</div></div>
+    <div class="work"><ol class="steps"><li>Set the bottom to 0: \(x^2+49=0\Rightarrow x^2=-49\). No real solution, because \(x^2\ge0\).</li><li>Nothing to exclude.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,\infty)\), all real numbers</div></div></div></article>
+
+  <h3>Read the graph</h3>
+  <p class="dir">Book: “Use the graph of the rational function in the figure shown to complete each statement in Exercises 9–14.”</p>
+
+  <article class="prob"><div class="ph"><span class="num">9–14</span><div class="q">As \(x\) approaches each value, where does \(f(x)\) go?</div></div>
+    <div class="work">
+      <figure class="fig"><div class="plotbox" data-plot="book" data-label="Textbook graph with vertical asymptotes at x = −3 and x = 1 and horizontal asymptote y = 0"></div></figure>
+      <div class="ans"><span class="lbl">Answer</span>
+        <ol class="answers6">
+          <li><span class="n">9</span><span>\(x\to-3^-\): \(f(x)\to-\infty\)<span class="why">Just left of the wall at \(-3\), the curve drops.</span></span></li>
+          <li><span class="n">10</span><span>\(x\to-3^+\): \(f(x)\to+\infty\)<span class="why">Just right of that wall, the curve shoots up.</span></span></li>
+          <li><span class="n">11</span><span>\(x\to1^-\): \(f(x)\to-\infty\)<span class="why">The middle piece drops down along the wall at 1.</span></span></li>
+          <li><span class="n">12</span><span>\(x\to1^+\): \(f(x)\to+\infty\)<span class="why">The right piece comes down from the top.</span></span></li>
+          <li><span class="n">13</span><span>\(x\to-\infty\): \(f(x)\to0\)<span class="why">Far left, it flattens onto \(y=0\).</span></span></li>
+          <li><span class="n">14</span><span>\(x\to\infty\): \(f(x)\to0\)<span class="why">Far right, it flattens onto \(y=0\) too.</span></span></li>
+        </ol>
+      </div>
+    </div></article>
+
+  <h3>Vertical asymptotes and holes</h3>
+  <p class="dir">Book: “In Exercises 21–36, find the vertical asymptotes, if any, and the values of x corresponding to holes, if any, of the graph of each rational function.” Assigned: 25–32</p>
+
+  <article class="prob"><div class="ph"><span class="num">25</span><div class="q">\(h(x)=\dfrac{x}{x(x+4)}\)</div></div>
+    <div class="work"><ol class="steps"><li>Cancel the x: \(\dfrac{1}{x+4}\)</li><li>Left on the bottom: \(x+4\), so the wall is at \(x=-4\).</li><li>The canceled x makes a hole at \(x=0\). Its height: \(\tfrac{1}{0+4}=\tfrac14\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Vertical asymptote \(x=-4\). Hole at \(x=0\), the point \(\left(0,\tfrac14\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">26</span><div class="q">\(h(x)=\dfrac{x}{x(x-3)}\)</div></div>
+    <div class="work"><ol class="steps"><li>Cancel the x: \(\dfrac{1}{x-3}\), with \(x\ne0\)</li><li>Left on the bottom: \(x-3\), so the vertical asymptote is \(x=3\).</li><li>The canceled x makes a hole at \(x=0\). Height: \(\tfrac{1}{0-3}=-\tfrac13\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Vertical asymptote \(x=3\). Hole at \(x=0\), the point \(\left(0,-\tfrac13\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">27</span><div class="q">\(r(x)=\dfrac{x}{x^2+4}\)</div></div>
+    <div class="work"><ol class="steps"><li>Bottom: \(x^2+4=0\Rightarrow x^2=-4\). No real solution.</li><li>\(x\) and \(x^2+4\) share no factor, so nothing cancels.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No vertical asymptotes, no holes</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">28</span><div class="q">\(r(x)=\dfrac{x}{x^2+3}\)</div></div>
+    <div class="work"><ol class="steps"><li>Bottom: \(x^2+3=0\Rightarrow x^2=-3\). No real solution.</li><li>\(x\) and \(x^2+3\) share no factor, so nothing cancels.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No vertical asymptotes, no holes</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">29</span><div class="q">\(f(x)=\dfrac{x^2-9}{x-3}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(\dfrac{(x-3)(x+3)}{x-3}=x+3\)</li><li>Nothing is left on the bottom. The canceled \(x-3\) makes a hole at \(x=3\), height \(3+3=6\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No vertical asymptote. Hole at \(x=3\), the point \((3,6)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">30</span><div class="q">\(f(x)=\dfrac{x^2-25}{x-5}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(\dfrac{(x-5)(x+5)}{x-5}=x+5\)</li><li>Nothing is left on the bottom, so no vertical asymptote. The canceled \(x-5\) makes a hole at \(x=5\), height \(5+5=10\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No vertical asymptote. Hole at \(x=5\), the point \((5,10)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">31</span><div class="q">\(g(x)=\dfrac{x-3}{x^2-9}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(\dfrac{x-3}{(x-3)(x+3)}=\dfrac{1}{x+3}\)</li><li>Left on the bottom: \(x+3\), so the vertical asymptote is \(x=-3\).</li><li>The canceled \(x-3\) makes a hole at \(x=3\). Height: \(\tfrac{1}{3+3}=\tfrac16\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Vertical asymptote \(x=-3\). Hole at \(x=3\), the point \(\left(3,\tfrac16\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">32</span><div class="q">\(g(x)=\dfrac{x-5}{x^2-25}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(\dfrac{x-5}{(x-5)(x+5)}=\dfrac{1}{x+5}\)</li><li>Left on the bottom: \(x+5\), so the vertical asymptote is \(x=-5\).</li><li>The canceled \(x-5\) makes a hole at \(x=5\). Height: \(\tfrac{1}{5+5}=\tfrac1{10}\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Vertical asymptote \(x=-5\). Hole at \(x=5\), the point \(\left(5,\tfrac1{10}\right)\)</div></div></div></article>
+
+  <h3>Horizontal asymptote</h3>
+  <p class="dir">Book: “In Exercises 37–44, find the horizontal asymptote, if there is one, of the graph of each rational function.” Assigned: 39–44</p>
+
+  <article class="prob"><div class="ph"><span class="num">39</span><div class="q">\(g(x)=\dfrac{12x^2}{3x^2+1}\)</div></div>
+    <div class="work"><ol class="steps"><li>Same power (\(x^2\) and \(x^2\)), so divide the leading numbers: \(\tfrac{12}{3}=4\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(y=4\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">40</span><div class="q">\(g(x)=\dfrac{15x^2}{3x^2+1}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 2, bottom degree 2. Same degree, so divide the leading coefficients: \(\tfrac{15}{3}=5\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(y=5\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">41</span><div class="q">\(h(x)=\dfrac{12x^3}{3x^2+1}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 3, bottom degree 2. Top is bigger, so there is no horizontal asymptote.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No horizontal asymptote</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">42</span><div class="q">\(h(x)=\dfrac{15x^3}{3x^2+1}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 3, bottom degree 2. Top is bigger, so there is no horizontal asymptote.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No horizontal asymptote</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">43</span><div class="q">\(f(x)=\dfrac{-2x+1}{3x+5}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 1, bottom degree 1. Same degree, so divide the leading coefficients: \(\tfrac{-2}{3}\). The +1 and +5 don't matter here.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(y=-\tfrac23\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">44</span><div class="q">\(f(x)=\dfrac{-3x+7}{5x-2}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 1, bottom degree 1. Same degree, so divide the leading coefficients: \(\tfrac{-3}{5}\). The +7 and −2 don't matter here.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(y=-\tfrac35\)</div></div></div></article>
+
+  <h3>Graph it in 7 steps</h3>
+  <p class="dir">Book: “In Exercises 57–80, follow the seven steps on page 392 to graph each rational function.” Assigned: 76–79</p>
+
+  <article class="prob"><div class="ph"><span class="num">76</span><div class="q">\(f(x)=\dfrac{2x^4}{x^2+1}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Symmetry: \(f(-x)=\dfrac{2(-x)^4}{(-x)^2+1}=\dfrac{2x^4}{x^2+1}=f(x)\), so it's even.</li>
+        <li>y-intercept: \(f(0)=\dfrac{0}{1}=0\)</li>
+        <li>x-intercepts: set the top to 0: \(2x^4=0\), so \(x=0\)</li>
+        <li>Vertical asymptotes: \(x^2+1=0\) has no real solution, so none.</li>
+        <li>Horizontal asymptote: top degree 4 is bigger than bottom degree 2, so none.</li>
+        <li>Points: \(f(1)=\tfrac{2}{2}=1\), \(f(2)=\tfrac{32}{5}=6.4\). Mirror them to \(x=-1,-2\).</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>\(f(-x)=f(x)\), so it mirrors across the y-axis</dd>
+        <dt>y-intercept</dt><dd>\(f(0)=0\), the point \((0,0)\)</dd>
+        <dt>x-intercepts</dt><dd>\(2x^4=0\), so only \(x=0\)</dd>
+        <dt>Vertical asymptotes</dt><dd>None, because \(x^2+1\) is never 0</dd>
+        <dt>Horizontal asymptote</dt><dd>None, because the top power (4) is bigger</dd>
+        <dt>Points</dt><dd>\((\pm1,1)\), \((\pm2,6.4)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p76" data-label="Graph of 2x to the 4th over x squared plus 1, a U shape through the origin"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">77</span><div class="q">\(f(x)=\dfrac{x^2+x-12}{x^2-4}=\dfrac{(x+4)(x-3)}{(x+2)(x-2)}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Symmetry: \(f(-x)=\dfrac{x^2-x-12}{x^2-4}\), which is neither \(f(x)\) nor \(-f(x)\), so none.</li>
+        <li>y-intercept: \(f(0)=\dfrac{-12}{-4}=3\)</li>
+        <li>x-intercepts: \((x+4)(x-3)=0\), so \(x=-4,\ 3\)</li>
+        <li>Vertical asymptotes: \((x+2)(x-2)=0\), so \(x=\pm2\). Nothing cancels.</li>
+        <li>Horizontal asymptote: same degree, \(\tfrac11=1\). Cross check: \(x^2+x-12=x^2-4\), so \(x=8\).</li>
+        <li>Points: \(f(-5)=\tfrac{8}{21}\), \(f(-3)=\tfrac{-6}{5}\), \(f(-1)=\tfrac{-12}{-3}=4\), \(f(1)=\tfrac{-10}{-3}\), \(f(2.5)=\tfrac{-3.25}{2.25}\), \(f(4)=\tfrac{8}{12}\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>y-intercept</dt><dd>\(f(0)=\tfrac{-12}{-4}=3\), the point \((0,3)\)</dd>
+        <dt>x-intercepts</dt><dd>\((-4,0)\) and \((3,0)\)</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=-2\) and \(x=2\)</dd>
+        <dt>Horizontal asymptote</dt><dd>Same power, so \(y=1\). The graph crosses it at \((8,1)\).</dd>
+        <dt>Points</dt><dd>\((-5,0.38)\), \((-3,-1.2)\), \((-1,4)\), \((1,3.33)\), \((2.5,-1.44)\), \((4,0.67)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p77" data-label="Graph with vertical asymptotes x = −2 and x = 2 and horizontal asymptote y = 1"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">78</span><div class="q">\(f(x)=\dfrac{x^2}{x^2+x-6}=\dfrac{x^2}{(x+3)(x-2)}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Symmetry: \(f(-x)=\dfrac{x^2}{x^2-x-6}\), so none.</li>
+        <li>Intercepts: \(f(0)=0\), and \(x^2=0\) gives \(x=0\) only.</li>
+        <li>Vertical asymptotes: \((x+3)(x-2)=0\), so \(x=-3,\ 2\)</li>
+        <li>Horizontal asymptote: same degree, \(\tfrac11=1\). Cross check: \(x^2=x^2+x-6\), so \(x=6\).</li>
+        <li>Points: \(f(-4)=\tfrac{16}{6}\), \(f(-1)=\tfrac{1}{-6}\), \(f(1)=\tfrac{1}{-4}\), \(f(3)=\tfrac{9}{6}\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>Intercepts</dt><dd>Only \((0,0)\). It touches and turns back because \(x^2\) is squared.</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=-3\) and \(x=2\)</dd>
+        <dt>Horizontal asymptote</dt><dd>\(y=1\). The graph crosses it at \((6,1)\).</dd>
+        <dt>Points</dt><dd>\((-4,2.67)\), \((-1,-0.17)\), \((1,-0.25)\), \((3,1.5)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p78" data-label="Graph with vertical asymptotes x = −3 and x = 2 and horizontal asymptote y = 1"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">79</span><div class="q">\(f(x)=\dfrac{3x^2+x-4}{2x^2-5x}=\dfrac{(3x+4)(x-1)}{x(2x-5)}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Symmetry: \(f(-x)=\dfrac{3x^2-x-4}{2x^2+5x}\), so none.</li>
+        <li>y-intercept: \(f(0)\) puts 0 on the bottom, so none.</li>
+        <li>x-intercepts: \((3x+4)(x-1)=0\), so \(x=-\tfrac43,\ 1\)</li>
+        <li>Vertical asymptotes: \(x(2x-5)=0\), so \(x=0,\ \tfrac52\)</li>
+        <li>Horizontal asymptote: same degree, \(\tfrac32\). Cross check: \(3x^2+x-4=\tfrac32(2x^2-5x)\) gives \(\tfrac{17}{2}x=4\), so \(x=\tfrac{8}{17}\).</li>
+        <li>Points: \(f(-2)=\tfrac{6}{18}\), \(f(-1)=\tfrac{-2}{7}\), \(f(0.5)=\tfrac{-2.75}{-2}\), \(f(2)=\tfrac{10}{-2}\), \(f(3)=\tfrac{26}{3}\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>y-intercept</dt><dd>None, because \(x=0\) isn't allowed</dd>
+        <dt>x-intercepts</dt><dd>\(\left(-\tfrac43,0\right)\) and \((1,0)\)</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=0\) and \(x=\tfrac52\)</dd>
+        <dt>Horizontal asymptote</dt><dd>\(y=\tfrac32\). The graph crosses it at \(x=\tfrac{8}{17}\).</dd>
+        <dt>Points</dt><dd>\((-2,0.33)\), \((-1,-0.29)\), \((0.5,1.38)\), \((2,-5)\), \((3,8.67)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p79" data-label="Graph with vertical asymptotes x = 0 and x = 5/2 and horizontal asymptote y = 3/2"></div></figure>
+    </div></article>
+
+  <h3>Slant asymptotes</h3>
+  <p class="dir">Book: “In Exercises 81–88, a. Find the slant asymptote of the graph of each rational function and b. Follow the seven-step strategy and use the slant asymptote to graph each rational function.” Assigned: 85–88</p>
+
+  <article class="prob"><div class="ph"><span class="num">85</span><div class="q">\(f(x)=\dfrac{x^2+x-6}{x-3}\)</div></div>
+    <div class="work">
+      <p class="sub">(a) Long division</p>
+      <ol class="steps">
+        <li>Divide the first terms: \(x^2\div x=x\). Write \(x\) on top.</li>
+        <li>Multiply: \(x(x-3)=x^2-3x\). Subtract: \((x^2+x)-(x^2-3x)=4x\). Bring down \(-6\).</li>
+        <li>Divide again: \(4x\div x=4\). Write \(+4\) on top.</li>
+        <li>Multiply: \(4(x-3)=4x-12\). Subtract: \((4x-6)-(4x-12)=6\). The remainder is 6.</li>
+      </ol>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of x squared plus x minus 6 by x minus 3">
+        <tr class="q"><td></td><td></td><td>x</td><td>+4</td></tr>
+        <tr class="top"><td class="dv">x−3</td><td>x²</td><td>+x</td><td>−6</td></tr>
+        <tr><td></td><td>−(x²</td><td>−3x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>4x</td><td>−6</td></tr>
+        <tr><td></td><td></td><td>−(4x</td><td>−12)</td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>6</td></tr>
+      </table></div>
+      <ol class="steps" style="counter-reset:s 4">
+        <li>Write the result: \(f(x)=x+4+\dfrac{6}{x-3}\)</li>
+        <li>Drop the remainder fraction. The slant asymptote is \(y=x+4\).</li>
+      </ol>
+      <p class="sub">(b) The seven steps</p>
+      <ol class="steps" style="counter-reset:s 6">
+        <li>Symmetry: \(f(-x)=\dfrac{x^2-x-6}{-x-3}\). That is not \(f(x)\) or \(-f(x)\), so no symmetry.</li>
+        <li>y-intercept: \(f(0)=\dfrac{-6}{-3}=2\), the point \((0,2)\)</li>
+        <li>x-intercepts: \(x^2+x-6=(x+3)(x-2)=0\Rightarrow x=-3\) or \(x=2\)</li>
+        <li>Vertical asymptote: \(x-3=0\Rightarrow x=3\). The top at 3 is \(9+3-6=6\ne0\), so it's an asymptote, not a hole.</li>
+        <li>Horizontal asymptote: top degree 2 is bigger than bottom degree 1, so none. Use the slant asymptote.</li>
+        <li>Points: \(f(-4)=\tfrac{6}{-7}\approx-0.86\), \(f(4)=\tfrac{14}{1}=14\), \(f(5)=\tfrac{24}{2}=12\), \(f(6)=\tfrac{36}{3}=12\)</li>
+        <li>Draw: dashed lines at \(x=3\) and \(y=x+4\), plot the points, and connect each piece along the dashed lines.</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x+4\)</dd>
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>Vertical asymptote</dt><dd>\(x=3\)</dd>
+        <dt>x-intercepts</dt><dd>\((-3,0)\) and \((2,0)\)</dd>
+        <dt>y-intercept</dt><dd>\((0,2)\)</dd>
+        <dt>Points</dt><dd>\((-4,-0.86)\), \((4,14)\), \((5,12)\), \((6,12)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p85" data-label="Graph with vertical asymptote x = 3 and slant asymptote y = x + 4"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">86</span><div class="q">\(f(x)=\dfrac{x^2-x+1}{x-1}\)</div></div>
+    <div class="work">
+      <p class="sub">(a) Long division</p>
+      <ol class="steps">
+        <li>Divide the first terms: \(x^2\div x=x\). Write \(x\) on top.</li>
+        <li>Multiply: \(x(x-1)=x^2-x\). Subtract: \((x^2-x)-(x^2-x)=0\). Bring down \(+1\).</li>
+        <li>Divide again: \(1\div x\) doesn't give a whole term, so stop. The remainder is 1.</li>
+      </ol>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of x squared minus x plus 1 by x minus 1">
+        <tr class="q"><td></td><td></td><td>x</td><td></td></tr>
+        <tr class="top"><td class="dv">x−1</td><td>x²</td><td>−x</td><td>+1</td></tr>
+        <tr><td></td><td>−(x²</td><td>−x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>0</td><td>+1</td></tr>
+      </table></div>
+      <ol class="steps" style="counter-reset:s 3">
+        <li>Write the result: \(f(x)=x+\dfrac{1}{x-1}\)</li>
+        <li>Drop the remainder fraction. The slant asymptote is \(y=x\).</li>
+      </ol>
+      <p class="sub">(b) The seven steps</p>
+      <ol class="steps" style="counter-reset:s 5">
+        <li>Symmetry: \(f(-x)=\dfrac{x^2+x+1}{-x-1}\). That is not \(f(x)\) or \(-f(x)\), so no symmetry.</li>
+        <li>y-intercept: \(f(0)=\dfrac{1}{-1}=-1\), the point \((0,-1)\)</li>
+        <li>x-intercepts: \(x^2-x+1=0\). The discriminant is \(b^2-4ac=1-4=-3\), which is negative, so none.</li>
+        <li>Vertical asymptote: \(x-1=0\Rightarrow x=1\). The top at 1 is \(1-1+1=1\ne0\), so it's an asymptote, not a hole.</li>
+        <li>Horizontal asymptote: top degree 2 is bigger than bottom degree 1, so none. Use the slant asymptote.</li>
+        <li>Points: \(f(-1)=\tfrac{3}{-2}=-1.5\), \(f(0.5)=\tfrac{0.75}{-0.5}=-1.5\), \(f(2)=\tfrac{3}{1}=3\), \(f(3)=\tfrac{7}{2}=3.5\)</li>
+        <li>Draw: dashed lines at \(x=1\) and \(y=x\), plot the points, and connect each piece along the dashed lines.</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x\)</dd>
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>Vertical asymptote</dt><dd>\(x=1\)</dd>
+        <dt>x-intercepts</dt><dd>None</dd>
+        <dt>y-intercept</dt><dd>\((0,-1)\)</dd>
+        <dt>Points</dt><dd>\((-1,-1.5)\), \((0.5,-1.5)\), \((2,3)\), \((3,3.5)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p86" data-label="Graph with vertical asymptote x = 1 and slant asymptote y = x"></div></figure>
+    </div></article>
+
+  <article class="prob" id="p87" style="scroll-margin-top:64px"><div class="ph"><span class="num">87</span><div class="q">\(f(x)=\dfrac{x^3+1}{x^2+2x}\)</div></div>
+    <div class="work">
+      <p class="sub">(a) Long division</p>
+      <ol class="steps">
+        <li>Fill in the missing powers with 0 so the columns line up: \(x^3+0x^2+0x+1\)</li>
+        <li>Divide the first terms: \(x^3\div x^2=x\). Write \(x\) on top.</li>
+        <li>Multiply: \(x(x^2+2x)=x^3+2x^2\). Write it under and subtract: \((x^3+0x^2)-(x^3+2x^2)=-2x^2\). Bring down \(+0x\) and \(+1\).</li>
+        <li>Divide again: \(-2x^2\div x^2=-2\). Write \(-2\) on top.</li>
+        <li>Multiply: \(-2(x^2+2x)=-2x^2-4x\). Subtract: \((-2x^2+0x)-(-2x^2-4x)=4x\). Bring down \(+1\), so the remainder is \(4x+1\).</li>
+        <li>Stop: \(4x+1\) has degree 1, smaller than the divisor's degree 2.</li>
+      </ol>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of x cubed plus 1 by x squared plus 2x">
+        <tr class="q"><td></td><td></td><td></td><td>x</td><td>−2</td></tr>
+        <tr class="top"><td class="dv">x²+2x</td><td>x³</td><td>+0x²</td><td>+0x</td><td>+1</td></tr>
+        <tr><td></td><td>−(x³</td><td>+2x²)</td><td></td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td>−2x²</td><td>+0x</td><td>+1</td></tr>
+        <tr><td></td><td></td><td>−(−2x²</td><td>−4x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>4x</td><td>+1</td></tr>
+      </table></div>
+      <ol class="steps" style="counter-reset:s 6">
+        <li>Write the result: \(f(x)=x-2+\dfrac{4x+1}{x^2+2x}\)</li>
+        <li>Drop the remainder fraction. The slant asymptote is \(y=x-2\).</li>
+      </ol>
+      <p class="sub">(b) The seven steps</p>
+      <ol class="steps" style="counter-reset:s 8">
+        <li>Symmetry: \(f(-x)=\dfrac{-x^3+1}{x^2-2x}\). That is not \(f(x)\) or \(-f(x)\), so no symmetry.</li>
+        <li>y-intercept: \(f(0)=\dfrac{1}{0}\) puts 0 on the bottom, so there is none.</li>
+        <li>x-intercepts: set the top to 0: \(x^3+1=0\Rightarrow x^3=-1\Rightarrow x=-1\)</li>
+        <li>Vertical asymptotes: \(x^2+2x=x(x+2)=0\Rightarrow x=0\) or \(x=-2\). The top is not 0 there (\(1\) and \(-7\)), so both are asymptotes, not holes.</li>
+        <li>Horizontal asymptote: top degree 3 is bigger than bottom degree 2, so none. Use the slant asymptote instead.</li>
+        <li>Points: \(f(-3)=\tfrac{-27+1}{9-6}=\tfrac{-26}{3}\approx-8.67\), \(f(-1.5)=\tfrac{-2.375}{-0.75}\approx3.17\), \(f(-0.5)=\tfrac{0.875}{-0.75}\approx-1.17\), \(f(1)=\tfrac{2}{3}\approx0.67\), \(f(2)=\tfrac{9}{8}\approx1.13\)</li>
+        <li>Draw: dashed lines at \(x=-2\), \(x=0\) and \(y=x-2\), plot the points, and connect each piece so it hugs the dashed lines.</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x-2\)</dd>
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=0\) and \(x=-2\)</dd>
+        <dt>x-intercept</dt><dd>\((-1,0)\)</dd>
+        <dt>y-intercept</dt><dd>None</dd>
+        <dt>Points</dt><dd>\((-3,-8.67)\), \((-1.5,3.17)\), \((-0.5,-1.17)\), \((1,0.67)\), \((2,1.13)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p87" data-label="Graph with vertical asymptotes x = −2 and x = 0 and slant asymptote y = x − 2"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">88</span><div class="q">\(f(x)=\dfrac{x^3-1}{x^2-9}\)</div></div>
+    <div class="work">
+      <p class="sub">(a) Long division</p>
+      <ol class="steps">
+        <li>Fill in the missing powers on top with 0: \(x^3+0x^2+0x-1\)</li>
+        <li>Divide the first terms: \(x^3\div x^2=x\). Write \(x\) on top.</li>
+        <li>Multiply: \(x(x^2-9)=x^3-9x\). Subtract: \((x^3+0x^2+0x-1)-(x^3-9x)=9x-1\)</li>
+        <li>Stop: \(9x-1\) has a smaller power than \(x^2-9\). The remainder is \(9x-1\).</li>
+      </ol>
+      <div class="ldwrap"><table class="ld" aria-label="Long division of x cubed minus 1 by x squared minus 9">
+        <tr class="q"><td></td><td></td><td></td><td>x</td><td></td></tr>
+        <tr class="top"><td class="dv">x²−9</td><td>x³</td><td>+0x²</td><td>+0x</td><td>−1</td></tr>
+        <tr><td></td><td>−(x³</td><td></td><td>−9x)</td><td></td></tr>
+        <tr class="rule"><td></td><td></td><td></td><td>9x</td><td>−1</td></tr>
+      </table></div>
+      <ol class="steps" style="counter-reset:s 4">
+        <li>Write the result: \(f(x)=x+\dfrac{9x-1}{x^2-9}\)</li>
+        <li>Drop the remainder fraction. The slant asymptote is \(y=x\).</li>
+      </ol>
+      <p class="sub">(b) The seven steps</p>
+      <ol class="steps" style="counter-reset:s 6">
+        <li>Symmetry: \(f(-x)=\dfrac{-x^3-1}{x^2-9}\). That is not \(f(x)\) or \(-f(x)\), so no symmetry.</li>
+        <li>y-intercept: \(f(0)=\dfrac{-1}{-9}=\dfrac19\), the point \(\left(0,\tfrac19\right)\)</li>
+        <li>x-intercepts: \(x^3-1=0\Rightarrow x^3=1\Rightarrow x=1\)</li>
+        <li>Vertical asymptotes: \(x^2-9=(x-3)(x+3)=0\Rightarrow x=3\) or \(x=-3\). The top is not 0 there (\(26\) and \(-28\)), so both are asymptotes.</li>
+        <li>Horizontal asymptote: top degree 3 is bigger than bottom degree 2, so none. Use the slant asymptote.</li>
+        <li>Points: \(f(-4)=\tfrac{-65}{7}\approx-9.29\), \(f(-2)=\tfrac{-9}{-5}=1.8\), \(f(2)=\tfrac{7}{-5}=-1.4\), \(f(4)=\tfrac{63}{7}=9\)</li>
+        <li>Draw: dashed lines at \(x=-3\), \(x=3\) and \(y=x\), plot the points, and connect each piece along the dashed lines.</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x\)</dd>
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=-3\) and \(x=3\)</dd>
+        <dt>x-intercept</dt><dd>\((1,0)\)</dd>
+        <dt>y-intercept</dt><dd>\(\left(0,\tfrac19\right)\)</dd>
+        <dt>Points</dt><dd>\((-4,-9.29)\), \((-2,1.8)\), \((2,-1.4)\), \((4,9)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p88" data-label="Graph with vertical asymptotes x = −3 and x = 3 and slant asymptote y = x"></div></figure>
+    </div></article>
+
+  <h3>Simplify, then graph</h3>
+  <p class="dir">Book: “In Exercises 89–94, the equation for f is given by the simplified expression that results after performing the indicated operation. Write the equation for f and then graph the function.” Assigned: 93–94</p>
+
+  <article class="prob"><div class="ph"><span class="num">93</span><div class="q">\(\dfrac{1-\dfrac{3}{x+2}}{1+\dfrac{1}{x-2}}\)</div></div>
+    <div class="work">
+      <p class="sub">Write the equation for f</p>
+      <div class="workbox">\[\begin{aligned}
+\text{Banned:}\quad & x+2=0\Rightarrow x=-2,\qquad x-2=0\Rightarrow x=2\\[8pt]
+\text{Top:}\quad & 1-\frac{3}{x+2}=\frac{x+2}{x+2}-\frac{3}{x+2}=\frac{x-1}{x+2}\\[8pt]
+\text{Bottom:}\quad & 1+\frac{1}{x-2}=\frac{x-2}{x-2}+\frac{1}{x-2}=\frac{x-1}{x-2}\qquad(x\ne1)\\[8pt]
+\text{Flip:}\quad & \frac{x-1}{x+2}\div\frac{x-1}{x-2}=\frac{x-1}{x+2}\cdot\frac{x-2}{x-1}\\[8pt]
+\text{Cancel:}\quad & f(x)=\frac{x-2}{x+2},\qquad x\ne-2,\ 1,\ 2
+\end{aligned}\]</div>
+      <p class="sub">Graph it</p>
+      <div class="workbox">\[\begin{aligned}
+\text{Symmetry:}\quad & f(-x)=\frac{-x-2}{-x+2}\ne f(x)\ \text{or}\ {-f(x)}\Rightarrow\text{none}\\[8pt]
+\text{y-int:}\quad & f(0)=\frac{0-2}{0+2}=-1\Rightarrow(0,-1)\\[8pt]
+\text{x-int:}\quad & x-2=0\Rightarrow x=2\ \text{(banned, so a hole, no x-int)}\\[8pt]
+\text{VA:}\quad & x+2=0\Rightarrow x=-2\\[8pt]
+\text{HA:}\quad & \frac{1x}{1x}\Rightarrow y=1\\[8pt]
+\text{Holes:}\quad & f(1)=\frac{1-2}{1+2}=-\frac13\Rightarrow\left(1,-\tfrac13\right)\\[8pt]
+& f(2)=\frac{2-2}{2+2}=0\Rightarrow(2,0)\\[8pt]
+\text{Points:}\quad & f(-4)=\frac{-6}{-2}=3,\quad f(-3)=\frac{-5}{-1}=5\\[8pt]
+& f(-1)=\frac{-3}{1}=-3,\quad f(4)=\frac{2}{6}=\frac13
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Equation</dt><dd>\(f(x)=\dfrac{x-2}{x+2}\), with \(x\ne1\) and \(x\ne2\)</dd>
+        <dt>Vertical asymptote</dt><dd>\(x=-2\)</dd>
+        <dt>Horizontal asymptote</dt><dd>\(y=1\)</dd>
+        <dt>y-intercept</dt><dd>\((0,-1)\)</dd>
+        <dt>x-intercept</dt><dd>None (\(x=2\) is a hole)</dd>
+        <dt>Holes</dt><dd>\(\left(1,-\tfrac13\right)\) and \((2,0)\), drawn as open circles</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p93" data-label="Graph of (x−2)/(x+2) with open circles at (1, −1/3) and (2, 0)"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">94</span><div class="q">\(\dfrac{x-\dfrac1x}{x+\dfrac1x}\)</div></div>
+    <div class="work">
+      <p class="sub">Write the equation for f</p>
+      <div class="workbox">\[\begin{aligned}
+\text{Banned:}\quad & \frac1x\Rightarrow x\ne0\\[8pt]
+\text{Times }\tfrac{x}{x}\text{:}\quad & \frac{x\cdot x-x\cdot\frac1x}{x\cdot x+x\cdot\frac1x}=\frac{x^2-1}{x^2+1}\\[8pt]
+\text{So:}\quad & f(x)=\frac{x^2-1}{x^2+1},\qquad x\ne0
+\end{aligned}\]</div>
+      <p class="sub">Graph it</p>
+      <div class="workbox">\[\begin{aligned}
+\text{Symmetry:}\quad & f(-x)=\frac{(-x)^2-1}{(-x)^2+1}=\frac{x^2-1}{x^2+1}=f(x)\Rightarrow\text{y-axis}\\[8pt]
+\text{y-int:}\quad & x=0\ \text{banned}\Rightarrow\text{none}\\[8pt]
+\text{Hole:}\quad & \frac{0^2-1}{0^2+1}=-1\Rightarrow(0,-1)\\[8pt]
+\text{x-int:}\quad & x^2-1=0\Rightarrow(x-1)(x+1)=0\Rightarrow x=\pm1\\[8pt]
+\text{VA:}\quad & x^2+1=0\Rightarrow x^2=-1\Rightarrow\text{none}\\[8pt]
+\text{HA:}\quad & \frac{1x^2}{1x^2}\Rightarrow y=1\\[8pt]
+\text{Points:}\quad & f(\pm2)=\frac{4-1}{4+1}=\frac35,\quad f(\pm3)=\frac{9-1}{9+1}=\frac45,\quad f(0.5)=\frac{-0.75}{1.25}=-0.6
+\end{aligned}\]</div>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Equation</dt><dd>\(f(x)=\dfrac{x^2-1}{x^2+1}\), with \(x\ne0\)</dd>
+        <dt>Symmetry</dt><dd>Mirrors across the y-axis</dd>
+        <dt>x-intercepts</dt><dd>\((-1,0)\) and \((1,0)\)</dd>
+        <dt>y-intercept</dt><dd>None (hole at \((0,-1)\))</dd>
+        <dt>Asymptotes</dt><dd>Horizontal \(y=1\). No vertical asymptote.</dd>
+        <dt>Hole</dt><dd>\((0,-1)\), drawn as an open circle</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p94" data-label="Graph of (x²−1)/(x²+1) with an open circle at (0, −1)"></div></figure>
+    </div></article>
+</section>
+
+<footer>Problems from Blitzer, <i>Precalculus</i>, 7th edition (Pearson), Section 2.6.</footer>
+</main>
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false },
+  startup: {
+    pageReady: function () {
+      return MathJax.startup.defaultPageReady().then(function () { if (window.__restoreQuiz) window.__restoreQuiz(); });
+    }
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" defer></script>
+<script>
+(function () {
+  var fmt = function (v) { return String(v).replace(/-/g, '−'); };
+
+  /* synthetic division tables */
+  document.querySelectorAll('.synth').forEach(function (el) {
+    var rows = el.dataset.rows.split('|').map(function (r) { return r.split(','); });
+    var h = '<table aria-label="Synthetic division"><tbody>';
+    rows.forEach(function (r, i) {
+      h += '<tr class="r' + i + '"><td class="c">' + (i === 0 ? el.dataset.c : '') + '</td>';
+      r.forEach(function (v, j) { h += '<td' + (i === 2 && j === r.length - 1 ? ' class="rem"' : '') + '>' + v + '</td>'; });
+      h += '</tr>';
+    });
+    el.innerHTML = h + '</tbody></table>';
+  });
+
+  /* graphs */
+  var P = {
+    book: { f: function (x) { return (x + 1) / ((x + 3) * (x - 1)); }, x: [-6, 4], y: [-4, 4], xs: 1, ys: 1, xl: 1, yl: 1, va: [-3, 1], ha: 0 },
+    p76: { f: function (x) { return 2 * Math.pow(x, 4) / (x * x + 1); }, x: [-3, 3], y: [-1, 9], xs: 1, ys: 1, xl: 1, yl: 2, dots: [[0, 0]] },
+    p77: { f: function (x) { return (x * x + x - 12) / (x * x - 4); }, x: [-8, 10], y: [-6, 8], xs: 1, ys: 1, xl: 2, yl: 2, va: [-2, 2], ha: 1, dots: [[-4, 0], [3, 0], [0, 3]] },
+    p78: { f: function (x) { return x * x / (x * x + x - 6); }, x: [-8, 10], y: [-6, 6], xs: 1, ys: 1, xl: 2, yl: 2, va: [-3, 2], ha: 1, dots: [[0, 0]] },
+    p79: { f: function (x) { return (3 * x * x + x - 4) / (2 * x * x - 5 * x); }, x: [-5, 6], y: [-8, 8], xs: 1, ys: 1, xl: 1, yl: 2, va: [0, 2.5], ha: 1.5, dots: [[-4 / 3, 0], [1, 0]] },
+    p85: { f: function (x) { return (x * x + x - 6) / (x - 3); }, x: [-8, 12], y: [-10, 22], xs: 2, ys: 2, xl: 4, yl: 4, va: [3], sl: [1, 4], dots: [[-3, 0], [2, 0], [0, 2]] },
+    p86: { f: function (x) { return (x * x - x + 1) / (x - 1); }, x: [-5, 6], y: [-7, 8], xs: 1, ys: 1, xl: 2, yl: 2, va: [1], sl: [1, 0], dots: [[0, -1]] },
+    p87: { f: function (x) { return (x * x * x + 1) / (x * x + 2 * x); }, x: [-6, 5], y: [-12, 8], xs: 1, ys: 2, xl: 2, yl: 4, va: [-2, 0], sl: [1, -2], dots: [[-1, 0]] },
+    p88: { f: function (x) { return (x * x * x - 1) / (x * x - 9); }, x: [-8, 8], y: [-14, 14], xs: 1, ys: 2, xl: 2, yl: 4, va: [-3, 3], sl: [1, 0], dots: [[1, 0], [0, 1 / 9]] },
+    p93: { f: function (x) { return (x - 2) / (x + 2); }, x: [-8, 6], y: [-6, 8], xs: 1, ys: 1, xl: 2, yl: 2, va: [-2], ha: 1, holes: [[1, -1 / 3], [2, 0]], dots: [[0, -1]] },
+    p94: { f: function (x) { return (x * x - 1) / (x * x + 1); }, x: [-5, 5], y: [-2, 2], xs: 1, ys: 0.5, xl: 1, yl: 1, ha: 1, holes: [[0, -1]], dots: [[-1, 0], [1, 0]] }
+  };
+  var cid = 0;
+  function plot(el, c) {
+    var W = 340, H = 250, L = 6, R = 6, T = 6, B = 6;
+    var x0 = c.x[0], x1 = c.x[1], y0 = c.y[0], y1 = c.y[1], span = y1 - y0;
+    var sx = function (x) { return (L + (x - x0) / (x1 - x0) * (W - L - R)).toFixed(1); };
+    var sy = function (y) { return (T + (y1 - y) / (y1 - y0) * (H - T - B)).toFixed(1); };
+    var id = 'clip' + (cid++), g = '', x, y;
+    // Simple style: no grid; label only the asymptotes and whole-number intercepts.
+    var ax = +sy(0), ay = +sx(0);
+    g += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + ax + '" y2="' + ax + '"/><line class="axis" y1="' + T + '" y2="' + (H - B) + '" x1="' + ay + '" x2="' + ay + '"/>';
+    var lab = function (v) { return Number.isInteger(v) ? fmt(v) : Number.isInteger(v * 2) ? fmt(v * 2) + '/2' : ''; };
+    var xk = (c.va || []).concat((c.dots || []).filter(function (p) { return p[1] === 0; }).map(function (p) { return p[0]; }));
+    var yk = (c.ha != null ? [c.ha] : []).concat((c.dots || []).filter(function (p) { return p[0] === 0; }).map(function (p) { return p[1]; }));
+    xk.filter(function (v, i) { return v !== 0 && xk.indexOf(v) === i && lab(v); }).forEach(function (v) { g += '<text class="tick" x="' + sx(v) + '" y="' + (ax + 13) + '" text-anchor="middle">' + lab(v) + '</text>'; });
+    yk.filter(function (v, i) { return v !== 0 && yk.indexOf(v) === i && lab(v); }).forEach(function (v) { g += '<text class="tick" x="' + (ay - 5) + '" y="' + (+sy(v) - 4) + '" text-anchor="end">' + lab(v) + '</text>'; });
+    var va = (c.va || []).slice().sort(function (a, b) { return a - b; });
+    var asym = va.length || c.ha != null || c.sl;
+    va.forEach(function (a) { g += '<line class="asym" x1="' + sx(a) + '" x2="' + sx(a) + '" y1="' + T + '" y2="' + (H - B) + '"/>'; });
+    if (c.ha != null) g += '<line class="asym" x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(c.ha) + '" y2="' + sy(c.ha) + '"/>';
+    if (c.sl) g += '<line class="asym" clip-path="url(#' + id + ')" x1="' + sx(x0) + '" y1="' + sy(c.sl[0] * x0 + c.sl[1]) + '" x2="' + sx(x1) + '" y2="' + sy(c.sl[0] * x1 + c.sl[1]) + '"/>';
+    var xsamp = [], N = 900, i;
+    for (i = 0; i <= N; i++) xsamp.push(x0 + (x1 - x0) * i / N);
+    va.forEach(function (a) { [1e-3, 1e-4].forEach(function (e) { xsamp.push(a - e, a + e); }); });
+    xsamp.sort(function (a, b) { return a - b; });
+    var d = '', pen = false, prev = null;
+    xsamp.forEach(function (x) {
+      if (prev !== null && va.some(function (a) { return (prev < a && x >= a) || (prev <= a && x > a); })) pen = false;
+      prev = x;
+      var y = c.f(x);
+      if (!isFinite(y)) { pen = false; return; }
+      y = Math.max(y0 - 3 * span, Math.min(y1 + 3 * span, y));
+      d += (pen ? 'L' : 'M') + sx(x) + ' ' + sy(y);
+      pen = true;
+    });
+    var marks = '';
+    (c.dots || []).forEach(function (p) { marks += '<circle class="dot" cx="' + sx(p[0]) + '" cy="' + sy(p[1]) + '" r="3.6"/>'; });
+    (c.holes || []).forEach(function (p) { marks += '<circle class="hole" cx="' + sx(p[0]) + '" cy="' + sy(p[1]) + '" r="4.3"/>'; });
+    var legend = '<p class="legend">' + (asym ? '<span><i class="lg-a"></i>asymptote</span>' : '') + ((c.dots || []).length ? '<span><i class="lg-d"></i>intercept</span>' : '') + ((c.holes || []).length ? '<span><i class="lg-h"></i>hole</span>' : '') + '</p>';
+    el.innerHTML = '<svg class="plot" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + (el.dataset.label || 'Graph') + '"><defs><clipPath id="' + id + '"><rect x="' + L + '" y="' + T + '" width="' + (W - L - R) + '" height="' + (H - T - B) + '"/></clipPath></defs>' + g + '<path class="curve" clip-path="url(#' + id + ')" d="' + d + '"/>' + marks + '</svg>' + legend;
+  }
+  document.querySelectorAll('.plotbox').forEach(function (el) { var c = P[el.dataset.plot]; if (c) plot(el, c); });
+
+  /* number lines */
+  document.querySelectorAll('.nl').forEach(function (el) {
+    var pts = el.dataset.pts.split(','), signs = el.dataset.signs.split(','),
+        keep = el.dataset.keep.split(',').map(Number),
+        closed = (el.dataset.closed || '').split(',').filter(Boolean);
+    var W = 340, H = 66, y = 32, a = 12, b = W - 12, n = pts.length;
+    var xs = pts.map(function (p, i) { return n === 1 ? W / 2 : 70 + i * (W - 140) / (n - 1); });
+    var bd = [a].concat(xs, [b]);
+    var s = '<line class="nl-base" x1="' + a + '" x2="' + b + '" y1="' + y + '" y2="' + y + '"/>';
+    s += '<path class="nl-arr" d="M' + (a + 7) + ' ' + (y - 5) + ' L' + a + ' ' + y + ' L' + (a + 7) + ' ' + (y + 5) + '"/>';
+    s += '<path class="nl-arr" d="M' + (b - 7) + ' ' + (y - 5) + ' L' + b + ' ' + y + ' L' + (b - 7) + ' ' + (y + 5) + '"/>';
+    keep.forEach(function (k) {
+      s += '<line class="nl-keep" x1="' + bd[k] + '" x2="' + bd[k + 1] + '" y1="' + y + '" y2="' + y + '"/>';
+      if (k === 0) s += '<path class="nl-karr" d="M' + (a + 8) + ' ' + (y - 6) + ' L' + a + ' ' + y + ' L' + (a + 8) + ' ' + (y + 6) + '"/>';
+      if (k === n) s += '<path class="nl-karr" d="M' + (b - 8) + ' ' + (y - 6) + ' L' + b + ' ' + y + ' L' + (b - 8) + ' ' + (y + 6) + '"/>';
+    });
+    signs.forEach(function (sg, i) { s += '<text class="nl-sign" x="' + ((bd[i] + bd[i + 1]) / 2) + '" y="' + (y - 11) + '" text-anchor="middle">' + (sg === '-' ? '−' : '+') + '</text>'; });
+    pts.forEach(function (p, i) {
+      var inc = closed.indexOf(p) > -1, edge = keep.indexOf(i) > -1 || keep.indexOf(i + 1) > -1;
+      if (inc) s += '<circle class="nl-dot" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      else if (edge) s += '<circle class="nl-open" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      else s += '<line class="nl-tick" x1="' + xs[i] + '" x2="' + xs[i] + '" y1="' + (y - 5) + '" y2="' + (y + 5) + '"/>';
+      s += '<text class="nl-lab" x="' + xs[i] + '" y="' + (y + 24) + '" text-anchor="middle">' + fmt(p) + '</text>';
+    });
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Solution set on a number line">' + s + '</svg>';
+  });
+
+  /* quiz mode */
+  var btn = document.getElementById('quiz');
+  function setQuiz(on) {
+    document.body.classList.toggle('quiz', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.textContent = on ? 'Show answers' : 'Hide answers';
+    try { localStorage.setItem('psk-quiz', on ? '1' : '0'); } catch (e) {}
+  }
+  btn.addEventListener('click', function () { setQuiz(!document.body.classList.contains('quiz')); });
+  document.querySelectorAll('.prob').forEach(function (p) {
+    var w = p.querySelector('.work'); if (!w) return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'reveal'; b.textContent = 'Show solution';
+    b.addEventListener('click', function () { var o = p.classList.toggle('open'); b.textContent = o ? 'Hide solution' : 'Show solution'; });
+    w.parentNode.insertBefore(b, w);
+  });
+  window.__restoreQuiz = function () { try { if (localStorage.getItem('psk-quiz') === '1') setQuiz(true); } catch (e) {} };
+})();
+</script>
+
+
+</body></html>

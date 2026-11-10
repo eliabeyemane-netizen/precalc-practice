@@ -1,0 +1,283 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Precalc Unit 2 Drill</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: topic chips on top, one problem card at a time, steps revealed on demand, running score + error log underneath */
+:root{
+  --bg:#f3f5f8; --surface:#fff; --ink:#0f1b2a; --muted:#5a6878; --line:#dde3ea; --grid:#e6ebf1;
+  --accent:#0f7b8a; --accent-soft:#e1f2f4; --good:#1f8a4c; --good-soft:#e2f4ea; --bad:#c0262d; --bad-soft:#fbe6e7;
+  --display:"Sora",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c131c; --surface:#131d29; --ink:#e7edf3; --muted:#9aa9b9; --line:#243244; --grid:#18232f;
+  --accent:#3cc2d1; --accent-soft:#11303a; --good:#4cc982; --good-soft:#12301f; --bad:#f2676d; --bad-soft:#3a1517; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c131c; --surface:#131d29; --ink:#e7edf3; --muted:#9aa9b9; --line:#243244; --grid:#18232f;
+  --accent:#3cc2d1; --accent-soft:#11303a; --good:#4cc982; --good-soft:#12301f; --bad:#f2676d; --bad-soft:#3a1517; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
+.col{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,5.5vw,38px);margin:4px 0 0;letter-spacing:-.02em}
+.lede{color:var(--muted);margin:6px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 14px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip small{font-family:var(--mono);font-weight:500;opacity:.7;margin-left:4px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.probhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.tag{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:3px 8px}
+.ask{font-size:17px}
+.expr{font-family:var(--mono);font-size:22px;font-weight:600;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:18px 18px;border:1px solid var(--line);border-radius:10px;padding:16px;text-align:center;overflow-x:auto;white-space:nowrap}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+button.btn{font:600 15px var(--body);border-radius:10px;padding:10px 16px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button.got{background:var(--good-soft);color:var(--good);border-color:transparent}
+button.miss{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+button:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.answer{border-top:1px dashed var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px}
+.final{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--good)}
+ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+ol.steps li{font-family:var(--mono);font-size:14.5px;overflow-x:auto}
+.trap{font-size:14px;color:var(--bad)}
+.score{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.score b{font-family:var(--display);font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums}
+.log{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.log div{font-family:var(--mono);border-left:3px solid var(--bad);padding:4px 10px;background:var(--bad-soft);border-radius:0 6px 6px 0;overflow-x:auto}
+.empty{color:var(--muted);font-size:14px}
+</style>
+
+<div class="col">
+  <div>
+    <p class="eyebrow">Honors Precalc · Unit 2 · Blitzer 2.1–2.7 · Exam Mon Nov 9</p>
+    <h1>Precalc Unit 2 Drill</h1>
+    <p class="lede">New problems every time. Work it on paper first, then reveal the steps and mark yourself honestly. Misses go to your error log at the bottom.</p>
+  </div>
+
+  <div class="chips" id="chips" role="group" aria-label="Topics"></div>
+
+  <div class="card" id="card" aria-live="polite">
+    <div class="probhead"><span class="tag" id="ptag"></span><span class="empty" id="pnum"></span></div>
+    <div class="ask" id="ask"></div>
+    <div class="expr" id="expr"></div>
+    <div class="row"><button class="btn primary" id="reveal" type="button">Show answer</button><button class="btn" id="skip" type="button">New problem</button></div>
+    <div class="answer" id="ans" hidden>
+      <div class="final" id="final"></div>
+      <ol class="steps" id="steps"></ol>
+      <div class="trap" id="trap"></div>
+      <div class="row"><button class="btn got" id="got" type="button">I got it</button><button class="btn miss" id="miss" type="button">I missed it</button></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="score"><span><b id="sGot">0</b> got</span><span><b id="sMiss">0</b> missed</span><span><b id="sPct">–</b> accuracy</span></div>
+    <h3 style="margin:0;font-family:var(--display)">Error log</h3>
+    <div class="log" id="log"><span class="empty">Problems you miss land here. Redo them the night before the quiz.</span></div>
+    <div class="row"><button class="btn" id="clear" type="button">Clear score and log</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function ri(a,b){return a+Math.floor(Math.random()*(b-a+1))}
+  function nz(a,b){var v;do{v=ri(a,b)}while(v===0);return v}
+  function pick(a){return a[Math.floor(Math.random()*a.length)]}
+  function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=b;b=a%b;a=t}return a||1}
+  var M='−';
+  function sgn(n){return n<0?M+Math.abs(n):String(n)}
+  function frac(n,d){if(d<0){n=-n;d=-d}var g=gcd(n,d);n/=g;d/=g;return d===1?sgn(n):(n<0?M:'')+Math.abs(n)+'/'+d}
+  function cx(re,im){ // a + bi
+    if(im===0)return sgn(re);
+    var ib=Math.abs(im)===1?'i':Math.abs(im)+'i';
+    if(re===0)return (im<0?M:'')+ib;
+    return sgn(re)+(im<0?' '+M+' ':' + ')+ib;
+  }
+  function cxp(re,im){return '('+cx(re,im)+')'}
+  var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+  function sup(n){return String(n).split('').map(function(c){return SUP[c]}).join('')}
+  function poly(c){ // coeffs high->low
+    var n=c.length-1,out='';
+    c.forEach(function(a,i){var p=n-i;if(a===0)return;var abs=Math.abs(a);var term=(abs===1&&p>0?'':abs)+(p>0?'x':'')+(p>1?sup(p):'');
+      if(out==='')out=(a<0?M:'')+term;else out+=(a<0?' '+M+' ':' + ')+term;});
+    return out||'0';
+  }
+  function lin(r){return r===0?'x':'(x '+(r>0?M+' '+r:'+ '+Math.abs(r))+')'} // (x - r)
+  function mul(p,q){var o=new Array(p.length+q.length-1).fill(0);p.forEach(function(a,i){q.forEach(function(b,j){o[i+j]+=a*b})});return o}
+
+  var GEN={
+    add:{name:'Add / subtract',sec:'2.1',f:function(){
+      var a=nz(-9,9),b=nz(-9,9),c=nz(-9,9),d=nz(-9,9),plus=Math.random()<.5;
+      var re=plus?a+c:a-c,im=plus?b+d:b-d;
+      return{ask:'Simplify. Write the answer in a + bi form.',expr:cxp(a,b)+(plus?' + ':' '+M+' ')+cxp(c,d),
+        final:cx(re,im),steps:[plus?'Combine real parts: '+sgn(a)+' + '+sgn(c)+' = '+sgn(re):'Distribute the minus: '+cxp(a,b)+' + '+cxp(-c,-d),
+          'Combine real parts: '+sgn(re),'Combine imaginary parts: '+sgn(im)+'i','Answer: '+cx(re,im)],
+        trap:plus?'':'The minus sign hits BOTH parts of the second number.'}}},
+    mult:{name:'Multiply',sec:'2.1',f:function(){
+      var a=nz(-6,6),b=nz(-6,6),c=nz(-6,6),d=nz(-6,6);
+      var re=a*c-b*d,im=a*d+b*c;
+      return{ask:'Multiply. Write the answer in a + bi form.',expr:cxp(a,b)+cxp(c,d),final:cx(re,im),
+        steps:['FOIL: '+sgn(a*c)+' + '+sgn(a*d)+'i + '+sgn(b*c)+'i + '+sgn(b*d)+'i²','Replace i² with '+M+'1: '+sgn(b*d)+'i² = '+sgn(-b*d),
+          'Real: '+sgn(a*c)+' + '+sgn(-b*d)+' = '+sgn(re),'Imaginary: '+sgn(a*d)+' + '+sgn(b*c)+' = '+sgn(im),'Answer: '+cx(re,im)],
+        trap:'i² = '+M+'1 flips the sign of the last FOIL term.'}}},
+    div:{name:'Divide',sec:'2.1',f:function(){
+      var a=nz(-8,8),b=nz(-8,8),c=nz(-5,5),d=nz(-5,5);
+      var den=c*c+d*d,nre=a*c+b*d,nim=b*c-a*d;
+      return{ask:'Divide. Write the answer in a + bi form.',expr:cxp(a,b)+' / '+cxp(c,d),
+        final:(function(){function im(v){var s=frac(Math.abs(v),den);return (s==='1'?'':s)+'i'}
+          if(nim===0)return frac(nre,den); if(nre===0)return (nim<0?M:'')+im(nim);
+          return frac(nre,den)+(nim<0?' '+M+' ':' + ')+im(nim)})(),
+        steps:['Conjugate of the bottom: '+cx(c,-d),'Multiply top and bottom by '+cxp(c,-d),
+          'Bottom: '+sgn(c)+'² + '+sgn(d)+'² = '+den,'Top (FOIL, i² = '+M+'1): '+cx(nre,nim),
+          'Split over '+den+': '+frac(nre,den)+' and '+frac(nim,den)+'i'],
+        trap:'Use the conjugate of the BOTTOM, and split into two fractions at the end.'}}},
+    sqrt:{name:'Square roots of negatives',sec:'2.1',f:function(){
+      var k1=ri(2,7),k2=ri(2,7),m=k1*k1,n=k2*k2;
+      if(Math.random()<.5){
+        return{ask:'Simplify.',expr:'√('+M+m+') · √('+M+n+')',final:sgn(-k1*k2),
+          steps:['Rewrite first: √('+M+m+') = '+k1+'i and √('+M+n+') = '+k2+'i','Multiply: '+k1+'i · '+k2+'i = '+(k1*k2)+'i²','i² = '+M+'1, so the answer is '+sgn(-k1*k2)],
+          trap:'Do NOT combine into √('+(m*n)+'). Convert to i first.'};
+      }
+      var a=nz(-6,6),k=ri(2,6),m2=k*k;
+      return{ask:'Simplify. Write the answer in a + bi form.',expr:'('+sgn(a)+' + √('+M+m2+'))²',final:cx(a*a-k*k,2*a*k),
+        steps:['√('+M+m2+') = '+k+'i, so this is '+cxp(a,k)+'²','(a + bi)² = a² + 2abi + b²i²','= '+(a*a)+' + '+sgn(2*a*k)+'i '+M+' '+(k*k),'Answer: '+cx(a*a-k*k,2*a*k)],
+        trap:'(bi)² = b²i² = '+M+'b².'};
+    }},
+    quad:{name:'Imaginary solutions',sec:'2.1',f:function(){
+      var h=ri(-5,5),k=ri(1,6),B=-2*h,C=h*h+k*k;
+      return{ask:'Solve with the quadratic formula.',expr:poly([1,B,C])+' = 0',final:'x = '+(h===0?'':sgn(h)+' ')+'± '+(k===1?'':k)+'i',
+        steps:['a = 1, b = '+sgn(B)+', c = '+C,'Discriminant: b² '+M+' 4ac = '+(B*B)+' '+M+' '+(4*C)+' = '+sgn(B*B-4*C),
+          '√('+sgn(B*B-4*C)+') = '+(2*k)+'i','x = ('+sgn(-B)+' ± '+(2*k)+'i) / 2','Divide both parts by 2: x = '+(h===0?'':sgn(h)+' ')+'± '+(k===1?'':k)+'i'],
+        trap:'Divide BOTH the real part and the imaginary part by 2a.'}}},
+    vertex:{name:'Quadratic vertex',sec:'2.2',f:function(){
+      var a=pick([1,-1,2,-2,3,-3]),h=ri(-5,5),k=ri(-9,9),b=-2*a*h,c=a*h*h+k;
+      return{ask:'Find the vertex, the axis of symmetry, and the '+(a>0?'minimum':'maximum')+' value.',expr:'f(x) = '+poly([a,b,c]),
+        final:'Vertex ('+sgn(h)+', '+sgn(k)+') · axis x = '+sgn(h)+' · '+(a>0?'min':'max')+' = '+sgn(k),
+        steps:['a = '+sgn(a)+', b = '+sgn(b)+(a>0?' → opens up (minimum)':' → opens down (maximum)'),
+          'x = '+M+'b/(2a) = '+sgn(-b)+'/'+sgn(2*a)+' = '+sgn(h),'y = f('+sgn(h)+') = '+sgn(a)+'('+sgn(h)+')² + '+sgn(b)+'('+sgn(h)+') + '+sgn(c)+' = '+sgn(k),
+          'Vertex form check: f(x) = '+sgn(a)+'(x '+(h>=0?M+' '+h:'+ '+(-h))+')² '+(k>=0?'+ '+k:M+' '+(-k))],
+        trap:'The max/min VALUE is the y-coordinate of the vertex.'}}},
+    end:{name:'End behavior & zeros',sec:'2.3',f:function(){
+      var a=pick([1,-1,2,-2,-3,3]),r1=ri(-5,0),r2=ri(1,6),m1=ri(1,3),m2=ri(1,2);
+      var deg=m1+m2,lead=a;
+      var left=(deg%2===0)?(lead>0?'rises':'falls'):(lead>0?'falls':'rises'),right=lead>0?'rises':'falls';
+      function f1(r,m){return (r===0?'x':'(x '+(r>0?M+' '+r:'+ '+(-r))+')')+(m>1?sup(m):'')}
+      return{ask:'Describe the end behavior, then say whether the graph crosses or touches at each zero.',expr:'f(x) = '+(a===1?'':a===-1?M:sgn(a))+f1(r1,m1)+f1(r2,m2),
+        final:'Left '+left+', right '+right+' · x = '+sgn(r1)+': '+(m1%2?'crosses':'touches')+' · x = '+sgn(r2)+': '+(m2%2?'crosses':'touches'),
+        steps:['Degree = '+m1+' + '+m2+' = '+deg+' ('+(deg%2?'odd':'even')+')','Leading coefficient = '+sgn(lead)+' ('+(lead>0?'positive':'negative')+')',
+          (deg%2?'Odd degree: ends go opposite ways':'Even degree: ends go the same way')+' → left '+left+', right '+right,
+          'x = '+sgn(r1)+' has multiplicity '+m1+' → '+(m1%2?'odd → crosses':'even → touches and turns'),'x = '+sgn(r2)+' has multiplicity '+m2+' → '+(m2%2?'odd → crosses':'even → touches and turns'),
+          'Max turning points: '+(deg-1)],
+        trap:'Degree is the SUM of the multiplicities, and the sign out front decides the right side.'}}},
+    synth:{name:'Synthetic division',sec:'2.4',f:function(){
+      var c=nz(-4,4),q=[nz(-3,3),ri(-5,5),ri(-6,6)],r=ri(-9,9);
+      var p=mul([1,-c],q);p[p.length-1]+=r;
+      var acc=[p[0]];for(var i=1;i<p.length;i++){acc.push(p[i]+c*acc[i-1])}
+      var isFactor=r===0;
+      return{ask:'Divide using synthetic division. Then use the remainder theorem: what is f('+sgn(c)+')?',expr:'('+poly(p)+') ÷ '+lin(c),
+        final:'Quotient: '+poly(acc.slice(0,-1))+' · Remainder: '+sgn(acc[acc.length-1])+' · f('+sgn(c)+') = '+sgn(acc[acc.length-1])+(isFactor?' · '+lin(c)+' IS a factor':''),
+        steps:['Dividing by '+lin(c)+' means c = '+sgn(c),'Coefficients: '+p.map(sgn).join(', '),
+          'Bring down '+sgn(p[0])+'. Multiply by c, add to the next column, repeat.','Bottom row: '+acc.map(sgn).join(', '),
+          'Last number is the remainder: '+sgn(acc[acc.length-1])+'. The rest is the quotient, one degree lower.','Remainder theorem: f('+sgn(c)+') = remainder = '+sgn(acc[acc.length-1])],
+        trap:'For (x + '+Math.abs(c)+') use c = '+M+Math.abs(c)+'; for (x '+M+' '+Math.abs(c)+') use c = '+Math.abs(c)+'. Write 0 for any missing power.'}}},
+    factor:{name:'Factor theorem',sec:'2.4',f:function(){
+      var r1=nz(-4,4),r2=nz(-5,5),r3=nz(-5,5),p=mul(mul([1,-r1],[1,-r2]),[1,-r3]);
+      var q=mul([1,-r2],[1,-r3]);
+      return{ask:'Given that '+sgn(r1)+' is a zero, factor completely and solve f(x) = 0.',expr:'f(x) = '+poly(p),
+        final:'f(x) = '+lin(r1)+lin(r2)+lin(r3)+' · x = '+[r1,r2,r3].map(sgn).join(', '),
+        steps:['Factor theorem: '+sgn(r1)+' is a zero, so '+lin(r1)+' is a factor','Synthetic division by '+sgn(r1)+' gives '+poly(q)+' with remainder 0',
+          'Factor the quadratic: '+poly(q)+' = '+lin(r2)+lin(r3),'f(x) = '+lin(r1)+lin(r2)+lin(r3),'Zeros: '+[r1,r2,r3].map(sgn).join(', ')],
+        trap:'A remainder of 0 is your proof it divided evenly. If it is not 0, recheck the arithmetic.'}}}
+  };
+  function divisors(n){n=Math.abs(n);var d=[];for(var i=1;i<=n;i++)if(n%i===0)d.push(i);return d}
+  function ivl(lo,hi,lb,rb){return (lb?'[':'(')+lo+', '+hi+(rb?']':')')}
+  GEN.rzt={name:'Possible rational zeros',sec:'2.5',f:function(){
+    var a=pick([1,2,3,4]),c=pick([2,3,4,6,8,9,10,12])*pick([1,-1]),b=ri(-6,6),d=ri(-6,6);
+    var P=divisors(c),Q=divisors(a),set={};
+    P.forEach(function(p){Q.forEach(function(q){var g=gcd(p,q);set[(p/g)+'/'+(q/g)]=p/q})});
+    var list=Object.keys(set).sort(function(x,y){return set[x]-set[y]}).map(function(k){return k.replace(/\/1$/,'')});
+    return{ask:'List every possible rational zero.',expr:'f(x) = '+poly([a,b,d,c]),final:'± '+list.join(', '),
+      steps:['p = factors of the constant '+sgn(c)+': '+P.join(', '),'q = factors of the leading coefficient '+a+': '+Q.join(', '),
+        'All p/q, reduced, each with ±','Answer: ± '+list.join(', ')],
+      trap:'Reduce fractions and drop duplicates; every value gets ±.'}}};
+  GEN.ratl={name:'Asymptotes and holes',sec:'2.6',f:function(){
+    var k=nz(-3,3),a=ri(-5,5),v=nz(-5,5),type=pick(['eq','zero','hole']);
+    if(a===v)a=v+1;
+    if(type==='eq'){var num=[k,-k*a],den=[1,-v];
+      return{ask:'Find the domain, vertical asymptote, horizontal asymptote, and any holes.',expr:'f(x) = ('+poly(num)+') / ('+poly(den)+')',
+        final:'Domain x ≠ '+sgn(v)+' · VA x = '+sgn(v)+' · HA y = '+sgn(k)+' · no holes',
+        steps:['Factor: top = '+(k===1?'':k===-1?M:sgn(k))+lin(a)+', bottom = '+lin(v),'Nothing cancels → no hole','Bottom = 0 at x = '+sgn(v)+' → vertical asymptote x = '+sgn(v),
+          'Degrees equal (1 and 1) → HA y = leading coeffs = '+sgn(k)+'/1 = '+sgn(k)],trap:'Equal degrees: divide the leading coefficients.'};}
+    if(type==='zero'){var v2=nz(-5,5);if(v2===v)v2=-v||v+2;var num2=[k,-k*a],den2=mul([1,-v],[1,-v2]);
+      return{ask:'Find the domain, vertical asymptotes, horizontal asymptote, and any holes.',expr:'f(x) = ('+poly(num2)+') / ('+poly(den2)+')',
+        final:'Domain x ≠ '+sgn(v)+', '+sgn(v2)+' · VA x = '+sgn(v)+', x = '+sgn(v2)+' · HA y = 0 · no holes',
+        steps:['Factor the bottom: '+lin(v)+lin(v2),'Nothing cancels → no hole','Bottom = 0 at x = '+sgn(v)+' and '+sgn(v2)+' → two vertical asymptotes',
+          'Top degree 1 < bottom degree 2 → HA y = 0'],trap:'Bottom degree bigger means y = 0, no matter the coefficients.'};}
+    var h=nz(-4,4);if(h===v||h===a){h=v+3}var numh=mul([k,-k*a],[1,-h]),denh=mul([1,-h],[1,-v]);var hy=frac(k*(h-a),(h-v));
+    return{ask:'Find the domain, vertical asymptote, horizontal asymptote, and any holes.',expr:'f(x) = ('+poly(numh)+') / ('+poly(denh)+')',
+      final:'Domain x ≠ '+sgn(h)+', '+sgn(v)+' · hole at ('+sgn(h)+', '+hy+') · VA x = '+sgn(v)+' · HA y = '+sgn(k),
+      steps:['Factor: top = '+(k===1?'':k===-1?M:sgn(k))+lin(a)+lin(h)+', bottom = '+lin(h)+lin(v),'Domain: bottom ≠ 0 → x ≠ '+sgn(h)+', '+sgn(v),
+        lin(h)+' cancels → HOLE at x = '+sgn(h)+'. Plug into the simplified f: '+hy,'What is left on the bottom: '+lin(v)+' → VA x = '+sgn(v),'Degrees equal → HA y = '+sgn(k)],
+      trap:'A factor that cancels is a hole, not an asymptote. Find the domain BEFORE canceling.'};
+  }};
+  GEN.ineq={name:'Inequalities',sec:'2.7',f:function(){
+    var r1=ri(-6,5),r2=ri(r1+1,7),op=pick(['>','≥','<','≤']),incl=(op==='≥'||op==='≤'),pos=(op==='>'||op==='≥');
+    if(Math.random()<.55){
+      var p=mul([1,-r1],[1,-r2]);
+      var ans=pos?ivl('(−∞',sgn(r1),false,incl).replace('((','(')+' ∪ '+ivl(sgn(r2),'∞)',incl,false).replace('))',')'):ivl(sgn(r1),sgn(r2),incl,incl);
+      return{ask:'Solve. Write the answer in interval notation.',expr:poly(p)+' '+op+' 0',final:ans,
+        steps:['Factor: '+lin(r1)+lin(r2)+' '+op+' 0','Boundary points: x = '+sgn(r1)+', '+sgn(r2)+(incl?' (included, '+op+')':' (not included)'),
+          'Test intervals: x < '+sgn(r1)+' → positive · between → negative · x > '+sgn(r2)+' → positive','We want '+(pos?'positive':'negative')+' → '+ans],
+        trap:'Brackets [ ] only when the sign has "or equal to." Infinity always gets ( ).'};
+    }
+    var a=r1,b=r2;if(Math.random()<.5){a=r2;b=r1}var lo=Math.min(a,b),hi=Math.max(a,b);
+    var lIn=incl&&lo===a,rIn=incl&&hi===a;
+    var ans2=pos?'(−∞, '+sgn(lo)+(lIn?']':')')+' ∪ '+(rIn?'[':'(')+sgn(hi)+', ∞)':(lIn?'[':'(')+sgn(lo)+', '+sgn(hi)+(rIn?']':')');
+    return{ask:'Solve. Write the answer in interval notation.',expr:(a===0?'x':lin(a))+' / '+lin(b)+' '+op+' 0',final:ans2,
+      steps:['Do NOT multiply by the bottom. Boundary points: top = 0 at x = '+sgn(a)+', bottom = 0 at x = '+sgn(b),
+        'x = '+sgn(b)+' is NEVER included (division by zero)'+(incl?'; x = '+sgn(a)+' is included':''),
+        'Signs: x < '+sgn(lo)+' → positive · between → negative · x > '+sgn(hi)+' → positive','We want '+(pos?'positive':'negative')+' → '+ans2],
+      trap:'The denominator’s zero always gets ( ), even with ≥ or ≤.'};
+  }};
+  var order=['add','mult','div','sqrt','quad','vertex','end','synth','factor','rzt','ratl','ineq'];
+  var chosen='mix',cur=null,count=0;
+
+  var chips=document.getElementById('chips');
+  function chip(id,label,sec){var b=document.createElement('button');b.type='button';b.className='chip';b.dataset.id=id;b.innerHTML=label+(sec?'<small>'+sec+'</small>':'');b.setAttribute('aria-pressed',id===chosen);b.onclick=function(){chosen=id;[].forEach.call(chips.children,function(c){c.setAttribute('aria-pressed',c.dataset.id===id)});next()};chips.appendChild(b)}
+  chip('mix','Mixed exam review','');
+  order.forEach(function(k){chip(k,GEN[k].name,GEN[k].sec)});
+
+  function next(){
+    var key=chosen==='mix'?pick(order):chosen; cur=GEN[key].f(); cur.key=key; count++;
+    document.getElementById('ptag').textContent=GEN[key].sec+' · '+GEN[key].name;
+    document.getElementById('pnum').textContent='Problem '+count;
+    document.getElementById('ask').textContent=cur.ask;
+    document.getElementById('expr').textContent=cur.expr;
+    document.getElementById('final').textContent=cur.final;
+    document.getElementById('steps').innerHTML=cur.steps.map(function(s){return '<li></li>'}).join('');
+    [].forEach.call(document.getElementById('steps').children,function(li,i){li.textContent=cur.steps[i]});
+    document.getElementById('trap').textContent=cur.trap?('Trap: '+cur.trap):'';
+    document.getElementById('ans').hidden=true;
+  }
+  var S={got:0,miss:0,log:[]};
+  try{S=JSON.parse(localStorage.getItem('u2drill'))||S}catch(e){}
+  function save(){try{localStorage.setItem('u2drill',JSON.stringify(S))}catch(e){}}
+  function render(){
+    document.getElementById('sGot').textContent=S.got;document.getElementById('sMiss').textContent=S.miss;
+    var t=S.got+S.miss;document.getElementById('sPct').textContent=t?Math.round(S.got/t*100)+'%':'–';
+    var L=document.getElementById('log');
+    if(!S.log.length){L.innerHTML='<span class="empty">Problems you miss land here. Redo them the night before the quiz.</span>';return}
+    L.innerHTML='';S.log.slice(-15).reverse().forEach(function(e){var d=document.createElement('div');d.textContent=e.sec+'  '+e.expr+'   →   '+e.final;L.appendChild(d)});
+  }
+  document.getElementById('reveal').onclick=function(){document.getElementById('ans').hidden=false};
+  document.getElementById('skip').onclick=next;
+  document.getElementById('got').onclick=function(){S.got++;save();render();next()};
+  document.getElementById('miss').onclick=function(){S.miss++;S.log.push({sec:GEN[cur.key].sec,expr:cur.expr,final:cur.final});save();render();next()};
+  document.getElementById('clear').onclick=function(){S={got:0,miss:0,log:[]};save();render()};
+  render();next();
+})();
+</script>
+
+</body></html>

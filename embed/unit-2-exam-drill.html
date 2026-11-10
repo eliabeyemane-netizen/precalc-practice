@@ -1,0 +1,338 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 2 Exam Drill</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=STIX+Two+Text:wght@400;600&display=swap">
+<style>
+/* Layout: one column of exam problems on faint graph-paper ground; each answer folds open under its problem */
+:root{
+  --bg:#f3f5fa; --paper:#ffffff; --ink:#151b2c; --muted:#5a6377; --line:#dce2ee;
+  --grid:rgba(41,73,198,.07); --accent:#2949c6; --accent-ink:#ffffff; --accent-soft:#e7ecfb;
+  --good:#1b7a4c; --good-soft:#e1f3e9; --bad:#c42323; --bad-soft:#fdecec;
+  --f-head:"Space Grotesk",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-math:"STIX Two Text","Cambria Math","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1220; --paper:#161b2c; --ink:#e7eaf4; --muted:#9aa3b9; --line:#2a3249;
+  --grid:rgba(142,162,255,.05); --accent:#8ea2ff; --accent-ink:#0e1220; --accent-soft:#222b4b;
+  --good:#5fd39a; --good-soft:#163427; --bad:#ff7a7a; --bad-soft:#3a1c1f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1220; --paper:#161b2c; --ink:#e7eaf4; --muted:#9aa3b9; --line:#2a3249;
+  --grid:rgba(142,162,255,.05); --accent:#8ea2ff; --accent-ink:#0e1220; --accent-soft:#222b4b;
+  --good:#5fd39a; --good-soft:#163427; --bad:#ff7a7a; --bad-soft:#3a1c1f; color-scheme:dark}
+body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-block:28px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--f-head);font-size:30px;line-height:1.15;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+button{font:600 14px var(--f-body);border-radius:8px;padding:9px 14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button.mode{font-weight:500}
+button.mode[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.meta{margin-left:auto;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.prob{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.prob.done{border-color:var(--good)}
+.ph{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.num{font-family:var(--f-head);font-weight:700;font-size:18px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tag{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.pts{margin-left:auto;font-size:12px;color:var(--muted)}
+.q{min-width:0;overflow-x:auto}
+.m{font-family:var(--f-math);font-size:1.13em;white-space:nowrap}
+.ov{text-decoration:overline}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.85em;line-height:1.1;margin:0 .12em}
+.fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em}
+.pf{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.4}
+.pf>span:first-child{border-bottom:1px solid currentColor;padding:0 .35em .1em}
+.pf>span:last-child{padding:.1em .35em 0}
+details{border-top:1px dashed var(--line);padding-top:8px}
+summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:14px;width:max-content}
+.ans{display:flex;flex-direction:column;gap:10px;padding-top:10px;min-width:0}
+.ans ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.final{background:var(--accent-soft);border-radius:8px;padding:9px 12px;overflow-x:auto}
+.final b{font-family:var(--f-head);font-weight:700;margin-right:6px}
+.sdw{overflow-x:auto}
+.sd{border-collapse:collapse;font-family:var(--f-math);font-variant-numeric:tabular-nums;margin:4px 0}
+.sd td{padding:1px 10px;text-align:right}
+.sd td.r{border-right:1.5px solid currentColor;padding-left:0}
+.sd tr.b td:not(.r){border-top:1.5px solid currentColor}
+.got{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted);width:max-content;cursor:pointer}
+.got input{width:16px;height:16px;accent-color:var(--good)}
+.tally{background:var(--good-soft);color:var(--good);border-radius:8px;padding:8px 12px;font-weight:600;font-variant-numeric:tabular-nums;width:max-content}
+.legend{color:var(--muted);font-size:13px}
+.oops{display:block;margin-top:5px;color:var(--bad);font-weight:600;font-size:13.5px}
+.mark{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.wrong{flex:1 1 220px;min-width:0;font:600 14px var(--f-body);color:var(--bad);background:var(--bad-soft);border:1px solid transparent;border-radius:8px;padding:8px 10px}
+.wrong::placeholder{color:var(--bad);opacity:.6;font-weight:500}
+.prob.missed{border-color:var(--bad)}
+@media (max-width:480px){h1{font-size:25px}.meta{margin-left:0;width:100%}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Unit 2 Exam Drill</h1>
+    <p class="sub">Pick a set. Every problem is random and 5 points. Calculator allowed. Work each one on paper, then open the answer and check yourself.</p>
+  </header>
+  <div class="bar" role="group" aria-label="Choose a set">
+    <button class="mode" id="mode-a" data-mode="a" type="button">#1&ndash;19: Complex to multiplicity</button>
+    <button class="mode" id="mode-b" data-mode="b" type="button">#22&ndash;28: Rational functions</button>
+    <button class="mode" id="mode-t" data-mode="t" type="button">Full exam mix</button>
+  </div>
+  <div class="bar">
+    <button class="primary" id="newTest" type="button">New random test</button>
+    <button id="toggleAll" type="button">Show all answers</button>
+    <span class="meta" id="meta"></span>
+  </div>
+  <p class="legend" id="legend"></p>
+  <main id="test" style="display:flex;flex-direction:column;gap:14px"></main>
+  <div class="tally" id="tally">0 complete</div>
+</div>
+
+<script>
+(function(){
+var M='−';
+var R=Math.random;
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function ri(a,b){return a+Math.floor(R()*(b-a+1));}
+function pick(a){return a[Math.floor(R()*a.length)];}
+function nz(a,b){var v;do{v=ri(a,b);}while(v===0);return v;}
+function distinct(n,a,b,excl){excl=excl||[];var s=[];var guard=0;while(s.length<n&&guard++<500){var v=nz(a,b);if(s.indexOf(v)<0&&excl.indexOf(v)<0)s.push(v);}return s;}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(R()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=a%b;a=b;b=t;}return a;}
+function num(n){return n<0?M+Math.abs(n):String(n);}
+function fr(n,d){if(d<0){n=-n;d=-d;}var g=gcd(n,d)||1;n/=g;d/=g;if(d===1)return num(n);return (n<0?M:'')+'<span class="fr"><span>'+Math.abs(n)+'</span><span>'+d+'</span></span>';}
+function lin(r){return [1,-r];}
+function mul(a,b){var o=[];for(var i=0;i<a.length+b.length-1;i++)o.push(0);for(var i2=0;i2<a.length;i2++)for(var j=0;j<b.length;j++)o[i2+j]+=a[i2]*b[j];return o;}
+function ev(c,x){var y=0;for(var i=0;i<c.length;i++)y=y*x+c[i];return y;}
+function poly(c){var deg=c.length-1,out='';for(var i=0;i<c.length;i++){var a=c[i],p=deg-i;if(a===0)continue;var abs=Math.abs(a);var t=((abs===1&&p>0)?'':String(abs))+(p>0?'x':'')+(p>1?'<sup>'+p+'</sup>':'');if(out==='')out=(a<0?M:'')+t;else out+=(a<0?' '+M+' ':' + ')+t;}return out||'0';}
+function fac(r){return r===0?'x':'(x '+(r>0?M+' '+r:'+ '+(-r))+')';}
+function pf(top,bot){return '<span class="pf"><span>'+top+'</span><span>'+bot+'</span></span>';}
+function m(s){return '<span class="m">'+s+'</span>';}
+function sq(s){return '√<span class="ov">'+s+'</span>';}
+function rad(n){var o=1,i=n;for(var k=Math.floor(Math.sqrt(n));k>1;k--){if(n%(k*k)===0){o=k;i=n/(k*k);break;}}return [o,i];}
+function radS(n){var r=rad(n);if(r[1]===1)return String(r[0]);return (r[0]>1?r[0]:'')+sq(r[1]);}
+function imS(n){var r=rad(n);if(r[1]===1)return (r[0]===1?'':r[0])+'i';return (r[0]>1?r[0]:'')+'i'+sq(r[1]);}
+function cx(re,im){if(im===0)return num(re);var ip=(Math.abs(im)===1?'':Math.abs(im))+'i';if(re===0)return (im<0?M:'')+ip;return num(re)+(im<0?' '+M+' ':' + ')+ip;}
+function cxf(rn,imn,d){var re=rn===0?'':fr(rn,d);if(imn===0)return re||'0';var g=gcd(imn,d);var n=Math.abs(imn)/g,dd=Math.abs(d/g);var neg=(imn<0)!==(d<0);var im=(dd===1?(n===1?'':n):'<span class="fr"><span>'+n+'</span><span>'+dd+'</span></span>')+'i';if(!re)return (neg?M:'')+im;return re+(neg?' '+M+' ':' + ')+im;}
+function divisors(n){n=Math.abs(n);var d=[];for(var i=1;i<=n;i++)if(n%i===0)d.push(i);return d;}
+function prz(c){var p=divisors(c[c.length-1]),q=divisors(c[0]),seen={},list=[];p.forEach(function(a){q.forEach(function(b){var g=gcd(a,b),x=a/g,y=b/g,k=x+'/'+y;if(!seen[k]){seen[k]=1;list.push([x,y]);}});});list.sort(function(u,v){return u[0]/u[1]-v[0]/v[1];});return list.map(function(t){return '±'+(t[1]===1?t[0]:fr(t[0],t[1]));}).join(', ');}
+function synth(c,r){var row=[c[0]],prod=[''];for(var i=1;i<c.length;i++){prod.push(row[i-1]*r);row.push(c[i]+row[i-1]*r);}return {row:row,prod:prod,q:row.slice(0,-1),rem:row[row.length-1]};}
+function sdT(c,r){var s=synth(c,r);var td=function(v){return '<td>'+(v===''?'':num(v))+'</td>';};return '<div class="sdw"><table class="sd" aria-label="synthetic division"><tr><td class="r">'+num(r)+'</td>'+c.map(td).join('')+'</tr><tr><td class="r"></td>'+s.prod.map(td).join('')+'</tr><tr class="b"><td class="r"></td>'+s.row.map(td).join('')+'</tr></table></div>';}
+function ival(lo,hi,lb,rb){return lb+(lo===-Infinity?M+'∞':num(lo))+', '+(hi===Infinity?'∞':num(hi))+rb;}
+function domainEx(ex){ex=ex.slice().sort(function(a,b){return a-b;});if(!ex.length)return '('+M+'∞, ∞)';var parts=[],lo=-Infinity;ex.forEach(function(v){parts.push(ival(lo,v,'(',')'));lo=v;});parts.push(ival(lo,Infinity,'(',')'));return parts.join(' ∪ ');}
+function signLabel(y){return y>0?'+':M;}
+function solveIneq(f,nums,dens,rel){
+  var pts=nums.map(function(v){return {v:v,den:false};}).concat(dens.map(function(v){return {v:v,den:true};})).sort(function(a,b){return a.v-b.v;});
+  var gt=(rel==='>'||rel==='≥'),eq=(rel==='≥'||rel==='≤');
+  var seq=[],tests=[];
+  for(var i=0;i<=pts.length;i++){
+    var lo=i===0?-Infinity:pts[i-1].v,hi=i===pts.length?Infinity:pts[i].v;
+    var x=lo===-Infinity?hi-1:(hi===Infinity?lo+1:(lo+hi)/2);var y=f(x);
+    seq.push({k:'i',lo:lo,hi:hi,t:gt?y>0:y<0});tests.push(ival(lo,hi,'(',')')+': test x = '+num(x)+' gives '+signLabel(y));
+    if(i<pts.length)seq.push({k:'p',v:pts[i].v,t:eq&&!pts[i].den});
+  }
+  var pieces=[],cur=null;seq.forEach(function(s){if(s.t){if(!cur)cur=[s];else cur.push(s);}else if(cur){pieces.push(cur);cur=null;}});if(cur)pieces.push(cur);
+  var out=pieces.map(function(p){var a=p[0],b=p[p.length-1];if(p.length===1&&a.k==='p')return '{'+num(a.v)+'}';
+    var L=a.k==='p'?'['+num(a.v):(a.lo===-Infinity?'('+M+'∞':'('+num(a.lo));var Rr=b.k==='p'?num(b.v)+']':(b.hi===Infinity?'∞)':num(b.hi)+')');return L+', '+Rr;});
+  return {ans:out.length?out.join(' ∪ '):'No solution',tests:tests};
+}
+var RELS=['>','<','≥','≤'];
+
+/* ---------- Imaginary numbers ---------- */
+function gProduct(){var p=ri(2,9),q=pick([2,3,4,5,6,7,8].filter(function(v){return v!==p;}));
+  return {t:'Imaginary numbers',q:'Perform the indicated operations and write the result in standard form: '+m(sq(M+p*p)+' · '+sq(M+q*q))+'.',
+  steps:['Take out <i>i</i> first: '+m(sq(M+p*p)+' = '+p+'i')+' and '+m(sq(M+q*q)+' = '+q+'i')+'.','Multiply: '+m(p+'i · '+q+'i = '+p*q+'i<sup>2</sup>')+'.','Since '+m('i<sup>2</sup> = '+M+'1')+', the answer is negative. If you multiply under one root first, you get the wrong sign.'],
+  ans:m(M+(p*q))};}
+function gMultiply(){var a=nz(-6,6),b=nz(-6,6),c=nz(-6,6),d=nz(-6,6);var re=a*c-b*d,im=a*d+b*c;
+  return {t:'Imaginary numbers',q:'Perform the indicated operations and write the result in standard form: '+m('('+cx(a,b)+')('+cx(c,d)+')')+'.',
+  steps:['FOIL: '+m(num(a*c)+' '+(a*d<0?M:'+')+' '+Math.abs(a*d)+'i '+(b*c<0?M:'+')+' '+Math.abs(b*c)+'i '+(b*d<0?M:'+')+' '+Math.abs(b*d)+'i<sup>2</sup>')+'.','Replace '+m('i<sup>2</sup>')+' with '+m(M+'1')+': the last term becomes '+m(num(-b*d))+'.','Combine the real parts and the <i>i</i> parts.'],
+  ans:m(cx(re,im))};}
+function gDivide(){var a=nz(-7,7),b=R()<.3?0:nz(-6,6),c=nz(-5,5),d=nz(-5,5);var den=c*c+d*d,re=a*c+b*d,im=b*c-a*d;
+  return {t:'Imaginary numbers',q:'Perform the indicated operations and write the result in standard form: '+m(pf(cx(a,b),cx(c,d)))+'.',
+  steps:['Multiply the top and bottom by the conjugate of the bottom, '+m(cx(c,-d))+'.','Bottom: '+m('('+cx(c,d)+')('+cx(c,-d)+') = '+c*c+' + '+d*d+' = '+den)+'. No <i>i</i> is left.','Top: '+m('('+cx(a,b)+')('+cx(c,-d)+') = '+cx(re,im))+'.','Split it over '+den+' and simplify each fraction.'],
+  ans:m(cxf(re,im,den))};}
+function gPower(){var n=ri(13,99),r=n%4,v=['1','i',M+'1',M+'i'];
+  return {t:'Imaginary numbers',q:'Simplify '+m('i<sup>'+n+'</sup>')+'.',
+  steps:['The powers of <i>i</i> repeat every 4: '+m('i, '+M+'1, '+M+'i, 1')+'.','Divide '+n+' by 4: the remainder is '+r+'.','So '+m('i<sup>'+n+'</sup> = i<sup>'+r+'</sup>')+'.'],
+  ans:m(v[r])};}
+
+function gQuadComplex(){var a=pick([1,1,2]),h=ri(-4,4),n=ri(1,4);var c=[a,-2*a*h,a*(h*h+n*n)];var disc=c[1]*c[1]-4*c[0]*c[2],root=2*a*n;
+  var ni=(n===1?'':n)+'i';var roots=(h!==0?num(h)+' ± ':'±')+ni;
+  return {t:'Quadratic formula (complex answers)',q:'Solve using the quadratic formula. Express solutions in standard form: '+m(poly(c)+' = 0')+'.',
+  steps:[m('a = '+num(c[0])+', b = '+num(c[1])+', c = '+num(c[2]))+'.','Under the root first: '+m('b<sup>2</sup> '+M+' 4ac = '+num(c[1]*c[1])+' '+M+' '+(4*c[0]*c[2])+' = '+num(disc))+'. It is negative, so the answers have <i>i</i>.',
+  m(sq(num(disc))+' = '+sq(String(-disc))+' · i = '+root+'i')+'.',m('x = '+pf(num(-c[1])+' ± '+root+'i',num(2*a)))+'. Divide both terms on top by '+(2*a)+'.'],
+  ans:m('x = '+roots)};}
+
+/* ---------- Solving polynomials ---------- */
+function gSolveFrac(){var rs=distinct(2,-4,4),q=pick([2,3]),p;do{p=nz(-5,5);}while(gcd(p,q)!==1);
+  var quad=mul(lin(rs[1]),[q,-p]),c=mul(lin(rs[0]),quad);var given=R()<.35;
+  var qtext=given?'Solve the equation '+m(poly(c)+' = 0')+' given that '+m(num(rs[0]))+' is a root.':'Solve the equation '+m(poly(c)+' = 0')+'.<br>a. List all possible rational roots.<br>b. Use synthetic division to test the possible rational roots and find an actual root.<br>c. Use the quotient from part (b) to find the remaining roots and solve the equation.';
+  var steps=[];if(!given)steps.push('Possible rational zeros '+m('p/q')+': '+m(prz(c))+'.');
+  steps.push((given?'Divide by the given zero ':'Test '+m('x = '+num(rs[0]))+': '+m('f('+num(rs[0])+') = 0')+', so it is a zero. Divide ')+'with synthetic division:'+sdT(c,rs[0])+'Leftover: '+m(poly(quad))+'.');
+  steps.push('Factor the leftover: '+m(poly(quad)+' = '+fac(rs[1])+'('+poly([q,-p])+')')+'.');
+  steps.push('Set each factor to 0: '+m('x = '+num(rs[1]))+' and '+m(poly([q,-p])+' = 0 → x = ')+m(fr(p,q))+'.');
+  return {t:'Solving polynomials',q:qtext,steps:steps,ans:m('x = '+num(rs[0])+', '+num(rs[1])+', ')+m(fr(p,q))};}
+function gSolveQuadLeft(){var r=nz(-4,4),b=pick([-6,-4,-2,0,2,4,6]),mm=pick([2,3,5,6,7,-1,-4,-9,-2]);var cc=b*b/4-mm;
+  var quad=[1,b,cc],c=mul(lin(r),quad),h=-b/2,disc=b*b-4*cc;
+  var roots=(h!==0?num(h)+' ± ':'±')+(mm>0?radS(mm):imS(-mm));
+  return {t:'Solving polynomials',q:'For '+m('f(x) = '+poly(c))+':<br>a. List all possible rational zeros.<br>b. Use synthetic division to test the possible rational zeros and find an actual zero.<br>c. Use the quotient from part (b) to find the remaining zeros of the polynomial function.',
+  steps:['Possible rational zeros: '+m(prz(c))+'.','Test them until one gives 0: '+m('f('+num(r)+') = 0')+'. Divide:'+sdT(c,r)+'Leftover: '+m(poly(quad))+'. It does not factor, so use the quadratic formula.',
+  'Discriminant: '+m('b<sup>2</sup> '+M+' 4ac = '+num(b*b)+' '+M+' '+(4*cc<0?'('+num(4*cc)+')':4*cc)+' = '+num(disc))+(disc<0?'. It is negative, so the answers have <i>i</i>.':'.'),
+  m('x = '+pf(num(-b)+' ± '+sq(num(disc)),'2')+' = '+roots)+'.'],
+  ans:m('x = '+num(r)+', '+roots)};}
+function gSolveQuartic(){var rs=distinct(2,-4,4),k=pick([1,4,9,2,3,5]);var cubic=mul(lin(rs[1]),[1,0,k]),c=mul(lin(rs[0]),cubic);
+  var iz='±'+imS(k);
+  return {t:'Solving polynomials',q:'For '+m('f(x) = '+poly(c))+':<br>a. List all possible rational zeros.<br>b. Use synthetic division to test the possible rational zeros and find an actual zero.<br>c. Use the quotient from part (b) to find the remaining zeros of the polynomial function.',
+  steps:['Possible rational zeros: '+m(prz(c))+'.','Test '+m('x = '+num(rs[0]))+': it gives 0. Divide:'+sdT(c,rs[0])+'Leftover: '+m(poly(cubic))+'.','Still degree 3, so divide again. '+m('x = '+num(rs[1]))+' works:'+sdT(cubic,rs[1])+'Leftover: '+m(poly([1,0,k]))+'.',
+  'Solve '+m(poly([1,0,k])+' = 0')+': '+m('x<sup>2</sup> = '+M+k+' → x = '+iz)+'.'],
+  ans:m('x = '+num(rs[0])+', '+num(rs[1])+', '+iz)};}
+
+/* ---------- Inequalities ---------- */
+var IQ='Solve the inequality and graph the solution set on a real number line. Express the solution set in interval notation: ';
+function dots(nums,dens,rel){var eq=(rel==='≥'||rel==='≤');return 'Number line: '+(nums.length?(eq?'closed':'open')+' dot'+(nums.length>1?'s':'')+' at '+m(nums.map(num).join(', ')):'')+(dens.length?(nums.length?'; ':'')+'open dot at '+m(dens.map(num).join(', '))+' (bottom = 0)':'')+'. Shade the intervals in the answer.';}
+function gIneqCubic(){var rs=distinct(3,-5,5).sort(function(a,b){return a-b;}),rel=pick(RELS);var c=mul(mul(lin(rs[0]),lin(rs[1])),lin(rs[2]));
+  var s=solveIneq(function(x){return ev(c,x);},rs,[],rel);s.tests.push(dots(rs,[],rel));
+  return {t:'Polynomial inequality',q:IQ+m(poly(c)+' '+rel+' 0')+'.',
+  steps:['Factor: '+m(fac(rs[0])+fac(rs[1])+fac(rs[2])+' '+rel+' 0')+'. (Test zeros from '+m('p/q')+' and divide, like the solving problems.)','Boundary points: '+m('x = '+rs.map(num).join(', '))+'. '+(rel.length>1||rel==='≥'||rel==='≤'?'The sign includes "or equal", so they get closed brackets.':'The sign is strict, so they get open parentheses.'),
+  'Test one number in each interval:<br>'+s.tests.map(m).join('<br>'),'Keep the intervals where the sign matches '+m(rel+' 0')+'.'],
+  ans:m(s.ans)};}
+function gIneqQuad(){var rs=distinct(2,-6,6).sort(function(a,b){return a-b;}),rel=pick(RELS);var B=-(rs[0]+rs[1]),K=-rs[0]*rs[1];var c=[1,B,-K];
+  var s=solveIneq(function(x){return ev(c,x);},rs,[],rel);s.tests.push(dots(rs,[],rel));
+  return {t:'Polynomial inequality',q:IQ+m(poly([1,B,0])+' '+rel+' '+num(K))+'.',
+  steps:['Move everything to one side first: '+m(poly(c)+' '+rel+' 0')+'.','Factor: '+m(fac(rs[0])+fac(rs[1])+' '+rel+' 0')+', so the boundary points are '+m('x = '+num(rs[0])+', '+num(rs[1]))+'.','Test each interval:<br>'+s.tests.map(m).join('<br>'),'Keep the intervals that match '+m(rel+' 0')+'.'],
+  ans:m(s.ans)};}
+function gIneqRatK(){var a,b;do{a=nz(-6,6);b=nz(-6,6);}while(a===-b);var rel=pick(RELS),z=a+2*b;
+  var s=solveIneq(function(x){return (x+a)/(x-b)-2;},[z],[b],rel);s.tests.push(dots([z],[b],rel));
+  return {t:'Rational inequality',q:IQ+m(pf(poly(lin(-a)),poly(lin(b)))+' '+rel+' 2')+'.',
+  steps:['Never multiply by the bottom. Subtract 2 instead: '+m(pf(poly(lin(-a)),poly(lin(b)))+' '+M+' '+pf('2'+fac(b),poly(lin(b)))+' '+rel+' 0')+'.','Combine the tops: '+m(pf(poly([1,a])+' '+M+' 2x '+(2*b<0?M+' '+Math.abs(2*b):'+ '+2*b),poly(lin(b)))+' = '+pf(poly([-1,z]),poly(lin(b)))+' '+rel+' 0')+'.',
+  'Boundary points: top '+m('x = '+num(z))+(rel==='≥'||rel==='≤'?' (included)':' (open)')+', bottom '+m('x = '+num(b))+' (always open, it makes the bottom 0).','Test each interval:<br>'+s.tests.map(m).join('<br>')],
+  ans:m(s.ans)};}
+function gIneqRat2(){var rs=distinct(3,-5,5),rel=pick(RELS);var top=mul(lin(rs[0]),lin(rs[1]));
+  var s=solveIneq(function(x){return ev(top,x)/(x-rs[2]);},[rs[0],rs[1]],[rs[2]],rel);s.tests.push(dots([rs[0],rs[1]].sort(function(u,v){return u-v;}),[rs[2]],rel));
+  return {t:'Rational inequality',q:IQ+m(pf(fac(rs[0])+fac(rs[1]),poly(lin(rs[2])))+' '+rel+' 0')+'.',
+  steps:['Boundary points from the top: '+m('x = '+num(rs[0])+', '+num(rs[1]))+(rel==='≥'||rel==='≤'?' (closed)':' (open)')+'.','From the bottom: '+m('x = '+num(rs[2]))+', always open.','Test each interval:<br>'+s.tests.map(m).join('<br>'),'Keep the intervals that match '+m(rel+' 0')+'.'],
+  ans:m(s.ans)};}
+
+/* ---------- Asymptotes and holes ---------- */
+var AQ='Find the vertical asymptotes, if any, the horizontal asymptote, if one exists, and the slant asymptote, if there is one, of the graph of the rational function. Also identify any holes. ';
+function four(va,ha,sa,ho){return 'VA: '+va+'<br>HA: '+ha+'<br>SA: '+sa+'<br>Holes: '+ho;}
+function gAsymHole(){var t=distinct(3,-5,5),h=t[0],a=t[1],b=t[2],k=pick([1,1,2,3,-1,-2]);var top=mul([k],mul(lin(h),lin(a))),bot=mul(lin(h),lin(b));
+  return {t:'Asymptotes and holes',q:AQ+m('f(x) = '+pf(poly(top),poly(bot)))+'.',
+  steps:['Factor both: '+m(pf((k!==1?num(k):'')+fac(h)+fac(a),fac(h)+fac(b)))+'.',m(fac(h))+' cancels, so there is a hole at '+m('x = '+num(h))+'. Plug '+num(h)+' into what is left: '+m('y = '+pf((k!==1?num(k)+'(':'')+num(h)+' '+(a<0?'+ '+(-a):M+' '+a)+(k!==1?')':''),num(h)+' '+(b<0?'+ '+(-b):M+' '+b))+' = ')+m(fr(k*(h-a),h-b))+'.',
+  'What is left on the bottom, '+m(fac(b))+', gives the vertical asymptote '+m('x = '+num(b))+'.','Same degree top and bottom, so the horizontal asymptote is the ratio of the leading numbers: '+m('y = '+num(k))+'.'],
+  ans:four(m('x = '+num(b)),m('y = '+num(k)),'none',m('('+num(h)+', ')+m(fr(k*(h-a),h-b))+m(')'))};}
+function gAsymSlant(){var p,q,d,rem;do{p=ri(-5,5);q=nz(-8,8);d=nz(-4,4);rem=q+d*(p+d);}while(rem===0);var top=[1,p,q];
+  return {t:'Asymptotes and holes',q:AQ+m('f(x) = '+pf(poly(top),poly(lin(d))))+'.',
+  steps:['Bottom = 0 at '+m('x = '+num(d))+', and the top is not 0 there, so the vertical asymptote is '+m('x = '+num(d))+'.','The top degree is exactly 1 more than the bottom, so there is no horizontal asymptote. There is a slant one.','Divide:'+sdT(top,d)+'Quotient '+m(poly([1,p+d]))+', remainder '+num(rem)+'. Drop the remainder.'],
+  ans:four(m('x = '+num(d)),'none',m('y = '+poly([1,p+d])),'none')};}
+function gAsymNoVA(){var c=pick([2,3,4,5,-2,-3]),mm=ri(1,9),e=pick([0,0,ri(1,6)]);var top=[c,0,e],bot=[1,0,mm];
+  return {t:'Asymptotes and holes',q:AQ+m('f(x) = '+pf(poly(top),poly(bot)))+'.',
+  steps:['Set the bottom = 0: '+m('x<sup>2</sup> = '+M+mm)+' has no real solution, so there is no vertical asymptote.','Same degree on top and bottom, so the HA is the ratio of leading numbers: '+m(pf(num(c),'1')+' = '+num(c))+'.'],
+  ans:four('none',m('y = '+num(c)),'none','none')};}
+function gAsymLowTop(){var b=ri(2,6),a;do{a=nz(-6,6);}while(Math.abs(a)===b);var bot=[1,0,-b*b];
+  return {t:'Asymptotes and holes',q:AQ+m('f(x) = '+pf(poly(lin(-a)),poly(bot)))+'.',
+  steps:['Factor the bottom: '+m(poly(bot)+' = '+fac(b)+fac(-b))+'. Nothing cancels with the top.','Vertical asymptotes: '+m('x = '+b)+' and '+m('x = '+M+b)+'.','The top degree (1) is less than the bottom (2), so the HA is '+m('y = 0')+'.'],
+  ans:four(m('x = '+b+', x = '+M+b),m('y = 0'),'none','none')};}
+
+/* ---------- Domain ---------- */
+function gDomain(){var v=ri(0,2);
+  if(v===0){var rs=distinct(2,-6,6),a;do{a=nz(-6,6);}while(rs.indexOf(a)>=0);var bot=mul(lin(rs[0]),lin(rs[1]));
+    return {t:'Domain',q:'Find the domain of the rational function. Write it in interval notation: '+m('f(x) = '+pf(poly(lin(a)),poly(bot)))+'.',
+    steps:['The bottom cannot be 0. Factor it: '+m(poly(bot)+' = '+fac(rs[0])+fac(rs[1]))+'.','So '+m('x ≠ '+num(rs[0])+', '+num(rs[1]))+'. Everything else is allowed.'],ans:m(domainEx(rs))};}
+  if(v===1){var a2=ri(2,6);
+    return {t:'Domain',q:'Find the domain of the rational function. Write it in interval notation: '+m('f(x) = '+pf(poly(lin(a2)),poly([1,0,-a2*a2])))+'.',
+    steps:['Bottom: '+m(poly([1,0,-a2*a2])+' = '+fac(a2)+fac(-a2))+', which is 0 at '+m('x = ±'+a2)+'.','Trap: '+m(fac(a2))+' cancels, but '+m('x = '+a2)+' is still not allowed. That spot is a hole, not part of the domain.'],ans:m(domainEx([a2,-a2]))};}
+  var a3=nz(-6,6),mm=ri(1,9);
+  return {t:'Domain',q:'Find the domain of the rational function. Write it in interval notation: '+m('f(x) = '+pf(poly(lin(-a3)),poly([1,0,mm])))+'.',
+  steps:['Set the bottom = 0: '+m('x<sup>2</sup> = '+M+mm)+'. No real number squares to a negative.','The bottom is never 0, so every real number works.'],ans:m('('+M+'∞, ∞)')};}
+
+/* ---------- Writing a polynomial ---------- */
+function gWrite(){var r=nz(-4,4),A=pick([1,1,2,-1,3,-2]),quad,base,n,zeros,pairStep,form;
+  if(R()<.6){var a=ri(-3,3),b=ri(1,4);quad=[1,-2*a,a*a+b*b];base=mul(lin(r),quad);n=3;zeros=m(num(r))+' and '+m(cx(a,b))+' are zeros';
+    pairStep='Complex zeros come in conjugate pairs, so '+m(cx(a,-b))+' is also a zero. Shortcut for '+m('a ± bi')+': '+m('x<sup>2</sup> '+M+' 2ax + (a<sup>2</sup> + b<sup>2</sup>)')+' with '+m('a = '+num(a)+', b = '+b)+' gives '+m(poly(quad))+'.';form=fac(r)+'('+poly(quad)+')';}
+  else{var k=ri(1,3);quad=[1,0,k*k];base=mul(mul(lin(r),lin(r)),quad);n=4;zeros=m((k===1?'':k)+'i')+' and '+m(num(r))+' (multiplicity 2) are zeros';
+    pairStep=m((k===1?'':k)+'i')+' comes with its conjugate '+m(M+(k===1?'':k)+'i')+', which pair up to '+m(poly(quad))+'. Multiplicity 2 means '+m(fac(r))+' is used twice.';form=fac(r)+'<sup>2</sup>('+poly(quad)+')';}
+  var x0;do{x0=ri(-2,3);}while(ev(base,x0)===0);var v=ev(base,x0),fx0=A*v,c=base.map(function(t){return t*A;});
+  return {t:'Writing a polynomial',q:'Find a '+n+(n===3?'rd':'th')+'-degree polynomial function with real coefficients satisfying the given conditions: '+m('n = '+n)+'; '+zeros+'; '+m('f('+num(x0)+') = '+num(fx0))+'.',
+  steps:[pairStep,'Write it with an unknown leading number '+m('a')+': '+m('f(x) = a'+form)+'.','Plug in '+m('x = '+num(x0))+': '+m('a('+num(v)+') = '+num(fx0)+' → a = '+num(A))+'.','Multiply everything out and write it in standard form.'],
+  ans:m('f(x) = '+poly(c))};}
+
+/* ---------- Zeros, multiplicity, graph ---------- */
+function gMult(){var t=distinct(2,-4,4),a=t[0],b=t[1],m1=ri(1,3),m2=pick([1,2,3].filter(function(v){return !(v===1&&m1===1);})),k=pick([1,-1,2,-2]);
+  var deg=m1+m2,yint=k*Math.pow(-a,m1)*Math.pow(-b,m2),f=(k===1?'':k===-1?M:num(k))+fac(a)+(m1>1?'<sup>'+m1+'</sup>':'')+fac(b)+(m2>1?'<sup>'+m2+'</sup>':'');
+  var tc=function(mlt){return mlt%2===0?'touches and turns':'crosses';};
+  var end=deg%2===0?(k>0?'up on both ends':'down on both ends'):(k>0?'falls left, rises right':'rises left, falls right');
+  return {t:'Zeros and multiplicity',q:'For '+m('f(x) = '+f)+':<br>a. Find the zeros for the polynomial function and give the multiplicity for each zero. State whether the graph crosses the x-axis, or touches the x-axis and turns around, at each zero.<br>b. Use the Leading Coefficient Test to determine the graph’s end behavior.<br>c. Find the y-intercept.',
+  steps:['Zeros come from each factor: '+m('x = '+num(a))+' (multiplicity '+m1+') and '+m('x = '+num(b))+' (multiplicity '+m2+').','Odd multiplicity crosses, even touches and turns.','Degree = '+m1+' + '+m2+' = '+deg+'. Leading coefficient '+num(k)+' is '+(k>0?'positive':'negative')+', and the degree is '+(deg%2===0?'even':'odd')+'.','y-intercept: plug in 0: '+m('f(0) = '+num(yint))+'.'],
+  ans:m('x = '+num(a))+': mult '+m1+', '+tc(m1)+'. '+m('x = '+num(b))+': mult '+m2+', '+tc(m2)+'. Degree '+deg+', '+end+', y-int '+m('(0, '+num(yint)+')')};}
+
+/* ---------- All zeros and linear factors ---------- */
+function gAllZeros(){if(R()<.5){var mm=ri(2,4),n=ri(1,3);var c=[1,0,n*n-mm*mm,0,-mm*mm*n*n];var ni=(n===1?'':n)+'i';
+    return {t:'All zeros and linear factors',q:'Find all the zeros of the polynomial function and write the polynomial as a product of linear factors: '+m('f(x) = '+poly(c))+'.',
+    steps:['It factors like a quadratic in '+m('x<sup>2</sup>')+': '+m('(x<sup>2</sup> '+M+' '+mm*mm+')(x<sup>2</sup> + '+n*n+')')+'.',m('x<sup>2</sup> = '+mm*mm+' → x = ±'+mm)+'. '+m('x<sup>2</sup> = '+M+n*n+' → x = ±'+ni)+'.','Each zero r gives a factor '+m('(x '+M+' r)')+'.'],
+    ans:'Zeros '+m('±'+mm+', ±'+ni)+'; '+m('f(x) = (x '+M+' '+mm+')(x + '+mm+')(x '+M+' '+ni+')(x + '+ni+')')};}
+  var r=nz(-4,4),n2=ri(1,4);var c2=mul(lin(r),[1,0,n2*n2]);var ni2=(n2===1?'':n2)+'i';
+  return {t:'All zeros and linear factors',q:'Find all the zeros of the polynomial function and write the polynomial as a product of linear factors: '+m('f(x) = '+poly(c2))+'. (Hint: '+m(num(r))+' is a zero.)',
+  steps:['Divide by the given zero:'+sdT(c2,r)+'Leftover: '+m(poly([1,0,n2*n2]))+'.',m('x<sup>2</sup> = '+M+n2*n2+' → x = ±'+ni2)+'.'],
+  ans:'Zeros '+m(num(r)+', ±'+ni2)+'; '+m('f(x) = '+fac(r)+'(x '+M+' '+ni2+')(x + '+ni2+')')};}
+
+/* ---------- Bonus: quadratic ---------- */
+function gQuad(){var a=pick([1,-1,2,-2]),h=nz(-4,4),real=R()<.65,s=ri(1,3),k=real?-a*s*s:a*ri(1,4);var c=[a,-2*a*h,a*h*h+k];
+  var xint=real?m('x = '+num(h-s)+', '+num(h+s)):'none (it never reaches the x-axis)';
+  return {t:'Quadratic (bonus, maybe on it)',q:'For '+m('f(x) = '+poly(c))+':<br>a. Determine, without graphing, whether the function has a minimum value or a maximum value.<br>b. Find the minimum or maximum value and determine where it occurs.<br>c. Use the vertex and intercepts to sketch the graph. Give the equation of the axis of symmetry and the function’s domain and range.',
+  steps:['Vertex x: '+m('x = '+pf(M+'b','2a')+' = '+pf(num(-c[1]),num(2*a))+' = '+num(h))+'.','Vertex y: '+m('f('+num(h)+') = '+num(k))+'. So the vertex is '+m('('+num(h)+', '+num(k)+')')+'.',
+  m('a = '+num(a))+' is '+(a>0?'positive, so it opens up and has a minimum':'negative, so it opens down and has a maximum')+' of '+num(k)+'.','x-intercepts: set '+m('f(x) = 0')+': '+xint+'.'],
+  ans:'Vertex '+m('('+num(h)+', '+num(k)+')')+'; axis '+m('x = '+num(h))+'; '+(a>0?'min ':'max ')+m(num(k))+'; x-int '+xint+'; D '+m('('+M+'∞, ∞)')+'; R '+m(a>0?'['+num(k)+', ∞)':'('+M+'∞, '+num(k)+']')};}
+
+var MODES={
+  a:{name:'#1–19 set',legend:'Mix: 3 complex numbers, quadratic formula with i, 1 quadratic graph, 4 solving polynomials, and 1 each of multiplicity, writing a polynomial, and all zeros.'},
+  b:{name:'#22–28 set',legend:'Mix: 4 asymptotes and holes, 2 domain, 2 polynomial inequalities, 2 rational inequalities.'},
+  t:{name:'Full exam mix',legend:'Mix: 3 solving, 2 imaginary, 2 inequalities, 2 asymptotes, and 1 each of domain, writing a polynomial, multiplicity, and all zeros. Quadratic bonus at the end.'}
+};
+function makeTest(mode){
+  if(mode==='a'){var q=gQuad();q.t='Quadratic graph';
+    return shuffle([gDivide(),pick([gProduct,gPower])(),gMultiply(),gQuadComplex(),q,gSolveFrac(),gSolveQuadLeft(),gSolveQuartic(),pick([gSolveFrac,gSolveQuadLeft])(),gMult(),gWrite(),gAllZeros()]);}
+  if(mode==='b')return shuffle([gAsymHole(),gAsymSlant(),gAsymNoVA(),gAsymLowTop(),gDomain(),gDomain(),gIneqCubic(),gIneqQuad(),gIneqRatK(),gIneqRat2()]);
+  var list=[gDivide(),pick([gProduct,gMultiply,gPower])(),gSolveFrac(),gSolveQuadLeft(),gSolveQuartic(),
+    pick([gIneqCubic,gIneqQuad])(),pick([gIneqRatK,gIneqRat2])(),gAsymHole(),pick([gAsymSlant,gAsymNoVA,gAsymLowTop])(),
+    gDomain(),gWrite(),gMult(),gAllZeros()];
+  return shuffle(list).concat([gQuad()]);
+}
+window.__makeTest=function(seed,mode){R=rng(seed);return makeTest(mode||'t');};
+
+function warnFor(s){var w=[];
+  if(/Leftover:/.test(s))w.push('Your mistake before: dropping the first number. Copy every bottom-row number, including the first, and start one power lower.');
+  if(/Possible rational (zeros|roots)/.test(s))w.push('Your mistake before: q comes only from the first number, not the last.');
+  if(/Discriminant|Under the root|quadratic formula/.test(s))w.push('Your mistake before: it’s −b (not −b²) and b² MINUS 4ac. Write the formula first.');
+  if(/Test |works|gives 0/.test(s)&&/synthetic|Divide/.test(s))w.push('Watch the sign: a zero of −2 means x = −2, not 2.');
+  if(/√<span class="ov">\d/.test(s)&&/x = /.test(s))w.push('Finish it: simplify the root, divide every term on top, end with one line x = …');
+  return w.map(function(t){return '<span class="oops">'+t+'</span>';}).join('');}
+var KEY='u2drill';function loadMarks(){try{return JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){return {};}}
+function saveMarks(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+var curSeed=0;
+var test=document.getElementById('test'),meta=document.getElementById('meta'),tally=document.getElementById('tally'),legend=document.getElementById('legend'),allOpen=false,mode='a',graded=12;
+function updateTally(){var n=test.querySelectorAll('.got input:checked').length,w=[].filter.call(test.querySelectorAll('.wrong'),function(x){return x.value.trim();}).length;tally.textContent=n+' / '+test.querySelectorAll('.got').length+' complete · '+w+' with a mistake noted';}
+function restoreMarks(){var all=loadMarks(),mk=all[mode+curSeed]||{};Object.keys(mk).forEach(function(i){var c=document.getElementById('got-'+i),t=document.getElementById('wrong-'+i);if(c&&mk[i].d){c.checked=true;c.closest('.prob').classList.add('done');}if(t&&mk[i].w){t.value=mk[i].w;t.closest('.prob').classList.add('missed');}});}
+function storeMark(i){var all=loadMarks(),k=mode+curSeed;all[k]=all[k]||{};var c=document.getElementById('got-'+i),t=document.getElementById('wrong-'+i);all[k][i]={d:c.checked,w:t.value.trim()};saveMarks(all);}
+function render(seed){R=rng(seed);var ps=makeTest(mode);allOpen=false;document.getElementById('toggleAll').textContent='Show all answers';
+  graded=mode==='t'?ps.length-1:ps.length;
+  document.querySelectorAll('button.mode').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.mode===mode?'true':'false');});
+  meta.textContent=MODES[mode].name+' · #'+seed;
+  test.innerHTML=ps.map(function(p,i){var bonus=mode==='t'&&i===ps.length-1;return '<section class="prob" aria-label="Problem '+(i+1)+'"><div class="ph"><span class="num">'+(bonus?'Bonus':(i+1)+'.')+'</span><span class="tag">'+p.t+'</span><span class="pts">'+(bonus?'extra':'5 pts')+'</span></div><div class="q">'+p.q+'</div><div class="mark"><label class="got"><input type="checkbox" id="got-'+i+'" data-i="'+i+'"> Complete</label><input class="wrong" id="wrong-'+i+'" data-i="'+i+'" type="text" autocomplete="off" placeholder="Where I went wrong" aria-label="Where I went wrong on problem '+(i+1)+'"></div><details><summary>Show answer</summary><div class="ans"><ol>'+p.steps.map(function(s){return '<li>'+s+warnFor(s)+'</li>';}).join('')+'</ol><div class="final"><b>Answer</b>'+p.ans+'</div></div></details></section>';}).join('');
+  legend.textContent=MODES[mode].legend;
+  curSeed=seed;restoreMarks();
+  updateTally();
+  try{history.replaceState(null,'','#'+mode+seed);}catch(e){}
+}
+document.querySelectorAll('button.mode').forEach(function(b){b.addEventListener('click',function(){mode=b.dataset.mode;render(Math.floor(Math.random()*90000)+10000);});});
+test.addEventListener('change',function(e){if(e.target.matches('.got input')){e.target.closest('.prob').classList.toggle('done',e.target.checked);storeMark(e.target.dataset.i);updateTally();}});
+test.addEventListener('input',function(e){if(e.target.matches('.wrong')){e.target.closest('.prob').classList.toggle('missed',!!e.target.value.trim());storeMark(e.target.dataset.i);updateTally();}});
+document.getElementById('newTest').addEventListener('click',function(){render(Math.floor(Math.random()*90000)+10000);window.scrollTo({top:0});});
+document.getElementById('toggleAll').addEventListener('click',function(){allOpen=!allOpen;test.querySelectorAll('details').forEach(function(d){d.open=allOpen;});this.textContent=allOpen?'Hide all answers':'Show all answers';});
+var hm=/^#([abt])(\d{1,9})$/.exec(location.hash);
+if(hm)mode=hm[1];
+render(hm?parseInt(hm[2],10):Math.floor(Math.random()*90000)+10000);
+})();
+</script>
+
+</body></html>

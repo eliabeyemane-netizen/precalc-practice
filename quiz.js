@@ -162,9 +162,13 @@
     score();
   }
 
-  // Wait for the math to finish drawing before hiding anything, so it lays out correctly.
-  var mj = window.MathJax;
-  if (mj && mj.startup && mj.startup.promise) mj.startup.promise.then(start, start);
-  else if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
-  else start();
+  // Wait for the math to finish drawing before hiding anything, so it lays out correctly. Check
+  // after the page has loaded, since MathJax may still be loading when this script runs.
+  function boot() {
+    var mj = window.MathJax;
+    if (mj && mj.startup && mj.startup.promise) mj.startup.promise.then(start, start);
+    else start();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
 })();
