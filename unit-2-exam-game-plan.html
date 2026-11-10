@@ -1,0 +1,229 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 2 Exam Game Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<style>
+/* Layout: one white reading column; one card per exam topic, in order of how many points it's worth. Single light theme by request. */
+:root{
+  --bg:#FFFFFF; --ink:#1A1F2B; --muted:#5E6675; --line:#E3E6EC; --soft:#F5F7FA;
+  --accent:#1D4ED8; --accent-soft:#EEF3FF; --ok:#0F7A4F; --ok-soft:#EAF7F0; --warn:#9A4A00; --warn-soft:#FFF4E5;
+  --f-head:"Source Serif 4",Georgia,serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+.wrap{max-width:740px;margin:0 auto;display:grid;gap:22px}
+h1{font-family:var(--f-head);font-weight:700;font-size:clamp(1.9rem,6vw,2.5rem);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-head);font-weight:700;font-size:1.3rem;line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+.sub{color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:15px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:grid;gap:12px;min-width:0}
+.head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px}
+.count{font-size:14px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:3px 11px;white-space:nowrap}
+.lbl{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.ask{background:var(--accent-soft);border-radius:8px;padding:10px 14px;font-style:italic}
+.ask p + p{margin-top:6px}
+ul,ol{margin:0;padding-left:1.3em;display:grid;gap:4px}
+.ex{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;min-width:0}
+.ex .ans{color:var(--ok);font-weight:700}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;font-size:16px;width:100%}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}
+th{background:var(--soft);font-weight:600}
+.note{background:var(--warn-soft);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.note h2{color:var(--warn)}
+.skip{background:var(--soft);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+mjx-container{color:inherit}
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:12px">
+    <h1>Unit 2 Exam Game Plan</h1>
+    <p class="sub">Built from Mr. Hummel's "For the Unit 2 Exam" sheet and the review problems he assigned. Topics are listed by how many points they're worth, biggest first.</p>
+    <div class="facts"><span>Monday 11/9</span><span>12–14 short-answer problems</span><span>4–5 points each</span><span>Calculator allowed</span><span>Full class period</span></div>
+  </header>
+
+  <div class="note">
+    <h2>How he'll grade it</h2>
+    <ul>
+      <li>Every problem is short answer worth 4–5 points, so the steps earn points, not just the final answer.</li>
+      <li>He uses the book's wording. The phrase in each blue box below is the cue that tells you what your answer has to look like.</li>
+      <li>Circle or box the final answer. Use interval notation. Write "none" when something doesn't exist; a blank loses points.</li>
+    </ul>
+  </div>
+
+  <!-- 1 -->
+  <section class="card">
+    <div class="head"><h2>Solving polynomials</h2><span class="count">3–4 problems</span></div>
+    <div><p class="lbl">How he'll ask it</p><div class="ask"><p>"List all possible rational zeros of f(x) = …"</p><p>"Solve the equation … given that 4 is a root."</p><p>"Find all zeros of f(x) = …"</p></div></div>
+    <div><p class="lbl">Your answer must have</p><ul><li>The ± list of \(\tfrac pq\) (when asked)</li><li>The zero you tested and your division</li><li>Every zero listed at the end</li></ul></div>
+    <div><p class="lbl">Steps</p><ol><li>\(p\) = factors of the last number, \(q\) = factors of the first number. List every \(\pm\tfrac pq\).</li><li>Plug those in until one gives 0.</li><li>Long divide by that factor.</li><li>Factor what's left, or use the quadratic formula.</li></ol></div>
+    <div class="ex">
+      <p><b>Book #55:</b> \(f(x)=6x^3+x^2-4x+1\)</p>
+      <p>\(\tfrac pq:\ \pm1,\ \pm\tfrac12,\ \pm\tfrac13,\ \pm\tfrac16\)</p>
+      <p>\(f(-1)=-6+1+4+1=0\ \checkmark\)</p>
+      <p>Divide by \(x+1\): \(6x^2-5x+1=(3x-1)(2x-1)\)</p>
+      <p class="ans">Zeros: \(-1,\ \tfrac13,\ \tfrac12\)</p>
+    </div>
+    <div class="ex">
+      <p><b>Book #48:</b> Solve \(x^3-17x+4=0\) given that 4 is a root.</p>
+      <p>Divide by \(x-4\): \(x^2+4x-1\)</p>
+      <p>Quadratic formula: \(x=\dfrac{-4\pm\sqrt{16+4}}{2}=-2\pm\sqrt5\)</p>
+      <p class="ans">\(\{4,\ -2+\sqrt5,\ -2-\sqrt5\}\)</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="card">
+    <div class="head"><h2>Polynomial and rational inequalities</h2><span class="count">2–3 problems</span></div>
+    <div><p class="lbl">How he'll ask it</p><div class="ask"><p>"Solve each inequality and graph the solution set on a real number line. Express the solution set in interval notation."</p></div></div>
+    <div><p class="lbl">Your answer must have</p><ul><li>A number line with dots and shading</li><li>Interval notation</li></ul></div>
+    <div><p class="lbl">Steps</p><ol><li>Get 0 on one side. With a fraction, combine into one fraction.</li><li>Find the boundary points: zeros of the top and zeros of the bottom.</li><li>Test one number in each section for + or −.</li><li>Keep the sections that match the sign you want.</li><li>\(\le\) or \(\ge\): closed dot on the top's zeros. The bottom's zeros are always open.</li></ol></div>
+    <div class="ex">
+      <p><b>Book #89:</b> \(\dfrac{(x+1)(x-2)}{x-1}\ge0\)</p>
+      <p>Boundaries: \(-1\) (closed), \(1\) (open, it's on the bottom), \(2\) (closed)</p>
+      <p>Signs: \(-\ \ |\ \ +\ \ |\ \ -\ \ |\ \ +\)</p>
+      <p class="ans">\([-1,\,1)\cup[2,\,\infty)\)</p>
+    </div>
+    <div class="ex">
+      <p><b>Practice test #28:</b> \(\dfrac{2x+1}{x-3}\le3\)</p>
+      <p>Move the 3 over: \(\dfrac{2x+1-3(x-3)}{x-3}=\dfrac{-x+10}{x-3}\le0\)</p>
+      <p>Boundaries: \(10\) (closed), \(3\) (open)</p>
+      <p class="ans">\((-\infty,\,3)\cup[10,\,\infty)\)</p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="card">
+    <div class="head"><h2>Asymptotes and holes</h2><span class="count">2–3 problems</span></div>
+    <div><p class="lbl">How he'll ask it</p><div class="ask"><p>"Find the vertical asymptotes, if any, the horizontal asymptote, if one exists, and the slant asymptote, if there is one." His sheet adds holes.</p></div></div>
+    <div><p class="lbl">Your answer must have</p><ul><li>Four labeled lines: <b>VA</b>, <b>HA</b>, <b>Slant</b>, <b>Hole</b></li><li>"None" written on any that don't exist</li></ul></div>
+    <div><p class="lbl">Steps</p><ol><li>Factor the top and bottom.</li><li>A factor that cancels is a hole. Plug its \(x\) into the simplified function to get the \(y\).</li><li>Bottom zeros left over are the VAs.</li><li>Compare degrees: top smaller gives \(y=0\); equal gives leading numbers over each other; top bigger gives no HA.</li><li>Top exactly one degree bigger: long divide. The quotient is the slant asymptote.</li></ol></div>
+    <div class="ex">
+      <p><b>Example:</b> \(f(x)=\dfrac{3x^2-12}{x^2-x-2}=\dfrac{3(x-2)(x+2)}{(x-2)(x+1)}\)</p>
+      <p>\(x-2\) cancels, leaving \(\dfrac{3(x+2)}{x+1}\). At \(x=2\): \(\dfrac{12}{3}=4\)</p>
+      <p class="ans">VA \(x=-1\) · HA \(y=3\) · Slant: none · Hole \((2,4)\)</p>
+    </div>
+    <div class="ex">
+      <p><b>Book #76:</b> \(y=\dfrac{x^2+2x-3}{x-3}\)</p>
+      <p>Long divide: \(x+5\) with remainder 12</p>
+      <p class="ans">VA \(x=3\) · HA none · Slant \(y=x+5\) · Hole: none</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="card">
+    <div class="head"><h2>Imaginary numbers</h2><span class="count">2–3 problems</span></div>
+    <div><p class="lbl">How he'll ask it</p><div class="ask"><p>"Perform the indicated operations and write the result in standard form."</p><p>"Solve using the quadratic formula. Express solutions in standard form."</p></div></div>
+    <div><p class="lbl">Your answer must have</p><ul><li>The form \(a+bi\), with no \(i\) and no square root on the bottom</li></ul></div>
+    <div><p class="lbl">Steps</p><ol><li>Change \(\sqrt{-n}\) to \(i\sqrt n\) first, before anything else.</li><li>FOIL, then change \(i^2\) to \(-1\).</li><li>To divide, multiply top and bottom by the conjugate (flip the middle sign). This is "rationalizing the denominator."</li><li>Split into \(a+bi\).</li></ol></div>
+    <div class="ex">
+      <p><b>Book #7:</b> \(\dfrac{3+4i}{4-2i}\cdot\dfrac{4+2i}{4+2i}=\dfrac{12+6i+16i+8i^2}{16+4}=\dfrac{4+22i}{20}\)</p>
+      <p class="ans">\(\tfrac15+\tfrac{11}{10}i\)</p>
+    </div>
+    <div class="ex">
+      <p><b>Book #9:</b> \((-2+\sqrt{-100})^2=(-2+10i)^2=4-40i+100i^2\)</p>
+      <p class="ans">\(-96-40i\)</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="card">
+    <div class="head"><h2>Domain of a rational function</h2><span class="count">1–2 problems</span></div>
+    <div><p class="lbl">How he'll ask it</p><div class="ask"><p>"Find the domain of each rational function."</p></div></div>
+    <div><p class="lbl">Your answer must have</p><ul><li>Interval notation that skips every \(x\) that makes the bottom 0</li></ul></div>
+    <div><p class="lbl">Steps</p><ol><li>Set the bottom equal to 0 and solve.</li><li>Leave those values out. Do this before canceling, because holes are left out too.</li></ol></div>
+    <div class="ex">
+      <p>\(f(x)=\dfrac{x}{x^2-16}\): \(x^2-16=0\Rightarrow x=\pm4\)</p>
+      <p class="ans">\((-\infty,-4)\cup(-4,4)\cup(4,\infty)\)</p>
+      <p style="margin-top:8px">\(f(x)=\dfrac{4x^2}{x^2+3}\): \(x^2+3\) is never 0</p>
+      <p class="ans">\((-\infty,\infty)\)</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="card">
+    <div class="head"><h2>Writing a polynomial from its roots</h2><span class="count">1–2 problems</span></div>
+    <div><p class="lbl">How he'll ask it</p><div class="ask"><p>"Find an nth-degree polynomial function with real coefficients satisfying the given conditions."</p></div></div>
+    <div><p class="lbl">Your answer must have</p><ul><li>A final \(f(x)=\ldots\) multiplied all the way out</li></ul></div>
+    <div><p class="lbl">Steps</p><ol><li>Every complex zero brings its conjugate: \(2-3i\) means \(2+3i\) too.</li><li>Write \(f(x)=a(x-r_1)(x-r_2)\cdots\)</li><li>Plug in the given point to find \(a\).</li><li>Multiply it all out.</li></ol></div>
+    <div class="ex">
+      <p><b>Book #61:</b> \(n=3\); 2 and \(2-3i\) are zeros; \(f(1)=-10\)</p>
+      <p>\((x-(2-3i))(x-(2+3i))=(x-2)^2+9=x^2-4x+13\)</p>
+      <p>\(f(x)=a(x-2)(x^2-4x+13)\). Then \(f(1)=a(-1)(10)=-10\), so \(a=1\)</p>
+      <p class="ans">\(f(x)=x^3-6x^2+21x-26\)</p>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="card">
+    <div class="head"><h2>Zeros, multiplicity and the graph</h2><span class="count">1–2 problems</span></div>
+    <div><p class="lbl">How he'll ask it</p><div class="ask"><p>"Find the zeros and give the multiplicity of each zero. State whether the graph crosses the x-axis, or touches the x-axis and turns around, at each zero."</p><p>"Use the Leading Coefficient Test to determine the graph's end behavior."</p></div></div>
+    <div><p class="lbl">Your answer must have</p><ul><li>One line per zero: the zero, its multiplicity, and "crosses" or "touches and turns around"</li><li>One end-behavior sentence</li></ul></div>
+    <div><p class="lbl">Rules</p><ul><li>Odd multiplicity crosses. Even multiplicity touches and turns around.</li></ul></div>
+    <div class="tbl"><table>
+      <tr><th>Degree</th><th>Leading coefficient</th><th>End behavior</th></tr>
+      <tr><td>Odd</td><td>Positive</td><td>Falls left, rises right</td></tr>
+      <tr><td>Odd</td><td>Negative</td><td>Rises left, falls right</td></tr>
+      <tr><td>Even</td><td>Positive</td><td>Rises left, rises right</td></tr>
+      <tr><td>Even</td><td>Negative</td><td>Falls left, falls right</td></tr>
+    </table></div>
+    <div class="ex">
+      <p><b>Book #30:</b> \(f(x)=-2(x-1)(x+2)^2(x+5)^3\)</p>
+      <p class="ans">\(x=1\): multiplicity 1, crosses</p>
+      <p class="ans">\(x=-2\): multiplicity 2, touches and turns around</p>
+      <p class="ans">\(x=-5\): multiplicity 3, crosses</p>
+      <p style="margin-top:8px">Degree \(1+2+3=6\) is even and \(-2\) is negative.</p>
+      <p class="ans">End behavior: falls left, falls right</p>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="card">
+    <div class="head"><h2>Fundamental Theorem of Algebra</h2><span class="count">1–2 problems</span></div>
+    <div><p class="lbl">How he'll ask it</p><div class="ask"><p>"Find all the zeros of each polynomial function and write the polynomial as a product of linear factors."</p></div></div>
+    <div><p class="lbl">Your answer must have</p><ul><li>All zeros, including the \(i\) ones. A degree-\(n\) polynomial has \(n\) zeros.</li><li>\(f(x)\) written as factors like \((x-r)\), including \((x-i)(x+i)\)</li></ul></div>
+    <div class="ex">
+      <p><b>Book #63:</b> \(f(x)=2x^4+3x^3+3x-2\)</p>
+      <p>\(\tfrac12\) and \(-2\) both give 0. Dividing them out leaves \(x^2+1\), so \(x=\pm i\).</p>
+      <p class="ans">Zeros: \(\tfrac12,\ -2,\ i,\ -i\)</p>
+      <p class="ans">\(f(x)=(2x-1)(x+2)(x-i)(x+i)\)</p>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="card">
+    <div class="head"><h2>Extra credit question</h2><span class="count">1 problem</span></div>
+    <p>His sheet only says "1 good extra credit question." Expect a harder mix of the topics above, like a 4th-degree polynomial with complex zeros or a rational function with both a hole and a slant asymptote.</p>
+  </section>
+
+  <div class="skip">
+    <h2>Not on his list</h2>
+    <ul>
+      <li><b>Descartes's Rule of Signs:</b> he cut it from the assigned review ("not Part b").</li>
+      <li><b>1.7 and 2.8 (variation):</b> not on the exam sheet.</li>
+      <li><b>Quadratics (vertex, max/min):</b> they're in the learning targets but not on the exam list. If one shows up, the vertex is at \(x=\tfrac{-b}{2a}\). Answer "The maximum (or minimum) value is ___ at \(x=\) ___."</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <h2>What the extra credit is</h2>
+    <p>Two optional assignments that add points to your homework grade. Both must be turned in before the exam starts. Late ones aren't accepted.</p>
+    <ul>
+      <li><b>Practice Test</b> (up to 10 points): book pp. 436–438, problems 1–7, 12–13, 15, 17–19, 22–25, 27–28.</li>
+      <li><b>Learning Targets sheet</b> (up to 5 points): a list of the 15 Unit 2 skills. Mark each one Strong, OK or Weak.</li>
+    </ul>
+    <p><b>Not extra credit:</b> the <b>Unit 2 Review</b> (25 points) is required. It's pp. 432–435, problems 4–8, 14–15, 17–18, 24–27, 30–31, 44–47, 49–50, 55–56 (skip part b), 61–64, 75–78, 86–89. Canvas shows it unsubmitted.</p>
+  </div>
+</div>
+
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' }, options: { enableMenu: false } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" defer></script>
+
+</body></html>

@@ -1,0 +1,612 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 2 Honors Practice Exam</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one white test sheet; each problem shows first, the black worked solution opens on tap. Single light theme by request. */
+:root{
+  --bg:#FFFFFF; --ink:#1A1F2B; --muted:#5E6675; --line:#DDE1E8; --soft:#F5F7FA;
+  --accent:#1D4ED8; --accent-soft:#EEF3FF; --ok:#0F7A4F; --ok-soft:#EAF7F0;
+  --box:#111318; --box-ink:#F3F5F8;
+  --f-head:"Source Serif 4",Georgia,serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 72px}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:16px}
+header{display:grid;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:14px}
+h1{font-family:var(--f-head);font-weight:700;font-size:clamp(1.9rem,6vw,2.5rem);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-head);font-weight:600;font-size:1.15rem;margin:10px 0 -4px}
+p{margin:0}
+.sub{color:var(--muted)}
+.rub{background:var(--soft);border-radius:10px;padding:10px 14px;font-size:15.5px}
+.p{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:10px;min-width:0}
+.ph{display:flex;gap:10px;align-items:baseline;min-width:0}
+.n{flex:none;font-family:var(--f-mono);font-weight:600;font-size:13.5px;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px}
+.q{min-width:0;flex:1;overflow-x:auto;overflow-y:hidden}
+.pts{flex:none;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.show{justify-self:start;font:inherit;font-size:15px;font-weight:700;color:var(--accent);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:5px 13px;cursor:pointer}
+.show:hover{background:var(--accent-soft)}
+.show:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sol{display:grid;gap:10px;min-width:0}
+.sol[hidden]{display:none!important}
+.p:not(.open) .tips{display:none!important}
+.box{background:var(--box);color:var(--box-ink);border-radius:10px;padding:10px 14px;overflow-x:auto;overflow-y:hidden;min-width:0;font-size:16.5px}
+.box mjx-container{color:var(--box-ink)}
+.ans{background:var(--ok-soft);border-radius:8px;padding:8px 12px;overflow-x:auto;overflow-y:hidden;min-width:0}
+.ans b{color:var(--ok);font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-right:8px}
+.nl{display:flex;justify-content:center}
+.nl svg{width:100%;max-width:400px;height:auto;display:block}
+.nl-base,.nl-arr{stroke:var(--muted);stroke-width:1.5;fill:none}
+.nl-keep{stroke:var(--accent);stroke-width:5}
+.nl-sign{fill:var(--muted);font-family:var(--f-mono);font-size:13px;font-weight:600}
+.nl-lab{fill:var(--ink);font-family:var(--f-mono);font-size:12px}
+.nl-dot{fill:var(--accent)}
+.nl-open{fill:var(--bg);stroke:var(--accent);stroke-width:2.2}
+.nl-tick{stroke:var(--muted);stroke-width:1.5}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Unit 2 Honors Practice Exam</h1>
+  <p class="sub">A harder practice test built from Mr. Hummel's list of exam topics. It predicts the style and is not his real test.</p>
+  <p class="sub">14 problems · 5 points each · 70 points · 1 extra credit · calculator allowed · show all work</p>
+</header>
+<p class="rub">Scored like his rubric: right answer with full work gets full points. Small mistake or no work gets partial. Blank gets 0. Solve each one on paper before you open the solution.</p>
+
+<h2>Imaginary numbers</h2>
+<article class="p"><div class="ph"><span class="n">1</span><div class="q">Write in standard form: \(\sqrt{-8}\cdot\sqrt{-2}+(3-2i)^2\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+\sqrt{-8}&=\ub{\sqrt{-1}}{i}\cdot\ub{\sqrt{4\cdot2}}{2\sqrt2}=2i\sqrt2\\
+\sqrt{-2}&=i\sqrt2\\
+(2i\sqrt2)(i\sqrt2)&=2\,\hl{i^2}\,\ub{\sqrt2\cdot\sqrt2}{2}=2(\hl{-1})(2)=-4\\[4pt]
+(3-2i)(3-2i)&=\ub{3\cdot3}{9}+\ub{3(-2i)}{-6i}+\ub{(-2i)(3)}{-6i}+\ub{(-2i)(-2i)}{4i^2}\\
+&=9\ \ub{-6i-6i}{-12i}+4(\hl{-1})=\ub{9-4}{5}-12i\\[4pt]
+-4+5-12i&=\ub{-4+5}{1}-12i
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\(1-12i\)</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">2</span><div class="q">Write in standard form: \(\dfrac{2+3i}{3-i}+i^{15}\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+15\div4&=3\ \text{R}\ \hl{3}\ \to\ i^{15}=i^{\hl3}=-i\\[4pt]
+\frac{2+3i}{3-i}\cdot\hl{\frac{3+i}{3+i}}&=\frac{(2+3i)(3+i)}{(3-i)(3+i)}\\
+(2+3i)(3+i)&=\ub{6}{2\cdot3}+\ub{2i}{2\cdot i}+\ub{9i}{3i\cdot3}+\ub{3i^2}{3i\cdot i}=6+11i-3=3+11i\\
+(3-i)(3+i)&=3^2+1^2=10\\[4pt]
+\frac{3+11i}{10}-i&=\frac{3}{10}+\frac{11}{10}i-\frac{10}{10}i=\frac{3}{10}+\frac{1}{10}i
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\(\tfrac{3}{10}+\tfrac{1}{10}i\)</p></div></article>
+
+<h2>Inequalities</h2>
+<article class="p"><div class="ph"><span class="n">3</span><div class="q">Solve and graph on a number line. Use interval notation: \(x^3+3x^2\ge4x+12\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+x^3+3x^2\hl{-4x-12}&\ge0\\
+\ub{x^3+3x^2}{x^2(x+3)}\ \ub{-4x-12}{-4(x+3)}&\ge0\\
+(x+3)(\ub{x^2-4}{(x-2)(x+2)})&\ge0\\
+x&=-3,\ -2,\ 2\\[4pt]
+(\vl{-4}+3)(\vl{-4}-2)(\vl{-4}+2)&=(-1)(-6)(-2)=-12\lt0\\
+(\vl{-2.5}+3)(\vl{-2.5}-2)(\vl{-2.5}+2)&=(0.5)(-4.5)(-0.5)=1.125\gt0\\
+(\vl0+3)(\vl0-2)(\vl0+2)&=(3)(-2)(2)=-12\lt0\\
+(\vl3+3)(\vl3-2)(\vl3+2)&=(6)(1)(5)=30\gt0
+\end{aligned}\]</div><div class="nl" data-pts="-3,-2,2" data-signs="-,+,-,+" data-keep="1,3" data-closed="-3,-2,2"></div><p class="ans"><b>Answer</b>\([-3,-2]\cup[2,\infty)\)</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">4</span><div class="q">Solve and graph on a number line. Use interval notation: \(\dfrac{3}{x+2}\ge\dfrac{1}{x-2}\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+\frac{3}{x+2}\hl{-\frac{1}{x-2}}&\ge0\\
+\frac{3(x-2)-1(x+2)}{(x+2)(x-2)}&\ge0\\
+\frac{\ub{3x-6-x-2}{2x-8}}{(x+2)(x-2)}&\ge0\\
+2x-8=0\ \to\ 2x=8\ \to\ x&=4\ (\bullet)\\
+x&=-2,\ 2\ (\circ)\\[4pt]
+\frac{2(\vl{-3})-8}{(\vl{-3}+2)(\vl{-3}-2)}&=\frac{-14}{(-1)(-5)}=\frac{-14}{5}\lt0\\
+\frac{2(\vl0)-8}{(\vl0+2)(\vl0-2)}&=\frac{-8}{-4}=2\gt0\\
+\frac{2(\vl3)-8}{(\vl3+2)(\vl3-2)}&=\frac{-2}{5}\lt0\\
+\frac{2(\vl5)-8}{(\vl5+2)(\vl5-2)}&=\frac{2}{21}\gt0
+\end{aligned}\]</div><div class="nl" data-pts="-2,2,4" data-signs="-,+,-,+" data-keep="1,3" data-closed="4"></div><p class="ans"><b>Answer</b>\((-2,2)\cup[4,\infty)\)</p></div></article>
+
+<h2>Asymptotes, holes and domain</h2>
+<article class="p"><div class="ph"><span class="n">5</span><div class="q">Find all vertical, horizontal and slant asymptotes and any holes: \(f(x)=\dfrac{x^2-x-6}{x^3-9x}\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+\hl{-3}\cdot\hl2=-6,\ \ \hl{-3}+\hl2=-1\ &\to\ x^2-x-6=(x-3)(x+2)\\
+x^3-9x=x(\ub{x^2-9}{(x-3)(x+3)})&=x(x-3)(x+3)\\
+f(x)&=\frac{\hl{(x-3)}(x+2)}{x\,\hl{(x-3)}(x+3)}=\frac{x+2}{x(x+3)},\ \ x\ne3\\[4pt]
+\text{Hole}:\ \frac{\vl3+2}{\vl3(\vl3+3)}&=\frac{5}{18}\ \to\ \left(3,\tfrac{5}{18}\right)\\
+\text{VA}:\ x(x+3)=0\ &\to\ x=0,\ x=-3\\
+\text{HA}:\ 2\lt3\ &\to\ y=0\\
+\text{Slant}&:\ \text{none}
+\end{aligned}\]</div><p class="ans"><b>Answer</b>VA \(x=0,\ x=-3\); HA \(y=0\); slant none; hole \(\left(3,\tfrac{5}{18}\right)\)</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">6</span><div class="q">Find all vertical, horizontal and slant asymptotes and any holes: \(f(x)=\dfrac{2x^3+x^2+x-4}{x^2+x-2}\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+x^2+x-2&=(x+2)(x-1)\\
+\text{Top at }\vl1:\ 2+1+1-4&=0\ \to\ (x-1)\ \text{is on top too}\\[4pt]
+\frac{\hl{2x^3}}{x}=2x^2\ &\to\ 2x^3-2x^2\ \to\ \ub{x^2+2x^2}{3x^2}+x\\
+\frac{\hl{3x^2}}{x}=3x\ &\to\ 3x^2-3x\ \to\ \ub{x+3x}{4x}-4\\
+\frac{\hl{4x}}{x}=4\ &\to\ 4x-4\ \to\ 0\\
+f(x)&=\frac{\hl{(x-1)}(2x^2+3x+4)}{\hl{(x-1)}(x+2)}=\frac{2x^2+3x+4}{x+2},\ \ x\ne1\\[4pt]
+\text{Hole}:\ \frac{2+3+4}{1+2}&=\frac93=3\ \to\ (1,3)\\
+\text{VA}&:\ x=-2\\
+\text{HA}:\ 2\gt1&\ \to\ \text{none}\\[4pt]
+\frac{\hl{2x^2}}{x}=2x\ &\to\ 2x^2+4x\ \to\ \ub{3x-4x}{-x}+4\\
+\frac{\hl{-x}}{x}=-1\ &\to\ -x-2\ \to\ \ub{4+2}{6}\\
+\text{Slant}&:\ y=2x-1
+\end{aligned}\]</div><p class="ans"><b>Answer</b>VA \(x=-2\); HA none; slant \(y=2x-1\); hole \((1,3)\)</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">7</span><div class="q">Find the domain in interval notation: \(f(x)=\dfrac{x^2-4}{x^3-2x^2-x+2}\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+\ub{x^3-2x^2}{x^2(x-2)}\ \ub{-x+2}{-1(x-2)}&=0\\
+(x-2)(\ub{x^2-1}{(x-1)(x+1)})&=0\\
+x&=2,\ 1,\ -1
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\((-\infty,-1)\cup(-1,1)\cup(1,2)\cup(2,\infty)\)</p></div></article>
+
+<h2>Solving polynomials</h2>
+<article class="p"><div class="ph"><span class="n">8</span><div class="q">For \(f(x)=3x^3+2x^2-19x+6\): (a) list all possible rational zeros, (b) find all zeros.</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+p:\ \pm1,\pm2,\pm3,\pm6\quad q:\ \pm1,\pm3\ &\to\ \pm1,\pm2,\pm3,\pm6,\pm\tfrac13,\pm\tfrac23\\
+f(\vl2)&=\ub{24+8}{32}\ \ub{-38+6}{-32}=0\ \checkmark\\[4pt]
+\frac{\hl{3x^3}}{x}=3x^2\ &\to\ 3x^3-6x^2\ \to\ \ub{2x^2+6x^2}{8x^2}-19x\\
+\frac{\hl{8x^2}}{x}=8x\ &\to\ 8x^2-16x\ \to\ \ub{-19x+16x}{-3x}+6\\
+\frac{\hl{-3x}}{x}=-3\ &\to\ -3x+6\ \to\ 0\\[4pt]
+3(-3)=-9:\ \ \hl9\cdot(\hl{-1})=-9,\ \ \hl9+(\hl{-1})&=8\\
+3x^2+\hl{9x-x}-3&=\ub{3x^2+9x}{3x(x+3)}\ \ub{-x-3}{-1(x+3)}=(3x-1)(x+3)\\
+x&=\tfrac13,\ -3
+\end{aligned}\]</div><p class="ans"><b>Answer</b>(a) \(\pm1,\pm2,\pm3,\pm6,\pm\tfrac13,\pm\tfrac23\) · (b) \(2,\ \tfrac13,\ -3\)</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">9</span><div class="q">Given that \(1+2i\) is a zero, find all zeros of \(f(x)=x^3-5x^2+11x-15\).</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+1+2i\ &\to\ 1-2i\\
+\big((x-1)-2i\big)\big((x-1)+2i\big)&=(x-1)^2-4\hl{i^2}\\
+&=\ub{x^2-2x+1}{(x-1)^2}+4=x^2-2x+5\\[4pt]
+\frac{\hl{x^3}}{x^2}=x\ &\to\ x^3-2x^2+5x\ \to\ \ub{-5x^2+2x^2}{-3x^2}+\ub{11x-5x}{6x}-15\\
+\frac{\hl{-3x^2}}{x^2}=-3\ &\to\ -3x^2+6x-15\ \to\ 0\\
+x-3=0\ &\to\ x=3
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\(3,\ 1+2i,\ 1-2i\)</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">10</span><div class="q">Solve: \(x^4-x^3-5x^2+3x+2=0\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+1-1-5+3+2&=0\ \to\ x=1\ \checkmark\\[4pt]
+\frac{\hl{x^4}}{x}=x^3\ &\to\ x^4-x^3\ \to\ 0x^3-5x^2\\
+\frac{\hl{0x^3}}{x}=0x^2\ &\to\ 0\ \to\ -5x^2+3x\\
+\frac{\hl{-5x^2}}{x}=-5x\ &\to\ -5x^2+5x\ \to\ \ub{3x-5x}{-2x}+2\\
+\frac{\hl{-2x}}{x}=-2\ &\to\ -2x+2\ \to\ 0\\
+\text{Left}:\ x^3-5x-2&\\[4pt]
+(\vl{-2})^3-5(\vl{-2})-2&=\ub{-8+10}{2}-2=0\ \to\ x=-2\ \checkmark\\[4pt]
+\frac{\hl{x^3}}{x}=x^2\ &\to\ x^3+2x^2\ \to\ -2x^2-5x\\
+\frac{\hl{-2x^2}}{x}=-2x\ &\to\ -2x^2-4x\ \to\ \ub{-5x+4x}{-x}-2\\
+\frac{\hl{-x}}{x}=-1\ &\to\ -x-2\ \to\ 0\\[4pt]
+x^2-2x-1&=0\\
+x=\frac{2\pm\sqrt{\ub{4+4}{8}}}{2}&=\frac{2\pm\ub{\sqrt8}{2\sqrt2}}{2}=1\pm\sqrt2
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\(\{1,\ -2,\ 1+\sqrt2,\ 1-\sqrt2\}\)</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">11</span><div class="q">Solve: \(x^4-5x^2-36=0\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+\hl{-9}\cdot\hl4=-36,\ \ \hl{-9}+\hl4&=-5\\
+(x^2-9)(x^2+4)&=0\\
+x^2=9\ &\to\ x=\pm3\\
+x^2=-4\ &\to\ x=\pm\sqrt{-4}=\pm2i
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\(\{3,\ -3,\ 2i,\ -2i\}\)</p></div></article>
+
+<h2>Polynomials from their zeros</h2>
+<article class="p"><div class="ph"><span class="n">12</span><div class="q">Find a 4th-degree polynomial with real coefficients: \(3i\) is a zero, \(1\) is a zero of multiplicity 2, and \(f(0)=18\).</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+3i\ &\to\ -3i\\
+(x-3i)(x+3i)&=x^2-9\hl{i^2}=x^2+9\\
+f(x)&=a(x^2+9)(x-1)^2\\
+f(\vl0)&=a(9)(1)=9a=18\ \to\ a=2\\[4pt]
+(x^2+9)(x^2-2x+1)&=x^4-2x^3+\ub{x^2+9x^2}{10x^2}-18x+9\\
+2(x^4-2x^3+10x^2-18x+9)&=2x^4-4x^3+20x^2-36x+18
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\(f(x)=2x^4-4x^3+20x^2-36x+18\)</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">13</span><div class="q">For \(f(x)=-x^5+4x^4-4x^3\): find each zero and its multiplicity, say whether the graph crosses or touches at each zero, and describe the end behavior.</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+f(x)&=-x^3(\ub{x^2-4x+4}{(x-2)^2})=-x^{\hl3}(x-2)^{\hl2}\\
+x=0:&\ \ \hl3\ \text{odd}\ \to\ \text{crosses}\\
+x=2:&\ \ \hl2\ \text{even}\ \to\ \text{touches}\\
+n=5\ \text{odd},\ a_n=-1\lt0\ &\to\ \nwarrow\ \cdots\ \searrow
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\(0\): mult. 3, crosses · \(2\): mult. 2, touches and turns around · rises left, falls right</p></div></article>
+
+<article class="p"><div class="ph"><span class="n">14</span><div class="q">Find all zeros and write as a product of linear factors: \(f(x)=x^4-x^3+2x^2-4x-8\)</div><span class="pts">5 pts</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+f(\vl{-1})&=1+1+2+4-8=0\ \checkmark\\[4pt]
+\frac{\hl{x^4}}{x}=x^3\ &\to\ x^4+x^3\ \to\ \ub{-x^3-x^3}{-2x^3}+2x^2\\
+\frac{\hl{-2x^3}}{x}=-2x^2\ &\to\ -2x^3-2x^2\ \to\ \ub{2x^2+2x^2}{4x^2}-4x\\
+\frac{\hl{4x^2}}{x}=4x\ &\to\ 4x^2+4x\ \to\ \ub{-4x-4x}{-8x}-8\\
+\frac{\hl{-8x}}{x}=-8\ &\to\ -8x-8\ \to\ 0\\[4pt]
+\ub{x^3-2x^2}{x^2(x-2)}+\ub{4x-8}{4(x-2)}&=(x-2)(x^2+4)\\
+x^2+4=0\ \to\ x^2=-4\ &\to\ x=\pm2i
+\end{aligned}\]</div><p class="ans"><b>Answer</b>Zeros \(-1,\ 2,\ 2i,\ -2i\); \(f(x)=(x+1)(x-2)(x-2i)(x+2i)\)</p></div></article>
+
+<h2>Extra credit</h2>
+<article class="p"><div class="ph"><span class="n">EC</span><div class="q">Find \(k\) so that \(x+2\) is a factor of \(2x^3+kx^2-5x+2\). Then find all zeros.</div><span class="pts">Bonus</span></div>
+<div class="sol"><div class="box">\[\begin{aligned}
+f(\vl{-2})&=2(-8)+k(4)+10+2=\ub{-16+10+2}{-4}+4k\\
+4k-4&=0\ \to\ k=1\\[4pt]
+\frac{\hl{2x^3}}{x}=2x^2\ &\to\ 2x^3+4x^2\ \to\ \ub{x^2-4x^2}{-3x^2}-5x\\
+\frac{\hl{-3x^2}}{x}=-3x\ &\to\ -3x^2-6x\ \to\ \ub{-5x+6x}{x}+2\\
+\frac{\hl{x}}{x}=1\ &\to\ x+2\ \to\ 0\\[4pt]
+2x^2-3x+1&=\ub{2x^2-2x}{2x(x-1)}\ \ub{-x+1}{-1(x-1)}=(2x-1)(x-1)
+\end{aligned}\]</div><p class="ans"><b>Answer</b>\(k=1\); zeros \(-2,\ \tfrac12,\ 1\)</p></div></article>
+</div>
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], macros: { ub: ['\\underbrace{#1}_{#2}', 2], vl: ['{\\color{##7DD3FC}{#1}}', 1], hl: ['{\\color{##FCD34D}{#1}}', 1] } },
+  svg: { fontCache: 'global' }, options: { enableMenu: false }
+};
+</script>
+<style>
+.box pre.steps{margin:0;font-family:var(--f-mono);font-weight:500;font-size:15.5px;line-height:1.7;white-space:pre;color:var(--box-ink);tab-size:4}
+</style>
+<script>
+(function () {
+  var S = {
+'1':
+`√−8 = i·√8 = i·2√2 = 2i√2
+√−2 = i√2
+(2i√2)(i√2) = 2·i²·(√2·√2) = 2(−1)(2) = −4
+
+(3 − 2i)² = (3 − 2i)(3 − 2i)
+          = 9 − 6i − 6i + 4i²
+          = 9 − 12i + 4(−1)
+          = 5 − 12i
+
+−4 + 5 − 12i = 1 − 12i`,
+'2':
+`i¹⁵:  15 ÷ 4 = 3 remainder 3,  so i¹⁵ = i³ = −i
+
+Multiply by the conjugate:
+(2 + 3i)/(3 − i) · (3 + i)/(3 + i)
+
+Top:     (2 + 3i)(3 + i) = 6 + 2i + 9i + 3i²
+                         = 6 + 11i − 3
+                         = 3 + 11i
+Bottom:  (3 − i)(3 + i)  = 9 + 1 = 10
+
+(3 + 11i)/10 − i = 3/10 + 11/10 i − 10/10 i
+                 = 3/10 + 1/10 i`,
+'3':
+`Move everything left:
+  x³ + 3x² − 4x − 12 ≥ 0
+
+Group:
+  x²(x + 3) − 4(x + 3) ≥ 0
+  (x + 3)(x² − 4) ≥ 0
+  (x + 3)(x − 2)(x + 2) ≥ 0
+
+Boundary points: x = −3, −2, 2
+(closed dots, because of ≥)
+
+Test each interval:
+  x = −4:    (−1)(−6)(−2)      = −12     negative
+  x = −2.5:  (0.5)(−4.5)(−0.5) = 1.125   positive ✓
+  x = 0:     (3)(−2)(2)        = −12     negative
+  x = 3:     (6)(1)(5)         = 30      positive ✓`,
+'4':
+`Don't cross-multiply. Move everything left:
+  3/(x + 2) − 1/(x − 2) ≥ 0
+
+Common bottom (x + 2)(x − 2):
+  [3(x − 2) − 1(x + 2)] / [(x + 2)(x − 2)] ≥ 0
+
+Top:  3x − 6 − x − 2 = 2x − 8
+  (2x − 8) / [(x + 2)(x − 2)] ≥ 0
+
+Top = 0:     2x − 8 = 0  →  x = 4    (closed dot)
+Bottom = 0:  x = −2, 2               (open dots)
+
+Test each interval:
+  x = −3:  −14 / 5       negative
+  x = 0:   −8 / −4 = 2   positive ✓
+  x = 3:   −2 / 5        negative
+  x = 5:   2 / 21        positive ✓`,
+'5':
+`Factor the top:     x² − x − 6 = (x − 3)(x + 2)
+Factor the bottom:  x³ − 9x = x(x² − 9) = x(x − 3)(x + 3)
+
+f(x) = (x − 3)(x + 2) / [x(x − 3)(x + 3)]
+
+(x − 3) cancels  →  HOLE at x = 3
+  Plug 3 into what's left: (3 + 2)/(3 · 6) = 5/18
+  Hole: (3, 5/18)
+
+VA:     what's left on the bottom = 0  →  x = 0,  x = −3
+HA:     top degree 2 < bottom degree 3  →  y = 0
+Slant:  none`,
+'6':
+`Bottom:  x² + x − 2 = (x + 2)(x − 1)
+Top at x = 1:  2 + 1 + 1 − 4 = 0  →  (x − 1) is on top too
+
+Divide the top by (x − 1):
+  1 | 2   1   1   −4
+    |     2   3    4
+    ----------------
+      2   3   4 |  0
+Top = (x − 1)(2x² + 3x + 4)
+
+(x − 1) cancels  →  HOLE at x = 1
+  (2 + 3 + 4)/(1 + 2) = 9/3 = 3  →  hole (1, 3)
+
+VA:  x + 2 = 0  →  x = −2
+HA:  top degree 2 > bottom degree 1  →  none
+
+Slant: divide 2x² + 3x + 4 by (x + 2):
+  −2 | 2   3   4
+     |    −4   2
+     -----------
+       2  −1 | 6
+Drop the remainder  →  y = 2x − 1`,
+'7':
+`The bottom can't be 0.
+
+Group the bottom:
+  x³ − 2x² − x + 2 = x²(x − 2) − 1(x − 2)
+                   = (x − 2)(x² − 1)
+                   = (x − 2)(x − 1)(x + 1)
+
+Bottom = 0 at x = 2, 1, −1. Leave all three out.
+(Even if one cancels with the top, it's still not allowed.)`,
+'8':
+`(a) p, from the last number 6:   ±1, ±2, ±3, ±6
+    q, from the first number 3:  ±1, ±3
+    p/q:  ±1, ±2, ±3, ±6, ±1/3, ±2/3
+
+(b) Test x = 2:
+    3(8) + 2(4) − 19(2) + 6 = 24 + 8 − 38 + 6 = 0 ✓
+
+  2 | 3   2   −19    6
+    |     6    16   −6
+    ------------------
+      3   8    −3 |  0
+
+Leftover:  3x² + 8x − 3
+Factor:    (3x − 1)(x + 3) = 0  →  x = 1/3,  x = −3`,
+'9':
+`1 + 2i is a zero, so its partner 1 − 2i is too.
+
+Pair them with the shortcut x² − 2ax + (a² + b²),
+where a = 1, b = 2:
+  x² − 2x + (1 + 4) = x² − 2x + 5
+
+Divide f by x² − 2x + 5:
+  x³ ÷ x² = x
+    x(x² − 2x + 5) = x³ − 2x² + 5x
+    subtract  →  −3x² + 6x − 15
+  −3x² ÷ x² = −3
+    −3(x² − 2x + 5) = −3x² + 6x − 15
+    subtract  →  0
+
+Leftover:  x − 3 = 0  →  x = 3`,
+'10':
+`Test x = 1:  1 − 1 − 5 + 3 + 2 = 0 ✓
+
+  1 | 1   −1   −5    3    2
+    |      1    0   −5   −2
+    -----------------------
+      1    0   −5   −2 |  0
+
+Leftover: x³ + 0x² − 5x − 2   (still degree 3, divide again)
+
+Test x = −2:  −8 + 10 − 2 = 0 ✓
+
+  −2 | 1    0   −5   −2
+     |     −2    4    2
+     ------------------
+       1   −2   −1 |  0
+
+Leftover: x² − 2x − 1   (won't factor, use the formula)
+
+x = (−b ± √(b² − 4ac)) / 2a
+  = (2 ± √(4 + 4)) / 2
+  = (2 ± √8) / 2
+  = (2 ± 2√2) / 2
+  = 1 ± √2`,
+'11':
+`Treat x² like one thing.
+Two numbers that multiply to −36 and add to −5:  −9 and 4
+
+  (x² − 9)(x² + 4) = 0
+
+x² = 9    →  x = ±3
+x² = −4   →  x = ±√−4 = ±2i`,
+'12':
+`3i is a zero, so −3i is too:
+  (x − 3i)(x + 3i) = x² + 9
+
+1 has multiplicity 2:
+  (x − 1)² = x² − 2x + 1
+
+f(x) = a(x² + 9)(x − 1)²
+
+Use f(0) = 18:
+  a(9)(1) = 18  →  a = 2
+
+Multiply out:
+  (x² + 9)(x² − 2x + 1)
+    = x⁴ − 2x³ + x² + 9x² − 18x + 9
+    = x⁴ − 2x³ + 10x² − 18x + 9
+  Times 2:
+    2x⁴ − 4x³ + 20x² − 36x + 18`,
+'13':
+`Pull out −x³:
+  f(x) = −x³(x² − 4x + 4) = −x³(x − 2)²
+
+x = 0:  multiplicity 3 (odd)   →  crosses
+x = 2:  multiplicity 2 (even)  →  touches and turns around
+
+Degree 5 (odd), leading coefficient −1 (negative)
+  →  rises left, falls right`,
+'14':
+`Test x = −1:  1 + 1 + 2 + 4 − 8 = 0 ✓
+
+  −1 | 1   −1    2   −4   −8
+     |     −1    2   −4    8
+     -----------------------
+       1   −2    4   −8 |  0
+
+Leftover:  x³ − 2x² + 4x − 8
+Group:     x²(x − 2) + 4(x − 2) = (x − 2)(x² + 4)
+
+x − 2 = 0   →  x = 2
+x² + 4 = 0  →  x² = −4  →  x = ±2i
+
+Linear factors: each zero r gives (x − r)`,
+'EC':
+`x + 2 is a factor, so f(−2) = 0:
+  2(−8) + k(4) − 5(−2) + 2 = 0
+  −16 + 4k + 10 + 2 = 0
+  4k − 4 = 0  →  k = 1
+
+Divide 2x³ + x² − 5x + 2 by (x + 2):
+  −2 | 2    1   −5    2
+     |     −4    6   −2
+     ------------------
+       2   −3    1 |  0
+
+Leftover:  2x² − 3x + 1 = (2x − 1)(x − 1)
+  →  x = 1/2,  x = 1`
+  };
+  document.querySelectorAll('.p').forEach(function (p) {
+    var key = p.querySelector('.n').textContent.trim(), box = p.querySelector('.sol .box');
+    if (!box || !S[key]) return;
+    var pre = document.createElement('pre'); pre.className = 'steps'; pre.textContent = S[key];
+    box.innerHTML = ''; box.appendChild(pre);
+  });
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" defer></script>
+<script>
+(function () {
+  var fmt = function (v) { return String(v).replace(/-/g, '−'); };
+  document.querySelectorAll('.nl').forEach(function (el) {
+    var pts = el.dataset.pts.split(','), signs = el.dataset.signs.split(','), keep = el.dataset.keep.split(',').map(Number), closed = (el.dataset.closed || '').split(',').filter(Boolean);
+    var W = 340, y = 32, a = 12, b = W - 12, n = pts.length, xs = pts.map(function (p, i) { return 70 + i * (W - 140) / (n - 1); }), bd = [a].concat(xs, [b]);
+    var s = '<line class="nl-base" x1="' + a + '" x2="' + b + '" y1="' + y + '" y2="' + y + '"/>';
+    keep.forEach(function (k) { s += '<line class="nl-keep" x1="' + bd[k] + '" x2="' + bd[k + 1] + '" y1="' + y + '" y2="' + y + '"/>'; });
+    signs.forEach(function (g, i) { s += '<text class="nl-sign" x="' + ((bd[i] + bd[i + 1]) / 2) + '" y="' + (y - 11) + '" text-anchor="middle">' + (g === '-' ? '−' : '+') + '</text>'; });
+    pts.forEach(function (p, i) {
+      s += '<circle class="' + (closed.indexOf(p) > -1 ? 'nl-dot' : 'nl-open') + '" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      s += '<text class="nl-lab" x="' + xs[i] + '" y="' + (y + 24) + '" text-anchor="middle">' + fmt(p) + '</text>';
+    });
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' 66" role="img" aria-label="Solution set on a number line">' + s + '</svg>';
+  });
+  document.querySelectorAll('.p').forEach(function (p) {
+    var sol = p.querySelector('.sol'), b = document.createElement('button');
+    b.type = 'button'; b.className = 'show'; b.textContent = 'Show solution'; sol.hidden = true;
+    b.addEventListener('click', function () { sol.hidden = !sol.hidden; p.classList.toggle('open', !sol.hidden); b.textContent = sol.hidden ? 'Show solution' : 'Hide solution'; });
+    p.insertBefore(b, sol);
+  });
+})();
+</script>
+<style>
+.wrap{max-width:1090px}
+.p.two{grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start}
+.pmain{display:grid;gap:10px;min-width:0}
+.tips{display:grid;gap:8px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);min-width:0}
+.tips-h{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0}
+.tip-c{background:var(--accent-soft);border-radius:8px;padding:8px 10px;font-size:14.5px;line-height:1.4}
+.tip-c b{display:block;font-size:14px;margin-bottom:1px}
+.tip-calc{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px 10px 8px 8px;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
+.tip-calc ol{margin:0;padding-left:1.5em;display:grid;gap:4px}
+.tip-calc b{font-family:var(--f-mono);font-size:13.5px;font-weight:600}
+.tip-trap{background:#FFF4E5;color:#6B3500;border-radius:8px;padding:8px 10px;font-size:14.5px;line-height:1.4}
+.tips-h.t2{color:#9A4A00}
+.setup{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:16px;display:grid;gap:4px}
+.setup b{font-size:14px}
+@media (max-width:900px){.p.two{grid-template-columns:minmax(0,1fr)}.tips{position:static}}
+</style>
+<script>
+window.addNotes = function (M) {
+  var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+  document.querySelectorAll('.p').forEach(function (p) {
+    var sec = p.closest('section'), id = sec ? sec.id : 'x', set = M[id];
+    if (!set) return;
+    var key = p.querySelector('.n').textContent.trim(), n = set[key];
+    if (!n) return;
+    var steps = (window.SIMPLE[id] || {})[key];
+    var main = p.querySelector('.pmain');
+    if (!main) { main = document.createElement('div'); main.className = 'pmain'; while (p.firstChild) main.appendChild(p.firstChild); p.appendChild(main); p.classList.add('two'); }
+    var a = p.querySelector('.tips');
+    if (!a) { a = document.createElement('aside'); a.className = 'tips'; p.appendChild(a); }
+    var h = '';
+    if (steps) h += '<p class="tips-h">Calculator</p><div class="tip-calc"><ol>' + steps.map(function (s) { return '<li>' + esc(s).replace(/\[\[(.+?)\]\]/g, '<b>$1</b>') + '</li>'; }).join('') + '</ol></div>';
+    if (n[1]) h += '<p class="tips-h t2">Get around it</p><div class="tip-trap">' + esc(n[1]) + '</div>';
+    a.insertAdjacentHTML('afterbegin', h);
+  });
+};
+window.N = { ab: function () { return ''; }, above: function () { return ''; }, below: function () { return ''; } };
+</script>
+<script>
+(function () {
+  var fix = function (e) { return e.replace(/³/g, '^3'); };
+  var start = function (e) { return ['Press Y=, then CLEAR', 'Type [[' + fix(e) + ']]']; };
+  var zoom = function (z) { return 'Press ZOOM, then ' + (z === 0 ? '0' : '6'); };
+  var I = function (e, dir, z) { return start(e).concat([zoom(z), 'Your answer is where the graph is ' + dir + ' the line']); };
+  var a = function (e, z) { return I(e, 'above', z); }, b = function (e, z) { return I(e, 'below', z); };
+  var Z = function (e, z, last) { var s = start(e).concat([zoom(z)]); if (last) s.push(last); return s; };
+  var Tb = function (e, half, last) { var s = start(e); if (half) s.push('Press 2nd, then WINDOW. Set ΔTbl to .5'); s.push('Press 2nd, then GRAPH'); s.push(last || 'Find 0 in the Y1 column. That X is an answer'); return s; };
+  var E = function (e) { return Tb(e, false, 'Any X that says ERROR is not allowed'); };
+  var C = function (e, frac, last) {
+    var s = ['Press 2nd, then MODE'];
+    if (e.indexOf('i') > -1) s.push('For i, press 2nd, then the . key');
+    if (e.indexOf('√') > -1) s.push('For √, press 2nd, then x²');
+    s.push('Type [[' + e + ']]'); s.push('Press ENTER');
+    if (frac) s.push('Press MATH, 1, ENTER for a fraction');
+    if (last) s.push(last);
+    return s;
+  };
+  var M = function (e, z, low) { return Z(e, z).concat(['Press 2nd, then TRACE', 'Press ' + (low ? '3' : '4'), 'Move left of the ' + (low ? 'bottom' : 'top') + '. Press ENTER', 'Move right of it. Press ENTER', 'Press ENTER again']); };
+  var Ck = function (e, x, v) { return start(e).concat(['Press 2nd, then MODE', 'Press VARS, right arrow, 1, 1', 'Type [[(' + x + ')]] and press ENTER', 'It should say ' + v]); };
+  var Two = function (p, q) { return ['Press Y=, then CLEAR', 'Y1: type [[' + fix(p) + ']]', 'Y2: type [[' + fix(q) + ']]', 'Press 2nd, then GRAPH', 'Y1 and Y2 should match on every row']; };
+  var Sl = function (p, q, z) { return ['Press Y=, then CLEAR', 'Y1: type [[' + fix(p) + ']]', 'Y2: type [[' + fix(q) + ']]', zoom(z), 'The curve should follow the Y2 line at the edges']; };
+  var arms = 'Look at which way the arms go', real = 'Only the real answers show';
+  window.SIMPLE = {
+    ps27: { 11: b('3X²+10X-8'), 12: a('9X²+3X-2'), 13: b('2X²+X-15'), 14: a('6X²+X-1'), 15: b('4X²+7X+3'), 16: b('3X²+16X+5'), 40: a('X³-X²+9X-9'), 41: a('X³-9X²', 0), 46: b('(X+5)/(X+2)'), 47: a('(-X+2)/(X-4)'), 58: b('1/(X-3)-1'), 59: b('(X-2)/(X+2)-2'), 60: a('X/(X+2)-2'),
+      66: ['Press Y=, then CLEAR', 'Press MATH, right arrow, 1', 'Type [[X²+6X+1)-8]]', 'Press ZOOM, then 6', 'Your answer is where the graph is above the line'],
+      70: a('(X²-3X+2)/(X²-2X-3)') },
+    review: { 4: C('(3-4i)²'), 5: C('(7+8i)(7-8i)'), 6: C('6/(5+i)', 1), 7: C('(3+4i)/(4-2i)', 1), 8: C('√(-32)-√(-18)', 0, '1.414 means √2'),
+      14: M('(X+4)²-2', 0, 1), 15: M('-X²+2X+3', 6, 0), 17: M('-X²+14X-106', 0, 0), 18: M('2X²+12X+703', 0, 1),
+      24: Z('-X³+X²+2X', 6, arms), 25: Z('X^6-6X^4+9X²', 6, arms), 26: Z('X^5-5X³+4X', 6, arms), 27: Z('-X^4+1', 6, arms), 30: Z('-2(X-1)(X+2)²(X+5)³', 0), 31: Z('X³-5X²-25X+125', 0),
+      44: Two('3X^4+11X³-20X²+7X+35', '(3X³-4X²+7)(X+5)'), 45: Two('3X^4-2X²-10X', '(3X³+6X²+10X+10)(X-2)+20'), 46: Ck('2X³-7X²+9X-3', '-13', '-5697'), 47: Tb('2X³+X²-13X+6'),
+      55: Tb('6X³+X²-4X+1', 1), 56: Tb('8X³-36X²+46X-15', 1), 61: Ck('X³-6X²+21X-26', '1', '-10'), 62: Ck('2X^4+12X³+20X²+12X+18', '-1', '16'), 63: Z('2X^4+3X³+3X-2', 6, real), 64: Tb('X^4-6X³+X²+24X+16'),
+      75: Sl('X²/(X+1)', 'X-1'), 76: Sl('(X²+2X-3)/(X-3)', 'X+5', 0), 77: Sl('-2X³/(X²+1)', '-2X'), 78: Sl('(4X²-16X+16)/(2X-3)', '2X-5'),
+      86: a('2X²+9X+4'), 87: a('X³+2X²-3X'), 88: a('(X-6)/(X+2)'), 89: a('((X+1)(X-2))/(X-1)') },
+    ptest: { 1: C('(6-7i)(2+5i)'), 2: C('5/(2-i)'), 3: C('2√(-49)+3√(-64)'), 4: C('(2+2i)²-4(2+2i)+8', 0, 'It should say 0'), 5: M('(X+1)²+4', 0, 1), 6: M('X²-2X-3', 6, 1), 7: M('-2X²+12X-16', 6, 0), 12: Tb('6X³-19X²+16X-4', 1), 15: Tb('X³+9X²+16X-6'), 17: Z('X³+3X²-4', 6, 'A bounce means it goes in squared'), 18: Ck('2X^4-2', '3', '160'), 19: Z('-3X³-4X²+X+2', 6), 22: E('X/(X²-16)'), 23: Sl('(X²-9)/(X-2)', 'X+2'), 24: E('(X+1)/(X²+2X-3)'), 25: Z('4X²/(X²+3)', 6), 27: b('X²-X-12'), 28: b('(2X+1)/(X-3)-3') },
+    x: { 1: C('√(-8)*√(-2)+(3-2i)²'), 2: C('(2+3i)/(3-i)+i^15', 1, 'E-13 means that part is 0'), 3: a('X³+3X²-4X-12'), 4: a('3/(X+2)-1/(X-2)'), 5: E('(X²-X-6)/(X³-9X)'), 6: Z('(2X³+X²+X-4)/(X²+X-2)', 6), 7: E('(X²-4)/(X³-2X²-X+2)'), 8: Tb('3X³+2X²-19X+6', 1), 9: Z('X³-5X²+11X-15', 0, real), 10: Tb('X^4-X³-5X²+3X+2'), 11: Z('X^4-5X²-36', 0, real), 12: Ck('your answer', '0', '18'), 13: Z('-X^5+4X^4-4X³', 6), 14: Tb('X^4-X³+2X²-4X-8'), EC: Ck('your answer', '-2', '0') }
+  };
+})();
+</script>
+<script>
+(function () {
+  var A = N.above, C = N.ab;
+  var r = document.querySelector('.rub');
+  r.insertAdjacentHTML('afterend', '<div class="setup"><b>TI-83 setup before you start</b><span><code>MODE</code> → highlight <code>a+bi</code> → <code>ENTER</code> → <code>2nd MODE</code>. The letter i is <code>2nd .</code></span><span>Negative numbers use <code>(−)</code>. Squares use <code>x²</code>. Other powers use <code>^</code>. Square root is <code>2nd x²</code>.</span><span>Fast inequality check: <code>2nd MATH</code> has &lt; &gt; ≤ ≥. Type the whole inequality in Y1 and press GRAPH. The flat piece at height 1 is the solution.</span><span>Table: <code>2nd GRAPH</code>. Y1 = 0 means a zero. ERROR means a banned x.</span></div>');
+  addNotes({ x: {
+    1: [C('√(-8)*√(-2)+(3-2i)²'), 'Never multiply two negatives under one root. Pull out each i first.'],
+    2: [C('(2+3i)/(3-i)+i^15') + '  A tiny E-13 means 0. MATH 1 for fractions.', 'For a big i power, divide by 4. The remainder is the power that counts.'],
+    3: [A('X³+3X²-4X-12'), 'Move everything left. Four terms means split it in half.'],
+    4: [A('3/(X+2)-1/(X-2)'), "Don't cross-multiply. Make one fraction with both bottoms."],
+    5: ['Y1=(X²-X-6)/(X³-9X)  2nd GRAPH. ERROR rows are banned x values.', "Factor everything first. The calculator usually won't show a hole."],
+    6: ['Y1=(2X³+X²+X-4)/(X²+X-2)  ZOOM 6.', "Plug the bottom's numbers into the top. A 0 means that factor cancels."],
+    7: ['Y1=(X²-4)/(X³-2X²-X+2)  2nd GRAPH. Every ERROR row is left out.', 'Find banned numbers before canceling. A canceled factor is still banned.'],
+    8: ['Y1=3X³+2X²-19X+6  2nd GRAPH for whole zeros. Test fractions with Y1(1/3).', 'Part a is just a list. Fractions come from the front number.'],
+    9: ['Y1=X³-5X²+11X-15  ZOOM 0. Only real zeros show.', 'Twin first. Multiply the twins into one x² piece, then divide by it.'],
+    10: ['Y1=X^4-X³-5X²+3X+2  2nd GRAPH.', 'Use the add-up trick first. Divide twice. Fill the empty spot with 0.'],
+    11: ['Y1=X^4-5X²-36  ZOOM 0. Only real zeros show.', 'Pretend x² is one thing. Factor it like a normal quadratic.'],
+    12: ['After you finish: put your answer in Y1, then Y1(0) should say 18.', 'Twin first. A zero with multiplicity 2 goes in twice. Find the front number last.'],
+    13: ['Y1=-X^5+4X^4-4X³  ZOOM 6.', "Pull out the −x³ first. Don't lose the negative."],
+    14: ['Y1=X^4-X³+2X²-4X-8  2nd GRAPH. Only real zeros show.', 'Power of 4 means four factors. Keep going until no x² is left.'],
+    EC: ['Check: put your k in, then Y1(-2) should say 0.', 'Plug in −2, keep k as a letter, and set it equal to 0.']
+  } });
+})();
+</script>
+<script>
+(function () {
+  var html = '<b>Calculator keys</b><span>X: press X,T,Θ,n</span><span>Negative number: press (−)</span><span>x²: press the x² key</span><span>Other powers: press ^</span><span>Square root: press 2nd, then x²</span>';
+  var box = document.querySelector('.setup');
+  if (box) { box.innerHTML = html; return; }
+  var row = document.querySelector('.keyrow');
+  if (row) row.insertAdjacentHTML('afterend', '<div class="setup">' + html + '</div>');
+})();
+</script>
+
+<script src="quiz.js" defer data-item="article.p" data-steps=".sol > :not(.ans)" data-answer=".sol > .ans" data-strip="article.p .show" data-unhide=".sol" data-openclass="open"></script>
+</body></html>

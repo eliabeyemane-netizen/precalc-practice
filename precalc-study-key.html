@@ -1,0 +1,1145 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Precalc Study Key</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one reading column (max 760px) under a sticky set switcher; each problem is a card: problem, short numbered steps, green answer box. */
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --ink:#16202F; --muted:#5A6577; --line:#DCE2EA; --grid:#E9EDF3;
+  --accent:#2453B8; --accent-soft:#E6EDFB;
+  --ok:#0D6E4C; --ok-soft:#E3F2EA;
+  --warn:#9C4D0B; --warn-soft:#FBEDDD;
+  --bad:#A8263A; --bad-soft:#F9E6E9;
+  --curve:#2453B8; --asym:#C2410C;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E131B; --surface:#161D28; --ink:#E5E9F0; --muted:#9BA5B6; --line:#2A3342; --grid:#1F2734;
+    --accent:#93B2FF; --accent-soft:#1C2742;
+    --ok:#6AD3A6; --ok-soft:#13291F;
+    --warn:#F2A866; --warn-soft:#33230F;
+    --bad:#FF8C9B; --bad-soft:#36161C;
+    --curve:#93B2FF; --asym:#F59E5B;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E131B; --surface:#161D28; --ink:#E5E9F0; --muted:#9BA5B6; --line:#2A3342; --grid:#1F2734;
+  --accent:#93B2FF; --accent-soft:#1C2742;
+  --ok:#6AD3A6; --ok-soft:#13291F;
+  --warn:#F2A866; --warn-soft:#33230F;
+  --bad:#FF8C9B; --bad-soft:#36161C;
+  --curve:#93B2FF; --asym:#F59E5B;
+  color-scheme:dark;
+}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* header */
+.top{padding-block:36px 20px}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,6vw,2.75rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+.lede{margin:0;max-width:60ch;color:var(--muted)}
+.glance{list-style:none;margin:22px 0 0;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.glance li + li{border-top:1px solid var(--line)}
+.glance a{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;padding:12px 16px;text-decoration:none;color:var(--ink)}
+.glance a:hover{background:var(--grid)}
+.g-set{font-family:var(--f-mono);font-weight:600;font-size:14px;min-width:6.2em;color:var(--accent)}
+.g-topic{flex:1 1 12em;min-width:0}
+.chip{font-family:var(--f-mono);font-size:12px;font-weight:500;padding:3px 9px;border-radius:999px;background:var(--grid);color:var(--muted);white-space:nowrap}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* sticky set switcher */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:6px;padding-block:8px;overflow-x:auto}
+.bar a{font-family:var(--f-mono);font-size:13.5px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:8px;color:var(--ink);white-space:nowrap}
+.bar a:hover{background:var(--grid)}
+.bar .lbl{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-right:2px;white-space:nowrap}
+#quiz{margin-left:auto;font-family:var(--f-body);font-weight:700;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--accent);cursor:pointer;white-space:nowrap}
+#quiz[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+
+/* sections */
+main{padding-block:8px 72px}
+.set{scroll-margin-top:64px;padding-top:36px;display:grid;gap:14px}
+.kicker{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.15;margin:4px 0 8px;text-wrap:balance}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+h3{font-family:var(--f-display);font-weight:600;font-size:1.2rem;margin:18px 0 0;text-wrap:balance}
+.dir{margin:-8px 0 0;color:var(--muted);font-size:15.5px}
+
+.idea{background:var(--accent-soft);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.idea-lbl{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0;font-weight:600}
+.idea ul,.idea ol{margin:0;padding-left:1.25em;display:grid;gap:5px}
+.idea p{margin:0}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--muted)}
+
+/* problem cards */
+.prob{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:12px;min-width:0}
+.ph{display:flex;align-items:baseline;gap:12px;min-width:0}
+.num{flex:none;font-family:var(--f-mono);font-weight:600;font-size:13px;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px;min-width:2.4em;text-align:center}
+.q{min-width:0;font-size:1.06em;overflow-x:auto;overflow-y:hidden;padding-block:2px}
+.work{display:grid;gap:12px;min-width:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:7px;counter-reset:s}
+.steps li{position:relative;padding-left:2em;counter-increment:s;overflow-x:auto;overflow-y:hidden;padding-block:1px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.2em;width:1.4em;height:1.4em;border-radius:50%;background:var(--grid);color:var(--muted);font:600 12px/1.4em var(--f-mono);text-align:center}
+.ans{background:var(--ok-soft);border-radius:9px;padding:10px 14px;display:grid;gap:3px;min-width:0}
+.ans .lbl{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ok);font-weight:600}
+.ans .m{overflow-x:auto;overflow-y:hidden;padding-block:2px}
+.tip{margin:0;font-size:15px;color:var(--muted)}
+.tip b{color:var(--ink)}
+.reveal{display:none;justify-self:start;font-family:var(--f-body);font-weight:700;font-size:14.5px;padding:6px 14px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--accent);cursor:pointer}
+body.quiz .reveal{display:inline-block}
+body.quiz .prob:not(.open) .work{display:none}
+
+/* tables */
+.tbl{overflow-x:auto}
+table.ops{border-collapse:collapse;width:100%;font-size:16px}
+table.ops th,table.ops td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.ops thead th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+table.ops tr:last-child th,table.ops tr:last-child td{border-bottom:0}
+.synth{overflow-x:auto}
+.synth table{border-collapse:collapse;font-family:var(--f-mono);font-size:15px;font-variant-numeric:tabular-nums}
+.synth td{padding:4px 10px;text-align:right;min-width:2.6em}
+.synth td.c{border-right:2px solid var(--muted);color:var(--accent);font-weight:600}
+.synth tr.r1 td{color:var(--muted)}
+.synth tr.r2 td{border-top:2px solid var(--muted);font-weight:600}
+.synth tr.r2 td.c{border-top:0}
+.synth td.rem{background:var(--ok-soft);color:var(--ok);border-radius:4px}
+
+/* graph features */
+.feat{display:grid;grid-template-columns:max-content 1fr;gap:5px 16px;margin:0}
+.feat dt{color:var(--muted);font-size:15px}
+.feat dd{margin:0;min-width:0;overflow-x:auto;overflow-y:hidden}
+@media (max-width:520px){ .feat{grid-template-columns:1fr;gap:0} .feat dd{margin-bottom:6px} }
+.fig{margin:0;display:grid;gap:4px;justify-items:center}
+.plot{width:100%;max-width:460px;height:auto;display:block}
+.plot .grid{stroke:var(--grid);stroke-width:1}
+.plot .axis{stroke:var(--muted);stroke-width:1.2}
+.plot .tick{fill:var(--muted);font-family:var(--f-mono);font-size:9.5px}
+.plot .asym{stroke:var(--asym);stroke-width:1.4;stroke-dasharray:5 4;fill:none}
+.plot .curve{stroke:var(--curve);stroke-width:2.3;fill:none;stroke-linejoin:round}
+.plot .dot{fill:var(--curve)}
+.plot .hole{fill:var(--surface);stroke:var(--curve);stroke-width:2}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted);margin:0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block}
+.lg-c{width:18px;border-top:2.5px solid var(--curve)}
+.lg-a{width:18px;border-top:2px dashed var(--asym)}
+.lg-h{width:9px;height:9px;border-radius:50%;border:2px solid var(--curve)}
+.lg-d{width:8px;height:8px;border-radius:50%;background:var(--curve)}
+.nl svg{width:100%;max-width:420px;height:auto;display:block}
+.nl-base{stroke:var(--muted);stroke-width:1.5}
+.nl-arr{stroke:var(--muted);stroke-width:1.5;fill:none}
+.nl-keep{stroke:var(--accent);stroke-width:5;stroke-linecap:butt}
+.nl-karr{stroke:var(--accent);stroke-width:3;fill:none}
+.nl-sign{fill:var(--muted);font-family:var(--f-mono);font-size:13px;font-weight:600}
+.nl-lab{fill:var(--ink);font-family:var(--f-mono);font-size:12px}
+.nl-dot{fill:var(--accent)}
+.nl-open{fill:var(--surface);stroke:var(--accent);stroke-width:2.2}
+.nl-tick{stroke:var(--muted);stroke-width:1.5}
+.answers6{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.answers6 li{display:grid;grid-template-columns:2.4em 1fr;gap:10px;align-items:baseline}
+.answers6 .n{font-family:var(--f-mono);font-weight:600;font-size:13px;color:var(--accent)}
+.answers6 .why{display:block;font-size:15px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:20px 8px;margin-top:48px;font-size:14px;color:var(--muted)}
+mjx-container{color:inherit}
+</style>
+
+<header class="wrap top">
+  <p class="eyebrow">MATH&amp;141 Precalculus · Hummel · Units 1–2</p>
+  <h1>Precalc Study Key</h1>
+  <p class="lede">Every problem from the five sets you still need, worked out step by step. Try each one first, then check. To quiz yourself, tap <b>Hide answers</b> in the bar.</p>
+  <ol class="glance">
+    <li><a href="#s17"><span class="g-set">PS 1.7</span><span class="g-topic">Domain and combining functions</span><span class="chip bad">Graded 0/10</span></a></li>
+    <li><a href="#s24"><span class="g-set">PS 2.4</span><span class="g-topic">Dividing polynomials</span><span class="chip bad">Missing</span></a></li>
+    <li><a href="#s25"><span class="g-set">2.5 WS</span><span class="g-topic">Zeros and linear factors</span><span class="chip bad">Graded 0/20</span></a></li>
+    <li><a href="#s26"><span class="g-set">PS 2.6</span><span class="g-topic">Rational functions and their graphs</span><span class="chip warn">Due Thu 11/5, 2:00 PM</span></a></li>
+    <li><a href="#s27"><span class="g-set">PS 2.7</span><span class="g-topic">Polynomial and rational inequalities</span><span class="chip warn">Due Fri 11/6, 1:00 PM</span></a></li>
+  </ol>
+</header>
+
+<nav class="bar" aria-label="Problem sets">
+  <div class="wrap bar-in">
+    <span class="lbl">Jump to</span>
+    <a href="#s17">1.7</a><a href="#s24">2.4</a><a href="#s25">2.5</a><a href="#s26">2.6</a><a href="#s27">2.7</a>
+    <button id="quiz" type="button" aria-pressed="false">Hide answers</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ======================= 1.7 ======================= -->
+<section class="set" id="s17">
+  <div>
+    <p class="kicker">Problem Set 1.7 · Textbook p. 258</p>
+    <h2>Domain and combining functions</h2>
+    <div class="chips"><span class="chip bad">Graded 0/10</span><span class="chip">13 problems</span></div>
+  </div>
+  <div class="idea">
+    <p class="idea-lbl">How it works</p>
+    <ul>
+      <li><b>Domain</b> means every x you're allowed to plug in.</li>
+      <li>Two things break a function: <b>dividing by zero</b> and <b>the square root of a negative</b>. Throw out any x that causes either one.</li>
+      <li><b>Composition</b> \((f\circ g)(x)=f(g(x))\). Put all of g(x) wherever f has an x.</li>
+    </ul>
+    <p class="key"><span>\((\;)\) endpoint not included</span><span>\([\;]\) endpoint included</span><span>\(\cup\) joins pieces</span></p>
+  </div>
+
+  <h3>Find the domain</h3>
+  <p class="dir">Problems 1, 7, 9, 11, 17, 19, 21</p>
+
+  <article class="prob"><div class="ph"><span class="num">1</span><div class="q">\(f(x)=3(x-4)\)</div></div>
+    <div class="work"><ol class="steps"><li>No fraction and no square root, so nothing can break.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,\infty)\), all real numbers</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">7</span><div class="q">\(g(x)=\dfrac{3}{x^2-2x-15}\)</div></div>
+    <div class="work"><ol class="steps"><li>Factor the bottom: \(x^2-2x-15=(x-5)(x+3)\)</li><li>The bottom is 0 when \(x=5\) or \(x=-3\). Throw those out.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-3)\cup(-3,5)\cup(5,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">9</span><div class="q">\(f(x)=\dfrac{1}{x+7}+\dfrac{3}{x-9}\)</div></div>
+    <div class="work"><ol class="steps"><li>Two bottoms. \(x+7=0\) at \(-7\). \(x-9=0\) at \(9\).</li><li>Throw out both.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-7)\cup(-7,9)\cup(9,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">11</span><div class="q">\(g(x)=\dfrac{1}{x^2+1}-\dfrac{1}{x^2-1}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(x^2+1\) is never 0, because \(x^2\) can't be negative.</li><li>\(x^2-1=0\) when \(x=1\) or \(x=-1\). Throw those out.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-1)\cup(-1,1)\cup(1,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">17</span><div class="q">\(f(x)=\sqrt{x-3}\)</div></div>
+    <div class="work"><ol class="steps"><li>What's under the root can't be negative: \(x-3\ge 0\)</li><li>So \(x\ge 3\). 3 itself is fine because \(\sqrt0=0\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\([3,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">19</span><div class="q">\(g(x)=\dfrac{1}{\sqrt{x-3}}\)</div></div>
+    <div class="work"><ol class="steps"><li>Same root as #17, but now it's on the bottom, so it can't be 0 either.</li><li>Need \(x-3\gt 0\), so \(x\gt 3\). This time 3 is out.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((3,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">21</span><div class="q">\(g(x)=\sqrt{5x+35}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(5x+35\ge 0\)</li><li>\(5x\ge -35\), so \(x\ge -7\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\([-7,\infty)\)</div></div></div></article>
+
+  <h3>Add, subtract, multiply, divide</h3>
+  <p class="dir">Find \(f+g\), \(f-g\), \(fg\) and \(\tfrac{f}{g}\), and the domain of each. Problems 33–35</p>
+
+  <article class="prob"><div class="ph"><span class="num">33</span><div class="q">\(f(x)=x-5,\quad g(x)=3x^2\)</div></div>
+    <div class="work">
+    <ol class="steps">
+      <li>Add: \((x-5)+3x^2=3x^2+x-5\)</li>
+      <li>Subtract: \((x-5)-3x^2=-3x^2+x-5\)</li>
+      <li>Multiply: \(3x^2(x-5)=3x^3-15x^2\)</li>
+      <li>Divide: \(\dfrac{x-5}{3x^2}\). The bottom is 0 at \(x=0\), so throw out 0.</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="tbl"><table class="ops"><thead><tr><th></th><th>Result</th><th>Domain</th></tr></thead><tbody>
+      <tr><th>\(f+g\)</th><td>\(3x^2+x-5\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(f-g\)</th><td>\(-3x^2+x-5\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(fg\)</th><td>\(3x^3-15x^2\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(\tfrac{f}{g}\)</th><td>\(\dfrac{x-5}{3x^2}\)</td><td>\((-\infty,0)\cup(0,\infty)\)</td></tr>
+    </tbody></table></div></div>
+    <p class="tip"><b>Watch out:</b> for \(f-g\), the minus hits every term of g. For \(\tfrac fg\), the bottom \(3x^2\) is 0 at \(x=0\).</p></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">34</span><div class="q">\(f(x)=x-6,\quad g(x)=5x^2\)</div></div>
+    <div class="work">
+    <ol class="steps">
+      <li>Add: \((x-6)+5x^2=5x^2+x-6\)</li>
+      <li>Subtract: \((x-6)-5x^2=-5x^2+x-6\)</li>
+      <li>Multiply: \(5x^2(x-6)=5x^3-30x^2\)</li>
+      <li>Divide: \(\dfrac{x-6}{5x^2}\). The bottom is 0 at \(x=0\), so throw out 0.</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="tbl"><table class="ops"><thead><tr><th></th><th>Result</th><th>Domain</th></tr></thead><tbody>
+      <tr><th>\(f+g\)</th><td>\(5x^2+x-6\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(f-g\)</th><td>\(-5x^2+x-6\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(fg\)</th><td>\(5x^3-30x^2\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(\tfrac{f}{g}\)</th><td>\(\dfrac{x-6}{5x^2}\)</td><td>\((-\infty,0)\cup(0,\infty)\)</td></tr>
+    </tbody></table></div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">35</span><div class="q">\(f(x)=2x^2-x-3,\quad g(x)=x+1\)</div></div>
+    <div class="work">
+    <ol class="steps">
+      <li>Add: \(2x^2-x-3+x+1=2x^2-2\)</li>
+      <li>Subtract: \(2x^2-x-3-x-1=2x^2-2x-4\)</li>
+      <li>Multiply: \((2x^2-x-3)(x+1)=2x^3+2x^2-x^2-x-3x-3=2x^3+x^2-4x-3\)</li>
+      <li>Divide: the top factors, \(\dfrac{(2x-3)(x+1)}{x+1}=2x-3\). But \(x=-1\) is still not allowed, because it made the original bottom 0.</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="tbl"><table class="ops"><thead><tr><th></th><th>Result</th><th>Domain</th></tr></thead><tbody>
+      <tr><th>\(f+g\)</th><td>\(2x^2-2\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(f-g\)</th><td>\(2x^2-2x-4\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(fg\)</th><td>\(2x^3+x^2-4x-3\)</td><td>\((-\infty,\infty)\)</td></tr>
+      <tr><th>\(\tfrac{f}{g}\)</th><td>\(2x-3,\ x\ne-1\)</td><td>\((-\infty,-1)\cup(-1,\infty)\)</td></tr>
+    </tbody></table></div></div></div></article>
+
+  <h3>Plug one function into another</h3>
+  <p class="dir">Find \((f\circ g)(x)\) and its domain. Problems 67, 68, 73</p>
+
+  <article class="prob"><div class="ph"><span class="num">67</span><div class="q">\(f(x)=\dfrac{2}{x+3},\quad g(x)=\dfrac{1}{x}\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Put \(\tfrac1x\) in for x in f: \(\dfrac{2}{\frac1x+3}\)</li>
+      <li>Multiply the top and bottom by x: \(\dfrac{2x}{1+3x}\)</li>
+      <li>Domain: g needs \(x\ne0\). The new bottom needs \(1+3x\ne0\), so \(x\ne-\tfrac13\).</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((f\circ g)(x)=\dfrac{2x}{1+3x}\), domain \(\left(-\infty,-\tfrac13\right)\cup\left(-\tfrac13,0\right)\cup(0,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">68</span><div class="q">\(f(x)=\dfrac{5}{x+4},\quad g(x)=\dfrac{1}{x}\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>\(\dfrac{5}{\frac1x+4}\). Multiply the top and bottom by x: \(\dfrac{5x}{1+4x}\)</li>
+      <li>Domain: \(x\ne0\) (from g) and \(1+4x\ne0\), so \(x\ne-\tfrac14\).</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((f\circ g)(x)=\dfrac{5x}{1+4x}\), domain \(\left(-\infty,-\tfrac14\right)\cup\left(-\tfrac14,0\right)\cup(0,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">73</span><div class="q">\(f(x)=x^2+4,\quad g(x)=\sqrt{1-x}\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>\(f(\sqrt{1-x})=(\sqrt{1-x})^2+4=1-x+4=5-x\)</li>
+      <li>Domain comes from g first: \(1-x\ge0\), so \(x\le1\).</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((f\circ g)(x)=5-x\), domain \((-\infty,1]\)</div></div>
+    <p class="tip"><b>Trap:</b> \(5-x\) looks like it works for every x, but g only allows \(x\le1\). Always check g before you simplify.</p></div></article>
+</section>
+
+<!-- ======================= 2.4 ======================= -->
+<section class="set" id="s24">
+  <div>
+    <p class="kicker">Problem Set 2.4 · Textbook pp. 365–366</p>
+    <h2>Dividing polynomials</h2>
+    <div class="chips"><span class="chip bad">Missing, was due 10/30</span><span class="chip">13 problems</span></div>
+  </div>
+  <div class="idea">
+    <p class="idea-lbl">How it works</p>
+    <ol>
+      <li>Dividing by \(x-c\)? Write c in the box. For \(x+3\), use \(c=-3\).</li>
+      <li>Bring the first number straight down.</li>
+      <li>Multiply it by c, write the result under the next number, and add.</li>
+      <li>Repeat to the end. The last number is the <b>remainder</b>. The others are the answer's coefficients, starting one power lower.</li>
+    </ol>
+    <p>If a power is missing, put a 0 in its spot.</p>
+    <p><b>Remainder Theorem:</b> the remainder from dividing by \(x-c\) equals \(f(c)\). A remainder of 0 means c is a zero and \(x-c\) is a factor.</p>
+  </div>
+
+  <h3>Divide</h3>
+  <p class="dir">Problems 20, 24</p>
+
+  <article class="prob"><div class="ph"><span class="num">20</span><div class="q">\((5x^2-12x-8)\div(x+3)\)</div></div>
+    <div class="work"><ol class="steps"><li>Dividing by \(x+3\), so \(c=-3\).</li></ol>
+    <div class="synth" data-c="−3" data-rows="5,−12,−8|,−15,81|5,−27,73"></div>
+    <ol class="steps" style="counter-reset:s 1"><li>Bottom row 5, −27 gives the quotient \(5x-27\) (one power lower than \(5x^2\)). The last number, 73, is the remainder.</li><li>Write it as quotient + remainder/divisor.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(5x-27+\dfrac{73}{x+3}\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">24</span><div class="q">\((x^5+4x^4-3x^2+2x+3)\div(x-3)\)</div></div>
+    <div class="work"><ol class="steps"><li>\(c=3\). There's no \(x^3\) term, so put a 0 there.</li></ol>
+    <div class="synth" data-c="3" data-rows="1,4,0,−3,2,3|,3,21,63,180,546|1,7,21,60,182,549"></div>
+    <ol class="steps" style="counter-reset:s 1"><li>Bottom row 1, 7, 21, 60, 182 gives the quotient, starting one power lower: \(x^4+7x^3+21x^2+60x+182\). The last number, 549, is the remainder.</li><li>Write it as quotient + remainder/divisor.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(x^4+7x^3+21x^2+60x+182+\dfrac{549}{x-3}\)</div></div></div></article>
+
+  <h3>Find the value with synthetic division</h3>
+  <p class="dir">The remainder is the answer. Problems 34–38</p>
+
+  <article class="prob"><div class="ph"><span class="num">34</span><div class="q">\(f(x)=x^3-7x^2+5x-6\); find \(f(3)\)</div></div>
+    <div class="work"><div class="synth" data-c="3" data-rows="1,−7,5,−6|,3,−12,−21|1,−4,−7,−27"></div>
+    <ol class="steps"><li>Remainder Theorem: dividing by \(x-3\) gives a remainder equal to \(f(3)\). The last number is −27, so \(f(3)=-27\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(f(3)=-27\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">35</span><div class="q">\(f(x)=3x^3-7x^2-2x+5\); find \(f(-3)\)</div></div>
+    <div class="work"><div class="synth" data-c="−3" data-rows="3,−7,−2,5|,−9,48,−138|3,−16,46,−133"></div>
+    <ol class="steps"><li>Remainder Theorem: \(f(-3)\) means \(c=-3\), i.e. divide by \(x+3\). The last number is −133, so \(f(-3)=-133\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(f(-3)=-133\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">36</span><div class="q">\(f(x)=4x^3+5x^2-6x-4\); find \(f(-2)\)</div></div>
+    <div class="work"><div class="synth" data-c="−2" data-rows="4,5,−6,−4|,−8,6,0|4,−3,0,−4"></div>
+    <ol class="steps"><li>Remainder Theorem: \(f(-2)\) means \(c=-2\), i.e. divide by \(x+2\). The last number is −4, so \(f(-2)=-4\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(f(-2)=-4\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">37</span><div class="q">\(f(x)=x^4+5x^3+5x^2-5x-6\); find \(f(3)\)</div></div>
+    <div class="work"><div class="synth" data-c="3" data-rows="1,5,5,−5,−6|,3,24,87,246|1,8,29,82,240"></div>
+    <ol class="steps"><li>Remainder Theorem: dividing by \(x-3\) gives a remainder equal to \(f(3)\). The last number is 240, so \(f(3)=240\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(f(3)=240\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">38</span><div class="q">\(f(x)=x^4-5x^3+5x^2+5x-6\); find \(f(2)\)</div></div>
+    <div class="work"><div class="synth" data-c="2" data-rows="1,−5,5,5,−6|,2,−6,−2,6|1,−3,−1,3,0"></div>
+    <ol class="steps"><li>Remainder Theorem: dividing by \(x-2\) gives a remainder equal to \(f(2)\). The last number is 0, so \(f(2)=0\) and 2 is a zero.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(f(2)=0\), so \(x-2\) is a factor</div></div></div></article>
+
+  <h3>Use one zero to find the rest</h3>
+  <p class="dir">Divide out the zero you're given, then factor what's left. Problems 41–46</p>
+
+  <article class="prob"><div class="ph"><span class="num">41</span><div class="q">Divide \(x^3-4x^2+x+6\) by \(x+1\), then find all zeros</div></div>
+    <div class="work"><div class="synth" data-c="−1" data-rows="1,−4,1,6|,−1,5,−6|1,−5,6,0"></div>
+    <ol class="steps"><li>Remainder 0, so \(x^3-4x^2+x+6=(x+1)(x^2-5x+6)\)</li><li>Factor: \((x+1)(x-2)(x-3)=0\)</li><li>Set each factor to 0: \(x+1=0,\ x-2=0,\ x-3=0\) → \(x=-1,\ 2,\ 3\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros: \(-1,\ 2,\ 3\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">42</span><div class="q">Divide \(x^3-2x^2-x+2\) by \(x+1\), then find all zeros</div></div>
+    <div class="work"><div class="synth" data-c="−1" data-rows="1,−2,−1,2|,−1,3,−2|1,−3,2,0"></div>
+    <ol class="steps"><li>Remainder 0, so \(x^3-2x^2-x+2=(x+1)(x^2-3x+2)\)</li><li>Factor: \((x+1)(x-1)(x-2)=0\)</li><li>Set each factor to 0: \(x+1=0,\ x-1=0,\ x-2=0\) → \(x=-1,\ 1,\ 2\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros: \(-1,\ 1,\ 2\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">43</span><div class="q">Solve \(2x^3-5x^2+x+2=0\), given that 2 is a zero</div></div>
+    <div class="work"><div class="synth" data-c="2" data-rows="2,−5,1,2|,4,−2,−2|2,−1,−1,0"></div>
+    <ol class="steps"><li>Remainder 0, so \(2x^3-5x^2+x+2=(x-2)(2x^2-x-1)=0\)</li><li>Factor: \((x-2)(2x+1)(x-1)=0\)</li><li>Set each factor to 0: \(x-2=0,\ 2x+1=0,\ x-1=0\) → \(x=2,\ -\tfrac12,\ 1\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left\{-\tfrac12,\ 1,\ 2\right\}\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">44</span><div class="q">Solve \(2x^3-3x^2-11x+6=0\), given that \(-2\) is a zero</div></div>
+    <div class="work"><div class="synth" data-c="−2" data-rows="2,−3,−11,6|,−4,14,−6|2,−7,3,0"></div>
+    <ol class="steps"><li>Remainder 0, so \(2x^3-3x^2-11x+6=(x+2)(2x^2-7x+3)=0\)</li><li>Factor: \((x+2)(2x-1)(x-3)=0\)</li><li>Set each factor to 0: \(x+2=0,\ 2x-1=0,\ x-3=0\) → \(x=-2,\ \tfrac12,\ 3\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left\{-2,\ \tfrac12,\ 3\right\}\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">45</span><div class="q">Solve \(12x^3+16x^2-5x-3=0\), given that \(-\tfrac32\) is a root</div></div>
+    <div class="work"><div class="synth" data-c="−3/2" data-rows="12,16,−5,−3|,−18,3,3|12,−2,−2,0"></div>
+    <ol class="steps"><li>Remainder 0, so \(12x^3+16x^2-5x-3=\left(x+\tfrac32\right)(12x^2-2x-2)=0\)</li><li>Factor: \(12x^2-2x-2=2(6x^2-x-1)=2(3x+1)(2x-1)\), so \(\left(x+\tfrac32\right)\cdot 2(3x+1)(2x-1)=0\), i.e. \((2x+3)(3x+1)(2x-1)=0\)</li><li>Set each factor to 0: \(2x+3=0,\ 3x+1=0,\ 2x-1=0\) → \(x=-\tfrac32,\ -\tfrac13,\ \tfrac12\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left\{-\tfrac32,\ -\tfrac13,\ \tfrac12\right\}\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">46</span><div class="q">Solve \(3x^3+7x^2-22x-8=0\), given that \(-\tfrac13\) is a root</div></div>
+    <div class="work"><div class="synth" data-c="−1/3" data-rows="3,7,−22,−8|,−1,−2,8|3,6,−24,0"></div>
+    <ol class="steps"><li>Remainder 0, so \(3x^3+7x^2-22x-8=\left(x+\tfrac13\right)(3x^2+6x-24)=0\)</li><li>Factor: \(3x^2+6x-24=3(x^2+2x-8)=3(x+4)(x-2)\), so \(\left(x+\tfrac13\right)\cdot 3(x+4)(x-2)=0\), i.e. \((3x+1)(x+4)(x-2)=0\)</li><li>Set each factor to 0: \(3x+1=0,\ x+4=0,\ x-2=0\) → \(x=-\tfrac13,\ -4,\ 2\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left\{-4,\ -\tfrac13,\ 2\right\}\)</div></div></div></article>
+</section>
+
+<!-- ======================= 2.5 ======================= -->
+<section class="set" id="s25">
+  <div>
+    <p class="kicker">Lesson 2.5 Worksheet · Canvas PDF</p>
+    <h2>Zeros and linear factors</h2>
+    <div class="chips"><span class="chip bad">Graded 0/20</span><span class="chip">12 problems</span></div>
+  </div>
+  <div class="idea">
+    <p class="idea-lbl">How it works</p>
+    <ul>
+      <li><b>Goal:</b> find every zero, real and imaginary, then write f as (leading number) × \((x-\text{zero})(x-\text{zero})\cdots\)</li>
+      <li><b>Factoring moves:</b> pull out what every term shares, group in pairs, use the cube formulas, or, when you only see \(x^4\) and \(x^2\), factor it like a normal quadratic with \(x^2\) in place of x.</li>
+      <li>Won't factor? Use the quadratic formula. A negative under the root gives \(i\): \(\sqrt{-a}=i\sqrt a\).</li>
+      <li>The degree tells you how many zeros to expect. A cubic has 3, and \(x^4\) has 4.</li>
+    </ul>
+    <p class="key"><span>\(a^3-b^3=(a-b)(a^2+ab+b^2)\)</span><span>\(a^3+b^3=(a+b)(a^2-ab+b^2)\)</span></p>
+  </div>
+  <p class="dir" style="margin-top:4px">Directions: find all zeros, then write \(f(x)\) as a product of linear factors.</p>
+
+  <article class="prob"><div class="ph"><span class="num">1</span><div class="q">\(f(x)=3x^3+x^2-2x\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Every term has an x. Factor it out (GCF): \(f(x)=x(3x^2+x-2)\)</li>
+      <li>Factor \(3x^2+x-2\) with the ac method: \(a\cdot c=3(-2)=-6\). Find two numbers that multiply to \(-6\) and add to \(b=1\): \(3\) and \(-2\).</li>
+      <li>Split the middle term: \(3x^2+3x-2x-2\)</li>
+      <li>Group: \(3x(x+1)-2(x+1)=(3x-2)(x+1)\)</li>
+      <li>So \(f(x)=x(3x-2)(x+1)\)</li>
+      <li>Set each factor to 0: \(x=0\). \(3x-2=0\Rightarrow3x=2\Rightarrow x=\tfrac23\). \(x+1=0\Rightarrow x=-1\)</li>
+      <li>Degree 3, so expect 3 zeros. Found 3 ✓</li>
+      <li>Check \(x=\tfrac23\): \(3\cdot\tfrac{8}{27}+\tfrac49-2\cdot\tfrac23=\tfrac89+\tfrac49-\tfrac{12}9=0\) ✓</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(0,\ \tfrac23,\ -1\). &nbsp;\(f(x)=x(3x-2)(x+1)\), or \(3x\left(x-\tfrac23\right)(x+1)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">2</span><div class="q">\(f(x)=x^3-9x^2+x\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Factor out the GCF x: \(f(x)=x(x^2-9x+1)\)</li>
+      <li>\(x=0\) is one zero.</li>
+      <li>Try to factor \(x^2-9x+1\): need two numbers that multiply to 1 and add to \(-9\). None are integers, so use the quadratic formula.</li>
+      <li>\(a=1,\ b=-9,\ c=1\)</li>
+      <li>Discriminant: \(b^2-4ac=(-9)^2-4(1)(1)=81-4=77\). \(77=7\cdot11\), which has no perfect-square factor, so \(\sqrt{77}\) stays.</li>
+      <li>\(x=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}=\dfrac{9\pm\sqrt{77}}{2}\)</li>
+      <li>Check: the two roots should add to \(-\tfrac ba=9\). \(\tfrac{9+\sqrt{77}}2+\tfrac{9-\sqrt{77}}2=\tfrac{18}2=9\) ✓</li>
+      <li>Each zero r becomes a factor \((x-r)\).</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(0,\ \dfrac{9+\sqrt{77}}{2},\ \dfrac{9-\sqrt{77}}{2}\)<br>\(f(x)=x\left(x-\dfrac{9+\sqrt{77}}{2}\right)\left(x-\dfrac{9-\sqrt{77}}{2}\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">3</span><div class="q">\(f(x)=3x^3+3x^2+x+1\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Four terms, so group in pairs: \((3x^3+3x^2)+(x+1)\)</li>
+      <li>Factor each pair: \(3x^2(x+1)+1(x+1)\)</li>
+      <li>Pull out the shared \((x+1)\): \(f(x)=(x+1)(3x^2+1)\)</li>
+      <li>\(x+1=0\Rightarrow x=-1\)</li>
+      <li>\(3x^2+1=0\Rightarrow3x^2=-1\Rightarrow x^2=-\tfrac13\)</li>
+      <li>Square root both sides: \(x=\pm\sqrt{-\tfrac13}=\pm\dfrac{i}{\sqrt3}\)</li>
+      <li>Rationalize: \(\dfrac{i}{\sqrt3}\cdot\dfrac{\sqrt3}{\sqrt3}=\dfrac{i\sqrt3}{3}\). So \(x=\pm\dfrac{i\sqrt3}{3}\)</li>
+      <li>Leading coefficient is 3: \(3x^2+1=3\left(x^2+\tfrac13\right)=3\left(x-\tfrac{i\sqrt3}3\right)\left(x+\tfrac{i\sqrt3}3\right)\)</li>
+      <li>Check \(x=-1\): \(3(-1)+3(1)+(-1)+1=-3+3-1+1=0\) ✓</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(-1,\ \pm\dfrac{i\sqrt3}{3}\)<br>\(f(x)=3(x+1)\left(x-\dfrac{i\sqrt3}{3}\right)\left(x+\dfrac{i\sqrt3}{3}\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">4</span><div class="q">\(f(x)=3x^3-6x^2+4x-8\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Group in pairs: \((3x^3-6x^2)+(4x-8)\)</li>
+      <li>Factor each pair: \(3x^2(x-2)+4(x-2)\)</li>
+      <li>Pull out \((x-2)\): \(f(x)=(x-2)(3x^2+4)\)</li>
+      <li>\(x-2=0\Rightarrow x=2\)</li>
+      <li>\(3x^2+4=0\Rightarrow3x^2=-4\Rightarrow x^2=-\tfrac43\)</li>
+      <li>\(x=\pm\sqrt{-\tfrac43}=\pm\dfrac{2i}{\sqrt3}\)</li>
+      <li>Rationalize: \(\dfrac{2i}{\sqrt3}\cdot\dfrac{\sqrt3}{\sqrt3}=\dfrac{2i\sqrt3}{3}\)</li>
+      <li>Leading coefficient 3: \(3x^2+4=3\left(x-\tfrac{2i\sqrt3}3\right)\left(x+\tfrac{2i\sqrt3}3\right)\)</li>
+      <li>Check \(x=2\): \(3(8)-6(4)+4(2)-8=24-24+8-8=0\) ✓</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(2,\ \pm\dfrac{2i\sqrt3}{3}\)<br>\(f(x)=3(x-2)\left(x-\dfrac{2i\sqrt3}{3}\right)\left(x+\dfrac{2i\sqrt3}{3}\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">5</span><div class="q">\(f(x)=2x^4-17x^2+30\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Factor it like a normal quadratic, with \(x^2\) in place of x. \(a\cdot c=2(30)=60\). Two numbers that multiply to 60 and add to \(-17\): \(-5\) and \(-12\).</li>
+      <li>Split the middle: \(2x^4-12x^2-5x^2+30\)</li>
+      <li>Group: \(2x^2(x^2-6)-5(x^2-6)=(2x^2-5)(x^2-6)\)</li>
+      <li>\(2x^2-5=0\Rightarrow x^2=\tfrac52\Rightarrow x=\pm\sqrt{\tfrac52}=\pm\dfrac{\sqrt5}{\sqrt2}\cdot\dfrac{\sqrt2}{\sqrt2}=\pm\dfrac{\sqrt{10}}{2}\)</li>
+      <li>\(x^2-6=0\Rightarrow x^2=6\Rightarrow x=\pm\sqrt6\)</li>
+      <li>Degree 4, so expect 4 zeros. Found 4 ✓</li>
+      <li>Check \(x^2=6\): \(2(36)-17(6)+30=72-102+30=0\) ✓</li>
+      <li>Leading coefficient 2 goes in front: \(2x^2-5=2\left(x^2-\tfrac52\right)\)</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(\pm\dfrac{\sqrt{10}}{2},\ \pm\sqrt6\)<br>\(f(x)=2\left(x-\dfrac{\sqrt{10}}{2}\right)\left(x+\dfrac{\sqrt{10}}{2}\right)(x-\sqrt6)(x+\sqrt6)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">6</span><div class="q">\(f(x)=5x^4+31x^2-28\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Factor it like a normal quadratic, with \(x^2\) in place of x. \(a\cdot c=5(-28)=-140\). Two numbers that multiply to \(-140\) and add to 31: \(35\) and \(-4\).</li>
+      <li>Split the middle: \(5x^4+35x^2-4x^2-28\)</li>
+      <li>Group: \(5x^2(x^2+7)-4(x^2+7)=(5x^2-4)(x^2+7)\)</li>
+      <li>\(5x^2-4=0\Rightarrow x^2=\tfrac45\Rightarrow x=\pm\dfrac{2}{\sqrt5}\cdot\dfrac{\sqrt5}{\sqrt5}=\pm\dfrac{2\sqrt5}{5}\)</li>
+      <li>\(x^2+7=0\Rightarrow x^2=-7\Rightarrow x=\pm\sqrt{-7}=\pm i\sqrt7\)</li>
+      <li>Check \(x^2=-7\): \(5(49)+31(-7)-28=245-217-28=0\) ✓</li>
+      <li>Leading coefficient 5 goes in front.</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(\pm\dfrac{2\sqrt5}{5},\ \pm i\sqrt7\)<br>\(f(x)=5\left(x-\dfrac{2\sqrt5}{5}\right)\left(x+\dfrac{2\sqrt5}{5}\right)(x-i\sqrt7)(x+i\sqrt7)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">7</span><div class="q">\(f(x)=27x^3-1\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Both terms are cubes: \(27x^3=(3x)^3\) and \(1=1^3\). Difference of cubes with \(a=3x,\ b=1\).</li>
+      <li>\(a^3-b^3=(a-b)(a^2+ab+b^2)\): \((3x-1)\big((3x)^2+(3x)(1)+1^2\big)=(3x-1)(9x^2+3x+1)\)</li>
+      <li>\(3x-1=0\Rightarrow x=\tfrac13\)</li>
+      <li>\(9x^2+3x+1=0\): \(a=9,\ b=3,\ c=1\)</li>
+      <li>Discriminant: \(3^2-4(9)(1)=9-36=-27\). Negative, so the zeros are imaginary.</li>
+      <li>\(\sqrt{-27}=i\sqrt{9\cdot3}=3i\sqrt3\)</li>
+      <li>\(x=\dfrac{-3\pm3i\sqrt3}{2(9)}=\dfrac{-3\pm3i\sqrt3}{18}\). Divide top and bottom by 3: \(\dfrac{-1\pm i\sqrt3}{6}\)</li>
+      <li>Leading coefficient 27: \(3x-1=3\left(x-\tfrac13\right)\) and the quadratic gives a 9, and \(3\cdot9=27\).</li>
+      <li>Check \(x=\tfrac13\): \(27\cdot\tfrac1{27}-1=0\) ✓</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(\tfrac13,\ \dfrac{-1\pm i\sqrt3}{6}\)<br>\(f(x)=27\left(x-\tfrac13\right)\left(x-\dfrac{-1+i\sqrt3}{6}\right)\left(x-\dfrac{-1-i\sqrt3}{6}\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">8</span><div class="q">\(f(x)=-8x^3+1\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Reorder: \(1-8x^3\). Both are cubes: \(1=1^3\), \(8x^3=(2x)^3\). Difference of cubes with \(a=1,\ b=2x\).</li>
+      <li>\((a-b)(a^2+ab+b^2)=(1-2x)\big(1^2+(1)(2x)+(2x)^2\big)=(1-2x)(4x^2+2x+1)\)</li>
+      <li>\(1-2x=0\Rightarrow2x=1\Rightarrow x=\tfrac12\)</li>
+      <li>\(4x^2+2x+1=0\): \(a=4,\ b=2,\ c=1\)</li>
+      <li>Discriminant: \(2^2-4(4)(1)=4-16=-12\). \(\sqrt{-12}=i\sqrt{4\cdot3}=2i\sqrt3\)</li>
+      <li>\(x=\dfrac{-2\pm2i\sqrt3}{2(4)}=\dfrac{-2\pm2i\sqrt3}{8}\). Divide by 2: \(\dfrac{-1\pm i\sqrt3}{4}\)</li>
+      <li>Leading coefficient: \(1-2x=-2\left(x-\tfrac12\right)\) and the quadratic gives a 4, and \(-2\cdot4=-8\).</li>
+      <li>Check \(x=\tfrac12\): \(-8\cdot\tfrac18+1=-1+1=0\) ✓</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(\tfrac12,\ \dfrac{-1\pm i\sqrt3}{4}\)<br>\(f(x)=-8\left(x-\tfrac12\right)\left(x-\dfrac{-1+i\sqrt3}{4}\right)\left(x-\dfrac{-1-i\sqrt3}{4}\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">9</span><div class="q">\(f(x)=3x^4-10x^2+7\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Factor it like a normal quadratic, with \(x^2\) in place of x. \(a\cdot c=3(7)=21\). Two numbers that multiply to 21 and add to \(-10\): \(-3\) and \(-7\).</li>
+      <li>Split the middle: \(3x^4-3x^2-7x^2+7\)</li>
+      <li>Group: \(3x^2(x^2-1)-7(x^2-1)=(3x^2-7)(x^2-1)\)</li>
+      <li>\(3x^2-7=0\Rightarrow x^2=\tfrac73\Rightarrow x=\pm\dfrac{\sqrt7}{\sqrt3}\cdot\dfrac{\sqrt3}{\sqrt3}=\pm\dfrac{\sqrt{21}}{3}\)</li>
+      <li>\(x^2-1=0\Rightarrow x^2=1\Rightarrow x=\pm1\)</li>
+      <li>Check \(x=1\): \(3-10+7=0\) ✓</li>
+      <li>Leading coefficient 3 goes in front.</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(\pm1,\ \pm\dfrac{\sqrt{21}}{3}\)<br>\(f(x)=3(x-1)(x+1)\left(x-\dfrac{\sqrt{21}}{3}\right)\left(x+\dfrac{\sqrt{21}}{3}\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">10</span><div class="q">\(f(x)=2x^4-13x^2+21\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Factor it like a normal quadratic, with \(x^2\) in place of x. \(a\cdot c=2(21)=42\). Two numbers that multiply to 42 and add to \(-13\): \(-6\) and \(-7\).</li>
+      <li>Split the middle: \(2x^4-6x^2-7x^2+21\)</li>
+      <li>Group: \(2x^2(x^2-3)-7(x^2-3)=(2x^2-7)(x^2-3)\)</li>
+      <li>\(2x^2-7=0\Rightarrow x^2=\tfrac72\Rightarrow x=\pm\dfrac{\sqrt7}{\sqrt2}\cdot\dfrac{\sqrt2}{\sqrt2}=\pm\dfrac{\sqrt{14}}{2}\)</li>
+      <li>\(x^2-3=0\Rightarrow x=\pm\sqrt3\)</li>
+      <li>Check \(x^2=3\): \(2(9)-13(3)+21=18-39+21=0\) ✓</li>
+      <li>Leading coefficient 2 goes in front.</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(\pm\sqrt3,\ \pm\dfrac{\sqrt{14}}{2}\)<br>\(f(x)=2(x-\sqrt3)(x+\sqrt3)\left(x-\dfrac{\sqrt{14}}{2}\right)\left(x+\dfrac{\sqrt{14}}{2}\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">11</span><div class="q">\(f(x)=3x^4+10x^2-8\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Factor it like a normal quadratic, with \(x^2\) in place of x. \(a\cdot c=3(-8)=-24\). Two numbers that multiply to \(-24\) and add to 10: \(12\) and \(-2\).</li>
+      <li>Split the middle: \(3x^4+12x^2-2x^2-8\)</li>
+      <li>Group: \(3x^2(x^2+4)-2(x^2+4)=(3x^2-2)(x^2+4)\)</li>
+      <li>\(3x^2-2=0\Rightarrow x^2=\tfrac23\Rightarrow x=\pm\dfrac{\sqrt2}{\sqrt3}\cdot\dfrac{\sqrt3}{\sqrt3}=\pm\dfrac{\sqrt6}{3}\)</li>
+      <li>\(x^2+4=0\Rightarrow x^2=-4\Rightarrow x=\pm\sqrt{-4}=\pm2i\)</li>
+      <li>Check \(x^2=-4\): \(3(16)+10(-4)-8=48-40-8=0\) ✓</li>
+      <li>Leading coefficient 3 goes in front.</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(\pm\dfrac{\sqrt6}{3},\ \pm2i\)<br>\(f(x)=3\left(x-\dfrac{\sqrt6}{3}\right)\left(x+\dfrac{\sqrt6}{3}\right)(x-2i)(x+2i)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">12</span><div class="q">\(f(x)=x^3+27\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Both terms are cubes: \(x^3\) and \(27=3^3\). Sum of cubes with \(a=x,\ b=3\).</li>
+      <li>\(a^3+b^3=(a+b)(a^2-ab+b^2)\): \((x+3)(x^2-3x+9)\)</li>
+      <li>\(x+3=0\Rightarrow x=-3\)</li>
+      <li>\(x^2-3x+9=0\): \(a=1,\ b=-3,\ c=9\)</li>
+      <li>Discriminant: \((-3)^2-4(1)(9)=9-36=-27\). \(\sqrt{-27}=i\sqrt{9\cdot3}=3i\sqrt3\)</li>
+      <li>\(x=\dfrac{-(-3)\pm3i\sqrt3}{2(1)}=\dfrac{3\pm3i\sqrt3}{2}\)</li>
+      <li>Leading coefficient is 1, so nothing goes in front.</li>
+      <li>Check \(x=-3\): \((-3)^3+27=-27+27=0\) ✓</li>
+    </ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Zeros \(-3,\ \dfrac{3\pm3i\sqrt3}{2}\)<br>\(f(x)=(x+3)\left(x-\dfrac{3+3i\sqrt3}{2}\right)\left(x-\dfrac{3-3i\sqrt3}{2}\right)\)</div></div></div></article>
+</section>
+
+<!-- ======================= 2.6 ======================= -->
+<section class="set" id="s26">
+  <div>
+    <p class="kicker">Problem Set 2.6 · Textbook pp. 400–402</p>
+    <h2>Rational functions and their graphs</h2>
+    <div class="chips"><span class="chip warn">Due Thu 11/5, 2:00 PM</span><span class="chip">34 problems</span></div>
+  </div>
+  <div class="idea">
+    <p class="idea-lbl">How it works</p>
+    <ul>
+      <li><b>Domain:</b> throw out every x that makes the bottom 0.</li>
+      <li><b>Factor, then cancel.</b> A factor that cancels makes a <b>hole</b> (an open circle). A factor left on the bottom makes a <b>vertical asymptote</b>, a wall the graph never touches.</li>
+      <li><b>Horizontal asymptote:</b> compare the highest powers.
+        <ul><li>Bottom power bigger: \(y=0\)</li><li>Same power: divide the leading numbers</li><li>Top power bigger: no horizontal asymptote. If it's bigger by exactly 1, divide; the answer without the remainder is the <b>slant asymptote</b>.</li></ul></li>
+      <li>\(x\to1^-\) means x creeping up to 1 from the left. \(x\to1^+\) means from the right.</li>
+      <li><b>Graphing in 7 steps:</b> symmetry, y-intercept (plug in 0), x-intercepts (top = 0), vertical asymptotes, horizontal asymptote, a few points, draw.</li>
+    </ul>
+  </div>
+
+  <h3>Find the domain</h3>
+  <p class="dir">Problems 4–7</p>
+
+  <article class="prob"><div class="ph"><span class="num">4</span><div class="q">\(g(x)=\dfrac{2x^2}{(x-2)(x+6)}\)</div></div>
+    <div class="work"><ol class="steps"><li>Set the bottom to 0: \((x-2)(x+6)=0\)</li><li>\(x-2=0\Rightarrow x=2\). \(x+6=0\Rightarrow x=-6\). Exclude both.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-6)\cup(-6,2)\cup(2,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">5</span><div class="q">\(h(x)=\dfrac{x+7}{x^2-49}\)</div></div>
+    <div class="work"><ol class="steps"><li>Set the bottom to 0: \(x^2-49=(x-7)(x+7)=0\), so \(x=7\) or \(x=-7\). Exclude both.</li><li>\(x+7\) cancels later, but \(-7\) is still out of the domain.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-7)\cup(-7,7)\cup(7,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">6</span><div class="q">\(h(x)=\dfrac{x+8}{x^2-64}\)</div></div>
+    <div class="work"><ol class="steps"><li>Set the bottom to 0: \(x^2-64=(x-8)(x+8)=0\), so \(x=8\) or \(x=-8\). Exclude both.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-8)\cup(-8,8)\cup(8,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">7</span><div class="q">\(f(x)=\dfrac{x+7}{x^2+49}\)</div></div>
+    <div class="work"><ol class="steps"><li>Set the bottom to 0: \(x^2+49=0\Rightarrow x^2=-49\). No real solution, because \(x^2\ge0\).</li><li>Nothing to exclude.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,\infty)\), all real numbers</div></div></div></article>
+
+  <h3>Read the graph</h3>
+  <p class="dir">Use the textbook graph to fill in each blank. Problems 9–14</p>
+
+  <article class="prob"><div class="ph"><span class="num">9–14</span><div class="q">As \(x\) approaches each value, where does \(f(x)\) go?</div></div>
+    <div class="work">
+      <figure class="fig"><div class="plotbox" data-plot="book" data-label="Textbook graph with vertical asymptotes at x = −3 and x = 1 and horizontal asymptote y = 0"></div></figure>
+      <div class="ans"><span class="lbl">Answer</span>
+        <ol class="answers6">
+          <li><span class="n">9</span><span>\(x\to-3^-\): \(f(x)\to-\infty\)<span class="why">Just left of the wall at \(-3\), the curve drops.</span></span></li>
+          <li><span class="n">10</span><span>\(x\to-3^+\): \(f(x)\to+\infty\)<span class="why">Just right of that wall, the curve shoots up.</span></span></li>
+          <li><span class="n">11</span><span>\(x\to1^-\): \(f(x)\to-\infty\)<span class="why">The middle piece drops down along the wall at 1.</span></span></li>
+          <li><span class="n">12</span><span>\(x\to1^+\): \(f(x)\to+\infty\)<span class="why">The right piece comes down from the top.</span></span></li>
+          <li><span class="n">13</span><span>\(x\to-\infty\): \(f(x)\to0\)<span class="why">Far left, it flattens onto \(y=0\).</span></span></li>
+          <li><span class="n">14</span><span>\(x\to\infty\): \(f(x)\to0\)<span class="why">Far right, it flattens onto \(y=0\) too.</span></span></li>
+        </ol>
+      </div>
+    </div></article>
+
+  <h3>Vertical asymptotes and holes</h3>
+  <p class="dir">Factor and cancel. What cancels is a hole; what stays on the bottom is a vertical asymptote. Problems 25–32</p>
+
+  <article class="prob"><div class="ph"><span class="num">25</span><div class="q">\(h(x)=\dfrac{x}{x(x+4)}\)</div></div>
+    <div class="work"><ol class="steps"><li>Cancel the x: \(\dfrac{1}{x+4}\)</li><li>Left on the bottom: \(x+4\), so the wall is at \(x=-4\).</li><li>The canceled x makes a hole at \(x=0\). Its height: \(\tfrac{1}{0+4}=\tfrac14\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Vertical asymptote \(x=-4\). Hole at \(x=0\), the point \(\left(0,\tfrac14\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">26</span><div class="q">\(h(x)=\dfrac{x}{x(x-3)}\)</div></div>
+    <div class="work"><ol class="steps"><li>Cancel the x: \(\dfrac{1}{x-3}\), with \(x\ne0\)</li><li>Left on the bottom: \(x-3\), so the vertical asymptote is \(x=3\).</li><li>The canceled x makes a hole at \(x=0\). Height: \(\tfrac{1}{0-3}=-\tfrac13\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Vertical asymptote \(x=3\). Hole at \(x=0\), the point \(\left(0,-\tfrac13\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">27</span><div class="q">\(r(x)=\dfrac{x}{x^2+4}\)</div></div>
+    <div class="work"><ol class="steps"><li>Bottom: \(x^2+4=0\Rightarrow x^2=-4\). No real solution.</li><li>\(x\) and \(x^2+4\) share no factor, so nothing cancels.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No vertical asymptotes, no holes</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">28</span><div class="q">\(r(x)=\dfrac{x}{x^2+3}\)</div></div>
+    <div class="work"><ol class="steps"><li>Bottom: \(x^2+3=0\Rightarrow x^2=-3\). No real solution.</li><li>\(x\) and \(x^2+3\) share no factor, so nothing cancels.</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No vertical asymptotes, no holes</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">29</span><div class="q">\(f(x)=\dfrac{x^2-9}{x-3}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(\dfrac{(x-3)(x+3)}{x-3}=x+3\)</li><li>Nothing is left on the bottom. The canceled \(x-3\) makes a hole at \(x=3\), height \(3+3=6\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No vertical asymptote. Hole at \(x=3\), the point \((3,6)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">30</span><div class="q">\(f(x)=\dfrac{x^2-25}{x-5}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(\dfrac{(x-5)(x+5)}{x-5}=x+5\)</li><li>Nothing is left on the bottom, so no vertical asymptote. The canceled \(x-5\) makes a hole at \(x=5\), height \(5+5=10\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No vertical asymptote. Hole at \(x=5\), the point \((5,10)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">31</span><div class="q">\(g(x)=\dfrac{x-3}{x^2-9}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(\dfrac{x-3}{(x-3)(x+3)}=\dfrac{1}{x+3}\)</li><li>Left on the bottom: \(x+3\), so the vertical asymptote is \(x=-3\).</li><li>The canceled \(x-3\) makes a hole at \(x=3\). Height: \(\tfrac{1}{3+3}=\tfrac16\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Vertical asymptote \(x=-3\). Hole at \(x=3\), the point \(\left(3,\tfrac16\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">32</span><div class="q">\(g(x)=\dfrac{x-5}{x^2-25}\)</div></div>
+    <div class="work"><ol class="steps"><li>\(\dfrac{x-5}{(x-5)(x+5)}=\dfrac{1}{x+5}\)</li><li>Left on the bottom: \(x+5\), so the vertical asymptote is \(x=-5\).</li><li>The canceled \(x-5\) makes a hole at \(x=5\). Height: \(\tfrac{1}{5+5}=\tfrac1{10}\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">Vertical asymptote \(x=-5\). Hole at \(x=5\), the point \(\left(5,\tfrac1{10}\right)\)</div></div></div></article>
+
+  <h3>Horizontal asymptote</h3>
+  <p class="dir">Compare the highest powers on top and bottom. Problems 39–44</p>
+
+  <article class="prob"><div class="ph"><span class="num">39</span><div class="q">\(g(x)=\dfrac{12x^2}{3x^2+1}\)</div></div>
+    <div class="work"><ol class="steps"><li>Same power (\(x^2\) and \(x^2\)), so divide the leading numbers: \(\tfrac{12}{3}=4\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(y=4\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">40</span><div class="q">\(g(x)=\dfrac{15x^2}{3x^2+1}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 2, bottom degree 2. Same degree, so divide the leading coefficients: \(\tfrac{15}{3}=5\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(y=5\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">41</span><div class="q">\(h(x)=\dfrac{12x^3}{3x^2+1}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 3, bottom degree 2. Top is bigger, so there is no horizontal asymptote.</li><li>Extra: \(12x^3\div(3x^2+1)=4x-\dfrac{4x}{3x^2+1}\), so the slant asymptote is \(y=4x\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No horizontal asymptote</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">42</span><div class="q">\(h(x)=\dfrac{15x^3}{3x^2+1}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 3, bottom degree 2. Top is bigger, so there is no horizontal asymptote.</li><li>Extra: \(15x^3\div(3x^2+1)=5x-\dfrac{5x}{3x^2+1}\), so the slant asymptote is \(y=5x\).</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">No horizontal asymptote</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">43</span><div class="q">\(f(x)=\dfrac{-2x+1}{3x+5}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 1, bottom degree 1. Same degree, so divide the leading coefficients: \(\tfrac{-2}{3}\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(y=-\tfrac23\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">44</span><div class="q">\(f(x)=\dfrac{-3x+7}{5x-2}\)</div></div>
+    <div class="work"><ol class="steps"><li>Top degree 1, bottom degree 1. Same degree, so divide the leading coefficients: \(\tfrac{-3}{5}\)</li></ol>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(y=-\tfrac35\)</div></div></div></article>
+
+  <h3>Graph it in 7 steps</h3>
+  <p class="dir">Problems 76–79</p>
+
+  <article class="prob"><div class="ph"><span class="num">76</span><div class="q">\(f(x)=\dfrac{2x^4}{x^2+1}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Symmetry: \(f(-x)=\dfrac{2(-x)^4}{(-x)^2+1}=\dfrac{2x^4}{x^2+1}=f(x)\), so it's even.</li>
+        <li>y-intercept: \(f(0)=\dfrac{0}{1}=0\)</li>
+        <li>x-intercepts: set the top to 0: \(2x^4=0\), so \(x=0\)</li>
+        <li>Vertical asymptotes: \(x^2+1=0\) has no real solution, so none.</li>
+        <li>Horizontal asymptote: top degree 4 is bigger than bottom degree 2, so none.</li>
+        <li>Points: \(f(1)=\tfrac{2}{2}=1\), \(f(2)=\tfrac{32}{5}=6.4\). Mirror them to \(x=-1,-2\).</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>\(f(-x)=f(x)\), so it mirrors across the y-axis</dd>
+        <dt>y-intercept</dt><dd>\(f(0)=0\), the point \((0,0)\)</dd>
+        <dt>x-intercepts</dt><dd>\(2x^4=0\), so only \(x=0\)</dd>
+        <dt>Vertical asymptotes</dt><dd>None, because \(x^2+1\) is never 0</dd>
+        <dt>Horizontal asymptote</dt><dd>None, because the top power (4) is bigger</dd>
+        <dt>Points</dt><dd>\((\pm1,1)\), \((\pm2,6.4)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p76" data-label="Graph of 2x to the 4th over x squared plus 1, a U shape through the origin"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">77</span><div class="q">\(f(x)=\dfrac{x^2+x-12}{x^2-4}=\dfrac{(x+4)(x-3)}{(x+2)(x-2)}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Symmetry: \(f(-x)=\dfrac{x^2-x-12}{x^2-4}\), which is neither \(f(x)\) nor \(-f(x)\), so none.</li>
+        <li>y-intercept: \(f(0)=\dfrac{-12}{-4}=3\)</li>
+        <li>x-intercepts: \((x+4)(x-3)=0\), so \(x=-4,\ 3\)</li>
+        <li>Vertical asymptotes: \((x+2)(x-2)=0\), so \(x=\pm2\). Nothing cancels.</li>
+        <li>Horizontal asymptote: same degree, \(\tfrac11=1\). Cross check: \(x^2+x-12=x^2-4\), so \(x=8\).</li>
+        <li>Points: \(f(-5)=\tfrac{8}{21}\), \(f(-3)=\tfrac{-6}{5}\), \(f(-1)=\tfrac{-12}{-3}=4\), \(f(1)=\tfrac{-10}{-3}\), \(f(2.5)=\tfrac{-3.25}{2.25}\), \(f(4)=\tfrac{8}{12}\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>y-intercept</dt><dd>\(f(0)=\tfrac{-12}{-4}=3\), the point \((0,3)\)</dd>
+        <dt>x-intercepts</dt><dd>\((-4,0)\) and \((3,0)\)</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=-2\) and \(x=2\)</dd>
+        <dt>Horizontal asymptote</dt><dd>Same power, so \(y=1\). The graph crosses it at \((8,1)\).</dd>
+        <dt>Points</dt><dd>\((-5,0.38)\), \((-3,-1.2)\), \((-1,4)\), \((1,3.33)\), \((2.5,-1.44)\), \((4,0.67)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p77" data-label="Graph with vertical asymptotes x = −2 and x = 2 and horizontal asymptote y = 1"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">78</span><div class="q">\(f(x)=\dfrac{x^2}{x^2+x-6}=\dfrac{x^2}{(x+3)(x-2)}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Symmetry: \(f(-x)=\dfrac{x^2}{x^2-x-6}\), so none.</li>
+        <li>Intercepts: \(f(0)=0\), and \(x^2=0\) gives \(x=0\) only.</li>
+        <li>Vertical asymptotes: \((x+3)(x-2)=0\), so \(x=-3,\ 2\)</li>
+        <li>Horizontal asymptote: same degree, \(\tfrac11=1\). Cross check: \(x^2=x^2+x-6\), so \(x=6\).</li>
+        <li>Points: \(f(-4)=\tfrac{16}{6}\), \(f(-1)=\tfrac{1}{-6}\), \(f(1)=\tfrac{1}{-4}\), \(f(3)=\tfrac{9}{6}\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>Intercepts</dt><dd>Only \((0,0)\). It touches and turns back because \(x^2\) is squared.</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=-3\) and \(x=2\)</dd>
+        <dt>Horizontal asymptote</dt><dd>\(y=1\). The graph crosses it at \((6,1)\).</dd>
+        <dt>Points</dt><dd>\((-4,2.67)\), \((-1,-0.17)\), \((1,-0.25)\), \((3,1.5)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p78" data-label="Graph with vertical asymptotes x = −3 and x = 2 and horizontal asymptote y = 1"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">79</span><div class="q">\(f(x)=\dfrac{3x^2+x-4}{2x^2-5x}=\dfrac{(3x+4)(x-1)}{x(2x-5)}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Symmetry: \(f(-x)=\dfrac{3x^2-x-4}{2x^2+5x}\), so none.</li>
+        <li>y-intercept: \(f(0)\) puts 0 on the bottom, so none.</li>
+        <li>x-intercepts: \((3x+4)(x-1)=0\), so \(x=-\tfrac43,\ 1\)</li>
+        <li>Vertical asymptotes: \(x(2x-5)=0\), so \(x=0,\ \tfrac52\)</li>
+        <li>Horizontal asymptote: same degree, \(\tfrac32\). Cross check: \(3x^2+x-4=\tfrac32(2x^2-5x)\) gives \(\tfrac{17}{2}x=4\), so \(x=\tfrac{8}{17}\).</li>
+        <li>Points: \(f(-2)=\tfrac{6}{18}\), \(f(-1)=\tfrac{-2}{7}\), \(f(0.5)=\tfrac{-2.75}{-2}\), \(f(2)=\tfrac{10}{-2}\), \(f(3)=\tfrac{26}{3}\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Symmetry</dt><dd>None</dd>
+        <dt>y-intercept</dt><dd>None, because \(x=0\) isn't allowed</dd>
+        <dt>x-intercepts</dt><dd>\(\left(-\tfrac43,0\right)\) and \((1,0)\)</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=0\) and \(x=\tfrac52\)</dd>
+        <dt>Horizontal asymptote</dt><dd>\(y=\tfrac32\). The graph crosses it at \(x=\tfrac{8}{17}\).</dd>
+        <dt>Points</dt><dd>\((-2,0.33)\), \((-1,-0.29)\), \((0.5,1.38)\), \((2,-5)\), \((3,8.67)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p79" data-label="Graph with vertical asymptotes x = 0 and x = 5/2 and horizontal asymptote y = 3/2"></div></figure>
+    </div></article>
+
+  <h3>Slant asymptotes</h3>
+  <p class="dir">(a) Find the slant asymptote. (b) Graph. Problems 85–88</p>
+
+  <article class="prob"><div class="ph"><span class="num">85</span><div class="q">\(f(x)=\dfrac{x^2+x-6}{x-3}\)</div></div>
+    <div class="work">
+      <div class="synth" data-c="3" data-rows="1,1,−6|,3,12|1,4,6"></div>
+      <ol class="steps"><li>Divide by \(x-3\) (c = 3). Bottom row 1, 4 gives \(x+4\), remainder 6: \(f(x)=x+4+\dfrac{6}{x-3}\)</li><li>Drop the remainder: slant asymptote \(y=x+4\).</li><li>Vertical asymptote: \(x-3=0\Rightarrow x=3\). The top \((x+3)(x-2)\) does not cancel it.</li><li>x-intercepts: \((x+3)(x-2)=0\Rightarrow x=-3,\ 2\). y-intercept: \(f(0)=\tfrac{-6}{-3}=2\)</li><li>Points: \(f(-4)=\tfrac{6}{-7}\approx-0.86\), \(f(4)=\tfrac{14}{1}=14\), \(f(5)=\tfrac{24}{2}=12\), \(f(6)=\tfrac{36}{3}=12\)</li></ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x+4\)</dd>
+        <dt>Vertical asymptote</dt><dd>\(x=3\)</dd>
+        <dt>x-intercepts</dt><dd>\((x+3)(x-2)=0\), so \((-3,0)\) and \((2,0)\)</dd>
+        <dt>y-intercept</dt><dd>\(f(0)=\tfrac{-6}{-3}=2\), the point \((0,2)\)</dd>
+        <dt>Points</dt><dd>\((-4,-0.86)\), \((4,14)\), \((5,12)\), \((6,12)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p85" data-label="Graph with vertical asymptote x = 3 and slant asymptote y = x + 4"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">86</span><div class="q">\(f(x)=\dfrac{x^2-x+1}{x-1}\)</div></div>
+    <div class="work">
+      <div class="synth" data-c="1" data-rows="1,−1,1|,1,0|1,0,1"></div>
+      <ol class="steps"><li>Divide by \(x-1\) (c = 1). Bottom row 1, 0 gives \(x+0\), remainder 1: \(f(x)=x+\dfrac{1}{x-1}\)</li><li>Drop the remainder: slant asymptote \(y=x\).</li><li>Vertical asymptote: \(x-1=0\Rightarrow x=1\).</li><li>x-intercepts: \(x^2-x+1=0\) has discriminant \(1-4=-3\lt0\), so none. y-intercept: \(f(0)=\tfrac{1}{-1}=-1\)</li><li>Points: \(f(-1)=\tfrac{3}{-2}=-1.5\), \(f(0.5)=\tfrac{0.75}{-0.5}=-1.5\), \(f(2)=\tfrac{3}{1}=3\), \(f(3)=\tfrac{7}{2}=3.5\)</li></ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x\)</dd>
+        <dt>Vertical asymptote</dt><dd>\(x=1\)</dd>
+        <dt>x-intercepts</dt><dd>None, because \(x^2-x+1=0\) has no real solutions</dd>
+        <dt>y-intercept</dt><dd>\((0,-1)\)</dd>
+        <dt>Turning points</dt><dd>The left piece peaks at \((0,-1)\). The right piece bottoms out at \((2,3)\).</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p86" data-label="Graph with vertical asymptote x = 1 and slant asymptote y = x"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">87</span><div class="q">\(f(x)=\dfrac{x^3+1}{x^2+2x}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Long division: \(x\cdot(x^2+2x)=x^3+2x^2\). Subtract to get \(-2x^2+1\).</li>
+        <li>\(-2\cdot(x^2+2x)=-2x^2-4x\). Subtract to get the remainder \(4x+1\).</li>
+        <li>So \(f(x)=x-2+\dfrac{4x+1}{x^2+2x}\). Drop the remainder: slant asymptote \(y=x-2\).</li><li>Vertical asymptotes: \(x^2+2x=x(x+2)=0\Rightarrow x=0,\ -2\). No y-intercept, since \(x=0\) is not allowed.</li><li>x-intercept: \(x^3+1=0\Rightarrow x^3=-1\Rightarrow x=-1\)</li><li>Points: \(f(-3)=\tfrac{-26}{3}\), \(f(-1.5)=\tfrac{-2.375}{-0.75}\), \(f(-0.5)=\tfrac{0.875}{-0.75}\), \(f(1)=\tfrac{2}{3}\), \(f(2)=\tfrac{9}{8}\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x-2\)</dd>
+        <dt>Vertical asymptotes</dt><dd>The bottom is \(x(x+2)\), so \(x=0\) and \(x=-2\)</dd>
+        <dt>x-intercept</dt><dd>\(x^3+1=0\), so \((-1,0)\)</dd>
+        <dt>y-intercept</dt><dd>None, because \(x=0\) isn't allowed</dd>
+        <dt>Points</dt><dd>\((-3,-8.67)\), \((-1.5,3.17)\), \((-0.5,-1.17)\), \((1,0.67)\), \((2,1.13)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p87" data-label="Graph with vertical asymptotes x = −2 and x = 0 and slant asymptote y = x − 2"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">88</span><div class="q">\(f(x)=\dfrac{x^3-1}{x^2-9}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Long division: \(x\cdot(x^2-9)=x^3-9x\). Subtract to get the remainder \(9x-1\).</li>
+        <li>So \(f(x)=x+\dfrac{9x-1}{x^2-9}\). Drop the remainder: slant asymptote \(y=x\).</li><li>Vertical asymptotes: \(x^2-9=(x-3)(x+3)=0\Rightarrow x=\pm3\)</li><li>x-intercept: \(x^3-1=0\Rightarrow x=1\). y-intercept: \(f(0)=\tfrac{-1}{-9}=\tfrac19\)</li><li>Points: \(f(-4)=\tfrac{-65}{7}\), \(f(-2)=\tfrac{-9}{-5}\), \(f(2)=\tfrac{7}{-5}\), \(f(4)=\tfrac{63}{7}=9\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>(a) Slant asymptote</dt><dd>\(y=x\)</dd>
+        <dt>Vertical asymptotes</dt><dd>\(x=-3\) and \(x=3\)</dd>
+        <dt>x-intercept</dt><dd>\(x^3=1\), so \((1,0)\)</dd>
+        <dt>y-intercept</dt><dd>\(f(0)=\tfrac{-1}{-9}=\tfrac19\), the point \(\left(0,\tfrac19\right)\)</dd>
+        <dt>Points</dt><dd>\((-4,-9.29)\), \((-2,1.8)\), \((2,-1.4)\), \((4,9)\)</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p88" data-label="Graph with vertical asymptotes x = −3 and x = 3 and slant asymptote y = x"></div></figure>
+    </div></article>
+
+  <h3>Simplify, then graph</h3>
+  <p class="dir">Problems 93–94</p>
+
+  <article class="prob"><div class="ph"><span class="num">93</span><div class="q">\(\dfrac{1-\dfrac{3}{x+2}}{1+\dfrac{1}{x-2}}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Top: \(1-\dfrac{3}{x+2}=\dfrac{x+2-3}{x+2}=\dfrac{x-1}{x+2}\)</li>
+        <li>Bottom: \(1+\dfrac{1}{x-2}=\dfrac{x-2+1}{x-2}=\dfrac{x-1}{x-2}\)</li>
+        <li>Dividing means multiply by the flip: \(\dfrac{x-1}{x+2}\cdot\dfrac{x-2}{x-1}=\dfrac{x-2}{x+2}\)</li>
+        <li>Banned x-values from the original: \(-2\), \(2\) and \(1\).</li>
+        <li>Simplified bottom \(x+2=0\Rightarrow\) vertical asymptote \(x=-2\). Same degree: \(y=\tfrac11=1\).</li>
+        <li>Holes: at \(x=1\), \(\tfrac{1-2}{1+2}=-\tfrac13\). At \(x=2\), \(\tfrac{0}{4}=0\). y-intercept: \(f(0)=\tfrac{-2}{2}=-1\)</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Equation</dt><dd>\(f(x)=\dfrac{x-2}{x+2}\), with \(x\ne1\) and \(x\ne2\)</dd>
+        <dt>Vertical asymptote</dt><dd>\(x=-2\)</dd>
+        <dt>Horizontal asymptote</dt><dd>\(y=1\)</dd>
+        <dt>y-intercept</dt><dd>\((0,-1)\)</dd>
+        <dt>Holes</dt><dd>\(\left(1,-\tfrac13\right)\) and \((2,0)\), drawn as open circles</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p93" data-label="Graph of (x−2)/(x+2) with open circles at (1, −1/3) and (2, 0)"></div></figure>
+    </div></article>
+
+  <article class="prob"><div class="ph"><span class="num">94</span><div class="q">\(\dfrac{x-\dfrac1x}{x+\dfrac1x}\)</div></div>
+    <div class="work">
+      <ol class="steps">
+        <li>Multiply the top and bottom by x: \(\dfrac{x^2-1}{x^2+1}\)</li>
+        <li>\(x=0\) was banned in the original, so there's a hole there. Height: \(\tfrac{0-1}{0+1}=-1\)</li>
+        <li>Symmetry: \(f(-x)=\tfrac{x^2-1}{x^2+1}=f(x)\), so it mirrors across the y-axis.</li>
+        <li>x-intercepts: \(x^2-1=0\Rightarrow x=\pm1\). Bottom \(x^2+1\) is never 0, so no vertical asymptote. Same degree: \(y=\tfrac11=1\).</li>
+      </ol>
+      <div class="ans"><span class="lbl">Answer</span>
+      <dl class="feat">
+        <dt>Equation</dt><dd>\(f(x)=\dfrac{x^2-1}{x^2+1}\), with \(x\ne0\)</dd>
+        <dt>Symmetry</dt><dd>Mirrors across the y-axis</dd>
+        <dt>x-intercepts</dt><dd>\((-1,0)\) and \((1,0)\)</dd>
+        <dt>Asymptotes</dt><dd>Horizontal \(y=1\). No vertical asymptote.</dd>
+        <dt>Hole</dt><dd>\((0,-1)\), drawn as an open circle</dd>
+      </dl></div>
+      <figure class="fig"><div class="plotbox" data-plot="p94" data-label="Graph of (x²−1)/(x²+1) with an open circle at (0, −1)"></div></figure>
+    </div></article>
+</section>
+
+<!-- ======================= 2.7 ======================= -->
+<section class="set" id="s27">
+  <div>
+    <p class="kicker">Problem Set 2.7 · Textbook pp. 415–416</p>
+    <h2>Polynomial and rational inequalities</h2>
+    <div class="chips"><span class="chip warn">Due Fri 11/6, 1:00 PM</span><span class="chip">15 problems</span></div>
+  </div>
+  <div class="idea">
+    <p class="idea-lbl">How it works</p>
+    <ol>
+      <li>Move everything to one side so the other side is 0.</li>
+      <li>Factor. With fractions, combine into one fraction first.</li>
+      <li>Find the <b>critical numbers</b>: where the top is 0 and where the bottom is 0.</li>
+      <li>Put them on a number line and test one number in each piece.</li>
+      <li>Keep the pieces with the sign you want.</li>
+    </ol>
+    <p>Use \([\;]\) when the inequality allows "= 0" (\(\le\) or \(\ge\)). Never include a number that makes the bottom 0.</p>
+    <p>Don't multiply or divide both sides by something with x in it. You don't know if it's negative. Subtract instead.</p>
+    <p class="key"><span>On the number lines: + and − show the sign of each piece. A filled dot is included and an open dot is not.</span></p>
+  </div>
+
+  <h3>Polynomial inequalities</h3>
+  <p class="dir">Problems 11–16, 40, 41</p>
+
+  <article class="prob"><div class="ph"><span class="num">11</span><div class="q">\(3x^2+10x-8\le0\)</div></div>
+    <div class="work"><ol class="steps"><li>Factor: \((3x-2)(x+4)\le0\)</li><li>Critical numbers: \(-4\) and \(\tfrac23\)</li><li>Test \(-5\): \((-17)(-1)=17\), + &nbsp; Test 0: \((-2)(4)=-8\), − &nbsp; Test 1: \((1)(5)=5\), +</li><li>Want negative or 0, so keep the middle and include the ends.</li></ol>
+    <div class="nl" data-pts="-4,2/3" data-signs="+,-,+" data-keep="1" data-closed="-4,2/3"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left[-4,\tfrac23\right]\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">12</span><div class="q">\(9x^2+3x-2\ge0\)</div></div>
+    <div class="work"><ol class="steps"><li>Factor: \((3x+2)(3x-1)\ge0\)</li><li>Critical numbers: \(-\tfrac23\) and \(\tfrac13\)</li><li>Test \(-1\): \((-1)(-4)=4\), + &nbsp; Test 0: \((2)(-1)=-2\), − &nbsp; Test 1: \((5)(2)=10\), +</li><li>Want positive or 0, so keep the outside pieces, ends included.</li></ol>
+    <div class="nl" data-pts="-2/3,1/3" data-signs="+,-,+" data-keep="0,2" data-closed="-2/3,1/3"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left(-\infty,-\tfrac23\right]\cup\left[\tfrac13,\infty\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">13</span><div class="q">\(2x^2+x\lt 15\)</div></div>
+    <div class="work"><ol class="steps"><li>Move 15 over: \(2x^2+x-15\lt0\)</li><li>Factor: \((2x-5)(x+3)\lt0\). Critical numbers: \(-3\) and \(\tfrac52\)</li><li>Test \(-4\): \((-13)(-1)=13\), + &nbsp; Test 0: \((-5)(3)=-15\), − &nbsp; Test 3: \((1)(6)=6\), +</li><li>Want negative (\(\lt0\), not equal), so keep the middle and leave the ends open.</li></ol>
+    <div class="nl" data-pts="-3,5/2" data-signs="+,-,+" data-keep="1"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left(-3,\tfrac52\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">14</span><div class="q">\(6x^2+x\gt 1\)</div></div>
+    <div class="work"><ol class="steps"><li>\(6x^2+x-1\gt0\), which factors to \((3x-1)(2x+1)\gt0\)</li><li>Critical numbers: \(-\tfrac12\) and \(\tfrac13\)</li><li>Test \(-1\): \((-4)(-1)=4\), + &nbsp; Test 0: \((-1)(1)=-1\), − &nbsp; Test 1: \((2)(3)=6\), +</li><li>Want positive (\(\gt0\)), so keep the outside pieces with open ends.</li></ol>
+    <div class="nl" data-pts="-1/2,1/3" data-signs="+,-,+" data-keep="0,2"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left(-\infty,-\tfrac12\right)\cup\left(\tfrac13,\infty\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">15</span><div class="q">\(4x^2+7x\lt -3\)</div></div>
+    <div class="work"><ol class="steps"><li>\(4x^2+7x+3\lt0\), which factors to \((4x+3)(x+1)\lt0\)</li><li>Critical numbers: \(-1\) and \(-\tfrac34\)</li><li>Test \(-2\): \((-5)(-1)=5\), + &nbsp; Test \(-0.9\): \((-0.6)(0.1)=-0.06\), − &nbsp; Test 0: \((3)(1)=3\), +</li><li>Want negative, so keep the middle with open ends.</li></ol>
+    <div class="nl" data-pts="-1,-3/4" data-signs="+,-,+" data-keep="1"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left(-1,-\tfrac34\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">16</span><div class="q">\(3x^2+16x\lt -5\)</div></div>
+    <div class="work"><ol class="steps"><li>\(3x^2+16x+5\lt0\), which factors to \((3x+1)(x+5)\lt0\)</li><li>Critical numbers: \(-5\) and \(-\tfrac13\)</li><li>Test \(-6\): \((-17)(-1)=17\), + &nbsp; Test \(-1\): \((-2)(4)=-8\), − &nbsp; Test 0: \((1)(5)=5\), +</li><li>Want negative, so keep the middle with open ends.</li></ol>
+    <div class="nl" data-pts="-5,-1/3" data-signs="+,-,+" data-keep="1"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\left(-5,-\tfrac13\right)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">40</span><div class="q">\(x^3-x^2+9x-9\gt0\)</div></div>
+    <div class="work"><ol class="steps"><li>Group: \(x^2(x-1)+9(x-1)=(x-1)(x^2+9)\)</li><li>\(x^2+9\) is always positive, so only \(x-1\) decides the sign.</li><li>Need \(x-1\gt0\), so \(x\gt1\).</li></ol>
+    <div class="nl" data-pts="1" data-signs="-,+" data-keep="1"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((1,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">41</span><div class="q">\(x^3\ge 9x^2\)</div></div>
+    <div class="work"><ol class="steps"><li>Subtract. Don't divide by \(x^2\), or you lose \(x=0\): \(x^3-9x^2\ge0\)</li><li>Factor: \(x^2(x-9)\ge0\). Critical numbers: 0 and 9</li><li>Test \(-1\): \((1)(-10)=-10\), − &nbsp; Test 1: \((1)(-8)=-8\), − &nbsp; Test 10: \((100)(1)=100\), +</li><li>Keep \(x\ge9\), plus \(x=0\), where it equals 0.</li></ol>
+    <div class="nl" data-pts="0,9" data-signs="-,-,+" data-keep="2" data-closed="0,9"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\(\{0\}\cup[9,\infty)\)</div></div></div></article>
+
+  <h3>Rational inequalities</h3>
+  <p class="dir">Problems 46, 47, 58–60</p>
+
+  <article class="prob"><div class="ph"><span class="num">46</span><div class="q">\(\dfrac{x+5}{x+2}\lt0\)</div></div>
+    <div class="work"><ol class="steps"><li>Critical numbers: \(-5\) (top) and \(-2\) (bottom)</li><li>Test \(-6\): \(\tfrac{-1}{-4}=\tfrac14\), + &nbsp; Test \(-3\): \(\tfrac{2}{-1}=-2\), − &nbsp; Test 0: \(\tfrac52\), +</li><li>Want negative, so keep the middle. Both ends open (\(\lt\), and \(-2\) zeroes the bottom).</li></ol>
+    <div class="nl" data-pts="-5,-2" data-signs="+,-,+" data-keep="1"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-5,-2)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">47</span><div class="q">\(\dfrac{-x+2}{x-4}\ge0\)</div></div>
+    <div class="work"><ol class="steps"><li>Critical numbers: 2 (top, can include) and 4 (bottom, never include)</li><li>Test 0: \(\tfrac{2}{-4}=-\tfrac12\), − &nbsp; Test 3: \(\tfrac{-1}{-1}=1\), + &nbsp; Test 5: \(\tfrac{-3}{1}=-3\), −</li><li>Want positive or 0, so keep the middle. Include 2, exclude 4.</li></ol>
+    <div class="nl" data-pts="2,4" data-signs="-,+,-" data-keep="1" data-closed="2"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\([2,4)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">58</span><div class="q">\(\dfrac{1}{x-3}\lt1\)</div></div>
+    <div class="work"><ol class="steps"><li>Subtract 1: \(\dfrac{1}{x-3}-1\lt0\)</li><li>One fraction: \(\dfrac{1-(x-3)}{x-3}=\dfrac{4-x}{x-3}\lt0\)</li><li>Critical numbers: 3 and 4. Test 0: \(\tfrac{4}{-3}\), − &nbsp; Test 3.5: \(\tfrac{0.5}{0.5}=1\), + &nbsp; Test 5: \(\tfrac{-1}{2}\), −</li><li>Want negative, so keep the outside pieces with open ends.</li></ol>
+    <div class="nl" data-pts="3,4" data-signs="-,+,-" data-keep="0,2"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,3)\cup(4,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">59</span><div class="q">\(\dfrac{x-2}{x+2}\le2\)</div></div>
+    <div class="work"><ol class="steps"><li>Subtract 2: \(\dfrac{x-2-2(x+2)}{x+2}\le0\)</li><li>Clean up the top: \(\dfrac{-x-6}{x+2}\le0\)</li><li>Critical numbers: \(-6\) and \(-2\). Test \(-7\): \(\tfrac{1}{-5}\), − &nbsp; Test \(-4\): \(\tfrac{-2}{-2}=1\), + &nbsp; Test 0: \(\tfrac{-6}{2}=-3\), −</li><li>Keep the negative pieces. Include \(-6\), but not \(-2\).</li></ol>
+    <div class="nl" data-pts="-6,-2" data-signs="-,+,-" data-keep="0,2" data-closed="-6"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-6]\cup(-2,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">60</span><div class="q">\(\dfrac{x}{x+2}\ge2\)</div></div>
+    <div class="work"><ol class="steps"><li>Subtract 2: \(\dfrac{x-2(x+2)}{x+2}=\dfrac{-x-4}{x+2}\ge0\)</li><li>Critical numbers: \(-4\) and \(-2\). Test \(-5\): \(\tfrac{1}{-3}\), − &nbsp; Test \(-3\): \(\tfrac{-1}{-1}=1\), + &nbsp; Test 0: \(\tfrac{-4}{2}=-2\), −</li><li>Keep the middle. Include \(-4\), but not \(-2\).</li></ol>
+    <div class="nl" data-pts="-4,-2" data-signs="-,+,-" data-keep="1" data-closed="-4"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\([-4,-2)\)</div></div></div></article>
+
+  <h3>Absolute value and harder rational</h3>
+  <p class="dir">Problems 66, 70</p>
+
+  <article class="prob"><div class="ph"><span class="num">66</span><div class="q">\(|x^2+6x+1|\gt8\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>"Absolute value \(\gt 8\)" means the inside is bigger than 8 <b>or</b> smaller than \(-8\).</li>
+      <li>Case 1: \(x^2+6x+1\gt8\), so \(x^2+6x-7\gt0\) and \((x+7)(x-1)\gt0\). That gives \(x\lt-7\) or \(x\gt1\).</li>
+      <li>Case 2: \(x^2+6x+1\lt-8\), so \(x^2+6x+9\lt0\) and \((x+3)^2\lt0\). A square is never negative, so there are no solutions.</li>
+      <li>Check Case 1: Test \(-8\): \(64-48+1=17\gt8\) ✓. Test 0: \(1\), not \(\gt8\). Test 2: \(4+12+1=17\gt8\) ✓</li>
+    </ol>
+    <div class="nl" data-pts="-7,1" data-signs="+,-,+" data-keep="0,2"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-7)\cup(1,\infty)\)</div></div></div></article>
+
+  <article class="prob"><div class="ph"><span class="num">70</span><div class="q">\(\dfrac{x^2-3x+2}{x^2-2x-3}\gt0\)</div></div>
+    <div class="work"><ol class="steps">
+      <li>Factor: \(\dfrac{(x-1)(x-2)}{(x-3)(x+1)}\gt0\)</li>
+      <li>Critical numbers: \(-1,\ 1,\ 2,\ 3\)</li>
+      <li>Test \(-2\): \(\tfrac{(-3)(-4)}{(-5)(-1)}=\tfrac{12}{5}\), + &nbsp; Test 0: \(\tfrac{(-1)(-2)}{(-3)(1)}=-\tfrac23\), − &nbsp; Test 1.5: \(\tfrac{(0.5)(-0.5)}{(-1.5)(2.5)}=\tfrac{-0.25}{-3.75}\), + &nbsp; Test 2.5: \(\tfrac{(1.5)(0.5)}{(-0.5)(3.5)}=\tfrac{0.75}{-1.75}\), − &nbsp; Test 4: \(\tfrac{(3)(2)}{(1)(5)}=\tfrac65\), +</li>
+      <li>Want positive, so keep the + pieces. All ends open (\(\gt\), and \(-1,3\) zero the bottom).</li>
+    </ol>
+    <div class="nl" data-pts="-1,1,2,3" data-signs="+,-,+,-,+" data-keep="0,2,4"></div>
+    <div class="ans"><span class="lbl">Answer</span><div class="m">\((-\infty,-1)\cup(1,2)\cup(3,\infty)\)</div></div></div></article>
+</section>
+
+<footer>Problems from Blitzer, <i>Precalculus</i>, 7th edition (Pearson), and the Lesson 2.5 worksheet posted on Canvas.</footer>
+</main>
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false },
+  startup: {
+    pageReady: function () {
+      return MathJax.startup.defaultPageReady().then(function () { if (window.__restoreQuiz) window.__restoreQuiz(); });
+    }
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" defer></script>
+<script>
+(function () {
+  var fmt = function (v) { return String(v).replace(/-/g, '−'); };
+
+  /* synthetic division tables */
+  document.querySelectorAll('.synth').forEach(function (el) {
+    var rows = el.dataset.rows.split('|').map(function (r) { return r.split(','); });
+    var h = '<table aria-label="Synthetic division"><tbody>';
+    rows.forEach(function (r, i) {
+      h += '<tr class="r' + i + '"><td class="c">' + (i === 0 ? el.dataset.c : '') + '</td>';
+      r.forEach(function (v, j) { h += '<td' + (i === 2 && j === r.length - 1 ? ' class="rem"' : '') + '>' + v + '</td>'; });
+      h += '</tr>';
+    });
+    el.innerHTML = h + '</tbody></table>';
+  });
+
+  /* graphs */
+  var P = {
+    book: { f: function (x) { return (x + 1) / ((x + 3) * (x - 1)); }, x: [-6, 4], y: [-4, 4], xs: 1, ys: 1, xl: 1, yl: 1, va: [-3, 1], ha: 0 },
+    p76: { f: function (x) { return 2 * Math.pow(x, 4) / (x * x + 1); }, x: [-3, 3], y: [-1, 9], xs: 1, ys: 1, xl: 1, yl: 2, dots: [[0, 0], [1, 1], [-1, 1], [2, 6.4], [-2, 6.4]] },
+    p77: { f: function (x) { return (x * x + x - 12) / (x * x - 4); }, x: [-8, 10], y: [-6, 8], xs: 1, ys: 1, xl: 2, yl: 2, va: [-2, 2], ha: 1, dots: [[-4, 0], [3, 0], [0, 3], [8, 1]] },
+    p78: { f: function (x) { return x * x / (x * x + x - 6); }, x: [-8, 10], y: [-6, 6], xs: 1, ys: 1, xl: 2, yl: 2, va: [-3, 2], ha: 1, dots: [[0, 0], [6, 1]] },
+    p79: { f: function (x) { return (3 * x * x + x - 4) / (2 * x * x - 5 * x); }, x: [-5, 6], y: [-8, 8], xs: 1, ys: 1, xl: 1, yl: 2, va: [0, 2.5], ha: 1.5, dots: [[-4 / 3, 0], [1, 0]] },
+    p85: { f: function (x) { return (x * x + x - 6) / (x - 3); }, x: [-8, 12], y: [-10, 22], xs: 2, ys: 2, xl: 4, yl: 4, va: [3], sl: [1, 4], dots: [[-3, 0], [2, 0], [0, 2]] },
+    p86: { f: function (x) { return (x * x - x + 1) / (x - 1); }, x: [-5, 6], y: [-7, 8], xs: 1, ys: 1, xl: 2, yl: 2, va: [1], sl: [1, 0], dots: [[0, -1], [2, 3]] },
+    p87: { f: function (x) { return (x * x * x + 1) / (x * x + 2 * x); }, x: [-6, 5], y: [-12, 8], xs: 1, ys: 2, xl: 2, yl: 4, va: [-2, 0], sl: [1, -2], dots: [[-1, 0]] },
+    p88: { f: function (x) { return (x * x * x - 1) / (x * x - 9); }, x: [-8, 8], y: [-14, 14], xs: 1, ys: 2, xl: 2, yl: 4, va: [-3, 3], sl: [1, 0], dots: [[1, 0], [0, 1 / 9]] },
+    p93: { f: function (x) { return (x - 2) / (x + 2); }, x: [-8, 6], y: [-6, 8], xs: 1, ys: 1, xl: 2, yl: 2, va: [-2], ha: 1, holes: [[1, -1 / 3], [2, 0]], dots: [[0, -1]] },
+    p94: { f: function (x) { return (x * x - 1) / (x * x + 1); }, x: [-5, 5], y: [-2, 2], xs: 1, ys: 0.5, xl: 1, yl: 1, ha: 1, holes: [[0, -1]], dots: [[-1, 0], [1, 0]] }
+  };
+  var cid = 0;
+  function plot(el, c) {
+    var W = 340, H = 250, L = 6, R = 6, T = 6, B = 6;
+    var x0 = c.x[0], x1 = c.x[1], y0 = c.y[0], y1 = c.y[1], span = y1 - y0;
+    var sx = function (x) { return (L + (x - x0) / (x1 - x0) * (W - L - R)).toFixed(1); };
+    var sy = function (y) { return (T + (y1 - y) / (y1 - y0) * (H - T - B)).toFixed(1); };
+    var id = 'clip' + (cid++), g = '', x, y;
+    for (x = Math.ceil(x0 / c.xs) * c.xs; x <= x1 + 1e-9; x += c.xs) g += '<line class="grid" x1="' + sx(x) + '" x2="' + sx(x) + '" y1="' + T + '" y2="' + (H - B) + '"/>';
+    for (y = Math.ceil(y0 / c.ys) * c.ys; y <= y1 + 1e-9; y += c.ys) g += '<line class="grid" y1="' + sy(y) + '" y2="' + sy(y) + '" x1="' + L + '" x2="' + (W - R) + '"/>';
+    var ax = +sy(0), ay = +sx(0);
+    g += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + ax + '" y2="' + ax + '"/><line class="axis" y1="' + T + '" y2="' + (H - B) + '" x1="' + ay + '" x2="' + ay + '"/>';
+    for (x = Math.ceil(x0 / c.xl) * c.xl; x < x1 - 1e-9; x += c.xl) { if (Math.abs(x) < 1e-9 || x <= x0 + 1e-9) continue; g += '<text class="tick" x="' + sx(x) + '" y="' + (ax + 12) + '" text-anchor="middle">' + fmt(+x.toFixed(2)) + '</text>'; }
+    for (y = Math.ceil(y0 / c.yl) * c.yl; y < y1 - 1e-9; y += c.yl) { if (Math.abs(y) < 1e-9 || y <= y0 + 1e-9) continue; g += '<text class="tick" x="' + (ay - 4) + '" y="' + (+sy(y) + 3.5) + '" text-anchor="end">' + fmt(+y.toFixed(2)) + '</text>'; }
+    var va = (c.va || []).slice().sort(function (a, b) { return a - b; });
+    var asym = va.length || c.ha != null || c.sl;
+    va.forEach(function (a) { g += '<line class="asym" x1="' + sx(a) + '" x2="' + sx(a) + '" y1="' + T + '" y2="' + (H - B) + '"/>'; });
+    if (c.ha != null) g += '<line class="asym" x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(c.ha) + '" y2="' + sy(c.ha) + '"/>';
+    if (c.sl) g += '<line class="asym" clip-path="url(#' + id + ')" x1="' + sx(x0) + '" y1="' + sy(c.sl[0] * x0 + c.sl[1]) + '" x2="' + sx(x1) + '" y2="' + sy(c.sl[0] * x1 + c.sl[1]) + '"/>';
+    var xsamp = [], N = 900, i;
+    for (i = 0; i <= N; i++) xsamp.push(x0 + (x1 - x0) * i / N);
+    va.forEach(function (a) { [1e-3, 1e-4].forEach(function (e) { xsamp.push(a - e, a + e); }); });
+    xsamp.sort(function (a, b) { return a - b; });
+    var d = '', pen = false, prev = null;
+    xsamp.forEach(function (x) {
+      if (prev !== null && va.some(function (a) { return (prev < a && x >= a) || (prev <= a && x > a); })) pen = false;
+      prev = x;
+      var y = c.f(x);
+      if (!isFinite(y)) { pen = false; return; }
+      y = Math.max(y0 - 3 * span, Math.min(y1 + 3 * span, y));
+      d += (pen ? 'L' : 'M') + sx(x) + ' ' + sy(y);
+      pen = true;
+    });
+    var marks = '';
+    (c.dots || []).forEach(function (p) { marks += '<circle class="dot" cx="' + sx(p[0]) + '" cy="' + sy(p[1]) + '" r="3.6"/>'; });
+    (c.holes || []).forEach(function (p) { marks += '<circle class="hole" cx="' + sx(p[0]) + '" cy="' + sy(p[1]) + '" r="4.3"/>'; });
+    var legend = '<p class="legend"><span><i class="lg-c"></i>graph</span>' + (asym ? '<span><i class="lg-a"></i>asymptote</span>' : '') + ((c.dots || []).length ? '<span><i class="lg-d"></i>key point</span>' : '') + ((c.holes || []).length ? '<span><i class="lg-h"></i>hole</span>' : '') + '</p>';
+    el.innerHTML = '<svg class="plot" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + (el.dataset.label || 'Graph') + '"><defs><clipPath id="' + id + '"><rect x="' + L + '" y="' + T + '" width="' + (W - L - R) + '" height="' + (H - T - B) + '"/></clipPath></defs>' + g + '<path class="curve" clip-path="url(#' + id + ')" d="' + d + '"/>' + marks + '</svg>' + legend;
+  }
+  document.querySelectorAll('.plotbox').forEach(function (el) { var c = P[el.dataset.plot]; if (c) plot(el, c); });
+
+  /* number lines */
+  document.querySelectorAll('.nl').forEach(function (el) {
+    var pts = el.dataset.pts.split(','), signs = el.dataset.signs.split(','),
+        keep = el.dataset.keep.split(',').map(Number),
+        closed = (el.dataset.closed || '').split(',').filter(Boolean);
+    var W = 340, H = 66, y = 32, a = 12, b = W - 12, n = pts.length;
+    var xs = pts.map(function (p, i) { return n === 1 ? W / 2 : 70 + i * (W - 140) / (n - 1); });
+    var bd = [a].concat(xs, [b]);
+    var s = '<line class="nl-base" x1="' + a + '" x2="' + b + '" y1="' + y + '" y2="' + y + '"/>';
+    s += '<path class="nl-arr" d="M' + (a + 7) + ' ' + (y - 5) + ' L' + a + ' ' + y + ' L' + (a + 7) + ' ' + (y + 5) + '"/>';
+    s += '<path class="nl-arr" d="M' + (b - 7) + ' ' + (y - 5) + ' L' + b + ' ' + y + ' L' + (b - 7) + ' ' + (y + 5) + '"/>';
+    keep.forEach(function (k) {
+      s += '<line class="nl-keep" x1="' + bd[k] + '" x2="' + bd[k + 1] + '" y1="' + y + '" y2="' + y + '"/>';
+      if (k === 0) s += '<path class="nl-karr" d="M' + (a + 8) + ' ' + (y - 6) + ' L' + a + ' ' + y + ' L' + (a + 8) + ' ' + (y + 6) + '"/>';
+      if (k === n) s += '<path class="nl-karr" d="M' + (b - 8) + ' ' + (y - 6) + ' L' + b + ' ' + y + ' L' + (b - 8) + ' ' + (y + 6) + '"/>';
+    });
+    signs.forEach(function (sg, i) { s += '<text class="nl-sign" x="' + ((bd[i] + bd[i + 1]) / 2) + '" y="' + (y - 11) + '" text-anchor="middle">' + (sg === '-' ? '−' : '+') + '</text>'; });
+    pts.forEach(function (p, i) {
+      var inc = closed.indexOf(p) > -1, edge = keep.indexOf(i) > -1 || keep.indexOf(i + 1) > -1;
+      if (inc) s += '<circle class="nl-dot" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      else if (edge) s += '<circle class="nl-open" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      else s += '<line class="nl-tick" x1="' + xs[i] + '" x2="' + xs[i] + '" y1="' + (y - 5) + '" y2="' + (y + 5) + '"/>';
+      s += '<text class="nl-lab" x="' + xs[i] + '" y="' + (y + 24) + '" text-anchor="middle">' + fmt(p) + '</text>';
+    });
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Solution set on a number line">' + s + '</svg>';
+  });
+
+  /* quiz mode */
+  var btn = document.getElementById('quiz');
+  function setQuiz(on) {
+    document.body.classList.toggle('quiz', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.textContent = on ? 'Show answers' : 'Hide answers';
+    try { localStorage.setItem('psk-quiz', on ? '1' : '0'); } catch (e) {}
+  }
+  btn.addEventListener('click', function () { setQuiz(!document.body.classList.contains('quiz')); });
+  document.querySelectorAll('.prob').forEach(function (p) {
+    var w = p.querySelector('.work'); if (!w) return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'reveal'; b.textContent = 'Show solution';
+    b.addEventListener('click', function () { var o = p.classList.toggle('open'); b.textContent = o ? 'Hide solution' : 'Show solution'; });
+    w.parentNode.insertBefore(b, w);
+  });
+  window.__restoreQuiz = function () { try { if (localStorage.getItem('psk-quiz') === '1') setQuiz(true); } catch (e) {} };
+})();
+</script>
+
+</body></html>
+</body></html>

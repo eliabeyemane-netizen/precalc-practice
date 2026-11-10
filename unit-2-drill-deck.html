@@ -1,0 +1,495 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 2 Drill Deck</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+/* Layout: one centered card column, header rail above, controls pinned under the card. */
+:root{
+  --bg:#0f1117;
+  --surface:#171a23;
+  --surface-2:#1f2330;
+  --line:#2b3040;
+  --fg:#e9ecf3;
+  --muted:#8a93a8;
+  --accent:#e0a84e;
+  --good:#5fb98e;
+  --miss:#e0796b;
+  --font-q:'Spectral',Georgia,'Times New Roman',serif;
+  --font-ui:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#f0ece3; --line:#ddd7ca;
+    --fg:#1d2029; --muted:#6d7384; --accent:#a9711a; --good:#2f7d5c; --miss:#b24a39;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f6f4ef; --surface:#ffffff; --surface-2:#f0ece3; --line:#ddd7ca;
+  --fg:#1d2029; --muted:#6d7384; --accent:#a9711a; --good:#2f7d5c; --miss:#b24a39;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-ui);margin:0;min-height:100%;-webkit-font-smoothing:antialiased}
+.wrap{
+  max-width:720px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:20px 40px;
+  display:flex;flex-direction:column;gap:18px;
+}
+
+.head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.head h1{font-family:var(--font-q);font-weight:600;font-size:1.35rem;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.head .sub{color:var(--muted);font-size:.78rem;margin-top:2px}
+.headtools{display:flex;gap:8px;align-items:center}
+
+.tbtn{
+  background:transparent;border:1px solid var(--line);color:var(--muted);
+  font-family:var(--font-ui);font-size:.74rem;padding:6px 10px;border-radius:6px;
+  cursor:pointer;font-variant-numeric:tabular-nums;
+}
+.tbtn:hover{color:var(--fg);border-color:var(--muted)}
+.tbtn[aria-pressed="true"]{color:var(--accent);border-color:var(--accent)}
+.tbtn:focus-visible,.btn:focus-visible,.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.meta{display:flex;justify-content:space-between;align-items:center;font-size:.76rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s ease}
+.tally{display:flex;gap:14px}
+.tally b{font-weight:600}
+.tally .g{color:var(--good)}
+.tally .m{color:var(--miss)}
+
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:26px 22px;min-height:300px;
+  display:flex;flex-direction:column;gap:16px;
+  cursor:pointer;transition:transform .16s ease;transform-style:preserve-3d;
+  text-align:left;width:100%;font:inherit;color:inherit;
+}
+.card.flipping{transform:rotateY(90deg)}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card.flipping{transform:none;opacity:.4}}
+
+.topic{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.q{font-family:var(--font-q);font-size:1.42rem;line-height:1.45;margin:0;text-wrap:pretty}
+.hint{margin-top:auto;color:var(--muted);font-size:.76rem}
+
+.ans-label{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.ans{font-family:var(--font-q);font-size:1.4rem;line-height:1.45;margin:0;color:var(--accent);font-weight:600}
+.steps{font-family:var(--font-q);font-size:1rem;line-height:1.65;color:var(--fg);margin:0;padding-top:14px;border-top:1px solid var(--line)}
+.sketch{background:var(--surface-2);border-radius:9px;padding:10px 12px}
+.sketch .cap{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px}
+.trap{background:var(--surface-2);border-left:3px solid var(--miss);border-radius:0 8px 8px 0;padding:12px 14px;font-size:.88rem;line-height:1.55}
+.trap em{display:block;font-style:normal;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--miss);font-weight:600;margin-bottom:5px}
+
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{
+  font-family:var(--font-ui);font-size:.92rem;font-weight:500;padding:14px 10px;
+  border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;
+}
+.btn:hover{background:var(--surface-2)}
+.btn.good{border-color:var(--good);color:var(--good)}
+.btn.miss{border-color:var(--miss);color:var(--miss)}
+.btn kbd{font-family:var(--font-ui);font-size:.68rem;color:var(--muted);margin-left:6px}
+.btn-wide{grid-column:1/-1;background:var(--accent);border-color:var(--accent);color:#17120a;font-weight:600}
+:root[data-theme="light"] .btn-wide{color:#fff}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn-wide{color:#fff}}
+
+.keys{font-size:.72rem;color:var(--muted);text-align:center}
+
+.sum-score{font-family:var(--font-q);font-size:3.2rem;font-weight:600;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.sum-score small{font-size:1.1rem;color:var(--muted);font-weight:400}
+.sum h2{font-family:var(--font-q);font-size:1.3rem;margin:0 0 10px;font-weight:600}
+.sum h3{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+.sum{display:flex;flex-direction:column;gap:22px}
+.weak{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.weak li{display:flex;justify-content:space-between;gap:12px;background:var(--surface-2);border-radius:7px;padding:10px 13px;font-size:.9rem}
+.weak li span{color:var(--miss);font-variant-numeric:tabular-nums;font-weight:600}
+.verdict{font-family:var(--font-q);font-size:1.05rem;line-height:1.65;color:var(--fg);margin:0}
+.clean{color:var(--good);font-family:var(--font-q);font-size:1.05rem;line-height:1.6;margin:0}
+
+@media (max-width:420px){
+  .q{font-size:1.22rem}
+  .ans{font-size:1.2rem}
+  .card{padding:22px 18px;min-height:270px}
+}
+</style>
+
+<div class="wrap">
+
+  <div class="head">
+    <div>
+      <h1>Unit 2 Drill Deck</h1>
+      <div class="sub">Complex numbers · Quadratics · Polynomials &amp; graphing</div>
+    </div>
+    <div class="headtools">
+      <button class="tbtn" id="timerBtn" aria-pressed="false">Timer off</button>
+      <button class="tbtn" id="themeBtn">Light</button>
+    </div>
+  </div>
+
+  <div id="deckView">
+    <div class="meta">
+      <span id="counter">Card 1 of 24</span>
+      <span class="tally"><b class="g" id="gCount">0</b> got · <b class="m" id="mCount">0</b> missed</span>
+    </div>
+    <div class="bar" style="margin-top:8px"><i id="barFill"></i></div>
+
+    <button class="card" id="card" style="margin-top:18px"></button>
+
+    <div class="controls" id="controls" style="margin-top:14px" hidden>
+      <button class="btn miss" id="missBtn">Missed it <kbd>←</kbd></button>
+      <button class="btn good" id="goodBtn">Got it <kbd>→</kbd></button>
+    </div>
+    <p class="keys" id="keysHint" style="margin:12px 0 0">Space to flip · ← missed · → got it</p>
+  </div>
+
+  <div id="sumView" hidden></div>
+
+</div>
+
+<script>
+/* ---------- tiny function plotter for the graphing cards ---------- */
+function plot(fn, xmin, xmax, ymin, ymax){
+  const W = 280, H = 210, P = 12;
+  const sx = x => P + (x - xmin) / (xmax - xmin) * (W - 2*P);
+  const sy = y => H - P - (y - ymin) / (ymax - ymin) * (H - 2*P);
+  const ystep = Math.max(1, Math.round((ymax - ymin) / 8));
+  let g = '';
+
+  for (let x = Math.ceil(xmin); x <= xmax; x++)
+    g += `<line x1="${sx(x).toFixed(1)}" y1="${P}" x2="${sx(x).toFixed(1)}" y2="${H-P}" stroke="var(--line)" stroke-width="1"/>`;
+  for (let y = Math.ceil(ymin/ystep)*ystep; y <= ymax; y += ystep)
+    g += `<line x1="${P}" y1="${sy(y).toFixed(1)}" x2="${W-P}" y2="${sy(y).toFixed(1)}" stroke="var(--line)" stroke-width="1"/>`;
+
+  if (xmin < 0 && xmax > 0)
+    g += `<line x1="${sx(0).toFixed(1)}" y1="${P}" x2="${sx(0).toFixed(1)}" y2="${H-P}" stroke="var(--muted)" stroke-width="1.6"/>`;
+  if (ymin < 0 && ymax > 0)
+    g += `<line x1="${P}" y1="${sy(0).toFixed(1)}" x2="${W-P}" y2="${sy(0).toFixed(1)}" stroke="var(--muted)" stroke-width="1.6"/>`;
+
+  let d = '', pen = false;
+  for (let i = 0; i <= 500; i++){
+    const x = xmin + (xmax - xmin) * i / 500;
+    const y = fn(x);
+    if (!isFinite(y) || y < ymin - 0.5 || y > ymax + 0.5){ pen = false; continue; }
+    d += (pen ? 'L' : 'M') + sx(x).toFixed(1) + ',' + sy(y).toFixed(1) + ' ';
+    pen = true;
+  }
+  g += `<path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>`;
+
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:300px;display:block" role="img" aria-label="sketch of the graph">${g}</svg>`;
+}
+
+/* ---------- the deck ---------- */
+const DECK = [
+
+  /* ===== 2.1 Complex numbers ===== */
+  { t:"Complex arithmetic",
+    q:"Simplify. (4 − 3i)(2 + 5i) − (2 − i)<sup>2</sup>",
+    a:"20 + 18i",
+    s:"(4 − 3i)(2 + 5i) = 8 + 20i − 6i − 15i<sup>2</sup> = 8 + 14i + 15 = 23 + 14i.<br>(2 − i)<sup>2</sup> = 4 − 4i + i<sup>2</sup> = 3 − 4i.<br>23 + 14i − (3 − 4i) = 20 + 18i.",
+    x:"The minus distributes over both terms: −(3 − 4i) = −3 + 4i." },
+
+  { t:"Complex division",
+    q:"Write in a + bi form.<br>(2 + 3i) ÷ (4 − i)",
+    a:"5/17 + 14/17 i",
+    s:"Multiply top and bottom by the conjugate 4 + i.<br>Top: (2 + 3i)(4 + i) = 8 + 2i + 12i + 3i<sup>2</sup> = 5 + 14i.<br>Bottom: 4<sup>2</sup> + 1<sup>2</sup> = 17.",
+    x:"Using 4 − i as the conjugate. The conjugate flips the sign of the imaginary part only." },
+
+  { t:"Radicals of negatives",
+    q:"Simplify. √−8 · √−18",
+    a:"−12",
+    s:"√−8 = 2i√2 and √−18 = 3i√2.<br>2i√2 · 3i√2 = 6i<sup>2</sup> · 2 = −12.",
+    x:"Combining under one radical first: √144 = 12 is wrong. The product rule fails for two negatives — convert to i before multiplying." },
+
+  { t:"Powers of i",
+    q:"Simplify. i<sup>26</sup> − i<sup>39</sup>",
+    a:"−1 + i",
+    s:"26 ÷ 4 → r2 → −1.<br>39 ÷ 4 → r3 → −i.<br>−1 − (−i) = −1 + i.",
+    x:"Dropping the subtraction sign on the second term. −(−i) = +i." },
+
+  { t:"Quadratic formula",
+    q:"Solve. 3x<sup>2</sup> − 2x + 4 = 0",
+    a:"x = 1/3 ± (√11 / 3) i",
+    s:"b<sup>2</sup> − 4ac = 4 − 48 = −44, so √−44 = 2i√11.<br>x = (2 ± 2i√11) / 6 = 1/3 ± (√11/3) i.",
+    x:"Dividing only one term by 6. Reduce the whole thing: 2/6 = 1/3 and 2√11/6 = √11/3." },
+
+  { t:"Building from a complex root",
+    q:"Write a quadratic with real coefficients and leading coefficient 1 that has 3 + i as a root.",
+    a:"x<sup>2</sup> − 6x + 10",
+    s:"Real coefficients force conjugate pairs, so 3 − i is also a root.<br>Sum = 6. Product = 9 + 1 = 10.<br>x<sup>2</sup> − (sum)x + (product).",
+    x:"Using only the given root. Without the conjugate the coefficients come out complex." },
+
+  /* ===== 2.2 Quadratic functions ===== */
+  { t:"Full quadratic analysis",
+    q:"f(x) = 2x<sup>2</sup> − 12x + 10.<br>Vertex, axis, min or max, x-intercepts, and range.",
+    a:"Vertex (3, −8) · axis x = 3 · minimum −8 · x-intercepts 1 and 5 · range [−8, ∞)",
+    s:"x = −b/2a = 12/4 = 3, f(3) = 18 − 36 + 10 = −8.<br>a = 2 > 0 → opens up, so it's a minimum.<br>Factor: 2(x<sup>2</sup> − 6x + 5) = 2(x − 1)(x − 5).",
+    x:"Reporting 3 as the minimum. The x-value is <strong>where</strong>; the y-value is <strong>what</strong>." },
+
+  { t:"Completing the square",
+    q:"Write f(x) = 3x<sup>2</sup> − 12x + 7 in vertex form, then give the max or min.",
+    a:"f(x) = 3(x − 2)<sup>2</sup> − 5 · minimum −5 at x = 2",
+    s:"Factor 3 from the first two terms: 3(x<sup>2</sup> − 4x) + 7.<br>Half of −4 is −2, squared is 4: 3(x<sup>2</sup> − 4x + 4) − 12 + 7.",
+    x:"Adding +4 inside and only −4 outside. The 3 out front means you really added +12, so you subtract 12." },
+
+  { t:"Building a parabola",
+    q:"Find the equation of the parabola with vertex (−1, 6) that passes through (1, −2).",
+    a:"y = −2(x + 1)<sup>2</sup> + 6",
+    s:"Start from y = a(x + 1)<sup>2</sup> + 6.<br>Plug in (1, −2): −2 = a(2)<sup>2</sup> + 6 → 4a = −8 → a = −2.",
+    x:"Vertex signs. Vertex (−1, 6) gives (x + 1) and + 6." },
+
+  { t:"Projectile word problem",
+    q:"A ball's height is s(t) = −16t<sup>2</sup> + 80t + 6 (feet, seconds).<br>When does it reach its maximum height, and what is it?",
+    a:"t = 2.5 s · height 106 ft",
+    s:"t = −80 / (2 · −16) = 2.5.<br>s(2.5) = −16(6.25) + 200 + 6 = −100 + 206 = 106.",
+    x:"Giving 2.5 as the height. The time is the x-value — plug it back in for the height." },
+
+  { t:"Optimization — fencing",
+    q:"300 ft of fencing encloses a rectangular area against a wall, with no fence along the wall. What dimensions maximize the area, and what is it?",
+    a:"75 ft by 150 ft · area 11,250 ft<sup>2</sup>",
+    s:"Two sides of length x, one of length y: 2x + y = 300, so y = 300 − 2x.<br>A = x(300 − 2x) = −2x<sup>2</sup> + 300x.<br>x = −300 / (2 · −2) = 75, so y = 150.",
+    x:"Using 2x + 2y = 300. The wall replaces one side, so only three sides get fenced." },
+
+  { t:"Max, domain, range",
+    q:"f(x) = −2x<sup>2</sup> + 8x + 1.<br>Max or min? Give the value, the domain, and the range.",
+    a:"Maximum 9 at x = 2 · domain (−∞, ∞) · range (−∞, 9]",
+    s:"a = −2 < 0 → opens down → maximum.<br>x = −8 / (2 · −2) = 2.<br>f(2) = −8 + 16 + 1 = 9.",
+    x:"Restricting the domain. Every polynomial has domain all reals — only the <strong>range</strong> gets cut off." },
+
+  /* ===== 2.3 Polynomials ===== */
+  { t:"End behavior",
+    q:"Give the end behavior of each.<br>(a) f(x) = −4x<sup>5</sup> + 2x<sup>2</sup> − 1<br>(b) g(x) = 3x<sup>6</sup> − x<sup>3</sup> + 7<br>(c) h(x) = −x<sup>4</sup> + 8x",
+    a:"(a) rises left, falls right · (b) rises left, rises right · (c) falls left, falls right",
+    s:"Only the leading term matters.<br>(a) odd degree, negative → up-left, down-right.<br>(b) even degree, positive → both ends up.<br>(c) even degree, negative → both ends down.",
+    x:"Looking at the lower-degree terms or the constant. They affect the middle of the graph, never the ends." },
+
+  { t:"End behavior from factored form",
+    q:"Give the degree and the end behavior.<br>f(x) = −3(x − 1)<sup>2</sup>(x + 2)<sup>3</sup>",
+    a:"Degree 5 · rises left, falls right",
+    s:"Degrees add: 2 + 3 = 5.<br>Leading term: −3 · x<sup>2</sup> · x<sup>3</sup> = −3x<sup>5</sup>.<br>Odd degree + negative coefficient → up on the left, down on the right.",
+    x:"Reading the degree as 3 off the biggest single exponent. Add the multiplicities." },
+
+  { t:"Zeros by grouping",
+    q:"Find all zeros and their multiplicities.<br>f(x) = x<sup>3</sup> − 3x<sup>2</sup> − 4x + 12",
+    a:"x = 3, 2, −2 — each multiplicity 1, all cross",
+    s:"Group: x<sup>2</sup>(x − 3) − 4(x − 3) = (x − 3)(x<sup>2</sup> − 4)<br>= (x − 3)(x − 2)(x + 2).",
+    x:"Stopping at (x − 3)(x<sup>2</sup> − 4). That second factor is a difference of squares — keep factoring." },
+
+  { t:"Zeros after a GCF",
+    q:"Find all zeros, their multiplicities, and whether the graph crosses or touches.<br>f(x) = 2x<sup>4</sup> − 8x<sup>3</sup> + 8x<sup>2</sup>",
+    a:"x = 0 (mult 2, touches) · x = 2 (mult 2, touches)",
+    s:"Factor the GCF 2x<sup>2</sup>: 2x<sup>2</sup>(x<sup>2</sup> − 4x + 4) = 2x<sup>2</sup>(x − 2)<sup>2</sup>.",
+    x:"Pulling out only x instead of 2x<sup>2</sup>, and missing that x<sup>2</sup> − 4x + 4 is a perfect square." },
+
+  { t:"Zeros with odd multiplicity",
+    q:"Find all zeros, multiplicities, and behavior at each.<br>f(x) = x<sup>5</sup> − 6x<sup>4</sup> + 9x<sup>3</sup>",
+    a:"x = 0 (mult 3, crosses and flattens) · x = 3 (mult 2, touches)",
+    s:"Factor x<sup>3</sup>: x<sup>3</sup>(x<sup>2</sup> − 6x + 9) = x<sup>3</sup>(x − 3)<sup>2</sup>.",
+    x:"Treating multiplicity 3 like multiplicity 1. It still crosses, but it flattens out as it goes through — an S-shape, not a straight pass." },
+
+  { t:"Graphing",
+    q:"Sketch the graph.<br>f(x) = (x + 2)(x − 1)<sup>2</sup><br><br>Give end behavior, zeros with multiplicity, the y-intercept, and the max number of turning points.",
+    a:"Falls left, rises right · x = −2 crosses (mult 1), x = 1 touches (mult 2) · y-intercept (0, 2) · at most 2 turning points",
+    s:"Degree 1 + 2 = 3, leading term x<sup>3</sup>, positive → down-left, up-right.<br>f(0) = (2)(1) = 2.<br>Degree 3 → at most 3 − 1 = 2 turning points.",
+    x:"Drawing it crossing at x = 1. Multiplicity 2 means it comes down, kisses the axis, and goes back up.",
+    g:{ fn:x => (x+2)*Math.pow(x-1,2), xmin:-3.2, xmax:2.6, ymin:-8, ymax:10 } },
+
+  { t:"Graphing",
+    q:"Sketch the graph.<br>f(x) = −x<sup>2</sup>(x − 3)<br><br>Give end behavior, zeros with multiplicity, and the y-intercept.",
+    a:"Rises left, falls right · x = 0 touches (mult 2), x = 3 crosses (mult 1) · y-intercept (0, 0)",
+    s:"Expanded leading term: −x<sup>2</sup> · x = −x<sup>3</sup>. Odd degree, negative → up-left, down-right.<br>f(0) = 0, so the graph passes through the origin.",
+    x:"Forgetting the negative out front and flipping the end behavior. Distribute the sign into the leading term before you decide.",
+    g:{ fn:x => -x*x*(x-3), xmin:-1.6, xmax:4, ymin:-8, ymax:6 } },
+
+  { t:"Graphing",
+    q:"Sketch the graph.<br>f(x) = x<sup>4</sup> − 4x<sup>2</sup><br><br>Give end behavior, zeros with multiplicity, the y-intercept, and any symmetry.",
+    a:"Rises both ends · x = 0 touches (mult 2), x = ±2 cross (mult 1) · y-intercept (0, 0) · symmetric about the y-axis",
+    s:"Factor: x<sup>2</sup>(x<sup>2</sup> − 4) = x<sup>2</sup>(x − 2)(x + 2).<br>Degree 4, positive → both ends up.<br>f(−x) = f(x), so the function is even.",
+    x:"Missing x = −2. x<sup>2</sup> = 4 gives x = ±2, not just x = 2.",
+    g:{ fn:x => Math.pow(x,4) - 4*x*x, xmin:-2.8, xmax:2.8, ymin:-6, ymax:10 } },
+
+  { t:"Turning points",
+    q:"What is the maximum number of turning points of f(x) = −2x<sup>6</sup> + x<sup>3</sup> − 5?",
+    a:"5",
+    s:"A degree-n polynomial has at most n − 1 turning points.<br>6 − 1 = 5.",
+    x:"Answering 6. It's degree minus one, and the negative sign out front doesn't change the count." },
+
+  { t:"Intermediate Value Theorem",
+    q:"Show that f(x) = x<sup>3</sup> + 2x − 5 has a real zero between 1 and 2.",
+    a:"f(1) = −2 and f(2) = 7. The signs are opposite, so by the IVT there is a zero between 1 and 2.",
+    s:"f(1) = 1 + 2 − 5 = −2.<br>f(2) = 8 + 4 − 5 = 7.<br>Polynomials are continuous, so a sign change forces a crossing.",
+    x:"Just asserting a zero exists. The proof <strong>is</strong> computing both values and naming the sign change." },
+
+  { t:"Building from zeros",
+    q:"Write a polynomial of degree 4 with leading coefficient 1 whose zeros are x = 0 (multiplicity 2), x = 3, and x = −1.",
+    a:"f(x) = x<sup>2</sup>(x − 3)(x + 1) = x<sup>4</sup> − 2x<sup>3</sup> − 3x<sup>2</sup>",
+    s:"Each zero r gives a factor (x − r), raised to its multiplicity.<br>Check the degree: 2 + 1 + 1 = 4. ✓",
+    x:"Writing (x + 3) for the zero x = 3. A zero at r gives the factor (x − r), so x = 3 → (x − 3) and x = −1 → (x + 1)." },
+
+  { t:"Reading a graph backwards",
+    q:"A degree-4 polynomial has a positive leading coefficient. Its graph touches the x-axis at x = −1 and crosses at x = 2 and x = 4.<br>Write a possible equation.",
+    a:"f(x) = (x + 1)<sup>2</sup>(x − 2)(x − 4)",
+    s:"Touch → even multiplicity, so x = −1 gets multiplicity 2.<br>Cross → odd multiplicity, so x = 2 and x = 4 get multiplicity 1 each.<br>Degrees: 2 + 1 + 1 = 4 ✓, and the leading coefficient is already positive.",
+    x:"Using multiplicity 1 at x = −1. Then the degree only adds to 3 and the graph would cross there instead of touching." }
+];
+
+let order = DECK.map((_, i) => i);
+let pos = 0, flipped = false, got = 0, missed = 0;
+let missedIdx = [], missedTopics = {};
+let timerOn = false, startMs = null, tick = null;
+
+const $ = id => document.getElementById(id);
+const card = $('card');
+
+function render(){
+  const c = DECK[order[pos]];
+  $('counter').textContent = `Card ${pos + 1} of ${order.length}`;
+  $('barFill').style.width = (pos / order.length * 100) + '%';
+  $('gCount').textContent = got;
+  $('mCount').textContent = missed;
+
+  if (!flipped){
+    card.innerHTML =
+      `<span class="topic">${c.t}</span>
+       <p class="q">${c.q}</p>
+       <span class="hint">Tap the card or press space to flip</span>`;
+    $('controls').hidden = true;
+    $('keysHint').textContent = 'Space to flip · ← missed · → got it';
+  } else {
+    const sketch = c.g
+      ? `<div class="sketch"><div class="cap">Shape</div>${plot(c.g.fn, c.g.xmin, c.g.xmax, c.g.ymin, c.g.ymax)}</div>`
+      : '';
+    card.innerHTML =
+      `<span class="ans-label">Answer</span>
+       <p class="ans">${c.a}</p>
+       ${sketch}
+       <p class="steps">${c.s}</p>
+       <div class="trap"><em>Where it goes wrong</em>${c.x}</div>`;
+    $('controls').hidden = false;
+    $('keysHint').textContent = 'Be honest — the score only helps if it is.';
+  }
+}
+
+function flip(){
+  if (flipped) return;
+  card.classList.add('flipping');
+  setTimeout(() => { flipped = true; render(); card.classList.remove('flipping'); }, 160);
+}
+
+function mark(ok){
+  if (!flipped) return;
+  const idx = order[pos];
+  if (ok) got++;
+  else {
+    missed++;
+    missedIdx.push(idx);
+    const t = DECK[idx].t;
+    missedTopics[t] = (missedTopics[t] || 0) + 1;
+  }
+  pos++;
+  flipped = false;
+  if (pos >= order.length) finish();
+  else render();
+}
+
+function fmtTime(ms){
+  const s = Math.floor(ms / 1000);
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+
+function finish(){
+  if (tick){ clearInterval(tick); tick = null; }
+  $('deckView').hidden = true;
+  const total = got + missed;
+  const pct = total ? Math.round(got / total * 100) : 0;
+
+  const weak = Object.entries(missedTopics).sort((a, b) => b[1] - a[1]).slice(0, 3);
+  let weakHtml = '';
+  if (weak.length){
+    weakHtml = `<div><h3>Where you lost points</h3><ul class="weak">` +
+      weak.map(([t, n]) => `<li>${t}<span>${n} missed</span></li>`).join('') + `</ul></div>`;
+  }
+
+  let verdict;
+  if (!missed){
+    verdict = `<p class="clean">Clean run — all ${total}, graphing included. You are ready for the test.</p>`;
+  } else {
+    const names = weak.map(w => w[0].toLowerCase());
+    const lead = names.length === 1 ? names[0]
+      : names.length === 2 ? `${names[0]} and ${names[1]}`
+      : `${names[0]}, ${names[1]} and ${names[2]}`;
+    verdict = `<p class="verdict">Work ${lead} on paper before you run this again — problems, not rereading. For the graphing ones, sketch by hand first, then flip. ${pct >= 83 ? 'You are close. Redo the missed cards tonight and you are in good shape.' : pct >= 62 ? 'The foundation is there with real gaps in it. One focused sitting closes most of them.' : 'Go back through the section examples first. The deck checks what you know; it will not teach what you have not read yet.'}</p>`;
+  }
+
+  const timeLine = startMs ? `<div style="color:var(--muted);font-size:.78rem;margin-top:6px">Time: ${fmtTime(Date.now() - startMs)}</div>` : '';
+
+  $('sumView').hidden = false;
+  $('sumView').className = 'sum';
+  $('sumView').innerHTML =
+    `<div>
+       <h2>Run finished</h2>
+       <div class="sum-score">${got}<small> / ${total} &nbsp;·&nbsp; ${pct}%</small></div>
+       ${timeLine}
+     </div>
+     ${weakHtml}
+     <div><h3>What to review</h3>${verdict}</div>
+     <div class="controls">
+       ${missedIdx.length ? `<button class="btn btn-wide" id="redoBtn">Redo the ${missedIdx.length} I missed</button>` : ''}
+       <button class="btn" id="allBtn" style="grid-column:1/-1">Start over — all ${DECK.length}</button>
+     </div>`;
+
+  if ($('redoBtn')) $('redoBtn').onclick = () => restart(missedIdx.slice());
+  $('allBtn').onclick = () => restart(DECK.map((_, i) => i));
+}
+
+function restart(list){
+  order = list;
+  pos = 0; flipped = false; got = 0; missed = 0;
+  missedIdx = []; missedTopics = {};
+  $('sumView').hidden = true;
+  $('deckView').hidden = false;
+  if (timerOn){ startMs = Date.now(); runTimer(); }
+  render();
+}
+
+function runTimer(){
+  if (tick) clearInterval(tick);
+  tick = setInterval(() => { if (startMs) $('timerBtn').textContent = fmtTime(Date.now() - startMs); }, 1000);
+}
+
+card.onclick = flip;
+$('goodBtn').onclick = () => mark(true);
+$('missBtn').onclick = () => mark(false);
+
+$('timerBtn').onclick = () => {
+  timerOn = !timerOn;
+  $('timerBtn').setAttribute('aria-pressed', timerOn);
+  if (timerOn){ startMs = Date.now(); runTimer(); $('timerBtn').textContent = '0:00'; }
+  else { if (tick) clearInterval(tick); tick = null; startMs = null; $('timerBtn').textContent = 'Timer off'; }
+};
+
+$('themeBtn').onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const dark = cur === 'dark' || (!cur && matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+  $('themeBtn').textContent = dark ? 'Dark' : 'Light';
+};
+
+document.addEventListener('keydown', e => {
+  if ($('deckView').hidden) return;
+  if (e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); flip(); }
+  else if (e.key === 'ArrowRight') mark(true);
+  else if (e.key === 'ArrowLeft') mark(false);
+});
+
+render();
+</script>
+
+</body></html>

@@ -1,0 +1,826 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 2 Homework Solved</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: white page, one column; each problem = book prompt, then black math box(es), then a green answer line. Single light theme by request. */
+:root{
+  --bg:#FFFFFF; --ink:#1A1F2B; --muted:#5E6675; --line:#E3E6EC; --soft:#F5F7FA;
+  --accent:#1D4ED8; --accent-soft:#EEF3FF; --ok:#0F7A4F; --ok-soft:#EAF7F0; --warn:#9A4A00; --warn-soft:#FFF4E5;
+  --box:#111318; --box-ink:#F3F5F8; --box-dim:#9AA3B2;
+  --curve:#1D4ED8; --asym:#C2410C; --surface:#FFFFFF; --grid:#EEF0F4;
+  --f-head:"Source Serif 4",Georgia,serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 72px}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:18px}
+h1{font-family:var(--f-head);font-weight:700;font-size:clamp(1.9rem,6vw,2.5rem);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-head);font-weight:700;font-size:1.55rem;line-height:1.2;margin:0;text-wrap:balance}
+h3{font-family:var(--f-head);font-weight:600;font-size:1.1rem;margin:10px 0 0}
+p{margin:0}
+.sub{color:var(--muted)}
+.toc{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-weight:600;font-size:15px;color:var(--accent);text-decoration:none;background:var(--bg)}
+.toc a:hover{background:var(--accent-soft)}
+.sec{display:grid;gap:14px;padding-top:26px;scroll-margin-top:12px}
+.sechead{display:grid;gap:6px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.tag{justify-self:start;font-size:13.5px;font-weight:700;border-radius:999px;padding:3px 11px}
+.tag.miss{background:#FDECEC;color:#A11D2B}
+.tag.req{background:var(--warn-soft);color:var(--warn)}
+.tag.ec{background:var(--ok-soft);color:var(--ok)}
+.dir{font-style:italic;color:var(--muted);background:var(--soft);border-left:3px solid var(--line);padding:8px 12px;border-radius:0 8px 8px 0}
+.p{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:10px;min-width:0}
+.ph{display:flex;gap:10px;align-items:baseline;min-width:0}
+.n{flex:none;font-family:var(--f-mono);font-weight:600;font-size:13.5px;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px}
+.q{min-width:0;overflow-x:auto;overflow-y:hidden}
+.box{background:var(--box);color:var(--box-ink);border-radius:10px;padding:10px 14px;overflow-x:auto;overflow-y:hidden;min-width:0;font-size:16.5px}
+.box mjx-container{color:var(--box-ink)}
+.ldbox{background:var(--box);border-radius:10px;padding:16px 12px;overflow-x:auto;display:flex;justify-content:center}
+.ld{border-collapse:collapse;font-family:var(--f-mono);font-size:17px;color:var(--box-ink);margin:0 auto}
+.ld td{padding:3px 8px;text-align:right;white-space:nowrap}
+.ld .lq td{color:#7EE2B0;font-weight:600}
+.ld .ltop td:not(.dv){border-top:2px solid var(--box-ink)}
+.ld .dv{font-weight:600;border-right:2px solid var(--box-ink);border-radius:0 0 10px 0;padding-right:10px}
+.ld .lr td:not(:first-child){border-top:1.5px solid var(--box-dim)}
+.ld tr:last-child td{color:#7EE2B0;font-weight:600}
+.ans{background:var(--ok-soft);border-radius:8px;padding:8px 12px;overflow-x:auto;overflow-y:hidden;min-width:0}
+.ans b{color:var(--ok);font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-right:8px}
+.fig{margin:0;display:grid;justify-items:center;gap:2px}
+.plot{width:100%;max-width:420px;height:auto;display:block}
+.plot .axis{stroke:var(--muted);stroke-width:1.2}
+.plot .tick{fill:var(--muted);font-family:var(--f-mono);font-size:9.5px}
+.plot .asym{stroke:var(--asym);stroke-width:1.4;stroke-dasharray:5 4;fill:none}
+.plot .curve{stroke:var(--curve);stroke-width:2.3;fill:none;stroke-linejoin:round}
+.plot .dot{fill:var(--curve)}
+.plot .hole{fill:var(--surface);stroke:var(--curve);stroke-width:2}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted);margin:0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.lg-a{display:inline-block;width:18px;border-top:2px dashed var(--asym)}
+.lg-d{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--curve)}
+.lg-h{display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--curve)}
+.nl{display:flex;justify-content:center}
+.nl svg{width:100%;max-width:400px;height:auto;display:block}
+.nl-base{stroke:var(--muted);stroke-width:1.5}
+.nl-arr{stroke:var(--muted);stroke-width:1.5;fill:none}
+.nl-keep{stroke:var(--accent);stroke-width:5}
+.nl-karr{stroke:var(--accent);stroke-width:3;fill:none}
+.nl-sign{fill:var(--muted);font-family:var(--f-mono);font-size:13px;font-weight:600}
+.nl-lab{fill:var(--ink);font-family:var(--f-mono);font-size:12px}
+.nl-dot{fill:var(--accent)}
+.nl-open{fill:var(--surface);stroke:var(--accent);stroke-width:2.2}
+.nl-tick{stroke:var(--muted);stroke-width:1.5}
+.key{display:inline-block;font-family:var(--f-mono);font-size:13px;font-weight:600;border:1px solid #B9C0CC;border-bottom-width:2px;border-radius:5px;padding:0 6px;background:var(--soft);white-space:nowrap}
+.ks{margin:0;padding-left:1.3em;display:grid;gap:6px}
+code{font-family:var(--f-mono);font-size:14px;background:var(--soft);border-radius:4px;padding:0 4px}
+.tip{font-size:15px;color:var(--muted)}
+.lt{background:var(--soft);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.keyrow{display:flex;flex-wrap:wrap;gap:8px 16px;background:var(--box);color:var(--box-ink);border-radius:10px;padding:10px 14px;font-size:15px}
+.keyrow > span{display:inline-flex;align-items:center;gap:7px}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px}
+.sw-b{background:#7DD3FC}.sw-y{background:#FCD34D}
+.brace{font-size:20px;line-height:1}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+<header style="display:grid;gap:12px">
+  <h1>Unit 2 Homework Solved</h1>
+  <p class="sub">Every problem from the Unit 2 assignments not yet turned in on Canvas. Each one has the book's directions, then the full work in the black box, then the answer.</p>
+  <div class="keyrow"><span><i class="sw sw-b"></i>number plugged in</span><span><i class="sw sw-y"></i>the part that changes next</span><span><span class="brace">⏟</span>what that part turns into</span></div>
+  <nav class="toc" aria-label="Assignments"><a href="#review">Unit 2 Review</a><a href="#ptest">Practice Test (EC)</a><a href="#lt">Learning Targets (EC)</a><a href="#calc">TI-83 Calculator</a></nav>
+</header>
+
+<!-- ===================== PS 2.7 ===================== -->
+<section class="sec" id="review">
+  <div class="sechead"><span class="tag req">Required · 25 points · turn in before the exam</span><h2>Unit 2 Review</h2><p class="sub">Pages 432–435: problems 4–8, 14–15, 17–18, 24–27, 30–31, 44–47, 49–50, 55–56 (not part b), 61–64, 75–78, 86–89</p></div>
+
+  <h3>2.1 Complex numbers</h3>
+  <p class="dir">In Exercises 1–10 perform the indicated operations and write the result in standard form.</p>
+
+  <article class="p"><div class="ph"><span class="n">4</span><div class="q">\((3-4i)^2\)</div></div>
+    <div class="box">\[\begin{aligned}(3-4i)(3-4i)&=9-24i+16i^2\\&=9-24i-16\end{aligned}\]</div>
+    <p class="ans"><b>Answer</b>\(-7-24i\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">5</span><div class="q">\((7+8i)(7-8i)\)</div></div>
+    <div class="box">\[49-56i+56i-64i^2=49+64\]</div>
+    <p class="ans"><b>Answer</b>\(113\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">6</span><div class="q">\(\dfrac{6}{5+i}\)</div></div>
+    <div class="box">\[\frac{6}{5+i}\cdot\frac{5-i}{5-i}=\frac{30-6i}{25+1}=\frac{30-6i}{26}\]</div>
+    <p class="ans"><b>Answer</b>\(\tfrac{15}{13}-\tfrac{3}{13}i\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">7</span><div class="q">\(\dfrac{3+4i}{4-2i}\)</div></div>
+    <div class="box">\[\frac{3+4i}{4-2i}\cdot\frac{4+2i}{4+2i}=\frac{12+22i+8i^2}{16+4}=\frac{4+22i}{20}\]</div>
+    <p class="ans"><b>Answer</b>\(\tfrac15+\tfrac{11}{10}i\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">8</span><div class="q">\(\sqrt{-32}-\sqrt{-18}\)</div></div>
+    <div class="box">\[i\sqrt{16\cdot2}-i\sqrt{9\cdot2}=4i\sqrt2-3i\sqrt2\]</div>
+    <p class="ans"><b>Answer</b>\(i\sqrt2\)</p></article>
+
+  <h3>2.2 Quadratic functions</h3>
+  <p class="dir">In Exercises 13–16, use the vertex and intercepts to sketch the graph of each quadratic function. Give the equation for the parabola's axis of symmetry. Use the graph to determine the function's domain and range.</p>
+
+  <article class="p"><div class="ph"><span class="n">14</span><div class="q">\(f(x)=(x+4)^2-2\)</div></div>
+    <div class="box">\[\begin{aligned}V&(-4,-2),\ a\gt0;\quad f(0)=16-2=14\\(x+4)^2&=2\ \to\ x=-4\pm\sqrt2\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="r14" data-label="Upward parabola with vertex at (-4, -2)"></div></figure>
+    <p class="ans"><b>Answer</b>Axis \(x=-4\); D \((-\infty,\infty)\); R \([-2,\infty)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">15</span><div class="q">\(f(x)=-x^2+2x+3\)</div></div>
+    <div class="box">\[\begin{aligned}x&=\frac{-2}{2(-1)}=1,\ f(1)=4\ \to\ V(1,4);\quad f(0)=3\\x^2-2x-3&=(x-3)(x+1)=0\ \to\ x=3,\ -1\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="r15" data-label="Downward parabola with vertex at (1, 4)"></div></figure>
+    <p class="ans"><b>Answer</b>Axis \(x=1\); D \((-\infty,\infty)\); R \((-\infty,4]\)</p></article>
+
+  <p class="dir">In Exercises 17–18, use the function's equation, and not its graph, to find a. the minimum or maximum value and where it occurs. b. the function's domain and its range.</p>
+
+  <article class="p"><div class="ph"><span class="n">17</span><div class="q">\(f(x)=-x^2+14x-106\)</div></div>
+    <div class="box">\[a\lt0\ \to\ \max;\quad x=\frac{-14}{2(-1)}=7;\quad f(7)=-49+98-106=-57\]</div>
+    <p class="ans"><b>Answer</b>Max \(-57\) at \(x=7\); D \((-\infty,\infty)\); R \((-\infty,-57]\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">18</span><div class="q">\(f(x)=2x^2+12x+703\)</div></div>
+    <div class="box">\[a\gt0\ \to\ \min;\quad x=\frac{-12}{2(2)}=-3;\quad f(-3)=18-36+703=685\]</div>
+    <p class="ans"><b>Answer</b>Min \(685\) at \(x=-3\); D \((-\infty,\infty)\); R \([685,\infty)\)</p></article>
+
+  <h3>2.3 Polynomial functions</h3>
+  <p class="dir">In Exercises 24–27, use the Leading Coefficient Test to determine the end behavior of the graph of the given polynomial function. Then use this end behavior to match the polynomial function with its graph. [The graphs are labeled (a) through (d).]</p>
+
+  <article class="p"><div class="ph"><span class="n">24</span><div class="q">\(f(x)=-x^3+x^2+2x\)</div></div>
+    <div class="box">\[n=3\ \text{odd},\ \ a_n=-1\lt0\]</div>
+    <p class="ans"><b>Answer</b>Rises left, falls right → (c)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">25</span><div class="q">\(f(x)=x^6-6x^4+9x^2\)</div></div>
+    <div class="box">\[n=6\ \text{even},\ \ a_n=1\gt0\]</div>
+    <p class="ans"><b>Answer</b>Rises left and right → (b)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">26</span><div class="q">\(f(x)=x^5-5x^3+4x\)</div></div>
+    <div class="box">\[n=5\ \text{odd},\ \ a_n=1\gt0\]</div>
+    <p class="ans"><b>Answer</b>Falls left, rises right → (a)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">27</span><div class="q">\(f(x)=-x^4+1\)</div></div>
+    <div class="box">\[n=4\ \text{even},\ \ a_n=-1\lt0\]</div>
+    <p class="ans"><b>Answer</b>Falls left and right → (d)</p></article>
+
+  <p class="dir">In Exercises 30–31, find the zeros for each polynomial function and give the multiplicity of each zero. State whether the graph crosses the x-axis, or touches the x-axis and turns around, at each zero.</p>
+
+  <article class="p"><div class="ph"><span class="n">30</span><div class="q">\(f(x)=-2(x-1)(x+2)^2(x+5)^3\)</div></div>
+    <div class="box">\[x-1=0,\quad (x+2)^2=0,\quad (x+5)^3=0\]</div>
+    <p class="ans"><b>Answer</b>\(1\): m=1, crosses · \(-2\): m=2, touches and turns · \(-5\): m=3, crosses</p></article>
+
+  <article class="p"><div class="ph"><span class="n">31</span><div class="q">\(f(x)=x^3-5x^2-25x+125\)</div></div>
+    <div class="box">\[x^2(x-5)-25(x-5)=(x-5)(x^2-25)=(x-5)^2(x+5)\]</div>
+    <p class="ans"><b>Answer</b>\(5\): m=2, touches and turns · \(-5\): m=1, crosses</p></article>
+
+  <h3>2.4 Dividing polynomials</h3>
+  <p class="dir">In Exercises 44–45, divide using synthetic division.</p>
+
+  <article class="p"><div class="ph"><span class="n">44</span><div class="q">\((3x^4+11x^3-20x^2+7x+35)\div(x+5)\)</div></div>
+    <p class="ans"><b>Answer</b>\(3x^3-4x^2+7\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">45</span><div class="q">\((3x^4-2x^2-10x)\div(x-2)\)</div></div>
+    <p class="ans"><b>Answer</b>\(3x^3+6x^2+10x+10+\dfrac{20}{x-2}\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">46</span><div class="q">Given \(f(x)=2x^3-7x^2+9x-3\), use the Remainder Theorem to find \(f(-13)\).</div></div>
+    <div class="box">\[f(-13)=2(-2197)-7(169)+9(-13)-3=-4394-1183-117-3\]</div>
+    <p class="ans"><b>Answer</b>\(f(-13)=-5697\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">47</span><div class="q">Use synthetic division to divide \(f(x)=2x^3+x^2-13x+6\) by \(x-2\). Use the result to find all zeros of \(f\).</div></div>
+    <div class="box">\[2x^2+5x-3=(2x-1)(x+3)=0\ \to\ x=\tfrac12,\ -3\]</div>
+    <p class="ans"><b>Answer</b>Quotient \(2x^2+5x-3\); zeros \(2,\ \tfrac12,\ -3\)</p></article>
+
+  <h3>2.5 Zeros of polynomial functions</h3>
+  <p class="dir">In Exercises 49–50, use the Rational Zero Theorem to list all possible rational zeros for each given function.</p>
+
+  <article class="p"><div class="ph"><span class="n">49</span><div class="q">\(f(x)=x^4-6x^3+14x^2-14x+5\)</div></div>
+    <p class="ans"><b>Answer</b>\(\pm1,\ \pm5\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">50</span><div class="q">\(f(x)=3x^5-2x^4-15x^3+10x^2+12x-8\)</div></div>
+    <p class="ans"><b>Answer</b>\(\pm1,\pm2,\pm4,\pm8,\pm\tfrac13,\pm\tfrac23,\pm\tfrac43,\pm\tfrac83\)</p></article>
+
+  <p class="dir">For Exercises 54–60, a. List all possible rational roots or rational zeros. c. Use synthetic division to test the possible rational roots or zeros and find an actual root or zero. d. Use the quotient from part (c) to find all the remaining roots or zeros. (Part b is not assigned.)</p>
+
+  <article class="p"><div class="ph"><span class="n">55</span><div class="q">\(f(x)=6x^3+x^2-4x+1\)</div></div>
+    <div class="box">\[\begin{aligned}\text{a.}\ \ p&:\pm1\quad q:\pm1,\pm2,\pm3,\pm6\ \to\ \pm1,\pm\tfrac12,\pm\tfrac13,\pm\tfrac16\\\text{c.}\ \ f(-1)&=-6+1+4+1=0\end{aligned}\]</div>
+    <div class="syn-here"></div>
+    <div class="box">\[\text{d.}\ \ 6x^2-5x+1=(3x-1)(2x-1)=0\ \to\ x=\tfrac13,\ \tfrac12\]</div>
+    <p class="ans"><b>Answer</b>a. list above · c. \(-1\) · d. \(\tfrac13,\ \tfrac12\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">56</span><div class="q">\(8x^3-36x^2+46x-15=0\)</div></div>
+    <div class="box">\[\begin{aligned}\text{a.}\ \ \frac pq&:\ \pm1,\pm3,\pm5,\pm15,\pm\tfrac12,\pm\tfrac32,\pm\tfrac52,\pm\tfrac{15}2,\\&\quad\ \pm\tfrac14,\pm\tfrac34,\pm\tfrac54,\pm\tfrac{15}4,\pm\tfrac18,\pm\tfrac38,\pm\tfrac58,\pm\tfrac{15}8\\\text{c.}\ \ f\!\left(\tfrac12\right)&=1-9+23-15=0\end{aligned}\]</div>
+    <div class="syn-here"></div>
+    <div class="box">\[\text{d.}\ \ 8x^2-32x+30=2(2x-5)(2x-3)=0\ \to\ x=\tfrac52,\ \tfrac32\]</div>
+    <p class="ans"><b>Answer</b>c. \(\tfrac12\) · d. \(\tfrac32,\ \tfrac52\)</p></article>
+
+  <p class="dir">In Exercises 61–62, find an nth-degree polynomial function with real coefficients satisfying the given conditions.</p>
+
+  <article class="p"><div class="ph"><span class="n">61</span><div class="q">\(n=3\); \(2\) and \(2-3i\) are zeros; \(f(1)=-10\)</div></div>
+    <div class="box">\[\begin{aligned}2-3i\ \to\ 2+3i:\ \ &(x-2)^2+9=x^2-4x+13\\f(x)&=a(x-2)(x^2-4x+13)\\f(1)&=a(-1)(10)=-10\ \to\ a=1\end{aligned}\]</div>
+    <p class="ans"><b>Answer</b>\(f(x)=x^3-6x^2+21x-26\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">62</span><div class="q">\(n=4\); \(i\) is a zero; \(-3\) is a zero of multiplicity 2; \(f(-1)=16\)</div></div>
+    <div class="box">\[\begin{aligned}i\ \to\ -i:\ \ f(x)&=a(x^2+1)(x+3)^2\\f(-1)&=a(2)(4)=16\ \to\ a=2\end{aligned}\]</div>
+    <p class="ans"><b>Answer</b>\(f(x)=2x^4+12x^3+20x^2+12x+18\)</p></article>
+
+  <p class="dir">In Exercises 63–64, find all the zeros of each polynomial function and write the polynomial as a product of linear factors.</p>
+
+  <article class="p"><div class="ph"><span class="n">63</span><div class="q">\(f(x)=2x^4+3x^3+3x-2\)</div></div>
+    <div class="box">\[\frac pq:\pm1,\pm2,\pm\tfrac12;\quad f\!\left(\tfrac12\right)=\tfrac18+\tfrac38+\tfrac32-2=0\]</div>
+    <div class="syn-here"></div>
+    <div class="box">\[\begin{aligned}2x^3+4x^2+2x+4&=2(x+2)(x^2+1)\\x^2+1=0&\ \to\ x=\pm i\end{aligned}\]</div>
+    <p class="ans"><b>Answer</b>\(\tfrac12,-2,\pm i\); \((2x-1)(x+2)(x-i)(x+i)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">64</span><div class="q">\(g(x)=x^4-6x^3+x^2+24x+16\)</div></div>
+    <div class="box">\[g(-1)=1+6+1-24+16=0\]</div>
+    <div class="syn-here"></div>
+    <div class="box">\[x^2-8x+16=(x-4)^2\]</div>
+    <p class="ans"><b>Answer</b>\(-1,\ 4\) (m=2 each); \((x+1)(x+1)(x-4)(x-4)\)</p></article>
+
+  <h3>2.6 Rational functions</h3>
+  <p class="dir">In Exercises 71–78, find the vertical asymptotes, if any, the horizontal asymptote, if one exists, and the slant asymptote, if there is one, of the graph of each rational function. Then graph the rational function.</p>
+
+  <article class="p"><div class="ph"><span class="n">75</span><div class="q">\(y=\dfrac{x^2}{x+1}\)</div></div>
+    <div class="box">\[\begin{aligned}x+1=0\ \to\ x&=-1;\quad 2\gt1\ \to\ \text{no HA}\\y&=x-1+\frac{1}{x+1};\quad f(0)=0,\ f(1)=\tfrac12,\ f(-2)=-4\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="r75" data-label="Graph with vertical asymptote x = -1 and slant asymptote y = x - 1"></div></figure>
+    <p class="ans"><b>Answer</b>VA \(x=-1\); no HA; SA \(y=x-1\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">76</span><div class="q">\(y=\dfrac{x^2+2x-3}{x-3}\)</div></div>
+    <div class="box">\[\begin{aligned}x&=3;\quad 2\gt1\ \to\ \text{no HA};\quad y=x+5+\frac{12}{x-3}\\(x+3)(x-1)&=0\ \to\ x=-3,1;\quad f(0)=1\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="r76" data-label="Graph with vertical asymptote x = 3 and slant asymptote y = x + 5"></div></figure>
+    <p class="ans"><b>Answer</b>VA \(x=3\); no HA; SA \(y=x+5\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">77</span><div class="q">\(f(x)=\dfrac{-2x^3}{x^2+1}\)</div></div>
+    <div class="box">\[\begin{aligned}x^2+1&\ne0\ \to\ \text{no VA};\quad 3\gt2\ \to\ \text{no HA}\\f(x)&=-2x+\frac{2x}{x^2+1};\quad f(0)=0,\ f(1)=-1,\ f(-1)=1\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="r77" data-label="Graph with slant asymptote y = -2x through the origin"></div></figure>
+    <p class="ans"><b>Answer</b>No VA; no HA; SA \(y=-2x\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">78</span><div class="q">\(g(x)=\dfrac{4x^2-16x+16}{2x-3}\)</div></div>
+    <div class="box">\[\begin{aligned}2x-3=0\ \to\ x&=\tfrac32;\quad 2\gt1\ \to\ \text{no HA}\\\frac{4x-10}{2}&=2x-5;\quad 4(x-2)^2=0\ \to\ x=2;\quad g(0)=-\tfrac{16}3\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="r78" data-label="Graph with vertical asymptote x = 3/2 and slant asymptote y = 2x - 5"></div></figure>
+    <p class="ans"><b>Answer</b>VA \(x=\tfrac32\); no HA; SA \(y=2x-5\)</p></article>
+
+  <h3>2.7 Inequalities</h3>
+  <p class="dir">In Exercises 85–90, solve each inequality and graph the solution set on a real number line.</p>
+
+  <article class="p"><div class="ph"><span class="n">86</span><div class="q">\(2x^2+9x+4\ge0\)</div></div>
+    <div class="box">\[\begin{aligned}(2x+1)(x+4)&\ge0\ \to\ x=-4,\ -\tfrac12\\x=-5&:+\quad x=-1:-\quad x=0:+\end{aligned}\]</div>
+    <div class="nl" data-pts="-4,-1/2" data-signs="+,-,+" data-keep="0,2" data-closed="-4,-1/2"></div>
+    <p class="ans"><b>Answer</b>\((-\infty,-4]\cup\left[-\tfrac12,\infty\right)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">87</span><div class="q">\(x^3+2x^2 \gt 3x\)</div></div>
+    <div class="box">\[\begin{aligned}x^3+2x^2-3x\gt0\ &\to\ x(x+3)(x-1)\gt0\ \to\ x=-3,0,1\\x=-4&:-\quad x=-1:+\quad x=0.5:-\quad x=2:+\end{aligned}\]</div>
+    <div class="nl" data-pts="-3,0,1" data-signs="-,+,-,+" data-keep="1,3"></div>
+    <p class="ans"><b>Answer</b>\((-3,0)\cup(1,\infty)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">88</span><div class="q">\(\dfrac{x-6}{x+2} \gt 0\)</div></div>
+    <div class="box">\[\begin{aligned}x&=6,\ -2\\x=-3&:+\quad x=0:-\quad x=7:+\end{aligned}\]</div>
+    <div class="nl" data-pts="-2,6" data-signs="+,-,+" data-keep="0,2"></div>
+    <p class="ans"><b>Answer</b>\((-\infty,-2)\cup(6,\infty)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">89</span><div class="q">\(\dfrac{(x+1)(x-2)}{x-1}\ge0\)</div></div>
+    <div class="box">\[\begin{aligned}x&=-1,\ 2\ (\bullet);\quad x=1\ (\circ)\\x=-2&:-\quad x=0:+\quad x=1.5:-\quad x=3:+\end{aligned}\]</div>
+    <div class="nl" data-pts="-1,1,2" data-signs="-,+,-,+" data-keep="1,3" data-closed="-1,2"></div>
+    <p class="ans"><b>Answer</b>\([-1,1)\cup[2,\infty)\)</p></article>
+</section>
+
+<!-- ===================== PRACTICE TEST ===================== -->
+<section class="sec" id="ptest">
+  <div class="sechead"><span class="tag ec">Extra credit · up to 10 points · before the exam</span><h2>Chapter 2 Practice Test</h2><p class="sub">Pages 436–438: problems 1–7, 12–13, 15, 17–19, 22–25, 27–28</p></div>
+
+  <p class="dir">In Exercises 1–3, perform the indicated operations and write the result in standard form.</p>
+
+  <article class="p"><div class="ph"><span class="n">1</span><div class="q">\((6-7i)(2+5i)\)</div></div>
+    <div class="box">\[12+30i-14i-35i^2=12+16i+35\]</div>
+    <p class="ans"><b>Answer</b>\(47+16i\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">2</span><div class="q">\(\dfrac{5}{2-i}\)</div></div>
+    <div class="box">\[\frac{5}{2-i}\cdot\frac{2+i}{2+i}=\frac{10+5i}{4+1}=\frac{10+5i}{5}\]</div>
+    <p class="ans"><b>Answer</b>\(2+i\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">3</span><div class="q">\(2\sqrt{-49}+3\sqrt{-64}\)</div></div>
+    <div class="box">\[2(7i)+3(8i)=14i+24i\]</div>
+    <p class="ans"><b>Answer</b>\(38i\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">4</span><div class="q">Solve and express solutions in standard form: \(x^2=4x-8\)</div></div>
+    <div class="box">\[x^2-4x+8=0\ \to\ x=\frac{4\pm\sqrt{16-32}}{2}=\frac{4\pm4i}{2}\]</div>
+    <p class="ans"><b>Answer</b>\(\{2+2i,\ 2-2i\}\)</p></article>
+
+  <p class="dir">In Exercises 5–6, use the vertex and intercepts to sketch the graph of each quadratic function. Give the equation for the parabola's axis of symmetry. Use the graph to determine the function's domain and range.</p>
+
+  <article class="p"><div class="ph"><span class="n">5</span><div class="q">\(f(x)=(x+1)^2+4\)</div></div>
+    <div class="box">\[V(-1,4),\ a\gt0;\quad f(0)=5;\quad (x+1)^2=-4\ \to\ \text{no x-int}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="t5" data-label="Upward parabola with vertex at (-1, 4)"></div></figure>
+    <p class="ans"><b>Answer</b>Axis \(x=-1\); D \((-\infty,\infty)\); R \([4,\infty)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">6</span><div class="q">\(f(x)=x^2-2x-3\)</div></div>
+    <div class="box">\[\begin{aligned}x&=\frac{2}{2}=1,\ f(1)=-4\ \to\ V(1,-4);\quad f(0)=-3\\(x-3)(x+1)&=0\ \to\ x=3,\ -1\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="t6" data-label="Upward parabola with vertex at (1, -4)"></div></figure>
+    <p class="ans"><b>Answer</b>Axis \(x=1\); D \((-\infty,\infty)\); R \([-4,\infty)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">7</span><div class="q">Determine, without graphing, whether \(f(x)=-2x^2+12x-16\) has a minimum value or a maximum value. Then find: a. the minimum or maximum value and where it occurs. b. the function's domain and its range.</div></div>
+    <div class="box">\[a\lt0\ \to\ \max;\quad x=\frac{-12}{-4}=3;\quad f(3)=-18+36-16=2\]</div>
+    <p class="ans"><b>Answer</b>Max \(2\) at \(x=3\); D \((-\infty,\infty)\); R \((-\infty,2]\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">12</span><div class="q">The graph of \(f(x)=6x^3-19x^2+16x-4\) is shown. a. Based on the graph of \(f\), find the root of \(6x^3-19x^2+16x-4=0\) that is an integer. b. Use synthetic division to find the other two roots.</div></div>
+    <div class="box">\[\text{a.}\ \ f(2)=48-76+32-4=0\]</div>
+    <div class="syn-here"></div>
+    <div class="box">\[\text{b.}\ \ 6x^2-7x+2=(3x-2)(2x-1)=0\ \to\ x=\tfrac23,\ \tfrac12\]</div>
+    <p class="ans"><b>Answer</b>a. \(2\) · b. \(\tfrac23,\ \tfrac12\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">13</span><div class="q">Use the Rational Zero Theorem to list all possible rational zeros of \(f(x)=2x^3+11x^2-7x-6\).</div></div>
+    <p class="ans"><b>Answer</b>\(\pm1,\pm2,\pm3,\pm6,\pm\tfrac12,\pm\tfrac32\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">15</span><div class="q">Solve: \(x^3+9x^2+16x-6=0\)</div></div>
+    <div class="box">\[f(-3)=-27+81-48-6=0\]</div>
+    <div class="syn-here"></div>
+    <div class="box">\[x^2+6x-2=0\ \to\ x=\frac{-6\pm\sqrt{36+8}}{2}=-3\pm\sqrt{11}\]</div>
+    <p class="ans"><b>Answer</b>\(\{-3,\ -3+\sqrt{11},\ -3-\sqrt{11}\}\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">17</span><div class="q">Use the graph of \(f(x)=x^3+3x^2-4\) to factor \(x^3+3x^2-4\).</div></div>
+    <div class="box">\[\text{Graph: }x=1,\ x=-2\ (\text{bounce});\quad f(1)=1+3-4=0\]</div>
+    <div class="syn-here"></div>
+    <div class="box">\[x^2+4x+4=(x+2)^2\]</div>
+    <p class="ans"><b>Answer</b>\((x-1)(x+2)^2\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">18</span><div class="q">Find a fourth-degree polynomial function \(f(x)\) with real coefficients that has \(-1\), \(1\), and \(i\) as zeros and such that \(f(3)=160\).</div></div>
+    <div class="box">\[\begin{aligned}i\ \to\ -i:\ \ f(x)&=a(x^2-1)(x^2+1)=a(x^4-1)\\f(3)&=80a=160\ \to\ a=2\end{aligned}\]</div>
+    <p class="ans"><b>Answer</b>\(f(x)=2x^4-2\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">19</span><div class="q">The figure shows an incomplete graph of \(f(x)=-3x^3-4x^2+x+2\). Find all the zeros of the function. Then draw a complete graph.</div></div>
+    <div class="box">\[f(-1)=3-4-1+2=0\]</div>
+    <div class="syn-here"></div>
+    <div class="box">\[-3x^2-x+2=-(3x-2)(x+1)\ \to\ f(x)=-(x+1)^2(3x-2)\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="t19" data-label="Cubic that touches the x-axis at -1 and crosses at 2/3"></div></figure>
+    <p class="ans"><b>Answer</b>\(-1\) (m=2, touches), \(\tfrac23\) (crosses)</p></article>
+
+  <p class="dir">In Exercises 20–25, find the domain of each rational function and graph the function.</p>
+
+  <article class="p"><div class="ph"><span class="n">22</span><div class="q">\(f(x)=\dfrac{x}{x^2-16}\)</div></div>
+    <div class="box">\[\begin{aligned}x^2-16&=(x-4)(x+4)=0\ \to\ \text{VA }x=\pm4;\quad \text{HA }y=0\\f(0)&=0,\ f(2)=-\tfrac16,\ f(5)=\tfrac59\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="t22" data-label="Graph with vertical asymptotes x = -4 and x = 4 and horizontal asymptote y = 0"></div></figure>
+    <p class="ans"><b>Answer</b>D \((-\infty,-4)\cup(-4,4)\cup(4,\infty)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">23</span><div class="q">\(f(x)=\dfrac{x^2-9}{x-2}\)</div></div>
+    <div class="box">\[\begin{aligned}\text{VA }x&=2;\quad f(x)=x+2-\frac{5}{x-2}\ \to\ \text{SA }y=x+2\\\text{x-int }&\pm3;\quad f(0)=\tfrac92\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="t23" data-label="Graph with vertical asymptote x = 2 and slant asymptote y = x + 2"></div></figure>
+    <p class="ans"><b>Answer</b>D \((-\infty,2)\cup(2,\infty)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">24</span><div class="q">\(f(x)=\dfrac{x+1}{x^2+2x-3}\)</div></div>
+    <div class="box">\[\begin{aligned}(x+3)(x-1)&=0\ \to\ \text{VA }x=-3,1;\quad \text{HA }y=0\\\text{x-int }&-1;\quad f(0)=-\tfrac13\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="t24" data-label="Graph with vertical asymptotes x = -3 and x = 1 and horizontal asymptote y = 0"></div></figure>
+    <p class="ans"><b>Answer</b>D \((-\infty,-3)\cup(-3,1)\cup(1,\infty)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">25</span><div class="q">\(f(x)=\dfrac{4x^2}{x^2+3}\)</div></div>
+    <div class="box">\[\begin{aligned}x^2+3&\ne0\ \to\ \text{no VA};\quad \text{HA }y=4\\f(0)&=0,\ f(\pm1)=1,\ f(\pm3)=3\end{aligned}\]</div>
+    <figure class="fig"><div class="plotbox" data-plot="t25" data-label="Graph with horizontal asymptote y = 4 and minimum at the origin"></div></figure>
+    <p class="ans"><b>Answer</b>D \((-\infty,\infty)\)</p></article>
+
+  <p class="dir">Solve each inequality in Exercises 27–28 and graph the solution set on a real number line. Express each solution set in interval notation.</p>
+
+  <article class="p"><div class="ph"><span class="n">27</span><div class="q">\(x^2 \lt x+12\)</div></div>
+    <div class="box">\[\begin{aligned}x^2-x-12&\lt0\ \to\ (x-4)(x+3)\lt0\ \to\ x=-3,4\\x=-4&:+\quad x=0:-\quad x=5:+\end{aligned}\]</div>
+    <div class="nl" data-pts="-3,4" data-signs="+,-,+" data-keep="1"></div>
+    <p class="ans"><b>Answer</b>\((-3,4)\)</p></article>
+
+  <article class="p"><div class="ph"><span class="n">28</span><div class="q">\(\dfrac{2x+1}{x-3}\le3\)</div></div>
+    <div class="box">\[\begin{aligned}\frac{2x+1-3(x-3)}{x-3}&=\frac{-x+10}{x-3}\le0\ \to\ x=10\ (\bullet),\ x=3\ (\circ)\\x=0&:-\quad x=5:+\quad x=11:-\end{aligned}\]</div>
+    <div class="nl" data-pts="3,10" data-signs="-,+,-" data-keep="0,2" data-closed="10"></div>
+    <p class="ans"><b>Answer</b>\((-\infty,3)\cup[10,\infty)\)</p></article>
+</section>
+
+<!-- ===================== LEARNING TARGETS ===================== -->
+<section class="sec" id="lt">
+  <div class="sechead"><span class="tag ec">Extra credit · up to 5 points · before the exam</span><h2>Unit 2 Learning Targets</h2></div>
+  <div class="lt">
+    <p>There's no math on this one. It's a one-page sheet listing 15 skills (2.1–2.7). Next to each skill, check Strong, OK or Weak, then turn it in.</p>
+    <p>It's on Canvas: Modules → HPC Learning Targets 26-27 → <i>Unit 2 Learning Targets.pdf</i>.</p>
+  </div>
+</section>
+
+<!-- ===================== TI-83 ===================== -->
+<section class="sec" id="calc">
+  <div class="sechead"><h2>Using the TI-83 on Unit 2</h2><p class="sub">Keys are in <span class="key">boxes</span>. "2nd" means press the yellow <span class="key">2nd</span> key first.</p></div>
+
+  <article class="p"><div class="ph"><span class="n">Set up</span><div class="q">Let it do \(i\) math (2.1)</div></div>
+    <ol class="ks"><li><span class="key">MODE</span>, arrow down to the row <code>Real a+bi re^θi</code>, highlight <code>a+bi</code>, press <span class="key">ENTER</span>.</li><li><span class="key">2nd</span> <span class="key">MODE</span> (QUIT) to leave.</li><li>The letter \(i\) is <span class="key">2nd</span> <span class="key">.</span></li></ol>
+    <div class="box">\[\begin{aligned}\texttt{(6-7i)(2+5i)}&\to 47+16i\\\texttt{5/(2-i)}&\to 2+i\\\texttt{√(-32)-√(-18)}&\to 1.414213562i=i\sqrt2\end{aligned}\]</div>
+    <p class="tip">Negative numbers use the <span class="key">(−)</span> key next to ENTER, not the minus key.</p></article>
+
+  <article class="p"><div class="ph"><span class="n">Fractions</span><div class="q">Turn a decimal answer into a fraction</div></div>
+    <ol class="ks"><li>Type the problem, then <span class="key">MATH</span> <span class="key">1</span> (▸Frac) <span class="key">ENTER</span>.</li></ol>
+    <div class="box">\[\begin{aligned}\texttt{6/(5+i)▸Frac}&\to \tfrac{15}{13}-\tfrac{3}{13}i\\\texttt{-16/3▸Frac}&\to -\tfrac{16}{3}\end{aligned}\]</div></article>
+
+  <article class="p"><div class="ph"><span class="n">f(c)</span><div class="q">Plug a number into \(f\) (Remainder Theorem, testing \(\tfrac pq\))</div></div>
+    <ol class="ks"><li><span class="key">Y=</span>, type the function next to <code>Y1=</code>. The \(x\) is the <span class="key">X,T,θ</span> key.</li><li><span class="key">2nd</span> <span class="key">MODE</span> (QUIT).</li><li><span class="key">VARS</span> → arrow right to <code>Y-VARS</code> → <span class="key">1</span> (Function) → <span class="key">1</span> (Y1).</li><li>Type the number in parentheses, then <span class="key">ENTER</span>.</li></ol>
+    <div class="box">\[\begin{aligned}\texttt{Y1=2X^3-7X^2+9X-3}&\\\texttt{Y1(-13)}&\to-5697\\\text{Answer }0&\Rightarrow\text{that number is a zero}\end{aligned}\]</div></article>
+
+  <article class="p"><div class="ph"><span class="n">Table</span><div class="q">Test many \(\tfrac pq\) values at once (2.5)</div></div>
+    <ol class="ks"><li>Put \(f\) in <code>Y1=</code>.</li><li><span class="key">2nd</span> <span class="key">WINDOW</span> (TBLSET): <code>TblStart=-6</code>, <code>ΔTbl=.5</code>.</li><li><span class="key">2nd</span> <span class="key">GRAPH</span> (TABLE). Any row where <code>Y1</code> is <code>0</code> is a zero.</li></ol>
+    <div class="box">\[\begin{aligned}\texttt{Y1=6X^3+X^2-4X+1}&\\X=-1&\to Y1=0\\X=.5&\to Y1=0\end{aligned}\]</div></article>
+
+  <article class="p"><div class="ph"><span class="n">Zeros</span><div class="q">Find a zero from the graph (2.3, 2.5)</div></div>
+    <ol class="ks"><li>Put \(f\) in <code>Y1=</code>, press <span class="key">ZOOM</span> <span class="key">6</span> (ZStandard).</li><li><span class="key">2nd</span> <span class="key">TRACE</span> (CALC) → <span class="key">2</span> (zero).</li><li>Left Bound? Move the cursor left of the crossing, <span class="key">ENTER</span>. Right Bound? Move right of it, <span class="key">ENTER</span>. Guess? <span class="key">ENTER</span>.</li></ol>
+    <div class="box">\[\begin{aligned}\texttt{Y1=X^3+9X^2+16X-6}&\to X=-3\ \text{(then long divide by }x+3)\end{aligned}\]</div>
+    <p class="tip">Use the graph to find a nice zero fast. The test still wants the division and the exact answer, like \(-3\pm\sqrt{11}\).</p></article>
+
+  <article class="p"><div class="ph"><span class="n">Max/min</span><div class="q">Vertex of a parabola (2.2)</div></div>
+    <ol class="ks"><li>Graph it, then <span class="key">2nd</span> <span class="key">TRACE</span> → <span class="key">3</span> (minimum) or <span class="key">4</span> (maximum).</li><li>Left Bound, Right Bound, Guess, each with <span class="key">ENTER</span>.</li></ol>
+    <div class="box">\[\begin{aligned}\texttt{Y1=-2X^2+12X-16}&\to\text{Maximum }X=3,\ Y=2\end{aligned}\]</div>
+    <p class="tip">If the graph runs off the screen, press <span class="key">ZOOM</span> <span class="key">0</span> (ZoomFit).</p></article>
+
+  <article class="p"><div class="ph"><span class="n">Check</span><div class="q">Check an inequality or asymptote answer (2.6, 2.7)</div></div>
+    <ol class="ks"><li>Type the left side minus the right side in <code>Y1=</code>, with parentheses around every top and bottom: <code>(X-6)/(X+2)</code>.</li><li><span class="key">GRAPH</span>. For \(>0\) your answer is where the graph sits above the x-axis; for \(<0\), below it.</li><li>For asymptotes, also put your slant line in <code>Y2=</code>. The graph should hug it at the edges.</li></ol></article>
+</section>
+</div>
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+    macros: {
+      ub: ['\\underbrace{#1}_{#2}', 2],
+      vl: ['{\\color{##7DD3FC}{#1}}', 1],
+      hl: ['{\\color{##FCD34D}{#1}}', 1]
+    }
+  },
+  svg: { fontCache: 'global' }, options: { enableMenu: false }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" defer></script>
+<script>
+(function () {
+  var fmt = function (v) { return String(v).replace(/-/g, '−'); };
+
+  /* long division tables: rows split by |, cells by comma; row 0 = divisor + dividend, row 1 = quotient */
+  document.querySelectorAll('table.ld[data-ld]').forEach(function (t) {
+    var rows = t.dataset.ld.split('|').map(function (r) { return r.split(','); });
+    var order = [rows[1], rows[0]].concat(rows.slice(2));
+    var h = '';
+    order.forEach(function (r, i) {
+      var cls = i === 0 ? 'lq' : i === 1 ? 'ltop' : (i % 2 === 1 ? 'lr' : '');
+      h += '<tr class="' + cls + '">' + r.map(function (c, j) { return '<td' + (i === 1 && j === 0 ? ' class="dv"' : '') + '>' + c + '</td>'; }).join('') + '</tr>';
+    });
+    t.innerHTML = h;
+  });
+
+  /* graphs */
+  var P = {
+    r14: { f: function (x) { return (x + 4) * (x + 4) - 2; }, x: [-9, 2], y: [-4, 16], dots: [[-4 - Math.SQRT2, 0], [-4 + Math.SQRT2, 0], [0, 14], [-4, -2]] },
+    r15: { f: function (x) { return -x * x + 2 * x + 3; }, x: [-3, 5], y: [-6, 6], dots: [[-1, 0], [3, 0], [0, 3], [1, 4]] },
+    r75: { f: function (x) { return x * x / (x + 1); }, x: [-7, 6], y: [-12, 8], va: [-1], sl: [1, -1], dots: [[0, 0]] },
+    r76: { f: function (x) { return (x * x + 2 * x - 3) / (x - 3); }, x: [-8, 12], y: [-10, 30], va: [3], sl: [1, 5], dots: [[-3, 0], [1, 0], [0, 1]] },
+    r77: { f: function (x) { return -2 * x * x * x / (x * x + 1); }, x: [-5, 5], y: [-8, 8], sl: [-2, 0], dots: [[0, 0]] },
+    r78: { f: function (x) { return (4 * x * x - 16 * x + 16) / (2 * x - 3); }, x: [-4, 7], y: [-14, 10], va: [1.5], sl: [2, -5], dots: [[2, 0], [0, -16 / 3]] },
+    t5: { f: function (x) { return (x + 1) * (x + 1) + 4; }, x: [-5, 3], y: [-1, 12], dots: [[0, 5], [-1, 4]] },
+    t6: { f: function (x) { return x * x - 2 * x - 3; }, x: [-3, 5], y: [-6, 8], dots: [[-1, 0], [3, 0], [0, -3], [1, -4]] },
+    t19: { f: function (x) { return -3 * x * x * x - 4 * x * x + x + 2; }, x: [-2.5, 2], y: [-4, 6], dots: [[-1, 0], [2 / 3, 0], [0, 2]] },
+    t22: { f: function (x) { return x / (x * x - 16); }, x: [-9, 9], y: [-3, 3], va: [-4, 4], ha: 0, dots: [[0, 0]] },
+    t23: { f: function (x) { return (x * x - 9) / (x - 2); }, x: [-7, 10], y: [-10, 16], va: [2], sl: [1, 2], dots: [[-3, 0], [3, 0], [0, 4.5]] },
+    t24: { f: function (x) { return (x + 1) / (x * x + 2 * x - 3); }, x: [-7, 5], y: [-4, 4], va: [-3, 1], ha: 0, dots: [[-1, 0], [0, -1 / 3]] },
+    t25: { f: function (x) { return 4 * x * x / (x * x + 3); }, x: [-8, 8], y: [-1, 6], ha: 4, dots: [[0, 0]] }
+  };
+  var cid = 0;
+  function plot(el, c) {
+    var W = 340, H = 250, L = 6, R = 6, T = 6, B = 6;
+    var x0 = c.x[0], x1 = c.x[1], y0 = c.y[0], y1 = c.y[1], span = y1 - y0;
+    var sx = function (x) { return (L + (x - x0) / (x1 - x0) * (W - L - R)).toFixed(1); };
+    var sy = function (y) { return (T + (y1 - y) / (y1 - y0) * (H - T - B)).toFixed(1); };
+    var id = 'clip' + (cid++), g = '';
+    var ax = +sy(0), ay = +sx(0);
+    g += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + ax + '" y2="' + ax + '"/><line class="axis" y1="' + T + '" y2="' + (H - B) + '" x1="' + ay + '" x2="' + ay + '"/>';
+    var lab = function (v) { return Number.isInteger(v) ? fmt(v) : Number.isInteger(v * 2) ? fmt(v * 2) + '/2' : ''; };
+    var xk = (c.va || []).concat((c.dots || []).filter(function (p) { return p[1] === 0; }).map(function (p) { return p[0]; }));
+    var yk = (c.ha != null ? [c.ha] : []).concat((c.dots || []).filter(function (p) { return p[0] === 0; }).map(function (p) { return p[1]; }));
+    xk.filter(function (v, i) { return v !== 0 && xk.indexOf(v) === i && lab(v); }).forEach(function (v) { g += '<text class="tick" x="' + sx(v) + '" y="' + (ax + 13) + '" text-anchor="middle">' + lab(v) + '</text>'; });
+    yk.filter(function (v, i) { return v !== 0 && yk.indexOf(v) === i && lab(v); }).forEach(function (v) { g += '<text class="tick" x="' + (ay - 5) + '" y="' + (+sy(v) - 4) + '" text-anchor="end">' + lab(v) + '</text>'; });
+    var va = (c.va || []).slice().sort(function (a, b) { return a - b; });
+    var asym = va.length || c.ha != null || c.sl;
+    va.forEach(function (a) { g += '<line class="asym" x1="' + sx(a) + '" x2="' + sx(a) + '" y1="' + T + '" y2="' + (H - B) + '"/>'; });
+    if (c.ha != null) g += '<line class="asym" x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(c.ha) + '" y2="' + sy(c.ha) + '"/>';
+    if (c.sl) g += '<line class="asym" clip-path="url(#' + id + ')" x1="' + sx(x0) + '" y1="' + sy(c.sl[0] * x0 + c.sl[1]) + '" x2="' + sx(x1) + '" y2="' + sy(c.sl[0] * x1 + c.sl[1]) + '"/>';
+    var xsamp = [], N = 900, i;
+    for (i = 0; i <= N; i++) xsamp.push(x0 + (x1 - x0) * i / N);
+    va.forEach(function (a) { [1e-3, 1e-4].forEach(function (e) { xsamp.push(a - e, a + e); }); });
+    xsamp.sort(function (a, b) { return a - b; });
+    var d = '', pen = false, prev = null;
+    xsamp.forEach(function (x) {
+      if (prev !== null && va.some(function (a) { return (prev < a && x >= a) || (prev <= a && x > a); })) pen = false;
+      prev = x;
+      var y = c.f(x);
+      if (!isFinite(y)) { pen = false; return; }
+      y = Math.max(y0 - 3 * span, Math.min(y1 + 3 * span, y));
+      d += (pen ? 'L' : 'M') + sx(x) + ' ' + sy(y);
+      pen = true;
+    });
+    var marks = '';
+    (c.dots || []).forEach(function (p) { marks += '<circle class="dot" cx="' + sx(p[0]) + '" cy="' + sy(p[1]) + '" r="3.6"/>'; });
+    var legend = '<p class="legend">' + (asym ? '<span><i class="lg-a"></i>asymptote</span>' : '') + ((c.dots || []).length ? '<span><i class="lg-d"></i>key point</span>' : '') + '</p>';
+    el.innerHTML = '<svg class="plot" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + (el.dataset.label || 'Graph') + '"><defs><clipPath id="' + id + '"><rect x="' + L + '" y="' + T + '" width="' + (W - L - R) + '" height="' + (H - T - B) + '"/></clipPath></defs>' + g + '<path class="curve" clip-path="url(#' + id + ')" d="' + d + '"/>' + marks + '</svg>' + legend;
+  }
+  document.querySelectorAll('.plotbox').forEach(function (el) { var c = P[el.dataset.plot]; if (c) plot(el, c); });
+
+  /* number lines */
+  document.querySelectorAll('.nl').forEach(function (el) {
+    var pts = el.dataset.pts.split(','), signs = el.dataset.signs.split(','),
+        keep = el.dataset.keep.split(',').map(Number),
+        closed = (el.dataset.closed || '').split(',').filter(Boolean);
+    var W = 340, H = 66, y = 32, a = 12, b = W - 12, n = pts.length;
+    var xs = pts.map(function (p, i) { return n === 1 ? W / 2 : 70 + i * (W - 140) / (n - 1); });
+    var bd = [a].concat(xs, [b]);
+    var s = '<line class="nl-base" x1="' + a + '" x2="' + b + '" y1="' + y + '" y2="' + y + '"/>';
+    s += '<path class="nl-arr" d="M' + (a + 7) + ' ' + (y - 5) + ' L' + a + ' ' + y + ' L' + (a + 7) + ' ' + (y + 5) + '"/>';
+    s += '<path class="nl-arr" d="M' + (b - 7) + ' ' + (y - 5) + ' L' + b + ' ' + y + ' L' + (b - 7) + ' ' + (y + 5) + '"/>';
+    keep.forEach(function (k) {
+      s += '<line class="nl-keep" x1="' + bd[k] + '" x2="' + bd[k + 1] + '" y1="' + y + '" y2="' + y + '"/>';
+      if (k === 0) s += '<path class="nl-karr" d="M' + (a + 8) + ' ' + (y - 6) + ' L' + a + ' ' + y + ' L' + (a + 8) + ' ' + (y + 6) + '"/>';
+      if (k === n) s += '<path class="nl-karr" d="M' + (b - 8) + ' ' + (y - 6) + ' L' + b + ' ' + y + ' L' + (b - 8) + ' ' + (y + 6) + '"/>';
+    });
+    signs.forEach(function (sg, i) { s += '<text class="nl-sign" x="' + ((bd[i] + bd[i + 1]) / 2) + '" y="' + (y - 11) + '" text-anchor="middle">' + (sg === '-' ? '−' : '+') + '</text>'; });
+    pts.forEach(function (p, i) {
+      var inc = closed.indexOf(p) > -1, edge = keep.indexOf(i) > -1 || keep.indexOf(i + 1) > -1;
+      if (inc) s += '<circle class="nl-dot" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      else if (edge) s += '<circle class="nl-open" cx="' + xs[i] + '" cy="' + y + '" r="5.5"/>';
+      else s += '<line class="nl-tick" x1="' + xs[i] + '" x2="' + xs[i] + '" y1="' + (y - 5) + '" y2="' + (y + 5) + '"/>';
+      s += '<text class="nl-lab" x="' + xs[i] + '" y="' + (y + 24) + '" text-anchor="middle">' + fmt(p) + '</text>';
+    });
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Solution set on a number line">' + s + '</svg>';
+  });
+})();
+</script>
+<style>
+.wrap{max-width:1040px}
+.p.two{grid-template-columns:minmax(0,1fr) 230px;gap:18px;align-items:start}
+.pmain{display:grid;gap:10px;min-width:0}
+.tips{display:grid;gap:8px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);min-width:0}
+.tips-h{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0}
+.tip-c{background:var(--accent-soft);border-radius:8px;padding:8px 10px;font-size:14.5px;line-height:1.4}
+.tip-c b{display:block;font-size:14px;margin-bottom:1px}
+#calc .p{max-width:760px}
+@media (max-width:860px){.p.two{grid-template-columns:minmax(0,1fr)}.tips{position:static}}
+</style>
+<script>
+(function () {
+  var T = {
+    table: ['Find answers', 'Put it in the calculator table. Where Y1 says 0, that x is an answer.'],
+    divide: ['Dividing', 'Once a number works, divide it out so the problem gets smaller.'],
+    finish: ['Finishing it', 'Find two numbers that multiply to the last number and add to the middle number. Front number not 1? Multiply front times last first.'],
+    ineq: ['Inequalities', 'Move everything to one side. Put the special numbers on a line. Test one number in each section.'],
+    open: ['Open or closed circle', 'A number from the bottom is always open.'],
+    hole: ['Hole or wall', 'Factor first. If it cancels, it\'s a hole. If it stays on the bottom, it\'s a wall (vertical asymptote).'],
+    flat: ['Flat line', 'Bottom power bigger: y = 0. Same power: divide the front numbers. Top power bigger: no flat line.'],
+    slant: ['Slanted line', 'Top power bigger by exactly 1? Long divide and ignore the remainder.'],
+    domain: ['Domain', 'Whatever makes the bottom 0 is not allowed.'],
+    imag: ['Imaginary numbers', 'Negative under a root? Pull out i first. i times i is −1.'],
+    ibot: ['i on the bottom', 'Copy the bottom, flip its middle sign, and multiply top and bottom by that.'],
+    twins: ['Twins', 'If i or a square root is an answer, its opposite-sign twin is an answer too.'],
+    cross: ['Crossing', 'Odd power crosses the line. Even power bounces off it.'],
+    arms: ['Arms of the graph', 'Even power: arms go the same way. Odd power: opposite ways. Positive front number: right arm up. Negative: right arm down.'],
+    count: ['Number of answers', 'The highest power tells you how many answers you need.'],
+    graph: ['Graph it first', 'See where it crosses, where it bounces and where the arms go. Then write the steps, because he grades the work.'],
+    addup: ['Add-up trick', 'Add all the front numbers, including the last number. If you get 0, then 1 is an answer.'],
+    minus1: ['−1 trick', 'Add the numbers on the even powers and the last number. Add the numbers on the odd powers. If the totals match, −1 is an answer.'],
+    four: ['Four terms', 'Split it in half. Pull out what each half shares, and the same parentheses show up twice.'],
+    flip: ['Sign flip trick', 'Test only one section. Signs flip every time you cross a number, except at a squared factor, where they stay the same.'],
+    tmult: ['Twin multiply', '(a + bi)(a − bi) is just a² + b². The i disappears.'],
+    squares: ['Square minus square', 'x² − 25 is always (x − 5)(x + 5). Same pattern for any two squares.'],
+    icheck: ['Inequality check', 'Graph it. Greater than 0 is where the graph is above the line. Less than 0 is below it.'],
+    dcheck: ['Division check', 'Put the original in Y1 and your quotient times the divisor in Y2. If the table matches, you did it right.'],
+    imcheck: ['Imaginary check', 'Turn on a+bi mode, then type the problem in to check your answer.'],
+    frac: ['Fraction check', 'Press MATH, then 1 to turn a decimal into a fraction.'],
+    y1: ['Calculator check', 'Put it in Y1, then type Y1(−13) on the home screen.']
+  };
+  var q = 'finish ineq flip icheck', r = 'ineq open flip icheck';
+  var M = {
+    ps27: { 11: q, 12: q, 13: q, 14: q, 15: q, 16: q, 40: 'addup four ineq icheck', 41: 'ineq flip icheck', 46: r, 47: r, 58: r, 59: r, 60: r, 66: 'ineq finish flip', 70: 'finish ineq open flip icheck' },
+    review: { 4: 'imag imcheck', 5: 'tmult imcheck', 6: 'ibot tmult frac imcheck', 7: 'ibot tmult frac imcheck', 8: 'imag imcheck', 14: 'arms graph', 15: 'arms finish graph', 17: 'arms graph', 18: 'arms', 24: 'arms graph', 25: 'arms graph', 26: 'arms graph', 27: 'arms graph', 30: 'cross count', 31: 'four squares cross', 44: 'divide dcheck', 45: 'divide', 46: 'y1', 47: 'table divide finish count', 55: 'minus1 table divide finish', 56: 'table divide finish count', 61: 'twins count', 62: 'twins count', 63: 'table divide four count', 64: 'minus1 divide finish count', 75: 'hole flat slant graph', 76: 'hole flat slant finish', 77: 'flat slant graph', 78: 'hole flat slant', 86: q, 87: 'ineq finish flip icheck', 88: r, 89: r },
+    ptest: { 1: 'imag imcheck', 2: 'ibot tmult imcheck', 3: 'imag imcheck', 4: 'imag twins', 5: 'arms graph', 6: 'arms finish graph', 7: 'arms graph', 12: 'table divide finish count', 15: 'table divide twins dcheck', 17: 'addup divide finish cross', 18: 'twins squares count', 19: 'minus1 divide finish cross arms', 22: 'domain hole flat squares', 23: 'domain hole slant squares', 24: 'domain hole flat finish', 25: 'domain flat graph', 27: q, 28: r }
+  };
+  Object.keys(M).forEach(function (id) {
+    document.querySelectorAll('#' + id + ' .p').forEach(function (p) {
+      var main = document.createElement('div'); main.className = 'pmain';
+      while (p.firstChild) main.appendChild(p.firstChild);
+      p.appendChild(main); p.classList.add('two');
+      var keys = M[id][main.querySelector('.n').textContent.trim()];
+      if (!keys) return;
+      var a = document.createElement('aside'); a.className = 'tips'; a.setAttribute('aria-label', 'Shortcuts');
+      a.innerHTML = '<p class="tips-h">Shortcuts</p>' + keys.split(' ').map(function (k) { return '<div class="tip-c"><b>' + T[k][0] + '</b>' + T[k][1] + '</div>'; }).join('');
+      p.appendChild(a);
+    });
+  });
+})();
+</script>
+<style>
+.wrap{max-width:1090px}
+.p.two{grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start}
+.pmain{display:grid;gap:10px;min-width:0}
+.tips{display:grid;gap:8px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);min-width:0}
+.tips-h{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0}
+.tip-c{background:var(--accent-soft);border-radius:8px;padding:8px 10px;font-size:14.5px;line-height:1.4}
+.tip-c b{display:block;font-size:14px;margin-bottom:1px}
+.tip-calc{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px 10px 8px 8px;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
+.tip-calc ol{margin:0;padding-left:1.5em;display:grid;gap:4px}
+.tip-calc b{font-family:var(--f-mono);font-size:13.5px;font-weight:600}
+.tip-trap{background:#FFF4E5;color:#6B3500;border-radius:8px;padding:8px 10px;font-size:14.5px;line-height:1.4}
+.tips-h.t2{color:#9A4A00}
+.setup{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:16px;display:grid;gap:4px}
+.setup b{font-size:14px}
+@media (max-width:900px){.p.two{grid-template-columns:minmax(0,1fr)}.tips{position:static}}
+</style>
+<script>
+window.addNotes = function (M) {
+  var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+  document.querySelectorAll('.p').forEach(function (p) {
+    var sec = p.closest('section'), id = sec ? sec.id : 'x', set = M[id];
+    if (!set) return;
+    var key = p.querySelector('.n').textContent.trim(), n = set[key];
+    if (!n) return;
+    var steps = (window.SIMPLE[id] || {})[key];
+    var main = p.querySelector('.pmain');
+    if (!main) { main = document.createElement('div'); main.className = 'pmain'; while (p.firstChild) main.appendChild(p.firstChild); p.appendChild(main); p.classList.add('two'); }
+    var a = p.querySelector('.tips');
+    if (!a) { a = document.createElement('aside'); a.className = 'tips'; p.appendChild(a); }
+    var h = '';
+    if (steps) h += '<p class="tips-h">Calculator</p><div class="tip-calc"><ol>' + steps.map(function (s) { return '<li>' + esc(s).replace(/\[\[(.+?)\]\]/g, '<b>$1</b>') + '</li>'; }).join('') + '</ol></div>';
+    if (n[1]) h += '<p class="tips-h t2">Get around it</p><div class="tip-trap">' + esc(n[1]) + '</div>';
+    a.insertAdjacentHTML('afterbegin', h);
+  });
+};
+window.N = { ab: function () { return ''; }, above: function () { return ''; }, below: function () { return ''; } };
+</script>
+<script>
+(function () {
+  var fix = function (e) { return e.replace(/³/g, '^3'); };
+  var start = function (e) { return ['Press Y=, then CLEAR', 'Type [[' + fix(e) + ']]']; };
+  var zoom = function (z) { return 'Press ZOOM, then ' + (z === 0 ? '0' : '6'); };
+  var I = function (e, dir, z) { return start(e).concat([zoom(z), 'Your answer is where the graph is ' + dir + ' the line']); };
+  var a = function (e, z) { return I(e, 'above', z); }, b = function (e, z) { return I(e, 'below', z); };
+  var Z = function (e, z, last) { var s = start(e).concat([zoom(z)]); if (last) s.push(last); return s; };
+  var Tb = function (e, half, last) { var s = start(e); if (half) s.push('Press 2nd, then WINDOW. Set ΔTbl to .5'); s.push('Press 2nd, then GRAPH'); s.push(last || 'Find 0 in the Y1 column. That X is an answer'); return s; };
+  var E = function (e) { return Tb(e, false, 'Any X that says ERROR is not allowed'); };
+  var C = function (e, frac, last) {
+    var s = ['Press 2nd, then MODE'];
+    if (e.indexOf('i') > -1) s.push('For i, press 2nd, then the . key');
+    if (e.indexOf('√') > -1) s.push('For √, press 2nd, then x²');
+    s.push('Type [[' + e + ']]'); s.push('Press ENTER');
+    if (frac) s.push('Press MATH, 1, ENTER for a fraction');
+    if (last) s.push(last);
+    return s;
+  };
+  var M = function (e, z, low) { return Z(e, z).concat(['Press 2nd, then TRACE', 'Press ' + (low ? '3' : '4'), 'Move left of the ' + (low ? 'bottom' : 'top') + '. Press ENTER', 'Move right of it. Press ENTER', 'Press ENTER again']); };
+  var Ck = function (e, x, v) { return start(e).concat(['Press 2nd, then MODE', 'Press VARS, right arrow, 1, 1', 'Type [[(' + x + ')]] and press ENTER', 'It should say ' + v]); };
+  var Two = function (p, q) { return ['Press Y=, then CLEAR', 'Y1: type [[' + fix(p) + ']]', 'Y2: type [[' + fix(q) + ']]', 'Press 2nd, then GRAPH', 'Y1 and Y2 should match on every row']; };
+  var Sl = function (p, q, z) { return ['Press Y=, then CLEAR', 'Y1: type [[' + fix(p) + ']]', 'Y2: type [[' + fix(q) + ']]', zoom(z), 'The curve should follow the Y2 line at the edges']; };
+  var arms = 'Look at which way the arms go', real = 'Only the real answers show';
+  window.SIMPLE = {
+    ps27: { 11: b('3X²+10X-8'), 12: a('9X²+3X-2'), 13: b('2X²+X-15'), 14: a('6X²+X-1'), 15: b('4X²+7X+3'), 16: b('3X²+16X+5'), 40: a('X³-X²+9X-9'), 41: a('X³-9X²', 0), 46: b('(X+5)/(X+2)'), 47: a('(-X+2)/(X-4)'), 58: b('1/(X-3)-1'), 59: b('(X-2)/(X+2)-2'), 60: a('X/(X+2)-2'),
+      66: ['Press Y=, then CLEAR', 'Press MATH, right arrow, 1', 'Type [[X²+6X+1)-8]]', 'Press ZOOM, then 6', 'Your answer is where the graph is above the line'],
+      70: a('(X²-3X+2)/(X²-2X-3)') },
+    review: { 4: C('(3-4i)²'), 5: C('(7+8i)(7-8i)'), 6: C('6/(5+i)', 1), 7: C('(3+4i)/(4-2i)', 1), 8: C('√(-32)-√(-18)', 0, '1.414 means √2'),
+      14: M('(X+4)²-2', 0, 1), 15: M('-X²+2X+3', 6, 0), 17: M('-X²+14X-106', 0, 0), 18: M('2X²+12X+703', 0, 1),
+      24: Z('-X³+X²+2X', 6, arms), 25: Z('X^6-6X^4+9X²', 6, arms), 26: Z('X^5-5X³+4X', 6, arms), 27: Z('-X^4+1', 6, arms), 30: Z('-2(X-1)(X+2)²(X+5)³', 0), 31: Z('X³-5X²-25X+125', 0),
+      44: Two('3X^4+11X³-20X²+7X+35', '(3X³-4X²+7)(X+5)'), 45: Two('3X^4-2X²-10X', '(3X³+6X²+10X+10)(X-2)+20'), 46: Ck('2X³-7X²+9X-3', '-13', '-5697'), 47: Tb('2X³+X²-13X+6'),
+      55: Tb('6X³+X²-4X+1', 1), 56: Tb('8X³-36X²+46X-15', 1), 61: Ck('X³-6X²+21X-26', '1', '-10'), 62: Ck('2X^4+12X³+20X²+12X+18', '-1', '16'), 63: Z('2X^4+3X³+3X-2', 6, real), 64: Tb('X^4-6X³+X²+24X+16'),
+      75: Sl('X²/(X+1)', 'X-1'), 76: Sl('(X²+2X-3)/(X-3)', 'X+5', 0), 77: Sl('-2X³/(X²+1)', '-2X'), 78: Sl('(4X²-16X+16)/(2X-3)', '2X-5'),
+      86: a('2X²+9X+4'), 87: a('X³+2X²-3X'), 88: a('(X-6)/(X+2)'), 89: a('((X+1)(X-2))/(X-1)') },
+    ptest: { 1: C('(6-7i)(2+5i)'), 2: C('5/(2-i)'), 3: C('2√(-49)+3√(-64)'), 4: C('(2+2i)²-4(2+2i)+8', 0, 'It should say 0'), 5: M('(X+1)²+4', 0, 1), 6: M('X²-2X-3', 6, 1), 7: M('-2X²+12X-16', 6, 0), 12: Tb('6X³-19X²+16X-4', 1), 15: Tb('X³+9X²+16X-6'), 17: Z('X³+3X²-4', 6, 'A bounce means it goes in squared'), 18: Ck('2X^4-2', '3', '160'), 19: Z('-3X³-4X²+X+2', 6), 22: E('X/(X²-16)'), 23: Sl('(X²-9)/(X-2)', 'X+2'), 24: E('(X+1)/(X²+2X-3)'), 25: Z('4X²/(X²+3)', 6), 27: b('X²-X-12'), 28: b('(2X+1)/(X-3)-3') },
+    x: { 1: C('√(-8)*√(-2)+(3-2i)²'), 2: C('(2+3i)/(3-i)+i^15', 1, 'E-13 means that part is 0'), 3: a('X³+3X²-4X-12'), 4: a('3/(X+2)-1/(X-2)'), 5: E('(X²-X-6)/(X³-9X)'), 6: Z('(2X³+X²+X-4)/(X²+X-2)', 6), 7: E('(X²-4)/(X³-2X²-X+2)'), 8: Tb('3X³+2X²-19X+6', 1), 9: Z('X³-5X²+11X-15', 0, real), 10: Tb('X^4-X³-5X²+3X+2'), 11: Z('X^4-5X²-36', 0, real), 12: Ck('your answer', '0', '18'), 13: Z('-X^5+4X^4-4X³', 6), 14: Tb('X^4-X³+2X²-4X-8'), EC: Ck('your answer', '-2', '0') }
+  };
+})();
+</script>
+<script>
+(function () {
+  var A = N.above, B = N.below, C = N.ab, arm = 'Only the first term matters here. Ignore the rest.';
+  addNotes({
+    ps27: {
+      11: [B('3X²+10X-8'), 'Front number is 3, so do 3 times −8 = −24 before splitting the middle.'],
+      12: [A('9X²+3X-2'), 'Do 9 times −2 = −18 first, then find the two numbers.'],
+      13: [B('2X²+X-15'), 'Subtract 15 first. Factoring with 15 on the right gives wrong answers.'],
+      14: [A('6X²+X-1'), 'Subtract 1 first. The right side has to be 0.'],
+      15: [B('4X²+7X+3'), 'Add 3 first. The two crossings are close, so test −0.9 between them.'],
+      16: [B('3X²+16X+5'), 'Add 5 first. Then 3 times 5 = 15, and 15 + 1 = 16.'],
+      40: [A('X³-X²+9X-9'), 'x² + 9 can never be 0, so it adds no number to your line.'],
+      41: ['Y1=X³-9X²  ZOOM 0 (ZoomFit). Answer is where it is on or above the line.', 'Never divide both sides by x². You would lose x = 0, which you must keep.'],
+      46: [B('(X+5)/(X+2)'), 'Both ends are open: < leaves out −5, and −2 breaks the bottom.'],
+      47: [A('(-X+2)/(X-4)'), "The top has −x, so don't guess the signs. Test a number in each section."],
+      58: [B('1/(X-3)-1'), 'Never multiply both sides by x − 3, it could be negative. Subtract 1 instead.'],
+      59: [B('(X-2)/(X+2)-2'), 'The minus hits both terms: −2(x + 2) is −2x − 4.'],
+      60: [A('X/(X+2)-2'), 'Closed at −4 (top). Open at −2 (bottom).'],
+      66: ['abs( is MATH, right to NUM, 1. ' + A('abs(X²+6X+1)-8'), "Split it: bigger than 8 OR smaller than −8. A square can't be negative, so one side dies."],
+      70: [A('(X²-3X+2)/(X²-2X-3)'), 'Four numbers make five sections. −1 and 3 come from the bottom, so open.']
+    },
+    review: {
+      4: [C('(3-4i)²'), 'Squaring is not just squaring each part. Write it twice and FOIL.'],
+      5: [C('(7+8i)(7-8i)'), 'The middle terms cancel, and −64i² becomes +64.'],
+      6: [C('6/(5+i)') + ' then MATH 1 for fractions.', 'Reduce at the end: 30, 6 and 26 all divide by 2.'],
+      7: [C('(3+4i)/(4-2i)') + ' then MATH 1.', "Flip the bottom's middle sign only, but multiply the top by it too."],
+      8: [C('√(-32)-√(-18)') + '  √ is 2nd x². 1.414... is √2.', 'Write the exact answer with √2, not the decimal.'],
+      14: ['Y1=(X+4)²-2  ZOOM 0. 2nd TRACE, 3 (minimum).', 'The sign inside flips: +4 means the vertex x is −4.'],
+      15: ['Y1=-X²+2X+3  ZOOM 6. 2nd TRACE, 4 (maximum).', 'Use the (−) key for the first negative.'],
+      17: ['Y1=-X²+14X-106  ZOOM 0. 2nd TRACE, 4.', 'Say both: the max value is the y, and where it occurs is the x.'],
+      18: ['Y1=2X²+12X+703  ZOOM 0. 2nd TRACE, 3.', 'ZOOM 6 shows nothing here because the y values are huge.'],
+      24: ['Y1=-X³+X²+2X  ZOOM 6. Look at the arms.', arm],
+      25: ['Y1=X^6-6X^4+9X²  ZOOM 6. Look at the arms.', arm],
+      26: ['Y1=X^5-5X³+4X  ZOOM 6. Look at the arms.', arm],
+      27: ['Y1=-X^4+1  ZOOM 6. Look at the arms.', arm],
+      30: ['Y1=-2(X-1)(X+2)²(X+5)³  ZOOM 0.', 'Each exponent is the multiplicity. The −2 in front gives no zero.'],
+      31: ['Y1=X³-5X²-25X+125  ZOOM 0.', "After grouping, x² − 25 factors again. Don't stop early."],
+      44: ['Y1=3X^4+11X³-20X²+7X+35  Y2=(3X³-4X²+7)(X+5)  2nd GRAPH. Columns must match.', 'The 0x row looks pointless, but it keeps the columns lined up.'],
+      45: ['Y1=3X^4-2X²-10X  Y2=(3X³+6X²+10X+10)(X-2)+20  2nd GRAPH. Columns must match.', 'Fill the missing spots with 0x³ and +0 before dividing.'],
+      46: ['Y1=2X³-7X²+9X-3. Home screen: VARS, right, 1, 1, then (-13). Should say -5697.', 'Always use parentheses around −13 when you square it.'],
+      47: ['Y1=2X³+X²-13X+6  2nd GRAPH. Y1=0 at X=2 and X=-3.', 'The book says synthetic. Long division gives the same quotient.'],
+      49: ['', "It only says list them. Don't solve anything."],
+      50: ['', 'p comes from the last number and q from the first. Cross out repeats.'],
+      55: ['Y1=6X³+X²-4X+1  2nd WINDOW: ΔTbl=.5  2nd GRAPH.', 'Part b is not assigned. Skip Descartes.'],
+      56: ['Y1=8X³-36X²+46X-15  2nd WINDOW: ΔTbl=.5  2nd GRAPH.', 'Divide by 2x − 1 instead of x − ½. No fractions that way.'],
+      61: ['Check: Y1=X³-6X²+21X-26, then Y1(1) should say -10.', 'They give 2 − 3i, so you must add 2 + 3i yourself.'],
+      62: ['Check: Y1=2X^4+12X³+20X²+12X+18, then Y1(-1) should say 16.', 'i brings −i. −3 goes in twice.'],
+      63: ['Y1=2X^4+3X³+3X-2  ZOOM 6. Only the 2 real zeros show.', 'The i answers never show on the graph. You still need them.'],
+      64: ['Y1=X^4-6X³+X²+24X+16  2nd GRAPH. Find the zero rows.', 'Bounce zeros can break 2:zero. Use the table, or 3:minimum.'],
+      75: ['Y1=X²/(X+1)  Y2=X-1  ZOOM 6. 2nd GRAPH says ERROR at -1.', 'Top has no x term. Fill in +0x and +0 before dividing.'],
+      76: ['Y1=(X²+2X-3)/(X-3)  Y2=X+5  ZOOM 0.', "The 12 is the remainder. It doesn't go in the slant line."],
+      77: ['Y1=-2X³/(X²+1)  Y2=-2X  ZOOM 6.', 'The bottom is never 0, so there is no wall.'],
+      78: ['Y1=(4X²-16X+16)/(2X-3)  Y2=2X-5  ZOOM 6.', 'You divide by 2x, not x, so 4x² ÷ 2x = 2x.'],
+      86: [A('2X²+9X+4'), 'Do 2 times 4 = 8, then 8 + 1 = 9.'],
+      87: [A('X³+2X²-3X'), 'Never divide by x. Subtract 3x, then pull x out.'],
+      88: [A('(X-6)/(X+2)'), 'Both open: > leaves out 6, and −2 breaks the bottom.'],
+      89: [A('((X+1)(X-2))/(X-1)'), 'Closed at −1 and 2 (top). Open at 1 (bottom).']
+    },
+    ptest: {
+      1: [C('(6-7i)(2+5i)'), 'The last FOIL piece is −35i², which turns into +35.'],
+      2: [C('5/(2-i)'), 'Flip the bottom sign: multiply by 2 + i.'],
+      3: [C('2√(-49)+3√(-64)'), 'Pull out i before multiplying by 2 and 3.'],
+      4: ['Check: a+bi mode, (2+2i)²-4(2+2i)+8 should say 0.', 'Move everything left first. b is −4, so −b is +4.'],
+      5: ['Y1=(X+1)²+4  ZOOM 0. 2nd TRACE, 3.', 'The graph never touches the x-axis, so no x-intercepts.'],
+      6: ['Y1=X²-2X-3  ZOOM 6. 2nd TRACE, 3.', 'Axis is written x = number, not just a number.'],
+      7: ['Y1=-2X²+12X-16  ZOOM 6. 2nd TRACE, 4.', 'Negative front number means max. Range goes down from it.'],
+      12: ['Y1=6X³-19X²+16X-4. Test Y1(2/3) and Y1(1/2).', 'Read the integer off the graph, then divide it out.'],
+      13: ['', '2/2 and 6/2 are repeats. Cross them out.'],
+      15: ['Y1=X³+9X²+16X-6  2nd GRAPH. Check: Y1(-3+√(11)) should be about 0.', "The leftover doesn't factor. Go straight to the quadratic formula."],
+      17: ['Y1=X³+3X²-4  ZOOM 6.', 'Bounce at −2 means it goes in squared.'],
+      18: ['Check: Y1=2X^4-2, then Y1(3) should say 160.', 'Multiply the pairs first: (x² − 1)(x² + 1).'],
+      19: ['Y1=-3X³-4X²+X+2  ZOOM 6, then ZOOM 2 (in) if needed.', 'Bounce at −1 can break 2:zero. Use the table.'],
+      22: ['Y1=X/(X²-16)  2nd GRAPH says ERROR at -4 and 4.', 'Write the domain as three intervals.'],
+      23: ['Y1=(X²-9)/(X-2)  Y2=X+2  ZOOM 6.', 'Fill +0x on top before dividing.'],
+      24: ['Y1=(X+1)/(X²+2X-3)  2nd GRAPH says ERROR at -3 and 1.', 'Factor the bottom first. Nothing cancels here.'],
+      25: ['Y1=4X²/(X²+3)  ZOOM 6.', 'Bottom is never 0, so the domain is all real numbers.'],
+      27: [B('X²-X-12'), 'Move x + 12 over first, signs change.'],
+      28: [B('(2X+1)/(X-3)-3'), "Don't cross-multiply. −3(x − 3) is −3x + 9."]
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var html = '<b>Calculator keys</b><span>X: press X,T,Θ,n</span><span>Negative number: press (−)</span><span>x²: press the x² key</span><span>Other powers: press ^</span><span>Square root: press 2nd, then x²</span>';
+  var box = document.querySelector('.setup');
+  if (box) { box.innerHTML = html; return; }
+  var row = document.querySelector('.keyrow');
+  if (row) row.insertAdjacentHTML('afterend', '<div class="setup">' + html + '</div>');
+})();
+</script>
+<style>
+.syn{border-collapse:collapse;font-family:var(--f-mono);font-size:17px;color:var(--box-ink);margin:0 auto}
+.syn td{padding:3px 11px;text-align:right;white-space:nowrap}
+.syn .c{border-right:2px solid var(--box-ink);font-weight:600}
+.syn tr:last-child td:not(.c){border-top:2px solid var(--box-ink);font-weight:600}
+.syn tr:last-child td:last-child{color:#7EE2B0}
+</style>
+<script>
+(function () {
+  var S = {
+    review: {
+      44: ['-5', '3,11,-20,7,35'], 45: ['2', '3,0,-2,-10,0'], 47: ['2', '2,1,-13,6'], 55: ['-1', '6,1,-4,1'], 56: ['1/2', '8,-36,46,-15'],
+      63: ['1/2', '2,3,0,3,-2'], 64: ['-1', '1,-6,1,24,16', '-1', '1,-7,8,16'], 75: ['-1', '1,0,0'], 76: ['3', '1,2,-3'], 78: ['3/2', '4,-16,16']
+    },
+    ptest: { 12: ['2', '6,-19,16,-4'], 15: ['-3', '1,9,16,-6'], 17: ['1', '1,3,0,-4'], 19: ['-1', '-3,-4,1,2'], 23: ['2', '1,0,-9'] }
+  };
+  var num = function (s) { var p = s.split('/'); return p.length > 1 ? +p[0] / +p[1] : +s; };
+  var show = function (v) { return String(Math.round(v * 1000) / 1000).replace('-', '−'); };
+  function table(c, list) {
+    var k = num(c), a = list.split(',').map(Number), mid = [''], low = [a[0]];
+    for (var i = 1; i < a.length; i++) { var m = low[i - 1] * k; mid.push(m); low.push(a[i] + m); }
+    var row = function (first, vals) { return '<tr><td class="c">' + first + '</td>' + vals.map(function (v) { return '<td>' + (v === '' ? '' : show(v)) + '</td>'; }).join('') + '</tr>'; };
+    return '<div class="ldbox"><table class="syn" aria-label="Synthetic division">' + row(c.replace('-', '−'), a) + row('', mid) + row('', low) + '</table></div>';
+  }
+  var find = function (id, n) { return [].filter.call(document.querySelectorAll('#' + id + ' .p'), function (p) { return p.querySelector('.n').textContent.trim() === String(n); })[0]; };
+  Object.keys(S).forEach(function (id) {
+    Object.keys(S[id]).forEach(function (n) {
+      var p = find(id, n), main = p.querySelector('.pmain') || p, h = '', v = S[id][n];
+      p.querySelectorAll('.ldbox').forEach(function (b) { b.remove(); });
+      for (var i = 0; i < v.length; i += 2) h += table(v[i], v[i + 1]);
+      var at = main.querySelector('.syn-here') || main.querySelector('.box') || main.querySelector('.ans');
+      at.insertAdjacentHTML('beforebegin', h);
+    });
+  });
+  var at77 = find('review', 77).querySelector('.box');
+  at77.insertAdjacentHTML('beforebegin', '<div class="ldbox"><table class="ld"><tr class="lq"><td></td><td></td><td></td><td>−2x</td><td></td></tr><tr class="ltop"><td class="dv">x²+1 )</td><td>−2x³</td><td>+0x²</td><td>+0x</td><td>+0</td></tr><tr><td></td><td>−(−2x³</td><td>+0x²</td><td>−2x)</td><td></td></tr><tr class="lr"><td></td><td></td><td>0x²</td><td>+2x</td><td>+0</td></tr></table></div>');
+  [['review', 49, 'p:\\ \\pm1,\\pm5\\qquad q:\\ \\pm1'], ['review', 50, 'p:\\ \\pm1,\\pm2,\\pm4,\\pm8\\qquad q:\\ \\pm1,\\pm3'], ['ptest', 13, 'p:\\ \\pm1,\\pm2,\\pm3,\\pm6\\qquad q:\\ \\pm1,\\pm2']].forEach(function (x) {
+    var p = find(x[0], x[1]); (p.querySelector('.ans')).insertAdjacentHTML('beforebegin', '<div class="box">\\[' + x[2] + '\\]</div>');
+  });
+  var trap = { review: { 44: 'Put a 0 for any missing power. Use −5 in the corner.', 47: 'Use 2 in the corner.', 56: 'Use ½ in the corner, then pull a 2 out of the bottom row.', 78: 'Use 3/2 in the corner, then divide the bottom row by 2.' } };
+  Object.keys(trap.review).forEach(function (n) { var t = find('review', n).querySelector('.tip-trap'); if (t) t.textContent = trap.review[n]; });
+})();
+</script>
+
+</body></html>

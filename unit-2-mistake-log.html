@@ -1,0 +1,187 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Unit 2 Mistake Log</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=STIX+Two+Text:wght@400;600&display=swap">
+<style>
+/* Layout: one column; a pattern summary up top, then one card per whiteboard problem with red marks on the slip and the fix beside it */
+:root{
+  --bg:#f3f5fa; --paper:#ffffff; --ink:#151b2c; --muted:#5a6377; --line:#dce2ee;
+  --grid:rgba(41,73,198,.07); --accent:#2949c6; --accent-soft:#e7ecfb;
+  --bad:#c42323; --bad-soft:#fdecec; --good:#1b7a4c; --good-soft:#e1f3e9;
+  --f-head:"Space Grotesk",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-math:"STIX Two Text","Cambria Math","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1220; --paper:#161b2c; --ink:#e7eaf4; --muted:#9aa3b9; --line:#2a3249;
+  --grid:rgba(142,162,255,.05); --accent:#8ea2ff; --accent-soft:#222b4b;
+  --bad:#ff7a7a; --bad-soft:#3a1c1f; --good:#5fd39a; --good-soft:#163427; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1220; --paper:#161b2c; --ink:#e7eaf4; --muted:#9aa3b9; --line:#2a3249;
+  --grid:rgba(142,162,255,.05); --accent:#8ea2ff; --accent-soft:#222b4b;
+  --bad:#ff7a7a; --bad-soft:#3a1c1f; --good:#5fd39a; --good-soft:#163427; color-scheme:dark}
+body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-block:28px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--f-head);font-size:30px;line-height:1.15;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-family:var(--f-head);font-size:19px;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.patterns{background:var(--paper);border:1px solid var(--bad);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.patterns ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.head{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline}
+.tag{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.pill{margin-left:auto;font-size:12px;font-weight:600;border-radius:999px;padding:2px 10px}
+.pill.ok{background:var(--good-soft);color:var(--good)}
+.pill.fix{background:var(--bad-soft);color:var(--bad)}
+.m{font-family:var(--f-math);font-size:1.12em}
+.q{font-family:var(--f-math);font-size:1.15em;overflow-x:auto}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row>div{min-width:0;border-radius:8px;padding:9px 12px}
+.was{background:var(--bad-soft);color:var(--bad)}
+.was s{text-decoration-thickness:2px}
+.fix{background:var(--good-soft);color:var(--good)}
+.lab{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;margin-bottom:2px}
+.right{color:var(--good);font-weight:600;font-size:14px}
+.ans{background:var(--accent-soft);border-radius:8px;padding:9px 12px;overflow-x:auto}
+.ans b{font-family:var(--f-head);margin-right:6px}
+pre{margin:0;font-family:var(--f-math);font-size:15px;line-height:1.5;overflow-x:auto;background:var(--accent-soft);border-radius:8px;padding:10px 12px}
+.note{color:var(--muted);font-size:13.5px}
+.erased{border:2px dashed var(--good);border-radius:8px;padding:9px 12px;color:var(--good);font-weight:600}
+@media (max-width:520px){.row{grid-template-columns:1fr}h1{font-size:25px}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Unit 2 Mistake Log</h1>
+    <p class="sub">Every whiteboard problem from tonight's study session. Red is what went wrong, green is the fix. Read the three patterns first. They cover almost every mistake below.</p>
+  </header>
+
+  <section class="patterns" aria-labelledby="pat">
+    <h2 id="pat">Your 3 patterns</h2>
+    <ol>
+      <li><b>The leftover after synthetic division (happened 3 times).</b> Copy <b>every</b> bottom-row number, including the first one, and start <b>one power lower</b>. Bottom row 2, 7, &minus;4 is <span class="m">2x² + 7x &minus; 4</span>.</li>
+      <li><b>Signs.</b> &minus;b when b is positive is negative. A zero of &minus;2 is x = &minus;2. &minus;20i &minus; 9i = &minus;29i (same signs add). Whatever sign is on top stays when you split a fraction.</li>
+      <li><b>Finishing.</b> Answer every part (a, b, c), simplify roots, and end with one clear line: <span class="m">x = &hellip;</span></li>
+    </ol>
+  </section>
+
+  <article class="card">
+    <div class="head"><span class="tag">Rational zeros list</span><span class="pill fix">1 fix</span></div>
+    <div class="q">f(x) = &minus;2x³ &minus; 5x² + 15x + 18</div>
+    <p class="right">Right: p = ±1, ±2, ±3, ±6, ±9, ±18 and q = ±1, ±2. You also caught ±1/2, which the video missed.</p>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span>±6, ±1/2, ±3/2, ±9, ±9/2, ±1 &nbsp;<b>(missing ±2, ±3, ±18)</b></div>
+      <div class="fix"><span class="lab">Fix</span>q = 1 is an option, so every p by itself goes in the list too.</div>
+    </div>
+    <div class="ans"><b>Answer</b><span class="m">±1, ±2, ±3, ±6, ±9, ±18, ±1/2, ±3/2, ±9/2</span>. Zeros: <span class="m">x = &minus;1, (&minus;3 ± 3√17)/4</span></div>
+  </article>
+
+  <article class="card">
+    <div class="head"><span class="tag">Solving a cubic</span><span class="pill fix">2 fixes</span></div>
+    <div class="q">f(x) = x³ + 2x² &minus; 5x &minus; 6</div>
+    <p class="right">Right: p list, f(&minus;1) = 0, synthetic division 1, 1, &minus;6, remainder 0.</p>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span>q = ±1, <s>±3</s></div>
+      <div class="fix"><span class="lab">Fix</span>q comes only from the first number (1). ±3 belongs in p.</div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span>Leftover <s>x³ + x² &minus; 6x</s></div>
+      <div class="fix"><span class="lab">Fix</span><span class="m">x² + x &minus; 6 = (x + 3)(x &minus; 2)</span></div>
+    </div>
+    <div class="ans"><b>Answer</b><span class="m">x = &minus;1, 2, &minus;3</span></div>
+  </article>
+
+  <article class="card">
+    <div class="head"><span class="tag">Solving a cubic, quadratic formula</span><span class="pill fix">3 fixes &middot; about 3/4</span></div>
+    <div class="q">f(x) = x³ &minus; 3x² &minus; 2x + 4</div>
+    <p class="right">Right: p/q list, x = 1, synthetic division 1, &minus;2, &minus;4, a = 1, b = &minus;2, c = &minus;4, √20.</p>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span>Leftover <s>x³ &minus; 2x² &minus; 4x</s></div>
+      <div class="fix"><span class="lab">Fix</span><span class="m">x² &minus; 2x &minus; 4</span> (one power lower)</div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span><s>&minus;2²</s></div>
+      <div class="fix"><span class="lab">Fix</span><span class="m">(&minus;2)² = 4</span>. Put the negative inside the parentheses.</div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">You stopped at</span><s>√20 &asymp; 4.4721</s></div>
+      <div class="fix"><span class="lab">Fix</span><span class="m">√20 = 2√5</span>, then <span class="m">(2 ± 2√5)/2 = 1 ± √5</span>. Divide every term on top.</div>
+    </div>
+    <div class="ans"><b>Answer</b><span class="m">x = 1, 1 + √5, 1 &minus; √5</span></div>
+  </article>
+
+  <article class="card">
+    <div class="head"><span class="tag">Solving a cubic, quadratic formula</span><span class="pill fix">3 fixes</span></div>
+    <div class="q">2x³ + 11x² + 10x &minus; 8 = 0</div>
+    <p class="right">Right: p/q list, x = &minus;2 works, synthetic division 2, 7, &minus;4, remainder 0. (&minus;4 also works. Any real zero is fine to start with.)</p>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span>Leftover <s>x³ + 7x² &minus; 4x</s>, a = 1</div>
+      <div class="fix"><span class="lab">Fix</span><span class="m">2x² + 7x &minus; 4</span>, so <b>a = 2</b>. This is where it first went wrong.</div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span><s>x = &minus;b² ± √(b² + 4ac)</s></div>
+      <div class="fix"><span class="lab">Fix</span><span class="m">x = (&minus;b ± √(b² &minus; 4ac)) / 2a</span>. Write it at the top first.</div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span><s>x = 2</s></div>
+      <div class="fix"><span class="lab">Fix</span>The zero you used was <span class="m">x = &minus;2</span>.</div>
+    </div>
+<pre>b² − 4ac = 49 − 4(2)(−4) = 81,   √81 = 9
+x = (−7 ± 9) / 4   →   1/2  and  −4</pre>
+    <div class="ans"><b>Answer</b><span class="m">x = &minus;2, &minus;4, 1/2</span></div>
+  </article>
+
+  <article class="card">
+    <div class="head"><span class="tag">Zeros and multiplicity</span><span class="pill ok">Skill: good to go</span></div>
+    <div class="q">f(x) = (x &minus; 4)²(x + 2)³</div>
+    <p class="right">Right: x = 4, multiplicity 2, touches. x = &minus;2, multiplicity 3, crosses.</p>
+    <div class="row">
+      <div class="was"><span class="lab">Missing</span>End behavior (part b) and y-intercept (part c)</div>
+      <div class="fix"><span class="lab">Fix</span>Degree 5, odd and positive: <b>falls left, rises right</b>. <span class="m">f(0) = 16 &middot; 8 = 128</span></div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">Sketch</span>Started high on the left and dipped below the axis near 0</div>
+      <div class="fix"><span class="lab">Fix</span>Start low, cross at &minus;2, stay above the axis until 4, touch at 4, rise.</div>
+    </div>
+    <div class="ans"><b>Answer</b>Zeros as above; falls left, rises right; y-int <span class="m">(0, 128)</span></div>
+  </article>
+
+  <article class="card">
+    <div class="head"><span class="tag">Dividing complex numbers</span><span class="pill fix">2 fixes</span></div>
+    <div class="q">(&minus;4 &minus; 3i) / (3 &minus; 5i)</div>
+    <p class="right">Right: conjugate 3 + 5i, bottom 9 + 25 = 34, FOIL, &minus;15i² = +15.</p>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span><s>&minus;20i &minus; 9i = &minus;11i</s></div>
+      <div class="fix"><span class="lab">Fix</span>Same signs add: <span class="m">&minus;20i &minus; 9i = &minus;29i</span></div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span><s>3/34 + 11/34 i</s></div>
+      <div class="fix"><span class="lab">Fix</span>Keep the sign from the top when you split: <b>minus</b>.</div>
+    </div>
+    <div class="ans"><b>Answer</b><span class="m">3/34 &minus; 29/34 i</span></div>
+  </article>
+
+  <article class="card">
+    <div class="head"><span class="tag">Quadratic: vertex, min/max, intercepts</span><span class="pill fix">3 fixes</span></div>
+    <div class="q">f(x) = x² + 2x &minus; 3</div>
+    <p class="right">Right: y-intercept &minus;3.</p>
+    <div class="erased">You had the x-intercepts factored correctly the first time and erased them. Trust your first factoring: (x + 3)(x &minus; 1) gives &minus;3 and 1.</div>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span><s>&minus;b/2a = 2/2 = 1</s></div>
+      <div class="fix"><span class="lab">Fix</span>b = 2, so &minus;b = &minus;2. <span class="m">x = &minus;2/2 = &minus;1</span></div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span>Vertex <s>(1, 0)</s></div>
+      <div class="fix"><span class="lab">Fix</span>Plug x in: <span class="m">f(&minus;1) = 1 &minus; 2 &minus; 3 = &minus;4</span>, vertex <span class="m">(&minus;1, &minus;4)</span></div>
+    </div>
+    <div class="row">
+      <div class="was"><span class="lab">You wrote</span><s>max value</s></div>
+      <div class="fix"><span class="lab">Fix</span>a = 1 &gt; 0, so it opens up: <b>minimum</b>.</div>
+    </div>
+    <div class="ans"><b>Answer</b>Minimum <span class="m">&minus;4</span> at <span class="m">x = &minus;1</span>; axis <span class="m">x = &minus;1</span>; x-int <span class="m">&minus;3, 1</span>; y-int <span class="m">&minus;3</span>; D <span class="m">(&minus;∞, ∞)</span>; R <span class="m">[&minus;4, ∞)</span></div>
+  </article>
+
+  <p class="note">Practice more of each type on the Unit 2 Exam Drill. It shows the same red warnings at the steps where these mistakes happen.</p>
+</div>
+
+</body></html>

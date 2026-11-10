@@ -1,0 +1,256 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>2.6–2.7 Practice Quiz</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one white letter-size sheet on a grey desk; problems in a 2-column grid with blank work space; answer key on its own sheet at the bottom. Deliberately single-theme (paper). */
+:root{
+  --desk:#D9DDE3; --paper:#FFFFFF; --ink:#111418; --muted:#5B6370; --rule:#C9CED6; --faint:#EEF0F3; --accent:#1E4FA8;
+  --f-head:"Libre Franklin","Segoe UI",system-ui,sans-serif;
+  --f-body:"Libre Franklin","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+html{background:var(--desk)}
+body{background:var(--desk);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 48px}
+.sheet{background:var(--paper);max-width:816px;margin:0 auto 28px;padding:44px 52px 52px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 28px rgba(0,0,0,.10);display:grid;gap:22px}
+@media (max-width:640px){.sheet{padding:28px 20px 32px}}
+.head{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:16px}
+.course{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0}
+h1{font-family:var(--f-head);font-weight:800;font-size:clamp(1.6rem,4.5vw,2.1rem);line-height:1.1;margin:0;text-wrap:balance}
+.fields{display:flex;flex-wrap:wrap;gap:10px 28px;font-size:15px}
+.fields span{display:inline-flex;gap:8px;align-items:flex-end}
+.fields i{display:inline-block;border-bottom:1px solid var(--ink);width:150px;height:1.1em}
+.fields .sm i{width:70px}
+.note{margin:0;font-size:14.5px;color:var(--muted)}
+h2{font-family:var(--f-head);font-weight:800;font-size:1.15rem;margin:0;display:flex;gap:10px;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:6px}
+h2 small{font-family:var(--f-mono);font-weight:500;font-size:12px;color:var(--muted);letter-spacing:.04em}
+.part{display:grid;gap:12px}
+.dir{margin:0;font-weight:600;font-size:15px}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.grid.one{grid-template-columns:minmax(0,1fr)}
+@media (max-width:640px){.grid{grid-template-columns:minmax(0,1fr)}}
+.grid li{display:grid;grid-template-columns:2.2em minmax(0,1fr);align-items:start;padding:8px 0 0;min-height:var(--work,150px);border-bottom:1px dashed var(--rule)}
+.grid li .n{font-family:var(--f-mono);font-weight:600;font-size:14px;padding-top:.15em}
+.grid li .p{min-width:0;overflow-x:auto;overflow-y:hidden}
+.short{--work:96px}
+.tall{--work:250px}
+.blank{display:inline-block;border-bottom:1px solid var(--ink);width:90px;margin-left:6px}
+.key-head{border-bottom:2px solid var(--ink);padding-bottom:12px;display:grid;gap:6px}
+.key{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px}
+@media (max-width:640px){.key{grid-template-columns:minmax(0,1fr)}}
+.key section{display:grid;gap:6px;min-width:0}
+.key h3{font-family:var(--f-head);font-weight:800;font-size:1rem;margin:0}
+.key ol{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:14.5px}
+.key li{display:grid;grid-template-columns:2.2em minmax(0,1fr);min-width:0}
+.key li b{font-family:var(--f-mono);font-weight:600;font-size:13px;padding-top:.1em}
+.key li span{min-width:0;overflow-x:auto;overflow-y:hidden}
+.foot{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:right;margin:0}
+mjx-container{color:inherit}
+</style>
+
+<article class="sheet">
+  <header class="head">
+    <p class="course">MATH&amp;141 Precalculus · Hummel · Blitzer 2.6–2.7</p>
+    <h1>Practice Quiz: Rational Functions and Inequalities</h1>
+    <div class="fields"><span>Name <i></i></span><span class="sm">Date <i></i></span><span class="sm">Period <i></i></span><span class="sm">Score <i></i></span></div>
+    <p class="note">Show all work. Write domains and solution sets in interval notation. Answer key on the last page.</p>
+  </header>
+
+  <section class="part">
+    <h2>Part A <small>2.6 · DOMAIN</small></h2>
+    <p class="dir">Find the domain of each function.</p>
+    <ol class="grid short">
+      <li><span class="n">4.</span><span class="p">\(g(x)=\dfrac{2x^2}{(x-2)(x+6)}\)</span></li>
+      <li><span class="n">5.</span><span class="p">\(h(x)=\dfrac{x+7}{x^2-49}\)</span></li>
+      <li><span class="n">6.</span><span class="p">\(h(x)=\dfrac{x+8}{x^2-64}\)</span></li>
+      <li><span class="n">7.</span><span class="p">\(f(x)=\dfrac{x+7}{x^2+49}\)</span></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <h2>Part B <small>2.6 · READ THE GRAPH</small></h2>
+    <p class="dir">Use the textbook graph (vertical asymptotes \(x=-3\) and \(x=1\), horizontal asymptote \(y=0\)). Fill in the blank.</p>
+    <ol class="grid" style="--work:48px">
+      <li><span class="n">9.</span><span class="p">As \(x\to-3^-\), \(f(x)\to\)<span class="blank"></span></span></li>
+      <li><span class="n">10.</span><span class="p">As \(x\to-3^+\), \(f(x)\to\)<span class="blank"></span></span></li>
+      <li><span class="n">11.</span><span class="p">As \(x\to1^-\), \(f(x)\to\)<span class="blank"></span></span></li>
+      <li><span class="n">12.</span><span class="p">As \(x\to1^+\), \(f(x)\to\)<span class="blank"></span></span></li>
+      <li><span class="n">13.</span><span class="p">As \(x\to-\infty\), \(f(x)\to\)<span class="blank"></span></span></li>
+      <li><span class="n">14.</span><span class="p">As \(x\to\infty\), \(f(x)\to\)<span class="blank"></span></span></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <h2>Part C <small>2.6 · VERTICAL ASYMPTOTES AND HOLES</small></h2>
+    <p class="dir">Find any vertical asymptotes and any holes (give the hole as a point).</p>
+    <ol class="grid">
+      <li><span class="n">25.</span><span class="p">\(h(x)=\dfrac{x}{x(x+4)}\)</span></li>
+      <li><span class="n">26.</span><span class="p">\(h(x)=\dfrac{x}{x(x-3)}\)</span></li>
+      <li><span class="n">27.</span><span class="p">\(r(x)=\dfrac{x}{x^2+4}\)</span></li>
+      <li><span class="n">28.</span><span class="p">\(r(x)=\dfrac{x}{x^2+3}\)</span></li>
+      <li><span class="n">29.</span><span class="p">\(f(x)=\dfrac{x^2-9}{x-3}\)</span></li>
+      <li><span class="n">30.</span><span class="p">\(f(x)=\dfrac{x^2-25}{x-5}\)</span></li>
+      <li><span class="n">31.</span><span class="p">\(g(x)=\dfrac{x-3}{x^2-9}\)</span></li>
+      <li><span class="n">32.</span><span class="p">\(g(x)=\dfrac{x-5}{x^2-25}\)</span></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <h2>Part D <small>2.6 · HORIZONTAL ASYMPTOTES</small></h2>
+    <p class="dir">Find the horizontal asymptote, if there is one.</p>
+    <ol class="grid short">
+      <li><span class="n">39.</span><span class="p">\(g(x)=\dfrac{12x^2}{3x^2+1}\)</span></li>
+      <li><span class="n">40.</span><span class="p">\(g(x)=\dfrac{15x^2}{3x^2+1}\)</span></li>
+      <li><span class="n">41.</span><span class="p">\(h(x)=\dfrac{12x^3}{3x^2+1}\)</span></li>
+      <li><span class="n">42.</span><span class="p">\(h(x)=\dfrac{15x^3}{3x^2+1}\)</span></li>
+      <li><span class="n">43.</span><span class="p">\(f(x)=\dfrac{-2x+1}{3x+5}\)</span></li>
+      <li><span class="n">44.</span><span class="p">\(f(x)=\dfrac{-3x+7}{5x-2}\)</span></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <h2>Part E <small>2.6 · GRAPH IN 7 STEPS</small></h2>
+    <p class="dir">Find symmetry, intercepts, vertical and horizontal asymptotes, and a few points. Then graph.</p>
+    <ol class="grid tall">
+      <li><span class="n">76.</span><span class="p">\(f(x)=\dfrac{2x^4}{x^2+1}\)</span></li>
+      <li><span class="n">77.</span><span class="p">\(f(x)=\dfrac{x^2+x-12}{x^2-4}\)</span></li>
+      <li><span class="n">78.</span><span class="p">\(f(x)=\dfrac{x^2}{x^2+x-6}\)</span></li>
+      <li><span class="n">79.</span><span class="p">\(f(x)=\dfrac{3x^2+x-4}{2x^2-5x}\)</span></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <h2>Part F <small>2.6 · SLANT ASYMPTOTES</small></h2>
+    <p class="dir">(a) Find the slant asymptote. (b) Graph the function.</p>
+    <ol class="grid tall">
+      <li><span class="n">85.</span><span class="p">\(f(x)=\dfrac{x^2+x-6}{x-3}\)</span></li>
+      <li><span class="n">86.</span><span class="p">\(f(x)=\dfrac{x^2-x+1}{x-1}\)</span></li>
+      <li><span class="n">87.</span><span class="p">\(f(x)=\dfrac{x^3+1}{x^2+2x}\)</span></li>
+      <li><span class="n">88.</span><span class="p">\(f(x)=\dfrac{x^3-1}{x^2-9}\)</span></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <h2>Part G <small>2.6 · SIMPLIFY, THEN GRAPH</small></h2>
+    <p class="dir">Simplify the complex fraction, note any holes, then graph.</p>
+    <ol class="grid tall">
+      <li><span class="n">93.</span><span class="p">\(\dfrac{1-\dfrac{3}{x+2}}{1+\dfrac{1}{x-2}}\)</span></li>
+      <li><span class="n">94.</span><span class="p">\(\dfrac{x-\dfrac1x}{x+\dfrac1x}\)</span></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <h2>Part H <small>2.7 · POLYNOMIAL INEQUALITIES</small></h2>
+    <p class="dir">Solve. Write the solution set in interval notation.</p>
+    <ol class="grid">
+      <li><span class="n">11.</span><span class="p">\(3x^2+10x-8\le0\)</span></li>
+      <li><span class="n">12.</span><span class="p">\(9x^2+3x-2\ge0\)</span></li>
+      <li><span class="n">13.</span><span class="p">\(2x^2+x\lt15\)</span></li>
+      <li><span class="n">14.</span><span class="p">\(6x^2+x\gt1\)</span></li>
+      <li><span class="n">15.</span><span class="p">\(4x^2+7x\lt-3\)</span></li>
+      <li><span class="n">16.</span><span class="p">\(3x^2+16x\lt-5\)</span></li>
+      <li><span class="n">40.</span><span class="p">\(x^3-x^2+9x-9\gt0\)</span></li>
+      <li><span class="n">41.</span><span class="p">\(x^3\ge9x^2\)</span></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <h2>Part I <small>2.7 · RATIONAL AND ABSOLUTE VALUE INEQUALITIES</small></h2>
+    <p class="dir">Solve. Write the solution set in interval notation.</p>
+    <ol class="grid">
+      <li><span class="n">46.</span><span class="p">\(\dfrac{x+5}{x+2}\lt0\)</span></li>
+      <li><span class="n">47.</span><span class="p">\(\dfrac{-x+2}{x-4}\ge0\)</span></li>
+      <li><span class="n">58.</span><span class="p">\(\dfrac{1}{x-3}\lt1\)</span></li>
+      <li><span class="n">59.</span><span class="p">\(\dfrac{x-2}{x+2}\le2\)</span></li>
+      <li><span class="n">60.</span><span class="p">\(\dfrac{x}{x+2}\ge2\)</span></li>
+      <li><span class="n">66.</span><span class="p">\(|x^2+6x+1|\gt8\)</span></li>
+      <li><span class="n">70.</span><span class="p">\(\dfrac{x^2-3x+2}{x^2-2x-3}\gt0\)</span></li>
+    </ol>
+  </section>
+  <p class="foot">49 problems · 2.6 (34) · 2.7 (15) · numbers match the textbook</p>
+</article>
+
+<article class="sheet">
+  <header class="key-head">
+    <p class="course">Answer key</p>
+    <h1>Answers</h1>
+  </header>
+  <div class="key">
+    <section><h3>Part A · Domain</h3><ol>
+      <li><b>4.</b><span>\((-\infty,-6)\cup(-6,2)\cup(2,\infty)\)</span></li>
+      <li><b>5.</b><span>\((-\infty,-7)\cup(-7,7)\cup(7,\infty)\)</span></li>
+      <li><b>6.</b><span>\((-\infty,-8)\cup(-8,8)\cup(8,\infty)\)</span></li>
+      <li><b>7.</b><span>\((-\infty,\infty)\)</span></li>
+    </ol></section>
+    <section><h3>Part B · Read the graph</h3><ol>
+      <li><b>9.</b><span>\(-\infty\)</span></li>
+      <li><b>10.</b><span>\(+\infty\)</span></li>
+      <li><b>11.</b><span>\(-\infty\)</span></li>
+      <li><b>12.</b><span>\(+\infty\)</span></li>
+      <li><b>13.</b><span>\(0\)</span></li>
+      <li><b>14.</b><span>\(0\)</span></li>
+    </ol></section>
+    <section><h3>Part C · Asymptotes and holes</h3><ol>
+      <li><b>25.</b><span>VA \(x=-4\); hole \(\left(0,\tfrac14\right)\)</span></li>
+      <li><b>26.</b><span>VA \(x=3\); hole \(\left(0,-\tfrac13\right)\)</span></li>
+      <li><b>27.</b><span>No VA, no hole</span></li>
+      <li><b>28.</b><span>No VA, no hole</span></li>
+      <li><b>29.</b><span>No VA; hole \((3,6)\)</span></li>
+      <li><b>30.</b><span>No VA; hole \((5,10)\)</span></li>
+      <li><b>31.</b><span>VA \(x=-3\); hole \(\left(3,\tfrac16\right)\)</span></li>
+      <li><b>32.</b><span>VA \(x=-5\); hole \(\left(5,\tfrac1{10}\right)\)</span></li>
+    </ol></section>
+    <section><h3>Part D · Horizontal asymptotes</h3><ol>
+      <li><b>39.</b><span>\(y=4\)</span></li>
+      <li><b>40.</b><span>\(y=5\)</span></li>
+      <li><b>41.</b><span>None (slant \(y=4x\))</span></li>
+      <li><b>42.</b><span>None (slant \(y=5x\))</span></li>
+      <li><b>43.</b><span>\(y=-\tfrac23\)</span></li>
+      <li><b>44.</b><span>\(y=-\tfrac35\)</span></li>
+    </ol></section>
+    <section><h3>Part E · Graphs</h3><ol>
+      <li><b>76.</b><span>Even. Intercept \((0,0)\). No VA, no HA. Points \((\pm1,1)\), \((\pm2,6.4)\)</span></li>
+      <li><b>77.</b><span>y-int \((0,3)\). x-int \((-4,0),(3,0)\). VA \(x=\pm2\). HA \(y=1\), crossed at \((8,1)\)</span></li>
+      <li><b>78.</b><span>Intercept \((0,0)\). VA \(x=-3,\ x=2\). HA \(y=1\), crossed at \((6,1)\)</span></li>
+      <li><b>79.</b><span>No y-int. x-int \(\left(-\tfrac43,0\right),(1,0)\). VA \(x=0,\ x=\tfrac52\). HA \(y=\tfrac32\), crossed at \(x=\tfrac8{17}\)</span></li>
+    </ol></section>
+    <section><h3>Part F · Slant asymptotes</h3><ol>
+      <li><b>85.</b><span>\(y=x+4\). VA \(x=3\). x-int \((-3,0),(2,0)\). y-int \((0,2)\)</span></li>
+      <li><b>86.</b><span>\(y=x\). VA \(x=1\). No x-int. y-int \((0,-1)\)</span></li>
+      <li><b>87.</b><span>\(y=x-2\). VA \(x=0,\ x=-2\). x-int \((-1,0)\). No y-int</span></li>
+      <li><b>88.</b><span>\(y=x\). VA \(x=\pm3\). x-int \((1,0)\). y-int \(\left(0,\tfrac19\right)\)</span></li>
+    </ol></section>
+    <section><h3>Part G · Simplify, then graph</h3><ol>
+      <li><b>93.</b><span>\(\dfrac{x-2}{x+2}\). VA \(x=-2\), HA \(y=1\), y-int \((0,-1)\). Holes \(\left(1,-\tfrac13\right),(2,0)\)</span></li>
+      <li><b>94.</b><span>\(\dfrac{x^2-1}{x^2+1}\). Even. x-int \((\pm1,0)\). HA \(y=1\), no VA. Hole \((0,-1)\)</span></li>
+    </ol></section>
+    <section><h3>Part H · Polynomial inequalities</h3><ol>
+      <li><b>11.</b><span>\(\left[-4,\tfrac23\right]\)</span></li>
+      <li><b>12.</b><span>\(\left(-\infty,-\tfrac23\right]\cup\left[\tfrac13,\infty\right)\)</span></li>
+      <li><b>13.</b><span>\(\left(-3,\tfrac52\right)\)</span></li>
+      <li><b>14.</b><span>\(\left(-\infty,-\tfrac12\right)\cup\left(\tfrac13,\infty\right)\)</span></li>
+      <li><b>15.</b><span>\(\left(-1,-\tfrac34\right)\)</span></li>
+      <li><b>16.</b><span>\(\left(-5,-\tfrac13\right)\)</span></li>
+      <li><b>40.</b><span>\((1,\infty)\)</span></li>
+      <li><b>41.</b><span>\(\{0\}\cup[9,\infty)\)</span></li>
+    </ol></section>
+    <section><h3>Part I · Rational and absolute value</h3><ol>
+      <li><b>46.</b><span>\((-5,-2)\)</span></li>
+      <li><b>47.</b><span>\([2,4)\)</span></li>
+      <li><b>58.</b><span>\((-\infty,3)\cup(4,\infty)\)</span></li>
+      <li><b>59.</b><span>\((-\infty,-6]\cup(-2,\infty)\)</span></li>
+      <li><b>60.</b><span>\([-4,-2)\)</span></li>
+      <li><b>66.</b><span>\((-\infty,-7)\cup(1,\infty)\)</span></li>
+      <li><b>70.</b><span>\((-\infty,-1)\cup(1,2)\cup(3,\infty)\)</span></li>
+    </ol></section>
+  </div>
+  <p class="foot">Full worked solutions: Precalc Study Key</p>
+</article>
+
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+
+<script src="quiz.js" defer data-mode="key" data-item=".grid li" data-answer=".qa-ans" data-bar=".p"></script>
+</body></html>
